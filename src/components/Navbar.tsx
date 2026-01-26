@@ -7,6 +7,7 @@ const navItems = [
   { label: "Hur", href: "#hur" },
   { label: "Satsningarna", href: "#satsningarna" },
   { label: "Arbetsgrupper", href: "#arbetsgrupper" },
+  { label: "Arbetsstruktur", href: "#arbetsstruktur" },
   { label: "Start här", href: "#start" },
 ];
 
