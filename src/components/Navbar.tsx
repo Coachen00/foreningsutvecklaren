@@ -3,11 +3,13 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "Varför", href: "#varfor" },
+  { label: "Fokus 2026", href: "#fokus2026" },
+  { label: "Gemensamma mål", href: "#gemensamma-mal" },
   { label: "Vad", href: "#vad" },
   { label: "Hur", href: "#hur" },
   { label: "Satsningarna", href: "#satsningarna" },
   { label: "Arbetsgrupper", href: "#arbetsgrupper" },
-  { label: "Arbetsstruktur", href: "#arbetsstruktur" },
+  { label: "Mötesrytm", href: "#motesrytm" },
   { label: "En bättre väg", href: "#enbattrevag" },
 ];
 

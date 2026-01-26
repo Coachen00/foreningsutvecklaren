@@ -140,6 +140,112 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Section: Kommitté 2026 – fokus & avgränsning */}
+      <section className="bg-card py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <SectionHeader 
+            id="fokus2026" 
+            title="Kommitté 2026 – fokus & avgränsning" 
+            subtitle="Från referensgrupp till kommitté (styrelsebeslut)"
+          />
+          <ul className="mb-8 space-y-4">
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
+              <span className="text-foreground font-medium">
+                Fokus 2026: endast polisens utsatta områden
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
+              <span className="text-foreground font-medium">
+                Arbeta tillsammans med föreningar
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
+              <span className="text-foreground font-medium">
+                Föreningarnas nytta i centrum
+              </span>
+            </li>
+          </ul>
+          <div className="rounded-lg border border-border bg-background p-5">
+            <h3 className="mb-3 text-lg font-semibold text-foreground">Syfte med visionsarbetet</h3>
+            <ul className="space-y-2 text-foreground/90">
+              <li className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                <span>Skapa en gemensam riktning för Fotbollsnyttan i Göteborg</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                <span>Tydliggöra arbetssätt, ansvar och prioriteringar</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                <span>Stärka föreningarnas nytta och samhällsroll</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Section: Gemensamma mål */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <SectionHeader 
+            id="gemensamma-mal" 
+            title="Gemensamma mål (En bättre väg + VP)" 
+          />
+          <div className="grid gap-8 md:grid-cols-2">
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-foreground">Övergripande inriktning</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
+                  <span className="text-foreground">Inkludering – alla ska kunna delta</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
+                  <span className="text-foreground">Föreningsutveckling – stärka kapacitet och organisation</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
+                  <span className="text-foreground">Meningsfull fritid – skapa trygga mötesplatser</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
+                  <span className="text-foreground">Hållbarhet – långsiktigt stabil verksamhet</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
+                  <span className="text-foreground">Samverkan – mellan föreningar, kommun och näringsliv</span>
+                </li>
+              </ul>
+            </div>
+            <div className="rounded-lg border border-border bg-card p-6">
+              <h3 className="mb-4 text-lg font-semibold text-foreground">Vi strävar efter att öka</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">↑</span>
+                  <span className="text-foreground">Ideella ledare i föreningarna</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">↑</span>
+                  <span className="text-foreground">Utbildade ledare</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">↑</span>
+                  <span className="text-foreground">Flickor och pojkar som spelar fotboll</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">↑</span>
+                  <span className="text-foreground">Välorganiserade föreningar</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Section 2: Vad gör vi? */}
       <section className="bg-card py-16 md:py-24">
         <div className="container mx-auto px-4">
@@ -250,26 +356,57 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Section 5B: Arbetsstruktur */}
+      {/* Section 5B: Styrning & mötesrytm */}
       <section className="bg-card py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <SectionHeader id="arbetsstruktur" title="Arbetsstruktur" />
-          <CalloutBox title="Arbetssätt">
-            Varje arbetsgrupp tar fram en MÅLBILD (önskat läge) och driver arbetet i en enkel rytm:
-            <ul className="mt-3 space-y-2">
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
-                <span>Arbetsgruppsträff varannan vecka (60 min)</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
-                <span>Återsamling var 8:e vecka (90 min) – synka riktning, prioriteringar och beroenden.</span>
-              </li>
-            </ul>
-            <p className="mt-3 font-medium">
-              Varje möte ska avslutas med: 3 beslut/next actions + ansvarig + datum.
-            </p>
-          </CalloutBox>
+          <SectionHeader id="motesrytm" title="Styrning & mötesrytm" />
+          
+          <div className="grid gap-8 md:grid-cols-2">
+            <div>
+              <CalloutBox title="Arbetssätt">
+                Varje arbetsgrupp tar fram en MÅLBILD (önskat läge) och driver arbetet i en enkel rytm:
+                <ul className="mt-3 space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                    <span>Arbetsgruppsträff varannan vecka (60 min)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                    <span>Återsamling var 8:e vecka (90 min) – synka riktning, prioriteringar och beroenden</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                    <span>Minst två arbetsmöten mellan varje kommittémöte</span>
+                  </li>
+                </ul>
+                <p className="mt-3 font-medium">
+                  Varje möte ska avslutas med: 3 beslut/next actions + ansvarig + datum.
+                </p>
+              </CalloutBox>
+            </div>
+            
+            <div className="rounded-lg border border-border bg-background p-6">
+              <h3 className="mb-4 text-lg font-semibold text-foreground">Kommittémöten 2026</h3>
+              <div className="space-y-3">
+                <div className="flex items-center gap-4 rounded-lg bg-accent p-3">
+                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">26/1</span>
+                  <span className="text-foreground font-medium">Uppstart</span>
+                </div>
+                <div className="flex items-center gap-4 rounded-lg bg-card p-3 border border-border">
+                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-muted text-sm font-semibold text-muted-foreground">16/2</span>
+                  <span className="text-foreground">kl 12.00–13.30</span>
+                </div>
+                <div className="flex items-center gap-4 rounded-lg bg-card p-3 border border-border">
+                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-muted text-sm font-semibold text-muted-foreground">13/4</span>
+                  <span className="text-foreground">kl 12.00–13.30</span>
+                </div>
+                <div className="flex items-center gap-4 rounded-lg bg-card p-3 border border-border">
+                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-muted text-sm font-semibold text-muted-foreground">15/6</span>
+                  <span className="text-foreground">kl 12.00–13.30</span>
+                </div>
+              </div>
+            </div>
+          </div>
           
           {/* Mindmap */}
           <div className="mt-10">
