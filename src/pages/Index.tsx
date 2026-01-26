@@ -14,11 +14,10 @@ import Hero from "@/components/Hero";
 import SectionHeader from "@/components/SectionHeader";
 import MetricChip from "@/components/MetricChip";
 import CalloutBox from "@/components/CalloutBox";
-import InfoCard from "@/components/InfoCard";
 import WorkGroupCard from "@/components/WorkGroupCard";
 import ComparisonTable from "@/components/ComparisonTable";
-import StepList from "@/components/StepList";
 import Footer from "@/components/Footer";
+import strukturMindmap from "@/assets/struktur-mindmap.png";
 
 const sixGoals = [
   { icon: Users, label: "Deltagande" },
@@ -104,24 +103,6 @@ const comparisonRows = [
   },
 ];
 
-const steps = [
-  { number: 1, text: "Få access + läs in dig på de 6 målen." },
-  { number: 2, text: "Välj arbetsgrupp och ett första case." },
-  {
-    number: 3,
-    text: "Sätt dig in i din arbetsgrupps målbild och ansvarslista – och boka in varannan-vecka-mötet + 8-veckors-återsamlingen i kalendern.",
-  },
-  {
-    number: 4,
-    text: "Följ med ut (1 besök/avstämning) + skriv 3 observationer.",
-  },
-  { number: 5, text: "Knyt caset till 2 indikatorer + nästa steg." },
-  {
-    number: 6,
-    text: "Leverera 1 konkret förbättring (mall/checklista/partnerkontakt).",
-  },
-  { number: 7, text: "(Behöver beslutas/tydliggöras)", placeholder: true },
-];
 
 const Index = () => {
   return (
@@ -289,18 +270,97 @@ const Index = () => {
               Varje möte ska avslutas med: 3 beslut/next actions + ansvarig + datum.
             </p>
           </CalloutBox>
+          
+          {/* Mindmap */}
+          <div className="mt-10">
+            <h3 className="mb-4 text-lg font-semibold text-foreground">Översikt: Struktur EBV / Fotbollsnyttan</h3>
+            <div className="overflow-hidden rounded-lg border border-border bg-background p-2">
+              <img 
+                src={strukturMindmap} 
+                alt="Mindmap över struktur för EBV och Fotbollsnyttan med tre arbetsgrupper: Partners & ansökningar, Koordination och Idrottspolitik" 
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Section 6: Start här – 7 dagar */}
-      <section className="bg-card py-16 md:py-24">
+      {/* Section 6: En bättre väg */}
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            id="start"
-            title="Start här – 7 dagar"
-            subtitle="Din första vecka i kommittén"
+          <SectionHeader 
+            id="enbattrevag" 
+            title="En bättre väg" 
+            subtitle="Riktad fotbollssatsning i utsatta områden – i samverkan med SvFF"
           />
-          <StepList steps={steps} />
+          <div className="grid gap-8 md:grid-cols-2">
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-foreground">Syfte</h3>
+              <p className="mb-6 text-foreground/90">
+                En bättre väg är Svenska Fotbollförbundets satsning för att stärka fotbollen i prioriterade områden. 
+                Genom att koppla ihop lokala föreningar med resurser och nyckelroller skapas förutsättningar för 
+                en starkare föreningsnärvaro.
+              </p>
+              
+              <h3 className="mb-4 text-lg font-semibold text-foreground">Koppling till Fotbollsnyttan</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
+                  <span className="text-foreground">
+                    Fotbollsnyttan fungerar som lokalt ramverk och uppföljningsmodell
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
+                  <span className="text-foreground">
+                    Resurser från En bättre väg kan knytas till våra sex mål
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
+                  <span className="text-foreground">
+                    Gemensam satsning på att minska trösklar och öka deltagande
+                  </span>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="rounded-lg border border-border bg-card p-6">
+              <h3 className="mb-4 text-lg font-semibold text-foreground">Mål 2026–2027</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">1</span>
+                  <span className="text-foreground">
+                    Starkare föreningsnärvaro i områdena
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">2</span>
+                  <span className="text-foreground">
+                    Fler barn och ungdomar i organiserad fotboll
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">3</span>
+                  <span className="text-foreground">
+                    Fler ledare från lokalområdena
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">4</span>
+                  <span className="text-foreground">
+                    Bättre samverkan mellan föreningar, kommun och näringsliv
+                  </span>
+                </li>
+              </ul>
+              
+              <div className="mt-6 border-t border-border pt-4">
+                <p className="text-sm text-muted-foreground">
+                  <span className="font-medium text-foreground">Ansökan:</span> Via fotbollens kanal lokalt i samarbete med GFF och RF-SISU.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

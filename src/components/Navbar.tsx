@@ -8,7 +8,7 @@ const navItems = [
   { label: "Satsningarna", href: "#satsningarna" },
   { label: "Arbetsgrupper", href: "#arbetsgrupper" },
   { label: "Arbetsstruktur", href: "#arbetsstruktur" },
-  { label: "Start här", href: "#start" },
+  { label: "En bättre väg", href: "#enbattrevag" },
 ];
 
 const Navbar = () => {
