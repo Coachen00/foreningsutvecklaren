@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Users,
   Building2,
@@ -16,7 +17,9 @@ import MetricChip from "@/components/MetricChip";
 import CalloutBox from "@/components/CalloutBox";
 import WorkGroupCard from "@/components/WorkGroupCard";
 import ComparisonTable from "@/components/ComparisonTable";
+import InitiativeCard, { type Initiative } from "@/components/InitiativeCard";
 import Footer from "@/components/Footer";
+import { Badge } from "@/components/ui/badge";
 import strukturMindmap from "@/assets/struktur-mindmap.png";
 
 const sixGoals = [
@@ -103,8 +106,102 @@ const comparisonRows = [
   },
 ];
 
+const initiatives: Initiative[] = [
+  {
+    title: "Idrottsklivet i Västra Götaland (Göteborg)",
+    actor: "RF-SISU Västra Götaland",
+    area: "Göteborg (lokalt områdesarbete)",
+    format: "Stöd till föreningar + inkluderande verksamhet/mottagarkapacitet",
+    purpose: "Stärka idrottens närvaro i utsatta områden genom lokalt stöd och samverkan.",
+    areaType: "Övrigt",
+    initiativeType: "Stöd",
+  },
+  {
+    title: "Skola som arena",
+    actor: "Göteborgs Stad",
+    area: "25 skolor i Göteborg (områden med utmanade uppväxtvillkor)",
+    format: "Skolan som mötesplats + aktiviteter före/efter skoltid i samverkan",
+    purpose: "Utjämna skillnader i barns uppväxtvillkor genom nära, trygg fritid.",
+    areaType: "Övrigt",
+    initiativeType: "Koordination",
+  },
+  {
+    title: "Lights On (inom/kring Skola som arena)",
+    actor: "Göteborgs Stad / samverkansaktörer",
+    area: "Exempel: skolor i Göteborg (t.ex. Ellen Keyskolan)",
+    format: "Gratisaktiviteter med vuxennärvaro före/efter skoltid",
+    purpose: "Trygg, aktiv fritid med låga trösklar nära skolan.",
+    areaType: "Övrigt",
+    initiativeType: "Verksamhet",
+  },
+  {
+    title: "Aktiv Göteborg",
+    actor: "IFK Göteborg (i samverkan)",
+    area: "Biskopsgården & Hammarkullen",
+    format: "Veckoträffar – fotboll + stöd kopplat till utbildning/arbete",
+    purpose: "Kombinera fotboll med väg in i studier/arbete.",
+    areaType: "Hisingen",
+    initiativeType: "Verksamhet",
+  },
+  {
+    title: "IFK Cruyff Courts",
+    actor: "IFK Göteborg + Johan Cruyff Foundation",
+    area: "Exempel: Bergsjön, Hammarkullen, Biskopsgården",
+    format: "Fotbollsplaner/courts i områden med stort behov",
+    purpose: "Skapa plats för rörelse, gemenskap och positiv närvaro.",
+    areaType: "Nordost",
+    initiativeType: "Plats",
+  },
+  {
+    title: "Fotboll med GAIS i Biskopsgården",
+    actor: "GAIS + Brämaregårdens FC + Bostadsbolaget m.fl.",
+    area: "Biskopsgården",
+    format: "Fotbollsverksamhet/fotbollsskola + ledarstöd i samverkan",
+    purpose: "Sänka trösklar och skapa regelbunden aktivitet lokalt.",
+    areaType: "Hisingen",
+    initiativeType: "Verksamhet",
+  },
+  {
+    title: "Starkare föreningsliv i Nordost",
+    actor: "ÖIS Fotboll + Idrotts- och föreningsförvaltningen + lokala föreningar",
+    area: "Nordost",
+    format: "Föreningsstärkande projekt (3-årigt) + samverkan",
+    purpose: "Fler vägar in i idrott och föreningsliv för barn och unga i nordöstra Göteborg.",
+    areaType: "Nordost",
+    initiativeType: "Stöd",
+  },
+  {
+    title: "Gothia Cup Foundation",
+    actor: "Gothia Cup",
+    area: "Göteborg + internationellt",
+    format: "Skapar möjligheter att delta oavsett bakgrund (fotboll som gemensam nämnare)",
+    purpose: "Inkludering och möjligheter för unga via fotboll och möten.",
+    areaType: "Övrigt",
+    initiativeType: "Verksamhet",
+  },
+  {
+    title: "BK Häcken + Göteborgs Stadsmission",
+    actor: "BK Häcken + Göteborgs Stadsmission",
+    area: "Göteborg (bred social hållbarhet)",
+    format: "Långsiktigt partnerskap – aktiviteter/engagemang för människor i utsatthet",
+    purpose: "Social inkludering med fotbollens och föreningslivets kraft.",
+    areaType: "Hisingen",
+    initiativeType: "Verksamhet",
+  },
+];
+
+const areaFilters = ["Alla", "Hisingen", "Nordost", "Sydväst", "Övrigt"] as const;
+const typeFilters = ["Alla", "Verksamhet", "Plats", "Koordination", "Stöd"] as const;
 
 const Index = () => {
+  const [areaFilter, setAreaFilter] = useState<string>("Alla");
+  const [typeFilter, setTypeFilter] = useState<string>("Alla");
+
+  const filteredInitiatives = initiatives.filter((i) => {
+    const matchesArea = areaFilter === "Alla" || i.areaType === areaFilter;
+    const matchesType = typeFilter === "Alla" || i.initiativeType === typeFilter;
+    return matchesArea && matchesType;
+  });
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -328,6 +425,60 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <SectionHeader id="satsningarna" title="Så hänger satsningarna ihop" />
           <ComparisonTable rows={comparisonRows} />
+          
+          {/* Subsection: Andra pågående insatser */}
+          <div className="mt-16">
+            <h3 className="mb-2 text-xl font-semibold text-foreground">
+              Andra pågående fotbollsbaserade samhällsinsatser i Göteborg (2026)
+            </h3>
+            <p className="mb-6 text-muted-foreground">
+              Här är exempel på insatser som pågår och som berör samma målgrupper/områden. 
+              <span className="italic"> (Exempel från öppna källor – kompletteras vid behov.)</span>
+            </p>
+            
+            {/* Filter chips */}
+            <div className="mb-6 flex flex-wrap gap-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-sm font-medium text-muted-foreground">Område:</span>
+                {areaFilters.map((filter) => (
+                  <Badge
+                    key={filter}
+                    variant={areaFilter === filter ? "default" : "outline"}
+                    className="cursor-pointer transition-colors"
+                    onClick={() => setAreaFilter(filter)}
+                  >
+                    {filter}
+                  </Badge>
+                ))}
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-sm font-medium text-muted-foreground">Typ:</span>
+                {typeFilters.map((filter) => (
+                  <Badge
+                    key={filter}
+                    variant={typeFilter === filter ? "default" : "outline"}
+                    className="cursor-pointer transition-colors"
+                    onClick={() => setTypeFilter(filter)}
+                  >
+                    {filter}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+            
+            {/* Initiative cards grid */}
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {filteredInitiatives.map((initiative) => (
+                <InitiativeCard key={initiative.title} initiative={initiative} />
+              ))}
+            </div>
+            
+            {filteredInitiatives.length === 0 && (
+              <p className="text-center text-muted-foreground py-8">
+                Inga insatser matchar valda filter.
+              </p>
+            )}
+          </div>
         </div>
       </section>
 
