@@ -4,9 +4,10 @@ interface CalloutBoxProps {
   title?: string;
   children: React.ReactNode;
   variant?: "info" | "highlight";
+  className?: string;
 }
 
-const CalloutBox = ({ title, children, variant = "info" }: CalloutBoxProps) => {
+const CalloutBox = ({ title, children, variant = "info", className }: CalloutBoxProps) => {
   return (
     <div
       className={`rounded-lg border-l-4 p-5 ${
@@ -21,7 +22,7 @@ const CalloutBox = ({ title, children, variant = "info" }: CalloutBoxProps) => {
           <span className="font-semibold text-foreground">{title}</span>
         </div>
       )}
-      <p className="text-foreground/90">{children}</p>
+      <div className="text-foreground/90">{children}</div>
     </div>
   );
 };

@@ -15,6 +15,7 @@ import SectionHeader from "@/components/SectionHeader";
 import MetricChip from "@/components/MetricChip";
 import CalloutBox from "@/components/CalloutBox";
 import InfoCard from "@/components/InfoCard";
+import WorkGroupCard from "@/components/WorkGroupCard";
 import ComparisonTable from "@/components/ComparisonTable";
 import StepList from "@/components/StepList";
 import Footer from "@/components/Footer";
@@ -30,19 +31,43 @@ const sixGoals = [
 
 const workGroups = [
   {
-    icon: Cog,
-    title: "Genomförande & föreningsstöd",
-    description: "Driver case och implementering.",
+    icon: Handshake,
+    title: "Partners & ansökningar",
+    owner: "Joel",
+    effectGoal: "Säker och samlad hantering av partners och ansökningar",
+    responsibilities: [
+      "Kartlägga möjliga finansiärer (företag, stiftelser, offentlig nivå)",
+      "Prioritera vilka ansökningar som ska göras och när",
+      "Samordna underlag från föreningar, GFF och RF-SISU",
+      "Säkerställa återrapportering och uppföljning mot övergripande effektmål",
+    ],
+    teamMembers: "Joel · Gis · Kerime",
   },
   {
-    icon: Handshake,
-    title: "Partnerskap & resurser",
-    description: "Samverkan + finans/CSR.",
+    icon: Cog,
+    title: "Koordination",
+    owner: "Elin & TG",
+    effectGoal: "En tydlig ingång för föreningar och partners + samordnade insatser och mindre stuprör",
+    responsibilities: [
+      "Hålla ihop årshjul och övergripande kalender",
+      "Kalla till och leda relevanta nätverksträffar",
+      "Säkerställa dokumentation, minnesanteckningar och spridning",
+      "Följa upp att beslut leder till genomförda aktiviteter",
+    ],
+    teamMembers: "Elin · TG · Elisabeth",
   },
   {
     icon: BarChart3,
-    title: "Mätning & kommunikation",
-    description: "Indikatorer, uppföljning, stories.",
+    title: "Idrottspolitik",
+    owner: "Patrik",
+    effectGoal: "Stark och samlad idrottspolitisk röst för fotbollen i prioriterade områden + bättre villkor (anläggning, tider, stöd, samverkan)",
+    responsibilities: [
+      "Hålla ihop budskap och berättelser kring fotbollens samhällsnytta",
+      "Bygga och vårda relationer med politiker, tjänstepersoner och nyckelpartners",
+      "Samordna inspel från föreningar inför dialog- och beslutsprocesser",
+      "Lyfta föreningarnas erfarenheter från områdena i rätt forum",
+    ],
+    teamMembers: "Patrik · Isabel · Ny ordförande/representant från styrelsen",
   },
 ];
 
@@ -84,14 +109,17 @@ const steps = [
   { number: 2, text: "Välj arbetsgrupp och ett första case." },
   {
     number: 3,
+    text: "Sätt dig in i din arbetsgrupps målbild och ansvarslista – och boka in varannan-vecka-mötet + 8-veckors-återsamlingen i kalendern.",
+  },
+  {
+    number: 4,
     text: "Följ med ut (1 besök/avstämning) + skriv 3 observationer.",
   },
-  { number: 4, text: "Knyt caset till 2 indikatorer + nästa steg." },
+  { number: 5, text: "Knyt caset till 2 indikatorer + nästa steg." },
   {
-    number: 5,
+    number: 6,
     text: "Leverera 1 konkret förbättring (mall/checklista/partnerkontakt).",
   },
-  { number: 6, text: "(Behöver beslutas/tydliggöras)", placeholder: true },
   { number: 7, text: "(Behöver beslutas/tydliggöras)", placeholder: true },
 ];
 
@@ -220,25 +248,47 @@ const Index = () => {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <SectionHeader id="arbetsgrupper" title="Tre arbetsgrupper" />
-          <div className="mb-8 grid gap-6 md:grid-cols-3">
+          <div className="mb-8 grid gap-6 lg:grid-cols-3">
             {workGroups.map((group) => (
-              <InfoCard
+              <WorkGroupCard
                 key={group.title}
                 icon={group.icon}
                 title={group.title}
-                description={group.description}
+                owner={group.owner}
+                effectGoal={group.effectGoal}
+                responsibilities={group.responsibilities}
+                teamMembers={group.teamMembers}
               />
             ))}
           </div>
-          <div className="rounded-lg border border-dashed border-border bg-muted/30 p-6">
-            <p className="text-muted-foreground">
-              <span className="font-semibold text-foreground">
-                Roller (fyll i):
-              </span>{" "}
-              Ordf/sammankallande [NAMN] · Process [NAMN] · Analys [NAMN] ·
-              Partners [NAMN] · Kommunikation [NAMN].
+          <div className="rounded-lg border border-border bg-card p-4">
+            <p className="text-foreground">
+              <span className="font-semibold">Ordförande:</span> Elin Jageteg
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Section 5B: Arbetsstruktur */}
+      <section className="bg-card py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <SectionHeader id="arbetsstruktur" title="Arbetsstruktur" />
+          <CalloutBox title="Arbetssätt">
+            Varje arbetsgrupp tar fram en MÅLBILD (önskat läge) och driver arbetet i en enkel rytm:
+            <ul className="mt-3 space-y-2">
+              <li className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                <span>Arbetsgruppsträff varannan vecka (60 min)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                <span>Återsamling var 8:e vecka (90 min) – synka riktning, prioriteringar och beroenden.</span>
+              </li>
+            </ul>
+            <p className="mt-3 font-medium">
+              Varje möte ska avslutas med: 3 beslut/next actions + ansvarig + datum.
+            </p>
+          </CalloutBox>
         </div>
       </section>
 
