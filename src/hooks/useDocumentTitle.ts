@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const BASE = "Fotbollsnyttan Göteborg";
+const BASE = "Arbetsdetektiven";
 
 export const useDocumentTitle = (title?: string, description?: string) => {
   useEffect(() => {

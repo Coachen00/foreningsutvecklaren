@@ -3,17 +3,15 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import Varfor from "./pages/sections/Varfor";
-import Fokus2026 from "./pages/sections/Fokus2026";
-import GemensammaMal from "./pages/sections/GemensammaMal";
-import VadOchHur from "./pages/sections/VadOchHur";
-import Satsningarna from "./pages/sections/Satsningarna";
-import Arbetsgrupper from "./pages/sections/Arbetsgrupper";
-import Motesrytm from "./pages/sections/Motesrytm";
-import EnBattreVag from "./pages/sections/EnBattreVag";
-import Kontakt from "./pages/sections/Kontakt";
+import Uppdrag from "./pages/areas/Uppdrag";
+import Foreningsutveckling from "./pages/areas/Foreningsutveckling";
+import SkolaSamverkan from "./pages/areas/SkolaSamverkan";
+import Arbetsuppgifter from "./pages/areas/Arbetsuppgifter";
+import Partners from "./pages/areas/Partners";
+import Kvalitetsklubb from "./pages/areas/Kvalitetsklubb";
+import FUiSkola from "./pages/areas/FUiSkola";
 
 const queryClient = new QueryClient();
 
@@ -24,17 +22,17 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/sektion/varfor" element={<Varfor />} />
-          <Route path="/sektion/fokus-2026" element={<Fokus2026 />} />
-          <Route path="/sektion/gemensamma-mal" element={<GemensammaMal />} />
-          <Route path="/sektion/vad-och-hur" element={<VadOchHur />} />
-          <Route path="/sektion/satsningarna" element={<Satsningarna />} />
-          <Route path="/sektion/arbetsgrupper" element={<Arbetsgrupper />} />
-          <Route path="/sektion/motesrytm" element={<Motesrytm />} />
-          <Route path="/sektion/en-battre-vag" element={<EnBattreVag />} />
-          <Route path="/sektion/kontakt" element={<Kontakt />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/" element={<Home />} />
+          <Route path="/uppdrag" element={<Uppdrag />} />
+          <Route path="/uppdrag/arbetsuppgifter" element={<Arbetsuppgifter />} />
+          <Route path="/uppdrag/partners" element={<Partners />} />
+          <Route path="/foreningsutveckling" element={<Foreningsutveckling />} />
+          <Route
+            path="/foreningsutveckling/kvalitetsklubb"
+            element={<Kvalitetsklubb />}
+          />
+          <Route path="/skola-samverkan" element={<SkolaSamverkan />} />
+          <Route path="/skola-samverkan/fu-i-skola" element={<FUiSkola />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
