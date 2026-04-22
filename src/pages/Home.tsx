@@ -4,7 +4,7 @@ import HomeHero from "@/components/home/HomeHero";
 import AreaCardGrid from "@/components/home/AreaCardGrid";
 import SectionBlock from "@/components/blocks/SectionBlock";
 import CoreMissionBlock from "@/components/blocks/CoreMissionBlock";
-import PartnerStrip from "@/components/blocks/PartnerStrip";
+import PartnerMapBlock from "@/components/blocks/PartnerMapBlock";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 const Home = () => {
@@ -37,11 +37,12 @@ const Home = () => {
         </SectionBlock>
 
         <SectionBlock
-          eyebrow="Samverkan"
+          id="partners"
+          eyebrow="Partners och samarbeten"
           title="Vi gör det här tillsammans"
-          lead="Uppdraget lever i en kedja av aktörer – ingen driver det ensam."
+          lead="Uppdraget lever i en kedja av aktörer – från ansvariga förbund och kommun till föreningar, skolor och samhällsaktörer som GIS."
         >
-          <PartnerStrip />
+          <PartnerMapBlock />
         </SectionBlock>
       </main>
       <Footer />

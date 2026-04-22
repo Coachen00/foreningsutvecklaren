@@ -53,4 +53,11 @@ export const PARTNERS: Partner[] = [
     shortDescription: "Grundskolor i prioriterade områden – mötesplats för inkludering och aktivitet.",
     linkedAreas: ["skola-samverkan"],
   },
+  {
+    id: "gis",
+    name: "GIS – Göteborgs institut för samhällsansvar",
+    role: "strategisk",
+    shortDescription: "Samarbetspart i arbetet med socialt ansvar, inkludering och fotboll som kraft i lokalsamhället.",
+    linkedAreas: ["skola-samverkan", "foreningsutveckling"],
+  },
 ];
