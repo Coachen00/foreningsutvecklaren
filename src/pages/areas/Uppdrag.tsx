@@ -9,7 +9,8 @@ import WorkMethodBlock from "@/components/blocks/WorkMethodBlock";
 import ImpactBlock from "@/components/blocks/ImpactBlock";
 import PartnerStrip from "@/components/blocks/PartnerStrip";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
-import { getArea, adjacentAreas } from "@/content/areas";
+import { getArea } from "@/content/areas";
+import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 import { EXTENDED_ACTIVITIES } from "@/content/activities";
 import { impactForArea } from "@/content/impact";
 
@@ -34,7 +35,7 @@ const METHOD_STEPS = [
 
 const Uppdrag = () => {
   const area = getArea("uppdrag");
-  const { next, prev } = adjacentAreas("uppdrag");
+  const next = PRIMARY_ASSIGNMENTS[0];
   const impact = impactForArea("uppdrag");
 
   return (
@@ -99,7 +100,7 @@ const Uppdrag = () => {
           </SectionBlock>
         )}
       </AreaShell>
-      <NextPageCTA next={next} prev={prev} />
+      <NextPageCTA next={next} label="Första huvuduppdraget" />
       <Footer />
     </div>
   );

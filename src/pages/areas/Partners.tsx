@@ -4,12 +4,13 @@ import AreaShell from "@/components/blocks/AreaShell";
 import SectionBlock from "@/components/blocks/SectionBlock";
 import PartnerMapBlock from "@/components/blocks/PartnerMapBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
-import { getArea, adjacentAreas } from "@/content/areas";
+import { getArea } from "@/content/areas";
+import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 
 const Partners = () => {
   const area = getArea("uppdrag");
   const subpage = area.subpages.find((s) => s.slug === "partners")!;
-  const { next, prev } = adjacentAreas("uppdrag");
+  const next = PRIMARY_ASSIGNMENTS[0];
 
   return (
     <div className="min-h-screen bg-background">
@@ -23,7 +24,7 @@ const Partners = () => {
           <PartnerMapBlock />
         </SectionBlock>
       </AreaShell>
-      <NextPageCTA next={next} prev={prev} />
+      <NextPageCTA next={next} label="Första huvuduppdraget" />
       <Footer />
     </div>
   );

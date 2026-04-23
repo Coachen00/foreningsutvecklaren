@@ -1,25 +1,28 @@
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
-import AreaShell from "@/components/blocks/AreaShell";
+import AssignmentShell from "@/components/blocks/AssignmentShell";
 import SectionBlock from "@/components/blocks/SectionBlock";
 import ProgramBlock from "@/components/blocks/ProgramBlock";
 import ImpactBlock from "@/components/blocks/ImpactBlock";
 import PartnerStrip from "@/components/blocks/PartnerStrip";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
-import { getArea, adjacentAreas } from "@/content/areas";
+import {
+  adjacentPrimaryAssignments,
+  getPrimaryAssignment,
+} from "@/content/primaryAssignments";
 import { programsByArea } from "@/content/programs";
 import { impactForArea } from "@/content/impact";
 
-const Foreningsutveckling = () => {
-  const area = getArea("foreningsutveckling");
-  const { next, prev } = adjacentAreas("foreningsutveckling");
+const Foreningslyftet = () => {
+  const assignment = getPrimaryAssignment("foreningslyftet");
+  const { next, prev } = adjacentPrimaryAssignments("foreningslyftet");
   const impact = impactForArea("foreningsutveckling");
   const programs = programsByArea("foreningsutveckling");
 
   return (
     <div className="min-h-screen bg-background">
       <GlobalNav />
-      <AreaShell area={area}>
+      <AssignmentShell assignment={assignment}>
         <SectionBlock
           eyebrow="Tre spår"
           title="Tre sammanhängande arbetssätt"
@@ -40,9 +43,9 @@ const Foreningsutveckling = () => {
           variant="muted"
           eyebrow="Samverkan"
           title="Vilka som bär arbetet"
-          lead="Föreningsutveckling sker i mötet mellan förening, förbund och utbildningsstöd."
+          lead="Föreningslyftet lever i mötet mellan förening, förbund och utbildningsstöd."
         >
-          <PartnerStrip ids={["gff", "svff", "rf-sisu", "foreningar"]} />
+          <PartnerStrip ids={["gff", "svff", "rf-sisu", "foreningar", "gis"]} />
         </SectionBlock>
 
         {impact && (
@@ -54,11 +57,11 @@ const Foreningsutveckling = () => {
             <ImpactBlock impact={impact} />
           </SectionBlock>
         )}
-      </AreaShell>
+      </AssignmentShell>
       <NextPageCTA next={next} prev={prev} />
       <Footer />
     </div>
   );
 };
 
-export default Foreningsutveckling;
+export default Foreningslyftet;

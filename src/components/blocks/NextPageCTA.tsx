@@ -1,47 +1,61 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import type { Area } from "@/content/areas";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+
+export interface NextPageTarget {
+  path: string;
+  title: string;
+  shortTitle?: string;
+}
 
 interface Props {
-  next: Area;
-  prev?: Area | null;
+  next: NextPageTarget;
+  prev?: NextPageTarget | null;
   label?: string;
 }
 
-const NextPageCTA = ({ next, prev, label = "Nästa område" }: Props) => {
+const NextPageCTA = ({ next, prev, label = "Nästa uppdrag" }: Props) => {
   return (
     <nav
-      aria-label="Fortsätt läsa"
+      aria-label="Sidobläddring"
       className="border-t border-border bg-card"
     >
-      <div className="container mx-auto flex flex-col gap-6 px-4 py-12 md:flex-row md:items-center md:justify-between md:py-16">
+      <div className="container mx-auto flex flex-col gap-4 px-4 sm:px-6 py-10 sm:flex-row sm:items-stretch sm:justify-between sm:py-12">
         {prev ? (
           <Link
             to={prev.path}
-            className="group text-sm text-muted-foreground hover:text-primary"
+            className="group flex items-center gap-3 rounded-md border border-border bg-background px-5 py-4 transition-colors hover:border-primary/40 hover:bg-primary-subtle sm:basis-[44%]"
           >
-            <span className="block text-xs font-mono uppercase tracking-wider">
-              Föregående
-            </span>
-            <span className="mt-1 block font-serif text-lg text-foreground group-hover:text-primary">
-              ← {prev.shortTitle}
+            <ArrowLeft
+              className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-hover:-translate-x-1 group-hover:text-primary"
+              aria-hidden="true"
+            />
+            <span>
+              <span className="block font-mono text-micro uppercase tracking-wider text-muted-foreground">
+                Föregående
+              </span>
+              <span className="mt-1 block text-base font-semibold text-foreground group-hover:text-primary transition-colors">
+                {prev.shortTitle ?? prev.title}
+              </span>
             </span>
           </Link>
         ) : (
-          <span />
+          <div aria-hidden="true" />
         )}
+
         <Link
           to={next.path}
-          className="group inline-flex items-center gap-3 rounded-lg bg-primary px-6 py-4 text-primary-foreground transition-colors hover:bg-primary/90"
+          className="group flex items-center justify-between gap-3 rounded-md bg-primary px-6 py-4 text-primary-foreground transition-colors hover:bg-primary/90 sm:basis-[52%]"
         >
           <span>
-            <span className="block text-xs font-mono uppercase tracking-wider opacity-80">
+            <span className="block font-mono text-micro uppercase tracking-wider opacity-70">
               {label}
             </span>
-            <span className="mt-1 block font-serif text-lg">{next.title}</span>
+            <span className="mt-1 block text-base font-semibold">
+              {next.title}
+            </span>
           </span>
           <ArrowRight
-            className="h-5 w-5 transition-transform group-hover:translate-x-1"
+            className="h-5 w-5 shrink-0 transition-transform duration-200 group-hover:translate-x-1"
             aria-hidden="true"
           />
         </Link>

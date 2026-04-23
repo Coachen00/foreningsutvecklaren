@@ -13,10 +13,10 @@ import {
 import { getProgram } from "@/content/programs";
 import { impactForArea } from "@/content/impact";
 
-const FUiSkola = () => {
-  const assignment = getPrimaryAssignment("fu-skola");
-  const { next, prev } = adjacentPrimaryAssignments("fu-skola");
-  const program = getProgram("fu-i-skola");
+const EnBattreVag = () => {
+  const assignment = getPrimaryAssignment("en-battre-vag");
+  const { next, prev } = adjacentPrimaryAssignments("en-battre-vag");
+  const program = getProgram("en-battre-vag");
   const impact = impactForArea("skola-samverkan");
 
   return (
@@ -25,9 +25,9 @@ const FUiSkola = () => {
       <AssignmentShell assignment={assignment}>
         {program && (
           <SectionBlock
-            eyebrow="Arbetet"
-            title="Så här rullar FU Skola"
-            lead="Nio arbetsdelar som tillsammans håller arbetet igång – från onboarding av nya skolor till uppföljning över läsår."
+            eyebrow="Satsningen"
+            title="Riktade insatser där de behövs mest"
+            lead="En bättre väg är SvFF:s nationella satsning, lokalt genomförd i Göteborg. Fem arbetsdelar som tillsammans bär arbetet."
           >
             <ProgramBlock program={program} />
           </SectionBlock>
@@ -36,19 +36,19 @@ const FUiSkola = () => {
         <SectionBlock
           variant="muted"
           eyebrow="Samverkan"
-          title="Alla led behövs"
-          lead="Arbetet korsar flera huvudmän. Varje aktör fyller en egen lucka – det är själva poängen med strukturen."
+          title="Detta är ingen enmansinsats"
+          lead="En bättre väg fungerar när förbund, kommun, förening och civilsamhälle drar åt samma håll. Varje aktör fyller en egen lucka."
         >
           <PartnerStrip
-            ids={["gff", "svff", "rf-sisu", "goteborgs-stad", "foreningar", "skolor"]}
+            ids={["svff", "gff", "goteborgs-stad", "foreningar", "gis"]}
           />
         </SectionBlock>
 
         {impact && (
           <SectionBlock
-            eyebrow="Effekt"
-            title="Därför är FU Skola ett huvuduppdrag"
-            lead="Skolan är platsen där barnen redan är. Därifrån byggs bron in i föreningslivet."
+            eyebrow="Varför"
+            title="Det är därför satsningen finns"
+            lead="Inkludering och tillgänglighet är inte tillägg – de är själva skälet till att arbetet finns."
           >
             <ImpactBlock impact={impact} />
           </SectionBlock>
@@ -66,4 +66,4 @@ const FUiSkola = () => {
   );
 };
 
-export default FUiSkola;
+export default EnBattreVag;

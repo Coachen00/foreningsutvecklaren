@@ -11,32 +11,53 @@ const CoreMissionBlock = ({
 }: Props) => {
   return (
     <div>
-      <div className="mb-8 max-w-2xl">
-        <p className="mb-2 text-xs font-mono uppercase tracking-wider text-primary">
-          Det här är uppdraget
-        </p>
-        <h2 className="font-serif text-2xl font-bold text-foreground md:text-3xl">
-          {title}
-        </h2>
-        <p className="mt-3 text-base text-muted-foreground md:text-lg">{lead}</p>
-      </div>
-      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {(title || lead) && (
+        <div className="mb-8 max-w-[44rem]">
+          {title && (
+            <h3 className="text-subhead font-semibold text-foreground">{title}</h3>
+          )}
+          {lead && (
+            <p className="mt-2 text-small text-muted-foreground">{lead}</p>
+          )}
+        </div>
+      )}
+
+      <ol
+        className="grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-4 border border-border"
+        role="list"
+      >
         {CORE_ACTIVITIES.map((a, idx) => (
           <li
             key={a.id}
-            className="relative flex flex-col gap-2 rounded-lg border border-border bg-background p-6"
+            className="relative flex flex-col gap-3 bg-card p-6 lg:p-7 border-b border-border last:border-b-0 sm:border-r sm:last:border-r-0 lg:border-b-0"
           >
-            <span className="text-xs font-mono text-muted-foreground">
+            {/* Number */}
+            <span
+              aria-hidden="true"
+              className="font-mono text-[2.5rem] font-bold leading-none text-border select-none"
+            >
               {String(idx + 1).padStart(2, "0")}
             </span>
-            <h3 className="text-lg font-semibold text-foreground">{a.title}</h3>
-            <p className="text-sm text-foreground/80">{a.description}</p>
+
+            {/* Content */}
+            <div className="flex flex-col gap-2">
+              <h4 className="text-base font-semibold leading-tight text-foreground">
+                {a.title}
+              </h4>
+              <p className="text-small text-muted-foreground leading-relaxed">
+                {a.description}
+              </p>
+            </div>
+
+            {/* Cadence — bottom */}
             {a.cadence && (
-              <p className="mt-auto pt-3 text-xs font-mono text-primary">{a.cadence}</p>
+              <p className="mt-auto pt-4 border-t border-border font-mono text-micro uppercase tracking-wider text-primary">
+                {a.cadence}
+              </p>
             )}
           </li>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 };

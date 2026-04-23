@@ -6,21 +6,33 @@ interface Props {
 
 const ImpactBlock = ({ impact }: Props) => {
   return (
-    <div className="rounded-lg border border-border bg-accent/30 p-6 md:p-10">
-      <p className="mb-2 text-xs font-mono uppercase tracking-wider text-primary">
-        Effekt
-      </p>
-      <h2 className="mb-6 font-serif text-2xl font-bold text-foreground md:text-3xl">
-        {impact.headline}
-      </h2>
-      <ul className="space-y-3">
-        {impact.statements.map((s) => (
+    <div className="border border-border">
+      {/* Header strip */}
+      <div className="border-b border-border bg-card px-7 py-5">
+        <p className="font-mono text-micro uppercase tracking-wider text-primary">
+          Effekt
+        </p>
+        <h3 className="mt-1 text-subhead font-semibold text-foreground">
+          {impact.headline}
+        </h3>
+      </div>
+
+      {/* Statements */}
+      <ul className="divide-y divide-border bg-background" role="list">
+        {impact.statements.map((s, idx) => (
           <li
             key={s}
-            className="flex gap-3 text-base text-foreground/90 md:text-lg"
+            className="flex items-baseline gap-5 px-7 py-5"
           >
-            <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-            {s}
+            <span
+              aria-hidden="true"
+              className="shrink-0 font-mono text-micro font-medium tabular-nums text-primary"
+            >
+              {String(idx + 1).padStart(2, "0")}
+            </span>
+            <p className="text-base font-medium leading-relaxed text-foreground/85">
+              {s}
+            </p>
           </li>
         ))}
       </ul>

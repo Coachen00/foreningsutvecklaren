@@ -5,13 +5,18 @@ import SectionBlock from "@/components/blocks/SectionBlock";
 import ProgramBlock from "@/components/blocks/ProgramBlock";
 import PartnerStrip from "@/components/blocks/PartnerStrip";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
-import { getArea, adjacentAreas } from "@/content/areas";
+import { getArea } from "@/content/areas";
+import {
+  getPrimaryAssignment,
+  adjacentPrimaryAssignments,
+} from "@/content/primaryAssignments";
 import { getProgram } from "@/content/programs";
 
 const Kvalitetsklubb = () => {
   const area = getArea("foreningsutveckling");
   const subpage = area.subpages.find((s) => s.slug === "kvalitetsklubb")!;
-  const { next, prev } = adjacentAreas("foreningsutveckling");
+  const prev = getPrimaryAssignment("foreningslyftet");
+  const { next } = adjacentPrimaryAssignments("foreningslyftet");
   const program = getProgram("kvalitetsklubb");
 
   return (

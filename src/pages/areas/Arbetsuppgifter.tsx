@@ -5,7 +5,8 @@ import SectionBlock from "@/components/blocks/SectionBlock";
 import ActivityListBlock from "@/components/blocks/ActivityListBlock";
 import WorkMethodBlock from "@/components/blocks/WorkMethodBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
-import { getArea, adjacentAreas } from "@/content/areas";
+import { getArea } from "@/content/areas";
+import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 import { CORE_ACTIVITIES, EXTENDED_ACTIVITIES } from "@/content/activities";
 
 const METHOD_STEPS = [
@@ -18,7 +19,7 @@ const METHOD_STEPS = [
 const Arbetsuppgifter = () => {
   const area = getArea("uppdrag");
   const subpage = area.subpages.find((s) => s.slug === "arbetsuppgifter")!;
-  const { next, prev } = adjacentAreas("uppdrag");
+  const next = PRIMARY_ASSIGNMENTS[0];
 
   return (
     <div className="min-h-screen bg-background">
@@ -49,7 +50,7 @@ const Arbetsuppgifter = () => {
           <WorkMethodBlock steps={METHOD_STEPS} />
         </SectionBlock>
       </AreaShell>
-      <NextPageCTA next={next} prev={prev} />
+      <NextPageCTA next={next} label="Första huvuduppdraget" />
       <Footer />
     </div>
   );
