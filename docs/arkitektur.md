@@ -182,6 +182,7 @@ Alla shells:
 | `EcosystemMap` | `ECOSYSTEM_NODES` (intern import) | Metafor-intro + 6-noders grid | ja |
 | `StrategiKarta` | `STRATEGI_MAPPING`, `SVFF_STRATEGIC_AREAS` | Chip-grid + mappnings-tabell | ja |
 | `PlanningChainBlock` | `PlanningChainStep[]`, `QualityClubPlanningFocus[]`, `PlanningOutcome[]` | Pilkedja + Kvalitetsklubb-områden + målbilder | ja |
+| `PlanningChainTeaserBlock` | `PlanningChainStep[]`, `QualityClubPlanningFocus[]`, `PlanningOutcome[]` | Kort orientering + länk till planeringskedjans fördjupning | nej |
 
 ### 5.4 NAVIGATIONSBLOCK
 | Komponent | Roll |

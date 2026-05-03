@@ -188,10 +188,11 @@ Sektioner:
 | Det löpande arbetet | Fyra arbetsformer (CoreMissionBlock). |
 | Utöver kärnuppdraget | Längre insatser (uppstart nya lag, SUP, tränarutbildningar). Länkar till Arbetsuppgifter och Spelarutbildning. |
 | Så här arbetar jag | 4-stegs arbetsmetod (närvaro → dialog → struktur → uppföljning). |
+| Från idé till årshjul | Kort orientering om verksamhetsidé → verksamhetsmål → verksamhetsplan → årshjul som föreningsutvecklingens styrkedja. Länkar till Föreningslyftet för fördjupning. |
 | Vem gör vad | Partner-strip + länk till Partners-sidan. |
 | Därför ser uppdraget ut så här | ImpactBlock. |
 
-**Vad som hör hemma här:** själva uppdragets mekanik — vad språkröret faktiskt gör och hur ansvarskedjan ser ut.
+**Vad som hör hemma här:** själva uppdragets mekanik — vad språkröret faktiskt gör, hur ansvarskedjan ser ut och hur föreningsutveckling blir praktisk styrning.
 
 **Vad som INTE hör hemma här:** specifika program, satsningar, eller fördjupningar.
 

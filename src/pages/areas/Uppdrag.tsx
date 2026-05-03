@@ -9,11 +9,17 @@ import WorkMethodBlock from "@/components/blocks/WorkMethodBlock";
 import ImpactBlock from "@/components/blocks/ImpactBlock";
 import PartnerStrip from "@/components/blocks/PartnerStrip";
 import CommitteeBlock from "@/components/blocks/CommitteeBlock";
+import PlanningChainTeaserBlock from "@/components/blocks/PlanningChainTeaserBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
 import { getArea } from "@/content/areas";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 import { EXTENDED_ACTIVITIES } from "@/content/activities";
 import { impactForArea } from "@/content/impact";
+import {
+  FORENINGSLYFTET_PLANNING_CHAIN,
+  FORENINGSLYFTET_PLANNING_OUTCOMES,
+  QUALITY_CLUB_PLANNING_FOCUS,
+} from "@/content/planningChain";
 
 const METHOD_STEPS = [
   {
@@ -77,6 +83,21 @@ const Uppdrag = () => {
           lead="Fyra steg som återkommer oavsett om det handlar om ett ledarsamtal, en kvalitetsklubbsprocess eller en skolinsats."
         >
           <WorkMethodBlock steps={METHOD_STEPS} />
+        </SectionBlock>
+
+        <SectionBlock
+          id="planeringskedja"
+          variant="muted"
+          eyebrow="Föreningsutveckling som arbetsform"
+          title="Från idé till årshjul"
+          lead="När uppdraget handlar om föreningsutveckling ska dokumenten hänga ihop. Verksamhetsidé, mål, plan och årshjul blir en styrkedja som gör föreningens utveckling möjlig att leda och följa upp."
+        >
+          <PlanningChainTeaserBlock
+            steps={FORENINGSLYFTET_PLANNING_CHAIN}
+            focus={QUALITY_CLUB_PLANNING_FOCUS}
+            outcomes={FORENINGSLYFTET_PLANNING_OUTCOMES}
+            href="/foreningsutveckling#strategikartan"
+          />
         </SectionBlock>
 
         <SectionBlock
