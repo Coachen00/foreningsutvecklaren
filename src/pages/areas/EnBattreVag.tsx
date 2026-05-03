@@ -29,6 +29,7 @@ import type { TocSection } from "@/components/blocks/TableOfContents";
 const SECTIONS: TocSection[] = [
   { id: "satsningen", title: "Satsningen", level: 2 },
   { id: "mal", title: "Centrala mål", level: 2 },
+  { id: "girls-fc", title: "Girls FC — flickfotboll i prioriterade områden", level: 2 },
   { id: "roller", title: "Två roller", level: 2 },
   { id: "arbetsdelar", title: "Fem arbetsdelar", level: 2 },
   { id: "kriterier", title: "Kriterier för att delta", level: 2 },
@@ -124,6 +125,31 @@ const EnBattreVag = () => {
             <div className="mt-6 not-prose">
               <GoalsBlock goals={EN_BATTRE_VAG_GOALS} columns={4} />
             </div>
+          </ExpandableBlock>
+
+          {/* GIRLS FC — case under En bättre väg */}
+          <ExpandableBlock
+            id="girls-fc"
+            kicker="Case"
+            title="Girls FC — flickfotboll i prioriterade områden"
+            defaultOpen={false}
+            className="animate-fade-up animate-delay-200"
+          >
+            <p>
+              Girls FC visar hur riktad resursförstärkning kan öppna fotbollen
+              för flickor som tidigare stått utanför föreningsidrotten.
+            </p>
+            <p className="mt-4">
+              Snart 80 flickor som aldrig spelat fotboll tidigare deltar i
+              verksamheten. Siffran är inte huvudberättelsen — beviset är att
+              riktad satsning på flickfotboll i prioriterade områden faktiskt
+              översätts till nya spelare, nya ledare och nya gemenskaper.
+            </p>
+            <p className="mt-4 text-small text-muted-foreground">
+              Korslänk: när fokus är flickfotboll, inkludering eller trygg miljö
+              hör frågan hemma både här och under Jämställdhet &amp; trygghet —
+              se vidare läsning i sidopanelen.
+            </p>
           </ExpandableBlock>
 
           {/* ROLLER */}
