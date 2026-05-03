@@ -19,36 +19,36 @@ export const ACTIVITIES: Activity[] = [
   /* CORE — det löpande */
   {
     id: "ledartraffar",
-    title: "Ledarträffar",
+    title: "Utvecklarträffar",
     scope: "core",
     description:
-      "Gemensamma träffar för ledare i klubben — dialog kring metodik, spelarutbildning och kultur. Det är ofta här rörelsen syns först.",
+      "Gemensamma träffar med föreningens förenings- och fotbollsutvecklare, och vid behov styrelsefunktioner. Fokus ligger på metod, struktur, spelarutbildning och förankring.",
     cadence: "Flera per säsong",
   },
   {
     id: "ledarsamtal",
-    title: "Ledarsamtal",
+    title: "Utvecklingsdialoger",
     scope: "core",
     description:
-      "Enskilda samtal med tränare och ledare för reflektion, riktning och stöd i rollen. Den närmaste relationen i uppdraget.",
+      "Samtal med föreningsutvecklare, fotbollsutvecklare i förening och styrelsefunktioner för att sätta riktning, följa upp och undanröja hinder.",
     cadence: "Löpande",
   },
 
   /* OCCASIONAL — görs när det passar, inte ständigt */
   {
     id: "traningsbesok",
-    title: "Träningsbesök",
+    title: "Riktade träningsbesök",
     scope: "occasional",
     description:
-      "Närvaro på träningar för att läsa av miljö, ledarskap och spelarutveckling i vardagen. Görs när det finns ett konkret skäl.",
+      "Närvaro på träning när det finns ett konkret utvecklingsskäl. Besöket förankras med föreningens nyckelpersoner och kopplas till nästa steg.",
     cadence: "Vid behov",
   },
   {
     id: "matchbesok",
-    title: "Matchbesök",
+    title: "Riktade matchbesök",
     scope: "occasional",
     description:
-      "Observation av matchklimat, ledarbeteende och föreningskultur runt matchtillfället. Görs riktat — inte rutinmässigt.",
+      "Observation av matchklimat och föreningskultur runt matchtillfället. Görs riktat, ofta med efterföljande dialog med utvecklare eller styrelse.",
     cadence: "Vid behov",
   },
 
@@ -58,7 +58,7 @@ export const ACTIVITIES: Activity[] = [
     title: "Uppstart av nya lag",
     scope: "extended",
     description:
-      "Stöd när föreningar startar nya åldersgrupper — från organisation till första tränarteam.",
+      "Stöd när föreningar startar nya åldersgrupper — från styrelseförankring och ansvar till första fungerande organisation runt laget.",
     cadence: "Säsongsstart",
   },
   {
@@ -66,15 +66,15 @@ export const ACTIVITIES: Activity[] = [
     title: "Spelarutbildningsplan",
     scope: "extended",
     description:
-      "Implementering av SvFF:s spelarutbildningsplan i vardagen — från dokument till träningsyta.",
+      "Stöd till fotbollsutvecklare i förening att omsätta SvFF:s spelarutbildningsplan från dokument till träningsyta.",
     cadence: "Långsiktigt",
   },
   {
     id: "tranarutbildningar",
-    title: "Tränarutbildningar",
+    title: "Utbildningsstruktur",
     scope: "extended",
     description:
-      "Initiering, förankring och stöd kring utbildning av tränare på klubbnivå.",
+      "Initiering, förankring och stöd till föreningens utbildningsplanering, ofta via förenings- och fotbollsutvecklare samt styrelse.",
     cadence: "Årligen",
   },
 ];

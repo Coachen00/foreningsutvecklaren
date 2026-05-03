@@ -83,7 +83,7 @@ AREAS äger **fördjupningssidor och stödsidor**. Notera att `foreningsutveckli
 Sidor under en area eller ett huvuduppdrag. Kan vara av två typer:
 
 1. **Area-subpages** definierade i `AREAS[].subpages` (t.ex. `arbetsuppgifter`, `partners`, `kvalitetsklubb`).
-2. **Tematiska subpages** som inte hör till en formell area men ligger under ett uppdrag i URL:en (t.ex. `/foreningslyftet/jamstalldhet-och-trygghet`, `/uppdrag/spelarutbildning`). Dessa använder `<SubpageShell>`.
+2. **Tematiska subpages** som inte hör till en formell area men ligger under ett uppdrag i URL:en (t.ex. `/foreningsutveckling/jamstalldhet-och-trygghet`, `/uppdrag/spelarutbildning`). Dessa använder `<SubpageShell>`.
 
 **Tumregel för var nytt innehåll hör hemma:** se beslutsträdet i § 9.
 
@@ -234,7 +234,7 @@ För enklare sidor (Uppdrag, Arbetsuppgifter, Kvalitetsklubb): hoppa över `Page
 - **404**: `*` matchas av `NotFound` (också skyddad).
 - **Path-konvention för subpages**:
   - Area-subpage: `<area>/<sub>` (t.ex. `/uppdrag/arbetsuppgifter`).
-  - Tematisk subpage under primary: `<primary>/<tema>` (t.ex. `/foreningslyftet/jamstalldhet-och-trygghet`).
+  - Tematisk subpage under primary: `<primary>/<tema>` (t.ex. `/foreningsutveckling/jamstalldhet-och-trygghet`).
   - Notera diskrepansen: pathen `/foreningslyftet/...` är en namn-alias för Föreningslyftet (riktig area heter `foreningsutveckling`). Brödsmulan i `Breadcrumb.tsx` måste mappa båda.
 
 När du lägger till en ny route:
@@ -297,7 +297,7 @@ Vad är det jag vill lägga till?
 │   │
 │   ├─ Den är en fördjupning av ett huvuduppdrag (tematisk)?
 │   │   → Ny route under <primary>/<tema>, använd SubpageShell.
-│   │      Exempel: /foreningslyftet/jamstalldhet-och-trygghet, /uppdrag/spelarutbildning
+│   │      Exempel: /foreningsutveckling/jamstalldhet-och-trygghet, /uppdrag/spelarutbildning
 │   │
 │   ├─ Den är en formell area-subpage?
 │   │   → Lägg till i AREAS[].subpages, route under area-pathen, AreaShell med subtitle.

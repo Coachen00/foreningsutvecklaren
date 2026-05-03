@@ -68,7 +68,7 @@ const EnBattreVag = () => {
                 },
                 {
                   label: "Jämställdhet & trygghet",
-                  href: "/foreningslyftet/jamstalldhet-och-trygghet",
+                  href: "/foreningsutveckling/jamstalldhet-och-trygghet",
                   hint: "Värdegrund som genomsyrar arbetet",
                 },
                 {
@@ -130,7 +130,7 @@ const EnBattreVag = () => {
             id="girls-fc"
             kicker="Case"
             title="Girls FC — flickfotboll i prioriterade områden"
-            defaultOpen={false}
+            defaultOpen
             className="animate-fade-up animate-delay-200"
           >
             <p>

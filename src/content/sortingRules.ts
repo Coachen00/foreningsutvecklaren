@@ -58,7 +58,7 @@ export const SORTING_RULES: SortingRule[] = [
     destination: {
       key: "jamstalldhet-trygghet",
       label: "Jämställdhet & trygghet",
-      href: "/foreningslyftet/jamstalldhet-och-trygghet",
+      href: "/foreningsutveckling/jamstalldhet-och-trygghet",
     },
     also: { key: "en-battre-vag", label: "Korslänka till En bättre väg om i prioriterat område" },
   },

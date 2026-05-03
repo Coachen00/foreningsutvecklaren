@@ -22,7 +22,7 @@ const NEXT_STEP_LINKS = [
   {
     label: "Jämställdhet & trygghet",
     hint: "Värdegrund som genomsyrar arbetet — flickfotboll, matchklimat, barnperspektiv.",
-    href: "/foreningslyftet/jamstalldhet-och-trygghet",
+    href: "/foreningsutveckling/jamstalldhet-och-trygghet",
   },
   {
     label: "Spelarutbildning",
@@ -36,7 +36,7 @@ const NEXT_STEP_LINKS = [
   },
   {
     label: "Arbetsuppgifter",
-    hint: "Det dagliga arbetet i detalj — träningsbesök, ledarsamtal, uppstart.",
+    hint: "Arbetsformer i detalj — utvecklingsdialoger, styrelseförankring och riktade observationer.",
     href: "/uppdrag/arbetsuppgifter",
   },
   {

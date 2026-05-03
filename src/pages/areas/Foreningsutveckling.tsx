@@ -64,7 +64,7 @@ const Foreningslyftet = () => {
                 },
                 {
                   label: "Jämställdhet & trygghet",
-                  href: "/foreningslyftet/jamstalldhet-och-trygghet",
+                  href: "/foreningsutveckling/jamstalldhet-och-trygghet",
                   hint: "Värdegrund som genomsyrar arbetet",
                 },
                 {
@@ -128,7 +128,7 @@ const Foreningslyftet = () => {
             id="tre-arbetssatt"
             kicker="Tre spår"
             title="Tre arbetssätt"
-            defaultOpen={false}
+            defaultOpen
           >
             <p>
               Spåren är fristående men förstärker varandra. En förening kan
@@ -147,7 +147,7 @@ const Foreningslyftet = () => {
                       : "Insatsen"
                   }
                   title={program.name}
-                  defaultOpen={false}
+                  defaultOpen={program.id === "kvalitetsklubb"}
                 >
                   <p className="text-lead">{program.summary}</p>
                   {program.pillars.length > 0 && (
@@ -235,7 +235,7 @@ const Foreningslyftet = () => {
             id="strategikartan"
             kicker="Styrkedja"
             title="Från verksamhetsidé till årshjul"
-            defaultOpen={false}
+            defaultOpen
             wide
           >
             <p>
@@ -350,7 +350,7 @@ const Foreningslyftet = () => {
                   trygg miljö är genomgående teman i alla tre spåren — och de
                   fördjupas i en{" "}
                   <a
-                    href="/foreningslyftet/jamstalldhet-och-trygghet"
+                    href="/foreningsutveckling/jamstalldhet-och-trygghet"
                     className="text-primary hover:text-primary/80 transition-colors"
                   >
                     egen sektion

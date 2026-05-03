@@ -62,7 +62,7 @@ export const MISSION_AREAS: MissionArea[] = [
       {
         label: "Jämställdhet & trygghet",
         hint: "När fokus är flickfotboll, inkludering eller trygg miljö",
-        href: "/foreningslyftet/jamstalldhet-och-trygghet",
+        href: "/foreningsutveckling/jamstalldhet-och-trygghet",
       },
       {
         label: "Partners",

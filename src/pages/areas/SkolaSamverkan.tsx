@@ -24,10 +24,37 @@ const SkolaSamverkan = () => {
       <GlobalNav />
       <AreaShell area={area}>
         <SectionBlock
-          eyebrow="Två huvuduppdrag"
+          eyebrow="Sammanhangssida"
           title="Här möts skola, samhälle och fotboll"
-          lead="Två av de tre primära uppdragen har sin hemvist här: En bättre väg och FU Skola. Sidan ger sammanhanget – uppdragen har sina egna sidor."
+          lead="Det här är inte ett fjärde huvuduppdrag. Sidan hjälper läsaren att förstå hur En bättre väg och FU Skola hänger ihop med kommun, förening och civilsamhälle."
         >
+          <div className="mb-8 grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-3">
+            <article className="bg-card p-6">
+              <p className="font-mono text-micro uppercase tracking-wider text-primary">
+                Riktat område
+              </p>
+              <p className="mt-2 text-small leading-relaxed text-muted-foreground">
+                När insatsen gäller prioriterade geografier sorteras den under En bättre väg.
+              </p>
+            </article>
+            <article className="bg-card p-6">
+              <p className="font-mono text-micro uppercase tracking-wider text-primary">
+                Skolan som bro
+              </p>
+              <p className="mt-2 text-small leading-relaxed text-muted-foreground">
+                När skolan är vägen in till föreningslivet sorteras den under FU Skola.
+              </p>
+            </article>
+            <article className="bg-card p-6">
+              <p className="font-mono text-micro uppercase tracking-wider text-primary">
+                Samverkansbild
+              </p>
+              <p className="mt-2 text-small leading-relaxed text-muted-foreground">
+                När frågan gäller aktörer och ansvar visar den här sidan helheten.
+              </p>
+            </article>
+          </div>
+
           <ul className="grid grid-cols-1 gap-6 md:grid-cols-2" role="list">
             {relevant.map((p) => {
               const Icon = p.icon;

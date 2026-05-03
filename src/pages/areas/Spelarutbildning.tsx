@@ -54,7 +54,7 @@ const Spelarutbildning = () => {
                 },
                 {
                   label: "Jämställdhet & trygghet",
-                  href: "/foreningslyftet/jamstalldhet-och-trygghet",
+                  href: "/foreningsutveckling/jamstalldhet-och-trygghet",
                   hint: "Värdegrund som genomsyrar utbildningen",
                 },
                 {

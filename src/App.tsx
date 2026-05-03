@@ -74,8 +74,17 @@ const App = () => (
               element={<Kvalitetsklubb />}
             />
             <Route
-              path="/foreningslyftet/jamstalldhet-och-trygghet"
+              path="/foreningsutveckling/jamstalldhet-och-trygghet"
               element={<JamstalldhetTrygghet />}
+            />
+            <Route
+              path="/foreningslyftet/jamstalldhet-och-trygghet"
+              element={
+                <Navigate
+                  to="/foreningsutveckling/jamstalldhet-och-trygghet"
+                  replace
+                />
+              }
             />
             <Route path="/uppdrag/spelarutbildning" element={<Spelarutbildning />} />
             <Route path="/skola-samverkan" element={<SkolaSamverkan />} />

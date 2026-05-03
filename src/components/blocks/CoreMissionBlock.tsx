@@ -13,7 +13,7 @@ interface Props {
 
 const CoreMissionBlock = ({
   title = "Kärnuppdraget",
-  lead = "Återkommande arbetsformer som tillsammans bygger närvaro, förtroende och utveckling i föreningarna. Ledardialogerna är navet — observationerna görs riktat när det finns ett konkret skäl.",
+  lead = "Återkommande arbetsformer som bygger närvaro, förtroende och utveckling i föreningarna. Utvecklingsdialogerna med föreningens nyckelpersoner är navet — observationerna görs riktat när det finns ett konkret skäl.",
   activities = [...CORE_ACTIVITIES, ...OCCASIONAL_ACTIVITIES],
 }: Props) => {
   return (

@@ -10,11 +10,13 @@ import ImpactBlock from "@/components/blocks/ImpactBlock";
 import PartnerStrip from "@/components/blocks/PartnerStrip";
 import CommitteeBlock from "@/components/blocks/CommitteeBlock";
 import PlanningChainTeaserBlock from "@/components/blocks/PlanningChainTeaserBlock";
+import UppdragHubBlock from "@/components/blocks/UppdragHubBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
 import { getArea } from "@/content/areas";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 import { EXTENDED_ACTIVITIES } from "@/content/activities";
 import { impactForArea } from "@/content/impact";
+import { UPPDRAG_HUB_ITEMS } from "@/content/uppdragHub";
 import {
   FORENINGSLYFTET_PLANNING_CHAIN,
   FORENINGSLYFTET_PLANNING_OUTCOMES,
@@ -24,11 +26,13 @@ import {
 const METHOD_STEPS = [
   {
     title: "Närvaro",
-    description: "Arbetet börjar där det sker – på träningen, i matchen, hos ledarna.",
+    description:
+      "Arbetet börjar i rätt forum: med föreningens utvecklare, styrelsefunktioner och vid behov i verksamhetsmiljön.",
   },
   {
     title: "Dialog",
-    description: "Samtal som bygger förtroende och gör det möjligt att stötta på riktigt.",
+    description:
+      "Samtal som bygger förtroende, sätter riktning och gör det möjligt att stötta föreningen på riktigt.",
   },
   {
     title: "Struktur",
@@ -50,18 +54,28 @@ const Uppdrag = () => {
       <GlobalNav />
       <AreaShell area={area}>
         <SectionBlock
+          id="hitta-ratt"
+          variant="muted"
+          eyebrow="Intern karta"
+          title="Hitta rätt i uppdraget"
+          lead="Uppdragssidan ska vara en hubb, inte en samlingsplats för lösa länkar. Här syns var stödytor, fördjupningar och forum hör hemma."
+          split
+        >
+          <UppdragHubBlock items={UPPDRAG_HUB_ITEMS} />
+        </SectionBlock>
+
+        <SectionBlock
           eyebrow="Kärnuppdraget"
           title="Det löpande arbetet"
-          lead="Ledardialogerna är navet — de är där relationen byggs och utveckling sker. Träningsbesök och matchbesök läggs in när det finns ett konkret skäl."
+          lead="Utvecklingsdialogerna är navet. Jag arbetar främst genom föreningens förenings- och fotbollsutvecklare, och direkt eller indirekt med styrelsen i de föreningar som berörs."
         >
           <CoreMissionBlock title="" lead="" />
         </SectionBlock>
 
         <SectionBlock
-          variant="muted"
           eyebrow="Fördjupning"
           title="Utöver kärnuppdraget"
-          lead="Längre insatser som kommer ur relationen till föreningen – ofta över en hel säsong eller flera."
+          lead="Längre insatser som kommer ur relationen till föreningens nyckelpersoner – ofta över en hel säsong eller flera."
         >
           <ActivityListBlock activities={EXTENDED_ACTIVITIES} columns={3} />
           <p className="mt-8 text-sm text-muted-foreground">
@@ -80,7 +94,7 @@ const Uppdrag = () => {
         <SectionBlock
           eyebrow="Arbetsmetod"
           title="Så här arbetar jag"
-          lead="Fyra steg som återkommer oavsett om det handlar om ett ledarsamtal, en kvalitetsklubbsprocess eller en skolinsats."
+          lead="Fyra steg som återkommer oavsett om det handlar om en utvecklingsdialog, styrelseförankring, en kvalitetsklubbsprocess eller en skolinsats."
         >
           <WorkMethodBlock steps={METHOD_STEPS} />
         </SectionBlock>

@@ -20,9 +20,9 @@
 
 Sajten har **ett enda strategiskt påstående** som allt annat hänger på:
 
-> Kvalitetsklubb är infrastrukturen. En bättre väg är riktad resursförstärkning. Fotbollslyftet är spelarutvecklingsmotorn. Föreningslyftet är föreningsutvecklingsmotorn. Fotbollsnyttan är samhällsberättelsen. Verksamhetsplanen är den lokala styrningen.
+> En bättre väg bär den riktade samhällsnyttan. FU Skola bär bron mellan skola och förening. Föreningslyftet bär den generella föreningsutvecklingsmotorn. Kvalitetsklubb är ramverket. Kommittéer, partners och fördjupningar är stödstruktur, inte egna huvudspår.
 
-Det är detta som **EcosystemMap-blocket på Hem-sidan** kommunicerar (`src/content/ecosystem.ts`). När du lägger till nytt innehåll måste det respektera dessa positioner — annars förvirrar du besökaren.
+Det är detta som **8-stegs-startsidan** kommunicerar genom `Home.tsx` och content-filerna i `src/content/`: `currentState`, `assignmentOverview`, `missionAreas`, `committees`, `partnerFunding` och `sortingRules`. När du lägger till nytt innehåll måste det respektera dessa positioner — annars förvirrar du besökaren.
 
 **Pedagogisk metafor**: svensk fotboll är en stor skola. SvFF ritar kartan. Kvalitetsklubb är klassrummet. En bättre väg är extra stöd där barnen saknar bäst förutsättningar.
 
@@ -32,14 +32,18 @@ Det är detta som **EcosystemMap-blocket på Hem-sidan** kommunicerar (`src/cont
 
 ### 3.1 Hem (`/`)
 
-Tre sektioner:
+Åtta sektioner:
 
-1. **Tre huvuduppdrag** — kort till Föreningslyftet, En bättre väg, FU Skola.
-2. **Ekosystemet** ("Var sak har sin roll") — sex noder med skarp positionering + metafor.
-3. **Kärnuppdraget i vardagen** — fyra arbetsformer (ledarträffar, ledarsamtal, träningsbesök, matchbesök).
-4. **Vi gör det här tillsammans** — partner-karta grupperad efter roll.
+1. **Nuläge** — dashboard med roll, tre största arbetsområden, pågående fokus och kompakt effektlogik.
+2. **Min arbetsbeskrivning i en mening** — editorial sammanfattning av hela rollen.
+3. **Huvuduppdrag** — En bättre väg som tydlig prioritet 1; FU Skola och Föreningslyftet direkt under.
+4. **Effektlogik för hela uppdraget** — Resurser → Aktiviteter → Output → Effekt.
+5. **Kommittéer och arbetsgrupper** — Fotbollsnyttan i Göteborg och Föreningskommittén som forum, inte toppnivåer.
+6. **Partners, finansiering och samhällsnytta** — fyrrollslogik: strategiska, operativa, finansierande, mottagare/genomförande.
+7. **Hur allt sorteras** — åtta regler för var nytt innehåll hör hemma.
+8. **Vidare till fördjupning** — länkar till Kvalitetsklubb, Jämställdhet & trygghet, Spelarutbildning, Skola & samverkan, Arbetsuppgifter och Partners.
 
-**Vad som hör hemma här:** endast positionering, inte detaljer. Hem-sidan ska kunna läsas på 60 sekunder.
+**Vad som hör hemma här:** sammanhang, prioritering och korta bevis. Hem-sidan ska ge hela bilden på 60–90 sekunder och sedan leda vidare.
 
 ---
 
@@ -136,7 +140,9 @@ Sektioner:
 
 ---
 
-### 3.6 Jämställdhet & trygghet (`/foreningslyftet/jamstalldhet-och-trygghet`) — fördjupning
+### 3.6 Jämställdhet & trygghet (`/foreningsutveckling/jamstalldhet-och-trygghet`) — fördjupning
+
+Legacy-URL: `/foreningslyftet/jamstalldhet-och-trygghet` redirectar hit.
 
 Värdegrunden som genomsyrar alla tre uppdragen.
 
@@ -185,14 +191,16 @@ Sektioner:
 
 | Sektion | Innehåll |
 |---------|----------|
+| Hitta rätt i uppdraget | Kompakt intern karta till Arbetsuppgifter, Planeringskedjan, Kommittéer, Partners, Kvalitetsklubb och Spelarutbildning. |
 | Det löpande arbetet | Fyra arbetsformer (CoreMissionBlock). |
-| Utöver kärnuppdraget | Längre insatser (uppstart nya lag, SUP, tränarutbildningar). Länkar till Arbetsuppgifter och Spelarutbildning. |
+| Utöver kärnuppdraget | Längre insatser (uppstart nya lag, spelarutbildningsplan, utbildningsstruktur). Länkar till Arbetsuppgifter och Spelarutbildning. |
 | Så här arbetar jag | 4-stegs arbetsmetod (närvaro → dialog → struktur → uppföljning). |
 | Från idé till årshjul | Kort orientering om verksamhetsidé → verksamhetsmål → verksamhetsplan → årshjul som föreningsutvecklingens styrkedja. Länkar till Föreningslyftet för fördjupning. |
+| Forum jag deltar i | Kommittéer och arbetsgrupper: Fotbollsnyttan i Göteborg och Föreningskommittén. |
 | Vem gör vad | Partner-strip + länk till Partners-sidan. |
 | Därför ser uppdraget ut så här | ImpactBlock. |
 
-**Vad som hör hemma här:** själva uppdragets mekanik — vad språkröret faktiskt gör, hur ansvarskedjan ser ut och hur föreningsutveckling blir praktisk styrning.
+**Vad som hör hemma här:** själva uppdragets mekanik — hur språkröret arbetar genom föreningens förenings- och fotbollsutvecklare, direkt eller indirekt med styrelser, hur ansvarskedjan ser ut och hur föreningsutveckling blir praktisk styrning.
 
 **Vad som INTE hör hemma här:** specifika program, satsningar, eller fördjupningar.
 
@@ -206,9 +214,9 @@ Sektioner:
 
 | Sektion | Innehåll |
 |---------|----------|
-| Det löpande navet | 2 kärnaktiviteter: ledarträffar, ledarsamtal. |
-| Riktade observationer | 2 occasional-aktiviteter: träningsbesök, matchbesök (görs vid behov, inte rutin). |
-| Längre insatser | 3 extended-aktiviteter: uppstart nya lag, SUP, tränarutbildningar. |
+| Det löpande navet | 2 kärnaktiviteter: utvecklarträffar och utvecklingsdialoger. |
+| Riktade observationer | 2 occasional-aktiviteter: riktade träningsbesök och riktade matchbesök (görs vid behov, inte rutin). |
+| Längre insatser | 3 extended-aktiviteter: uppstart nya lag, spelarutbildningsplan och utbildningsstruktur. |
 | Hur varje insats rullar | 4-stegs process. |
 
 **Klassificeringsregel** — när du lägger till en arbetsform:
@@ -220,13 +228,18 @@ Sektioner:
 
 ### 3.10 Partners (`/uppdrag/partners`) — fördjupning
 
-Ansvarskedjan i detalj. Använder samma `Partner[]`-data som PartnerStrip överallt annars.
+Partnerskap och finansiering i detalj. Sidan har två nivåer:
+
+| Sektion | Innehåll |
+|---------|----------|
+| Partnerskap som bygger kapacitet | Samma fyrrollslogik som startsidan: strategiska, operativa, finansierande, mottagare/genomförande. Finansiering beskrivs som kapacitetsbyggande. |
+| Vem gör vad i vardagen | Praktisk ansvarskedja från `Partner[]`-data: ansvarig, strategisk, operativ och mottagare. |
 
 ---
 
 ### 3.11 Skola & samverkan (`/skola-samverkan`) och FU i skola (`/skola-samverkan/fu-i-skola`)
 
-Legacy area-sidor. `/skola-samverkan/fu-i-skola` är aliasad till `/fu-skola` (den primära).
+`/skola-samverkan` är en sammanhangssida, inte ett fjärde huvuduppdrag. Den förklarar hur En bättre väg och FU Skola hänger ihop med skola, kommun, förening och civilsamhälle. `/skola-samverkan/fu-i-skola` är aliasad till `/fu-skola` (den primära sidan för FU Skola).
 
 ---
 
@@ -341,7 +354,7 @@ Sex tematiska kategorier som alla insatser kan sorteras under. Varje tema mappar
 - **Drop out som spelarfråga:** Spelarutbildning, sektionen "Spelarkarusellen"
 
 ### C. Ledarförsörjning
-*Ledarförsörjningsplan, utbildade tränare, unga ledare, fotbollsutvecklare, domarutvecklare, trygghetsansvarig, ledarträffar, ledarsamtal, träningsbesök, mentorskap.*
+*Ledarförsörjningsplan, utbildade tränare, unga ledare, fotbollsutvecklare, domarutvecklare, trygghetsansvarig, utvecklarträffar, utvecklingsdialoger, riktade träningsbesök, mentorskap.*
 - **Operativt (vad språkröret gör):** Uppdrag → Arbetsuppgifter
 - **Som klubb-roller:** Kvalitetsklubb-sidan, "Tre roller i Kvalitetsklubben"
 - **Som strukturell investering:** Spelarutbildning (Fotbollslyftet) eller En bättre väg (tjänsterna)
@@ -349,7 +362,7 @@ Sex tematiska kategorier som alla insatser kan sorteras under. Varje tema mappar
 
 ### D. Trygghet och matchklimat
 *Trygg Fotboll, matchvärdar, matchklimatpolicy, Fair Play, DPN-ärenden, avbrutna matcher, domarrollens status, konflikthantering, vårdnadshavare.*
-- **Hela temat samlat:** Jämställdhet & trygghet (`/foreningslyftet/jamstalldhet-och-trygghet`)
+- **Hela temat samlat:** Jämställdhet & trygghet (`/foreningsutveckling/jamstalldhet-och-trygghet`)
 - **Som klubbroll:** Kvalitetsklubb-sidan (Trygghetsansvarig)
 - **Som matchklimat-program:** Föreningslyftet (tre arbetssätt → Matchklimat)
 - **Som Trygg Fotboll-fokuspunkt:** Kvalitetsklubb-sidan, fokusområde "Vår Förening"

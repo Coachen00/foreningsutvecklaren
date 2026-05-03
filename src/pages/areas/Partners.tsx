@@ -2,6 +2,7 @@ import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
 import AreaShell from "@/components/blocks/AreaShell";
 import SectionBlock from "@/components/blocks/SectionBlock";
+import PartnerFundingBlock from "@/components/blocks/PartnerFundingBlock";
 import PartnerMapBlock from "@/components/blocks/PartnerMapBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
 import { getArea } from "@/content/areas";
@@ -17,9 +18,20 @@ const Partners = () => {
       <GlobalNav />
       <AreaShell area={area} subtitle={subpage.title}>
         <SectionBlock
+          eyebrow="Fyra roller"
+          title="Partnerskap som bygger kapacitet"
+          lead="Partnersidan använder samma logik som startsidan: strategiska, operativa och finansierande partners samt mottagare och genomförandeaktörer."
+          split
+        >
+          <PartnerFundingBlock />
+        </SectionBlock>
+
+        <SectionBlock
+          variant="muted"
           eyebrow="Ansvarskedjan"
-          title="Vem gör vad"
-          lead="Grupperade efter roll i uppdraget: vem som är ansvarig, vem som sätter strategi, vem som genomför och vem som är mottagare av stödet."
+          title="Vem gör vad i vardagen"
+          lead="Den praktiska ansvarskedjan visar vem som äger riktning, vem som stödjer genomförandet och vilka aktörer som bär arbetet lokalt."
+          split
         >
           <PartnerMapBlock />
         </SectionBlock>

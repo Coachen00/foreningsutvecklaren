@@ -43,10 +43,10 @@ export const AREAS: Area[] = [
     heroLead:
       "Rollen som binder ihop föreningar, förbund och spelarutbildning i vardagen.",
     heroSupport:
-      "Träningsbesök, matchbesök, ledarträffar och ledarsamtal är stommen. Runt det ligger planering, utbildning, partnerarbete och administration som gör att arbetet håller över tid.",
+      "Utvecklingsdialoger, utvecklarträffar, styrelseförankring och riktade observationer är stommen. Runt det ligger planering, utbildning, partnerarbete och administration som gör att arbetet håller över tid.",
     metaTitle: "Uppdrag, styrning och administration – Arbetsdetektiven",
     metaDescription:
-      "Kärnuppdraget inom GFF: träningsbesök, matchbesök, ledarträffar, ledarsamtal – plus arbetsmetod, styrning och ansvarskedjan mellan GFF, SvFF, RF-SISU, föreningar och skolor.",
+      "Kärnuppdraget inom GFF: utvecklingsdialoger, utvecklarträffar, styrelseförankring och riktade observationer – plus arbetsmetod, styrning och ansvarskedjan mellan GFF, SvFF, RF-SISU, föreningar och skolor.",
     icon: Briefcase,
     subpages: [
       {
@@ -55,7 +55,7 @@ export const AREAS: Area[] = [
         title: "Arbetsuppgifter i detalj",
         navLabel: "Arbetsuppgifter",
         metaDescription:
-          "Fördjupning i de operativa arbetsuppgifterna: träningsbesök, matchbesök, ledarträffar, ledarsamtal, uppstart av nya lag, spelarutbildningsplan och tränarutbildningar.",
+          "Fördjupning i de operativa arbetsuppgifterna: utvecklingsdialoger, utvecklarträffar, styrelseförankring, riktade observationer, uppstart av nya lag, spelarutbildningsplan och utbildningsstruktur.",
         heroLead:
           "Från kärnuppdraget till det dagliga arbetet – vad som faktiskt görs och hur det följs upp.",
       },
@@ -109,9 +109,9 @@ export const AREAS: Area[] = [
     navLabel: "Skola & samverkan",
     kicker: "Utveckling utanför föreningsväggarna",
     heroLead:
-      "Fotboll som väg in för de som annars aldrig når föreningslivet.",
+      "Sammanhanget runt skola, kommun, förening och sociala satsningar.",
     heroSupport:
-      "Samverkan mellan skola, förening, förbund och kommun. Fotbollsutveckling i skola, En bättre väg och riktade satsningar bygger en bro mellan barns vardag och organiserad idrott.",
+      "Det här är en kontextsida, inte ett fjärde huvuduppdrag. En bättre väg och FU Skola har egna sidor; här förklaras hur skola, förening, förbund och kommun hänger ihop.",
     metaTitle: "Skola, samverkan och sociala satsningar – Arbetsdetektiven",
     metaDescription:
       "Fotboll i skolan, En bättre väg och samverkan mellan förening, skola, GFF, SvFF, RF-SISU och Göteborgs Stad – inkludering, tillgänglighet och föreningsstärkning i prioriterade områden.",
