@@ -1,13 +1,20 @@
-import { CORE_ACTIVITIES } from "@/content/activities";
+import {
+  CORE_ACTIVITIES,
+  OCCASIONAL_ACTIVITIES,
+  type Activity,
+} from "@/content/activities";
 
 interface Props {
   title?: string;
   lead?: string;
+  /** Override för aktivitetslistan. Standard: core + occasional (4 st). */
+  activities?: Activity[];
 }
 
 const CoreMissionBlock = ({
   title = "Kärnuppdraget",
-  lead = "Fyra återkommande arbetsformer som tillsammans bygger närvaro, förtroende och utveckling i föreningarna.",
+  lead = "Återkommande arbetsformer som tillsammans bygger närvaro, förtroende och utveckling i föreningarna. Ledardialogerna är navet — observationerna görs riktat när det finns ett konkret skäl.",
+  activities = [...CORE_ACTIVITIES, ...OCCASIONAL_ACTIVITIES],
 }: Props) => {
   return (
     <div>
@@ -26,7 +33,7 @@ const CoreMissionBlock = ({
         className="grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-4 border border-border"
         role="list"
       >
-        {CORE_ACTIVITIES.map((a, idx) => (
+        {activities.map((a, idx) => (
           <li
             key={a.id}
             className="relative flex flex-col gap-3 bg-card p-6 lg:p-7 border-b border-border last:border-b-0 sm:border-r sm:last:border-r-0 lg:border-b-0"

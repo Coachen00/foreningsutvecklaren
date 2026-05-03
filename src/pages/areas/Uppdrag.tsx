@@ -44,8 +44,8 @@ const Uppdrag = () => {
       <AreaShell area={area}>
         <SectionBlock
           eyebrow="Kärnuppdraget"
-          title="Fyra arbetsformer som bär uppdraget"
-          lead="Det här är de återkommande momenten. Allt annat – program, satsningar och samverkan – lutar sig mot att det här görs regelbundet och med omsorg."
+          title="Det löpande arbetet"
+          lead="Ledardialogerna är navet — de är där relationen byggs och utveckling sker. Träningsbesök och matchbesök läggs in när det finns ett konkret skäl."
         >
           <CoreMissionBlock title="" lead="" />
         </SectionBlock>
@@ -61,6 +61,10 @@ const Uppdrag = () => {
             Mer detalj i{" "}
             <Link to="/uppdrag/arbetsuppgifter" className="text-primary hover:underline">
               Arbetsuppgifter i detalj
+            </Link>
+            . Spelarutbildning som helhet ligger i en{" "}
+            <Link to="/uppdrag/spelarutbildning" className="text-primary hover:underline">
+              egen sektion
             </Link>
             .
           </p>

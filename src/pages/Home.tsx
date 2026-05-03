@@ -5,6 +5,7 @@ import PrimaryAssignmentsGrid from "@/components/home/PrimaryAssignmentsGrid";
 import SectionBlock from "@/components/blocks/SectionBlock";
 import CoreMissionBlock from "@/components/blocks/CoreMissionBlock";
 import PartnerMapBlock from "@/components/blocks/PartnerMapBlock";
+import EcosystemMap from "@/components/blocks/EcosystemMap";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 const Home = () => {
@@ -27,6 +28,15 @@ const Home = () => {
           split
         >
           <PrimaryAssignmentsGrid />
+        </SectionBlock>
+
+        <SectionBlock
+          eyebrow="Ekosystemet"
+          title="Var sak har sin roll"
+          lead="Sex system som hänger ihop — varje med en egen funktion. Tillsammans gör de Göteborgsfotbollen starkare, tryggare och mer inkluderande."
+          split
+        >
+          <EcosystemMap />
         </SectionBlock>
 
         <SectionBlock

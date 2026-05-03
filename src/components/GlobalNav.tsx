@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { NavLink, Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, LogOut } from "lucide-react";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
+import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/utils";
 
 const isPathActive = (pathname: string, path: string) =>
@@ -12,8 +13,22 @@ const SECONDARY_LINK = { path: "/uppdrag", label: "Uppdrag" };
 
 const GlobalNav = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { signOut, session } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [signingOut, setSigningOut] = useState(false);
   const isHome = location.pathname === "/";
+
+  const handleSignOut = async () => {
+    if (signingOut) return;
+    setSigningOut(true);
+    try {
+      await signOut();
+    } finally {
+      setMobileOpen(false);
+      navigate("/login", { replace: true });
+    }
+  };
 
   return (
     <>
@@ -80,6 +95,24 @@ const GlobalNav = () => {
                   {SECONDARY_LINK.label}
                 </NavLink>
               </li>
+              {session && (
+                <li className="ml-1">
+                  <button
+                    type="button"
+                    onClick={handleSignOut}
+                    disabled={signingOut}
+                    aria-label="Logga ut"
+                    className={cn(
+                      "inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-[0.75rem] font-medium transition-colors duration-150",
+                      "text-muted-foreground hover:text-foreground hover:bg-muted",
+                      "disabled:cursor-not-allowed disabled:opacity-50",
+                    )}
+                  >
+                    <LogOut className="h-3.5 w-3.5" aria-hidden="true" />
+                    Logga ut
+                  </button>
+                </li>
+              )}
             </ul>
           </nav>
 
@@ -182,7 +215,22 @@ const GlobalNav = () => {
                 </ul>
               </nav>
 
-              <div className="shrink-0 border-t border-border px-5 py-4">
+              <div className="shrink-0 border-t border-border px-5 py-4 space-y-3">
+                {session && (
+                  <button
+                    type="button"
+                    onClick={handleSignOut}
+                    disabled={signingOut}
+                    className={cn(
+                      "inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors",
+                      "text-muted-foreground hover:bg-muted hover:text-foreground",
+                      "disabled:cursor-not-allowed disabled:opacity-50",
+                    )}
+                  >
+                    <LogOut className="h-4 w-4" aria-hidden="true" />
+                    Logga ut
+                  </button>
+                )}
                 <p className="font-mono text-micro uppercase tracking-wider text-muted-foreground">
                   GFF · Göteborgs Fotbollförbund
                 </p>
