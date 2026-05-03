@@ -56,7 +56,7 @@ Sektioner (TOC-sorterade):
 | Tre arbetssätt | Kvalitetsklubb (strukturen) · Matchklimat (kulturen) · FU i förening (insatsen). Varje med pelare och länk vidare. |
 | Prioriteringstrappan | 5-stegs trappa när allt känns viktigt: organisation → ramverk → människor → samverkan → kommunikation. |
 | Effektlogiken | Resurser → Aktiviteter → Output → Effekt. Bevis på att arbetet flyttar sig. |
-| Strategikartan | SvFF:s 14 strategiska områden + GFF:s lokala översättning + KPI 50% i Kvalitetsklubb 2027. |
+| Planeringskedjan | Koppling mellan verksamhetsidé, verksamhetsmål, verksamhetsplan och årshjul. Visar rätt Kvalitetsklubb-områden och målbilden att föreningar driver sitt eget utvecklingsarbete. |
 | Samverkan | Partner-strip: GFF, SvFF, RF-SISU, föreningar, GIS. |
 | Det här följs över tid | Mätpunkter (organisation + kultur). |
 | Hur det följs upp | Kvalitativa effekter (ImpactBlock). |
@@ -310,6 +310,11 @@ Sajten använder en strikt uppsättning återanvändbara innehållsmönster. Nä
 **Var:** `src/content/strategikarta.ts`. Visualiseras med `StrategiKarta`.
 **Lägg till en rad när:** en ny strategisk koppling formaliseras mellan SvFF och GFF.
 
+### 4.14b Planeringskedja för föreningsutveckling
+**Format:** steg + fråga + Kvalitetsklubb-område + output + målbild.
+**Var:** `src/content/planningChain.ts`. Visualiseras med `PlanningChainBlock`.
+**Användning:** på Föreningslyftet-sidan när arbetet ska förklaras som föreningsutvecklarens styrkedja: verksamhetsidé → verksamhetsmål → verksamhetsplan → årshjul.
+
 ### 4.15 Prioriteringstrappa
 **Format:** 5 nivåer med nummer + titel + beskrivning. Avtagande visuell bredd.
 **Var:** `src/content/priorities.ts`. Visualiseras med `PriorityLadder`.
@@ -517,7 +522,8 @@ Lika viktigt som vad sajten innehåller är vad den **inte** innehåller. Först
 | Ny kriteria för fotbollsprofil | FU Skola | Kriterier för fotbollsprofil | `criteria.ts` → FOTBOLLSPROFIL_CRITERIA |
 | Ny rad till FU Skola-aktörsmatris | FU Skola | Aktörsmatris | inline i `FUiSkola.tsx` (`ACTOR_ROWS`) |
 | Ny domarinsats | Jämställdhet & trygghet | Domarlyftet | direkt i `JamstalldhetTrygghet.tsx` |
-| Ny SvFF-strategikoppling | Föreningslyftet | Strategikartan | `strategikarta.ts` → STRATEGI_MAPPING |
+| Ny SvFF-strategikoppling | Föreningslyftet | Strategikartan eller annat strategiblock | `strategikarta.ts` → STRATEGI_MAPPING |
+| Ny styrkedja för verksamhetsidé, mål, plan eller årshjul | Föreningslyftet | Planeringskedjan | `planningChain.ts` → FORENINGSLYFTET_PLANNING_CHAIN |
 | Ny pelare i Kvalitetsklubb-fokusområde | Kvalitetsklubb | rätt fokusområde | `kvalitetsklubb.ts` → KVALITETSKLUBB_FOCUS_AREAS[].points |
 | Ny exempel på Resurser i effektkedjan | Föreningslyftet | Effektlogiken | `effectChain.ts` → FORENINGSLYFTET_EFFECT_CHAIN[0].examples |
 | Ny partner | Alla sidor som listar partners | Samverkan | `partners.ts` |

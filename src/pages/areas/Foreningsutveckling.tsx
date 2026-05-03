@@ -10,7 +10,7 @@ import NextPageCTA from "@/components/blocks/NextPageCTA";
 import PriorityLadder from "@/components/blocks/PriorityLadder";
 import MetricListBlock from "@/components/blocks/MetricListBlock";
 import EffectChain from "@/components/blocks/EffectChain";
-import StrategiKarta from "@/components/blocks/StrategiKarta";
+import PlanningChainBlock from "@/components/blocks/PlanningChainBlock";
 import {
   adjacentPrimaryAssignments,
   getPrimaryAssignment,
@@ -20,7 +20,11 @@ import { impactForArea } from "@/content/impact";
 import { PRIORITY_LADDER } from "@/content/priorities";
 import { FORENINGSLYFTET_METRICS } from "@/content/metrics";
 import { FORENINGSLYFTET_EFFECT_CHAIN } from "@/content/effectChain";
-import { FORENINGSLYFTET_KPI } from "@/content/strategikarta";
+import {
+  FORENINGSLYFTET_PLANNING_CHAIN,
+  FORENINGSLYFTET_PLANNING_OUTCOMES,
+  QUALITY_CLUB_PLANNING_FOCUS,
+} from "@/content/planningChain";
 import type { TocSection } from "@/components/blocks/TableOfContents";
 
 const SECTIONS: TocSection[] = [
@@ -29,7 +33,7 @@ const SECTIONS: TocSection[] = [
   { id: "tre-arbetssatt", title: "Tre arbetssätt", level: 2 },
   { id: "prioritering", title: "Prioriteringstrappa", level: 2 },
   { id: "effektlogik", title: "Effektlogiken", level: 2 },
-  { id: "strategikartan", title: "Strategikartan", level: 2 },
+  { id: "strategikartan", title: "Planeringskedjan", level: 2 },
   { id: "samverkan", title: "Samverkan", level: 2 },
   { id: "matpunkter", title: "Det här följs upp", level: 2 },
   { id: "uppfoljning", title: "Hur det följs upp", level: 2 },
@@ -229,51 +233,24 @@ const Foreningslyftet = () => {
 
           <ExpandableBlock
             id="strategikartan"
-            kicker="Nationellt → lokalt"
-            title="Strategikartan"
+            kicker="Styrkedja"
+            title="Från verksamhetsidé till årshjul"
             defaultOpen={false}
             wide
           >
             <p>
-              Föreningslyftet hänger inte i luften. Det är GFF:s lokala
-              översättning av SvFF:s nationella förändringsresor — samma
-              riktning, lokal verkstad.
+              I rollen som föreningsutvecklare handlar arbetet om att göra
+              Kvalitetsklubb praktiskt. Verksamhetsidén ska ge riktning,
+              verksamhetsmålen ska visa vad som ska flytta sig,
+              verksamhetsplanen ska samla arbetet och årshjulet ska göra det
+              möjligt att följa upp.
             </p>
             <div className="mt-6 not-prose">
-              <StrategiKarta />
-            </div>
-            <div className="mt-8 not-prose">
-              <p className="mb-4 font-mono text-micro uppercase tracking-wider text-muted-foreground">
-                Konkret KPI · Verksamhetsplan 2026–27
-              </p>
-              <article className="flex flex-col gap-4 rounded-md border border-border bg-card p-7 sm:flex-row sm:items-start sm:gap-8">
-                <div className="shrink-0">
-                  <p
-                    className="font-mono leading-none tracking-tight text-foreground"
-                    style={{
-                      fontSize: "clamp(2.75rem, 5vw, 3.5rem)",
-                      fontWeight: 600,
-                      letterSpacing: "-0.02em",
-                    }}
-                  >
-                    {FORENINGSLYFTET_KPI.value}
-                  </p>
-                  <p className="mt-2 font-mono text-micro uppercase tracking-wider text-primary">
-                    {FORENINGSLYFTET_KPI.unit}
-                  </p>
-                </div>
-                <div className="min-w-0">
-                  <h4 className="font-serif text-subhead font-semibold leading-snug text-foreground">
-                    {FORENINGSLYFTET_KPI.title}
-                  </h4>
-                  <p className="mt-2 max-w-prose text-base leading-relaxed text-muted-foreground">
-                    {FORENINGSLYFTET_KPI.description}
-                  </p>
-                  <p className="mt-4 font-mono text-micro uppercase tracking-wider text-muted-foreground">
-                    Senast 2027
-                  </p>
-                </div>
-              </article>
+              <PlanningChainBlock
+                steps={FORENINGSLYFTET_PLANNING_CHAIN}
+                focus={QUALITY_CLUB_PLANNING_FOCUS}
+                outcomes={FORENINGSLYFTET_PLANNING_OUTCOMES}
+              />
             </div>
           </ExpandableBlock>
 

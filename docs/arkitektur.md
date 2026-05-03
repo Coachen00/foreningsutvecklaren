@@ -114,6 +114,7 @@ Sidor under en area eller ett huvuduppdrag. Kan vara av två typer:
 | `effectChain.ts` | `EffectStage[]` | Resurser → Aktiviteter → Output → Effekt | `EffectChain` |
 | `ecosystem.ts` | `EcosystemNode[]`, `ECOSYSTEM_METAPHOR` | Skarp positionering av varje system | `EcosystemMap` |
 | `strategikarta.ts` | `StrategicArea[]`, `MappingRow[]`, `FORENINGSLYFTET_KPI` | SvFF nationellt → GFF lokalt | `StrategiKarta` |
+| `planningChain.ts` | `PlanningChainStep[]`, `QualityClubPlanningFocus[]`, `PlanningOutcome[]` | Verksamhetsidé → mål → plan → årshjul | `PlanningChainBlock` |
 
 ### 4.2 Konventioner i content-filer
 
@@ -155,7 +156,7 @@ Alla shells:
 |-----------|-------|
 | `PageWithDepth` | Tvåkolumnslayout med innehåll + sticky TOC + aside. Används av primary-uppdrag och alla djupare subpages. Innehållskolumnen är `max-w-[64rem]` (för att rymma breda block). |
 | `SectionBlock` | "Sekt" på startsidan/area-toppsidor. Header (eyebrow + title + lead), `variant: default \| muted \| accent \| flush`, valfritt `split`/`narrow`. |
-| `ExpandableBlock` | Expanderbar sektion på fördjupningssidor. Stöder `wide` (tar bort 80ch-prose-constrainten — krävs för `YearWheel`, `EffectChain`, `StrategiKarta`-tabellen, `GoalsBlock` 4-kol). |
+| `ExpandableBlock` | Expanderbar sektion på fördjupningssidor. Stöder `wide` (tar bort 80ch-prose-constrainten — krävs för `YearWheel`, `EffectChain`, `PlanningChainBlock`, `StrategiKarta`-tabellen, `GoalsBlock` 4-kol). |
 
 ### 5.3 INNEHÅLLSBLOCK — visualiserar data
 | Komponent | Datatyp | Visuell idé | Default `wide` krävs |
@@ -180,6 +181,7 @@ Alla shells:
 | `EffectChain` | `EffectStage[]` | Pilkedja + 4-stegs detaljkort | ja |
 | `EcosystemMap` | `ECOSYSTEM_NODES` (intern import) | Metafor-intro + 6-noders grid | ja |
 | `StrategiKarta` | `STRATEGI_MAPPING`, `SVFF_STRATEGIC_AREAS` | Chip-grid + mappnings-tabell | ja |
+| `PlanningChainBlock` | `PlanningChainStep[]`, `QualityClubPlanningFocus[]`, `PlanningOutcome[]` | Pilkedja + Kvalitetsklubb-områden + målbilder | ja |
 
 ### 5.4 NAVIGATIONSBLOCK
 | Komponent | Roll |
