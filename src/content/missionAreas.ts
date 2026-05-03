@@ -130,7 +130,7 @@ export const MISSION_AREAS: MissionArea[] = [
       {
         label: "Föreningskommittén",
         hint: "Forum för gemensamma utvecklingsfrågor",
-        href: "/uppdrag",
+        href: "/uppdrag#kommitteer",
       },
     ],
     path: "/foreningsutveckling",

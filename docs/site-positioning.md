@@ -26,9 +26,9 @@ omedelbart vilka de tre stora uppdragen är. Den nya logiken separerar:
 
 | Uppdrag | Path | Komponent | Källa |
 |--------|------|-----------|-------|
-| Föreningslyftet | `/foreningsutveckling` | `src/pages/areas/Foreningsutveckling.tsx` | `PRIMARY_ASSIGNMENTS` + programs (`foreningsutveckling`) |
 | En bättre väg | `/en-battre-vag` | `src/pages/areas/EnBattreVag.tsx` | `PRIMARY_ASSIGNMENTS` + program `en-battre-vag` |
 | FU Skola | `/fu-skola` | `src/pages/areas/FUiSkola.tsx` | `PRIMARY_ASSIGNMENTS` + program `fu-i-skola` |
+| Föreningslyftet | `/foreningsutveckling` | `src/pages/areas/Foreningsutveckling.tsx` | `PRIMARY_ASSIGNMENTS` + programs (`foreningsutveckling`) |
 
 Alla tre använder `AssignmentShell` (driven av `PrimaryAssignment`, inte
 `Area`) för att hålla en jämbördig visuell status.
@@ -50,9 +50,11 @@ Alla tre använder `AssignmentShell` (driven av `PrimaryAssignment`, inte
 - `src/content/siteStructure.ts` – äldre NAV_ITEMS, används inte längre av
   GlobalNav. Kan tas bort i en framtida städning.
 - `src/components/GlobalNav.tsx` – top-nav, driven av `PRIMARY_ASSIGNMENTS`.
-- `src/components/home/HomeHero.tsx` – startsidans hero, räknar primary
-  assignments.
-- `src/components/home/PrimaryAssignmentsGrid.tsx` – startsidans tre kort.
+- `src/components/blocks/CurrentStateBlock.tsx` – startsidans Nuläge-hero
+  (roll, tre största arbetsområden, fokus, kompakt effektlogik).
+- `src/components/blocks/MissionPriorityBlock.tsx` – tre huvuduppdrag i
+  prioriterad ordning på startsidan (En bättre väg som primary, FU Skola
+  och Föreningslyftet som secondary).
 - `src/components/blocks/AssignmentShell.tsx` – hero/breadcrumb för
   primärsidorna.
 - `src/components/blocks/NextPageCTA.tsx` – generisk prev/next, accepterar
@@ -71,7 +73,7 @@ Alla tre använder `AssignmentShell` (driven av `PrimaryAssignment`, inte
 ## Navigation
 
 ### Top nav (desktop)
-`Föreningslyftet | En bättre väg | FU Skola · Uppdrag`
+`En bättre väg | FU Skola | Föreningslyftet · Uppdrag`
 
 "Uppdrag" ligger kvar som sekundär länk, visuellt dämpad, till höger om
 primärlänkarna (separerad med vertikal linje). Den är inte längre en av de
@@ -87,15 +89,16 @@ Primärflödet mellan de tre uppdragen drivs av
 `adjacentPrimaryAssignments()` i `primaryAssignments.ts`:
 
 ```
-Föreningslyftet → En bättre väg → FU Skola → Föreningslyftet (loop)
+En bättre väg → FU Skola → Föreningslyftet → En bättre väg (loop)
 ```
 
 `Uppdrag`, `Arbetsuppgifter` och `Partners` pekar på första primäruppdraget
-(`PRIMARY_ASSIGNMENTS[0]` = Föreningslyftet) via `NextPageCTA`, utan prev –
+(`PRIMARY_ASSIGNMENTS[0]` = En bättre väg) via `NextPageCTA`, utan prev –
 de är utgångar från stöd/struktur in i primärspåret.
 
 `Kvalitetsklubb` pekar bakåt till Föreningslyftet och framåt till
-En bättre väg (via `adjacentPrimaryAssignments("foreningslyftet")`).
+En bättre väg (via `adjacentPrimaryAssignments("foreningslyftet")` — efter
+loop, eftersom Föreningslyftet nu är sist i prioritetsordningen).
 
 ## Design
 

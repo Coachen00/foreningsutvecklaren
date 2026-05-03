@@ -8,6 +8,7 @@ import ActivityListBlock from "@/components/blocks/ActivityListBlock";
 import WorkMethodBlock from "@/components/blocks/WorkMethodBlock";
 import ImpactBlock from "@/components/blocks/ImpactBlock";
 import PartnerStrip from "@/components/blocks/PartnerStrip";
+import CommitteeBlock from "@/components/blocks/CommitteeBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
 import { getArea } from "@/content/areas";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
@@ -76,6 +77,15 @@ const Uppdrag = () => {
           lead="Fyra steg som återkommer oavsett om det handlar om ett ledarsamtal, en kvalitetsklubbsprocess eller en skolinsats."
         >
           <WorkMethodBlock steps={METHOD_STEPS} />
+        </SectionBlock>
+
+        <SectionBlock
+          id="kommitteer"
+          eyebrow="Kommittéer och arbetsgrupper"
+          title="Forum jag deltar i"
+          lead="Två arbetsgrupper som binder ihop strategi och vardag. Inga egna toppkategorier — beskrivs här som del av uppdraget."
+        >
+          <CommitteeBlock />
         </SectionBlock>
 
         <SectionBlock

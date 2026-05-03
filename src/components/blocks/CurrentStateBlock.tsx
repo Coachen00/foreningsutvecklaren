@@ -55,11 +55,18 @@ const CurrentStateBlock = () => {
               Tre största arbetsområden just nu
             </p>
             <ul
-              className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-3"
+              className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2"
               role="list"
             >
               {topMissions.map((m, i) => (
-                <li key={m.id} className="bg-background">
+                <li
+                  key={m.id}
+                  className={cn(
+                    "bg-background",
+                    // Markera En bättre väg som störst — den är priority 1, full bredd
+                    i === 0 && "md:col-span-2",
+                  )}
+                >
                   <Link
                     to={m.path}
                     className={cn(
@@ -67,8 +74,7 @@ const CurrentStateBlock = () => {
                       "transition-colors duration-200",
                       "hover:bg-primary hover:text-primary-foreground",
                       "focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring",
-                      // Markera En bättre väg som störst — den är priority 1
-                      i === 0 && "md:col-span-3 md:p-8 lg:p-10",
+                      i === 0 && "md:p-9 lg:p-12",
                     )}
                   >
                     <span
@@ -138,7 +144,7 @@ const CurrentStateBlock = () => {
             </ul>
           </div>
 
-          {/* Effektlogik — kompakt 4-kort */}
+          {/* Effektlogik — kompakt teaser. Full version finns i sektion 4 (EffectChain). */}
           <div className="mt-14">
             <div className="mb-6 grid grid-cols-1 gap-2 md:grid-cols-[1fr_1.4fr] md:gap-16 lg:gap-24">
               <div>
@@ -162,30 +168,19 @@ const CurrentStateBlock = () => {
                 return (
                   <li
                     key={stage.number}
-                    className="flex flex-col gap-3 bg-card p-5"
+                    className="flex items-center gap-3 bg-card p-5"
                   >
-                    <div className="flex items-center justify-between">
-                      <span className="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10 text-primary">
-                        <Icon className="h-4 w-4" aria-hidden="true" />
-                      </span>
-                      <span className="font-mono text-micro tabular-nums text-muted-foreground">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                      <Icon className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block font-mono text-micro tabular-nums text-muted-foreground">
                         {stage.number}
                       </span>
-                    </div>
-                    <p className="font-semibold text-base leading-tight text-foreground">
-                      {stage.label}
-                    </p>
-                    <ul className="space-y-1 text-small leading-relaxed text-muted-foreground" role="list">
-                      {stage.examples.map((ex) => (
-                        <li key={ex} className="flex gap-2">
-                          <span
-                            aria-hidden="true"
-                            className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-primary/50"
-                          />
-                          <span>{ex}</span>
-                        </li>
-                      ))}
-                    </ul>
+                      <span className="block font-semibold text-base leading-tight text-foreground">
+                        {stage.label}
+                      </span>
+                    </span>
                   </li>
                 );
               })}

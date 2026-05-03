@@ -1,6 +1,5 @@
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/blocks/Breadcrumb";
 import AssignmentShell from "@/components/blocks/AssignmentShell";
 import PageWithDepth from "@/components/blocks/PageWithDepth";
 import ExpandableBlock from "@/components/blocks/ExpandableBlock";
@@ -46,7 +45,6 @@ const Foreningslyftet = () => {
   return (
     <div className="min-h-screen bg-background">
       <GlobalNav />
-      <Breadcrumb />
       <AssignmentShell assignment={assignment}>
         <PageWithDepth
           toc={SECTIONS}
@@ -387,7 +385,13 @@ const Foreningslyftet = () => {
           </ExpandableBlock>
         </PageWithDepth>
       </AssignmentShell>
-      <NextPageCTA next={next} prev={prev} />
+      <NextPageCTA
+        next={next}
+        prev={prev}
+        label={
+          next.id === "en-battre-vag" ? "Tillbaka till starten" : "Nästa uppdrag"
+        }
+      />
       <Footer />
     </div>
   );

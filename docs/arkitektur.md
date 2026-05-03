@@ -37,7 +37,6 @@ fotbollsnyttan/
 │  │  ├─ Footer.tsx
 │  │  ├─ auth/               ← ProtectedRoute m.fl.
 │  │  ├─ blocks/             ← ★ designsystemet — alla återanvändbara byggstenar
-│  │  ├─ home/               ← HomeHero, PrimaryAssignmentsGrid (specifikt för startsidan)
 │  │  └─ ui/                 ← shadcn-komponenter (button, sheet, toaster …)
 │  ├─ content/               ← ★ all data — typsäker, ingen CMS-sync
 │  ├─ contexts/              ← AuthContext
@@ -99,7 +98,7 @@ Sidor under en area eller ett huvuduppdrag. Kan vara av två typer:
 | Fil | Datatyp | Syfte | Konsumeras av |
 |-----|---------|-------|---------------|
 | `siteStructure.ts` | `NavItem[]`, `AreaSlug` | Topp-nav fallback + slug-typ | `GlobalNav`, alla areas |
-| `primaryAssignments.ts` | `PrimaryAssignment[]` | De tre huvuduppdragen | `AssignmentShell`, `PrimaryAssignmentsGrid`, `GlobalNav` |
+| `primaryAssignments.ts` | `PrimaryAssignment[]` | De tre huvuduppdragen | `AssignmentShell`, `GlobalNav`, `CurrentStateBlock`, `MissionPriorityBlock` |
 | `areas.ts` | `Area[]` med `subpages[]` | Intern struktur, fördjupningar | `AreaShell`, `Breadcrumb`, sub-sidor |
 | `programs.ts` | `Program[]` med `pillars[]` | Program (Kvalitetsklubb, FU i förening osv) | `ProgramBlock`, primary pages |
 | `partners.ts` | `Partner[]` | Aktörer i ekosystemet | `PartnerStrip`, `PartnerMapBlock` |

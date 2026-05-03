@@ -31,21 +31,6 @@ export interface PrimaryAssignment {
 
 export const PRIMARY_ASSIGNMENTS: PrimaryAssignment[] = [
   {
-    id: "foreningslyftet",
-    title: "Föreningslyftet",
-    navLabel: "Föreningslyftet",
-    kicker: "Långsiktig föreningsförflyttning",
-    path: "/foreningsutveckling",
-    lead: "Ett sammanhållet utvecklingsspår där föreningar går från ad hoc till medveten organisation.",
-    description:
-      "Kvalitetsklubb, matchklimat och riktad föreningsutveckling – tre sammanhängande arbetssätt för struktur, ledarskap och kultur som håller över säsonger.",
-    icon: Compass,
-    metaTitle: "Föreningslyftet – Arbetsdetektiven",
-    metaDescription:
-      "Föreningslyftet samlar Kvalitetsklubb, matchklimat och FU i förening – långsiktig utveckling av struktur, ledarskap och kultur i Göteborgs föreningsliv.",
-    relatedAreaSlug: "foreningsutveckling",
-  },
-  {
     id: "en-battre-vag",
     title: "En bättre väg",
     navLabel: "En bättre väg",
@@ -74,6 +59,21 @@ export const PRIMARY_ASSIGNMENTS: PrimaryAssignment[] = [
     metaDescription:
       "FU Skola kopplar skolans vardag till föreningslivet – onboarding av skolor och föreningar, samverkan med RF-SISU och stöd i uppföljning.",
     relatedAreaSlug: "skola-samverkan",
+  },
+  {
+    id: "foreningslyftet",
+    title: "Föreningslyftet",
+    navLabel: "Föreningslyftet",
+    kicker: "Långsiktig föreningsförflyttning",
+    path: "/foreningsutveckling",
+    lead: "Ett sammanhållet utvecklingsspår där föreningar går från ad hoc till medveten organisation.",
+    description:
+      "Kvalitetsklubb, matchklimat och riktad föreningsutveckling – tre sammanhängande arbetssätt för struktur, ledarskap och kultur som håller över säsonger.",
+    icon: Compass,
+    metaTitle: "Föreningslyftet – Arbetsdetektiven",
+    metaDescription:
+      "Föreningslyftet samlar Kvalitetsklubb, matchklimat och FU i förening – långsiktig utveckling av struktur, ledarskap och kultur i Göteborgs föreningsliv.",
+    relatedAreaSlug: "foreningsutveckling",
   },
 ];
 
