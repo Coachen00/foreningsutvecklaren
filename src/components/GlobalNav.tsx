@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, LogOut } from "lucide-react";
+import { Menu, X, LogOut, LogIn } from "lucide-react";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 import { useAuth } from "@/contexts/AuthContext";
@@ -95,7 +95,7 @@ const GlobalNav = () => {
                   {SECONDARY_LINK.label}
                 </NavLink>
               </li>
-              {session && (
+              {session ? (
                 <li className="ml-1">
                   <button
                     type="button"
@@ -111,6 +111,22 @@ const GlobalNav = () => {
                     <LogOut className="h-3.5 w-3.5" aria-hidden="true" />
                     Logga ut
                   </button>
+                </li>
+              ) : (
+                <li className="ml-1">
+                  <NavLink
+                    to="/login"
+                    aria-current={
+                      isPathActive(location.pathname, "/login") ? "page" : undefined
+                    }
+                    className={cn(
+                      "inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-[0.75rem] font-medium transition-colors duration-150",
+                      "text-muted-foreground hover:text-foreground hover:bg-muted",
+                    )}
+                  >
+                    <LogIn className="h-3.5 w-3.5" aria-hidden="true" />
+                    Logga in
+                  </NavLink>
                 </li>
               )}
             </ul>
@@ -216,7 +232,7 @@ const GlobalNav = () => {
               </nav>
 
               <div className="shrink-0 border-t border-border px-5 py-4 space-y-3">
-                {session && (
+                {session ? (
                   <button
                     type="button"
                     onClick={handleSignOut}
@@ -230,6 +246,18 @@ const GlobalNav = () => {
                     <LogOut className="h-4 w-4" aria-hidden="true" />
                     Logga ut
                   </button>
+                ) : (
+                  <NavLink
+                    to="/login"
+                    onClick={() => setMobileOpen(false)}
+                    className={cn(
+                      "inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors",
+                      "text-muted-foreground hover:bg-muted hover:text-foreground",
+                    )}
+                  >
+                    <LogIn className="h-4 w-4" aria-hidden="true" />
+                    Logga in
+                  </NavLink>
                 )}
                 <p className="font-mono text-micro uppercase tracking-wider text-muted-foreground">
                   GFF · Göteborgs Fotbollförbund
