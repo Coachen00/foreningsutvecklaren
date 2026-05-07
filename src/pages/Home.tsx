@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
 import SectionBlock from "@/components/blocks/SectionBlock";
+import MethodBlock from "@/components/blocks/MethodBlock";
 import CurrentStateBlock from "@/components/blocks/CurrentStateBlock";
 import AssignmentOverviewBlock from "@/components/blocks/AssignmentOverviewBlock";
 import MissionPriorityBlock from "@/components/blocks/MissionPriorityBlock";
@@ -57,13 +58,16 @@ const Home = () => {
       <GlobalNav />
 
       <main id="main-content">
-        {/* 1. Nuläge — sidans hero */}
+        {/* 1. Metod — sidans första orientering */}
+        <MethodBlock />
+
+        {/* 2. Nuläge */}
         <CurrentStateBlock />
 
-        {/* 2. Arbetsbeskrivningen i en mening */}
+        {/* 3. Arbetsbeskrivningen i en mening */}
         <AssignmentOverviewBlock />
 
-        {/* 3. Huvuduppdrag — En bättre väg som hero, FU Skola + Föreningslyftet under */}
+        {/* 4. Huvuduppdrag — En bättre väg som hero, FU Skola + Föreningslyftet under */}
         <SectionBlock
           eyebrow="Huvuduppdrag"
           title="Tre spår bär arbetet"
@@ -73,7 +77,7 @@ const Home = () => {
           <MissionPriorityBlock />
         </SectionBlock>
 
-        {/* 4. Effektlogik för hela uppdraget */}
+        {/* 5. Effektlogik för hela uppdraget */}
         <SectionBlock
           variant="muted"
           eyebrow="Effektlogik"
@@ -84,7 +88,7 @@ const Home = () => {
           <EffectChain stages={CURRENT_STATE.effect.stages} />
         </SectionBlock>
 
-        {/* 5. Kommittéer och arbetsgrupper */}
+        {/* 6. Kommittéer och arbetsgrupper */}
         <SectionBlock
           eyebrow="Kommittéer och arbetsgrupper"
           title="Forum jag deltar i"
@@ -94,7 +98,7 @@ const Home = () => {
           <CommitteeBlock />
         </SectionBlock>
 
-        {/* 6. Partners, finansiering och samhällsnytta */}
+        {/* 7. Partners, finansiering och samhällsnytta */}
         <SectionBlock
           variant="muted"
           eyebrow="Partners, finansiering och samhällsnytta"
@@ -105,7 +109,7 @@ const Home = () => {
           <PartnerFundingBlock />
         </SectionBlock>
 
-        {/* 7. Hur allt sorteras */}
+        {/* 8. Hur allt sorteras */}
         <SectionBlock
           eyebrow="Sorteringskarta"
           title="Var hör detta hemma?"
@@ -115,7 +119,7 @@ const Home = () => {
           <SortingMapBlock />
         </SectionBlock>
 
-        {/* 8. Vidare till fördjupning */}
+        {/* 9. Vidare till fördjupning */}
         <SectionBlock
           variant="muted"
           eyebrow="Vidare till fördjupning"

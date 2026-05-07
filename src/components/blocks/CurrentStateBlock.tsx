@@ -32,12 +32,12 @@ const CurrentStateBlock = () => {
                 />
                 {eyebrow}
               </p>
-              <h1
+              <h2
                 id="nulage-heading"
                 className="font-serif text-display font-semibold leading-[1.05] text-foreground"
               >
                 {title}
-              </h1>
+              </h2>
             </div>
             <div className="self-end">
               <p className="font-mono text-micro uppercase tracking-wider text-muted-foreground">

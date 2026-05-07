@@ -22,7 +22,7 @@ Sajten har **ett enda strategiskt påstående** som allt annat hänger på:
 
 > En bättre väg bär den riktade samhällsnyttan. FU Skola bär bron mellan skola och förening. Föreningslyftet bär den generella föreningsutvecklingsmotorn. Kvalitetsklubb är ramverket. Kommittéer, partners och fördjupningar är stödstruktur, inte egna huvudspår.
 
-Det är detta som **8-stegs-startsidan** kommunicerar genom `Home.tsx` och content-filerna i `src/content/`: `currentState`, `assignmentOverview`, `missionAreas`, `committees`, `partnerFunding` och `sortingRules`. När du lägger till nytt innehåll måste det respektera dessa positioner — annars förvirrar du besökaren.
+Det är detta som startsidan kommunicerar genom `Home.tsx` och content-filerna i `src/content/`: `method`, `currentState`, `assignmentOverview`, `missionAreas`, `committees`, `partnerFunding` och `sortingRules`. När du lägger till nytt innehåll måste det respektera dessa positioner — annars förvirrar du besökaren.
 
 **Pedagogisk metafor**: svensk fotboll är en stor skola. SvFF ritar kartan. Kvalitetsklubb är klassrummet. En bättre väg är extra stöd där barnen saknar bäst förutsättningar.
 
@@ -32,16 +32,17 @@ Det är detta som **8-stegs-startsidan** kommunicerar genom `Home.tsx` och conte
 
 ### 3.1 Hem (`/`)
 
-Åtta sektioner:
+Nio sektioner:
 
-1. **Nuläge** — dashboard med roll, tre största arbetsområden, pågående fokus och kompakt effektlogik.
-2. **Min arbetsbeskrivning i en mening** — editorial sammanfattning av hela rollen.
-3. **Huvuduppdrag** — En bättre väg som tydlig prioritet 1; FU Skola och Föreningslyftet direkt under.
-4. **Effektlogik för hela uppdraget** — Resurser → Aktiviteter → Output → Effekt.
-5. **Kommittéer och arbetsgrupper** — Fotbollsnyttan i Göteborg och Föreningskommittén som forum, inte toppnivåer.
-6. **Partners, finansiering och samhällsnytta** — fyrrollslogik: strategiska, operativa, finansierande, mottagare/genomförande.
-7. **Hur allt sorteras** — åtta regler för var nytt innehåll hör hemma.
-8. **Vidare till fördjupning** — länkar till Kvalitetsklubb, Jämställdhet & trygghet, Spelarutbildning, Skola & samverkan, Arbetsuppgifter och Partners.
+1. **Metod** — översta avsnittet. Processgraf, arbetssätt, arbetsrytm, beslutsmatris och principer för metodutveckling.
+2. **Nuläge** — dashboard med roll, tre största arbetsområden, pågående fokus och kompakt effektlogik.
+3. **Min arbetsbeskrivning i en mening** — editorial sammanfattning av hela rollen.
+4. **Huvuduppdrag** — En bättre väg som tydlig prioritet 1; FU Skola och Föreningslyftet direkt under.
+5. **Effektlogik för hela uppdraget** — Resurser → Aktiviteter → Output → Effekt.
+6. **Kommittéer och arbetsgrupper** — Fotbollsnyttan i Göteborg och Föreningskommittén som forum, inte toppnivåer.
+7. **Partners, finansiering och samhällsnytta** — fyrrollslogik: strategiska, operativa, finansierande, mottagare/genomförande.
+8. **Hur allt sorteras** — åtta regler för var nytt innehåll hör hemma.
+9. **Vidare till fördjupning** — länkar till Kvalitetsklubb, Jämställdhet & trygghet, Spelarutbildning, Skola & samverkan, Arbetsuppgifter och Partners.
 
 **Vad som hör hemma här:** sammanhang, prioritering och korta bevis. Hem-sidan ska ge hela bilden på 60–90 sekunder och sedan leda vidare.
 
