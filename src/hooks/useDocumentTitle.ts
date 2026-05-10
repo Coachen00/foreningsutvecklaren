@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 const BASE = "Föreningsutvecklaren";
+const SITE_ORIGIN = "https://foreningsutvecklaren.se";
 
 const upsertMeta = (
   attr: "name" | "property",
@@ -18,11 +19,26 @@ const upsertMeta = (
   tag.setAttribute("content", content);
 };
 
+const upsertCanonical = (href: string) => {
+  let link = document.head.querySelector<HTMLLinkElement>(
+    'link[rel="canonical"]',
+  );
+  if (!link) {
+    link = document.createElement("link");
+    link.setAttribute("rel", "canonical");
+    document.head.appendChild(link);
+  }
+  link.setAttribute("href", href);
+};
+
+const upsertOgUrl = (href: string) => upsertMeta("property", "og:url", href);
+
 /**
- * Synkar dokumenttitel + meta description + og:title + twitter:title.
+ * Synkar dokumenttitel + meta description + og + twitter + canonical + og:url.
  *
- * Vid `title === undefined` används BASE som titel (lämpligt för startsidan).
- * Annars: `${title} – ${BASE}`.
+ * - Vid `title === undefined` används BASE som titel (lämpligt för startsidan).
+ * - `canonical` byggs av `SITE_ORIGIN + window.location.pathname` (utan query/hash)
+ *   så sökmotorer ser en kanonisk version.
  */
 export const useDocumentTitle = (title?: string, description?: string) => {
   useEffect(() => {
@@ -35,6 +51,12 @@ export const useDocumentTitle = (title?: string, description?: string) => {
       upsertMeta("name", "description", description);
       upsertMeta("property", "og:description", description);
       upsertMeta("name", "twitter:description", description);
+    }
+
+    if (typeof window !== "undefined") {
+      const canonical = SITE_ORIGIN + window.location.pathname;
+      upsertCanonical(canonical);
+      upsertOgUrl(canonical);
     }
   }, [title, description]);
 };

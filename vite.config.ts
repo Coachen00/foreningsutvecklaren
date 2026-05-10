@@ -39,6 +39,23 @@ const injectCspMeta = (): Plugin => ({
   },
 });
 
+/**
+ * Kopierar index.html till 404.html i prod-bygget.
+ *
+ * GitHub Pages serverar 404.html för okända paths. Genom att låta den
+ * vara en kopia av index.html får vi SPA-routing att fungera vid F5
+ * och direktlänkning till /uppdrag, /foreningsutveckling osv —
+ * React Router tar över så snart appen mountar.
+ */
+const spa404Fallback = (): Plugin => ({
+  name: "spa-404-fallback",
+  apply: "build",
+  closeBundle: async () => {
+    const { copyFile } = await import("fs/promises");
+    await copyFile("dist/index.html", "dist/404.html");
+  },
+});
+
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
@@ -48,7 +65,7 @@ export default defineConfig({
       overlay: false,
     },
   },
-  plugins: [react(), injectCspMeta()],
+  plugins: [react(), injectCspMeta(), spa404Fallback()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

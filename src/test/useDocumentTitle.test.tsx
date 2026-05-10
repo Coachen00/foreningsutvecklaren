@@ -14,11 +14,14 @@ const cleanupMeta = () => {
       .querySelectorAll(`meta[name="${key}"]`)
       .forEach((el) => el.remove());
   }
-  for (const key of ["og:title", "og:description"]) {
+  for (const key of ["og:title", "og:description", "og:url"]) {
     document.head
       .querySelectorAll(`meta[property="${key}"]`)
       .forEach((el) => el.remove());
   }
+  document.head
+    .querySelectorAll('link[rel="canonical"]')
+    .forEach((el) => el.remove());
 };
 
 describe("useDocumentTitle", () => {
@@ -56,5 +59,17 @@ describe("useDocumentTitle", () => {
     expect(desc?.getAttribute("content")).toBe("En kort beskrivning");
     expect(og?.getAttribute("content")).toBe("En kort beskrivning");
     expect(tw?.getAttribute("content")).toBe("En kort beskrivning");
+  });
+
+  it("sätter canonical och og:url till absoluta URL:er", () => {
+    renderHook(() => useDocumentTitle("Sida"));
+    const canonical = document.head.querySelector('link[rel="canonical"]');
+    const ogUrl = document.head.querySelector('meta[property="og:url"]');
+    expect(canonical?.getAttribute("href")).toMatch(
+      /^https:\/\/foreningsutvecklaren\.se/,
+    );
+    expect(ogUrl?.getAttribute("content")).toMatch(
+      /^https:\/\/foreningsutvecklaren\.se/,
+    );
   });
 });
