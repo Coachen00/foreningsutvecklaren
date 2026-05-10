@@ -14,7 +14,7 @@ const Footer = () => {
                 aria-hidden="true"
               />
               <span className="text-sm font-semibold text-foreground">
-                Arbetsdetektiven
+                Fotbollsnyttan Arbetsrum
               </span>
             </div>
             <p className="text-small text-muted-foreground leading-relaxed">

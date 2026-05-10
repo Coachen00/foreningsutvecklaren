@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-test-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    env:
+      VITE_SUPABASE_URL: https://example.supabase.co
+      VITE_SUPABASE_ANON_KEY: dummy-anon-key-for-ci
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Test
+        run: bun run test
+
+      - name: Build
+        run: bun run build
+
+      - name: Bundle size guard
+        run: |
+          MAX_GZIP_KB=250
+          MAIN_JS=$(ls dist/assets/index-*.js | head -n 1)
+          if [ -z "$MAIN_JS" ]; then
+            echo "::error::Hittade ingen index-*.js i dist/assets"
+            exit 1
+          fi
+          GZIP_BYTES=$(gzip -c "$MAIN_JS" | wc -c)
+          GZIP_KB=$((GZIP_BYTES / 1024))
+          echo "Initial JS gzipped: ${GZIP_KB} kB (limit ${MAX_GZIP_KB} kB)"
+          if [ "$GZIP_KB" -gt "$MAX_GZIP_KB" ]; then
+            echo "::error::Initial JS bundle (${GZIP_KB} kB gzip) överskrider gränsen ${MAX_GZIP_KB} kB"
+            exit 1
+          fi

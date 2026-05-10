@@ -1,4 +1,4 @@
-# Arkitektur — fotbollsnyttan / Arbetsdetektiven
+# Arkitektur — fotbollsnyttan / Fotbollsnyttan Arbetsrum
 
 > Teknisk beskrivning för språkrör/utvecklare som ska lägga till nytt innehåll utan att bryta sajtens kategorisering. Läs detta dokument **innan** du rör en sida — det förklarar var saker hör hemma och varför.
 

@@ -11,6 +11,9 @@ import EffectChain from "@/components/blocks/EffectChain";
 import CommitteeBlock from "@/components/blocks/CommitteeBlock";
 import PartnerFundingBlock from "@/components/blocks/PartnerFundingBlock";
 import SortingMapBlock from "@/components/blocks/SortingMapBlock";
+import LoggedInHeroCountdown from "@/components/dashboard/LoggedInHeroCountdown";
+import HarvestedSuccessesVideo from "@/components/dashboard/HarvestedSuccessesVideo";
+import EffectLogicSummary from "@/components/dashboard/EffectLogicSummary";
 import { CURRENT_STATE } from "@/content/currentState";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
@@ -58,6 +61,16 @@ const Home = () => {
       <GlobalNav />
 
       <main id="main-content">
+        {/* Akt 1 — Hero med video och nedräkning */}
+        <LoggedInHeroCountdown />
+
+        {/* Akt 2 — Skördade framgångar (scroll-revealed) */}
+        <HarvestedSuccessesVideo />
+
+        {/* Effektlogik — resurser → effekt */}
+        <EffectLogicSummary />
+
+        {/* Fördjupningsstart — full sajtkarta nedanför kontrollrummet */}
         {/* 1. Metod — sidans första orientering */}
         <MethodBlock />
 

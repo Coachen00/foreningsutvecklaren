@@ -1,24 +1,27 @@
-import { useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
+import { Loader2 } from "lucide-react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
-import Uppdrag from "./pages/areas/Uppdrag";
-import Foreningslyftet from "./pages/areas/Foreningsutveckling";
-import SkolaSamverkan from "./pages/areas/SkolaSamverkan";
-import Arbetsuppgifter from "./pages/areas/Arbetsuppgifter";
-import Partners from "./pages/areas/Partners";
-import Kvalitetsklubb from "./pages/areas/Kvalitetsklubb";
-import FUiSkola from "./pages/areas/FUiSkola";
-import EnBattreVag from "./pages/areas/EnBattreVag";
-import JamstalldhetTrygghet from "./pages/areas/JamstalldhetTrygghet";
-import Spelarutbildning from "./pages/areas/Spelarutbildning";
+import ProtectedRoute from "@/components/auth/ProtectedRoute";
 import Login from "./pages/Login";
 import ResetPassword from "./pages/ResetPassword";
+
+const Home = lazy(() => import("./pages/Home"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Uppdrag = lazy(() => import("./pages/areas/Uppdrag"));
+const Foreningslyftet = lazy(() => import("./pages/areas/Foreningsutveckling"));
+const SkolaSamverkan = lazy(() => import("./pages/areas/SkolaSamverkan"));
+const Arbetsuppgifter = lazy(() => import("./pages/areas/Arbetsuppgifter"));
+const Partners = lazy(() => import("./pages/areas/Partners"));
+const Kvalitetsklubb = lazy(() => import("./pages/areas/Kvalitetsklubb"));
+const FUiSkola = lazy(() => import("./pages/areas/FUiSkola"));
+const EnBattreVag = lazy(() => import("./pages/areas/EnBattreVag"));
+const JamstalldhetTrygghet = lazy(() => import("./pages/areas/JamstalldhetTrygghet"));
+const Spelarutbildning = lazy(() => import("./pages/areas/Spelarutbildning"));
 
 const queryClient = new QueryClient();
 
@@ -38,59 +41,76 @@ const ScrollToHash = () => {
   return null;
 };
 
+const RouteFallback = () => (
+  <div className="flex min-h-screen items-center justify-center bg-background">
+    <Loader2
+      className="h-5 w-5 animate-spin text-muted-foreground"
+      aria-label="Laddar sida"
+    />
+  </div>
+);
+
+const Protected = ({ children }: { children: React.ReactNode }) => (
+  <ProtectedRoute>{children}</ProtectedRoute>
+);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter
+        future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+      >
         <AuthProvider>
           <ScrollToHash />
-          <Routes>
-            {/* Publika auth-sidor */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
+          <Suspense fallback={<RouteFallback />}>
+            <Routes>
+              {/* Publika auth-sidor */}
+              <Route path="/login" element={<Login />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
 
-            {/* Publika sidor */}
-            <Route path="/" element={<Home />} />
+              {/* Skyddat innehåll — kräver inloggning */}
+              <Route path="/" element={<Protected><Home /></Protected>} />
 
-            {/* Primära huvuduppdrag — extern användarlogik */}
-            <Route path="/foreningsutveckling" element={<Foreningslyftet />} />
-            <Route path="/en-battre-vag" element={<EnBattreVag />} />
-            <Route path="/fu-skola" element={<FUiSkola />} />
+              {/* Primära huvuduppdrag */}
+              <Route path="/foreningsutveckling" element={<Protected><Foreningslyftet /></Protected>} />
+              <Route path="/en-battre-vag" element={<Protected><EnBattreVag /></Protected>} />
+              <Route path="/fu-skola" element={<Protected><FUiSkola /></Protected>} />
 
-            {/* Bakåtkompatibel alias — gamla länkar mot /skola-samverkan/fu-i-skola */}
-            <Route
-              path="/skola-samverkan/fu-i-skola"
-              element={<Navigate to="/fu-skola" replace />}
-            />
+              {/* Bakåtkompatibel alias */}
+              <Route
+                path="/skola-samverkan/fu-i-skola"
+                element={<Navigate to="/fu-skola" replace />}
+              />
 
-            {/* Sekundära / stödjande sidor */}
-            <Route path="/uppdrag" element={<Uppdrag />} />
-            <Route path="/uppdrag/arbetsuppgifter" element={<Arbetsuppgifter />} />
-            <Route path="/uppdrag/partners" element={<Partners />} />
-            <Route
-              path="/foreningsutveckling/kvalitetsklubb"
-              element={<Kvalitetsklubb />}
-            />
-            <Route
-              path="/foreningsutveckling/jamstalldhet-och-trygghet"
-              element={<JamstalldhetTrygghet />}
-            />
-            <Route
-              path="/foreningslyftet/jamstalldhet-och-trygghet"
-              element={
-                <Navigate
-                  to="/foreningsutveckling/jamstalldhet-och-trygghet"
-                  replace
-                />
-              }
-            />
-            <Route path="/uppdrag/spelarutbildning" element={<Spelarutbildning />} />
-            <Route path="/skola-samverkan" element={<SkolaSamverkan />} />
+              {/* Sekundära / stödjande sidor */}
+              <Route path="/uppdrag" element={<Protected><Uppdrag /></Protected>} />
+              <Route path="/uppdrag/arbetsuppgifter" element={<Protected><Arbetsuppgifter /></Protected>} />
+              <Route path="/uppdrag/partners" element={<Protected><Partners /></Protected>} />
+              <Route
+                path="/foreningsutveckling/kvalitetsklubb"
+                element={<Protected><Kvalitetsklubb /></Protected>}
+              />
+              <Route
+                path="/foreningsutveckling/jamstalldhet-och-trygghet"
+                element={<Protected><JamstalldhetTrygghet /></Protected>}
+              />
+              <Route
+                path="/foreningslyftet/jamstalldhet-och-trygghet"
+                element={
+                  <Navigate
+                    to="/foreningsutveckling/jamstalldhet-och-trygghet"
+                    replace
+                  />
+                }
+              />
+              <Route path="/uppdrag/spelarutbildning" element={<Protected><Spelarutbildning /></Protected>} />
+              <Route path="/skola-samverkan" element={<Protected><SkolaSamverkan /></Protected>} />
 
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>

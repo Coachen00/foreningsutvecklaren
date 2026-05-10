@@ -1,73 +1,94 @@
-# Welcome to your Lovable project
+# Fotbollsnyttan Arbetsrum
 
-## Project info
+Webbplats för Göteborgs Fotbollförbunds satsning *Fotbollsnyttan* — språkrör/föreningsutvecklare-rollen och de tre huvuduppdragen *En bättre väg*, *FU Skola* och *Föreningslyftet*.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Bygget är en Vite + React 18 + TypeScript-app med Tailwind/shadcn-ui och Supabase för autentisering.
 
-## How can I edit this code?
+## Snabbstart
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+bun install
+bun run dev          # Vite dev-server, default :8080
+bun run test         # Vitest
+bun run lint         # ESLint
+bun run build        # Produktionsbygge
 ```
 
-**Edit a file directly in GitHub**
+## Miljövariabler
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Skapa `.env.local` i projektroten (filen är gitignored):
 
-**Use GitHub Codespaces**
+```
+VITE_SUPABASE_URL=https://<projekt>.supabase.co
+VITE_SUPABASE_ANON_KEY=<anon-key>
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+`anon`-nyckeln är publik *by design* men ska aldrig commit:as som plain-text-fil. Mall finns i `.env.example`.
 
-## What technologies are used for this project?
+## Auth
 
-This project is built with:
+- Allt utom `/login` och `/reset-password` är skyddat av `<ProtectedRoute>` — vid utgången/saknad session redirectas användaren till `/login`.
+- Sessioner hanteras av Supabase med `autoRefreshToken` och `persistSession` på.
+- Lösenordsåterställning: e-postlänk → `/reset-password` där sessionen från länken byts mot nytt lösenord.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Drift / produktion
 
-## How can I deploy this project?
+Sajten **måste** levereras över HTTPS. Webbläsaren markerar annars som *Inte säker* och `Strict-Transport-Security`-headern går inte att tillämpa.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+### Säkerhetsheaders
 
-## Can I connect a custom domain to my Lovable project?
+`public/_headers` levereras med plattformar som tolkar Netlify-formatet (Netlify, Cloudflare Pages). För andra plattformar (Vercel, statisk Nginx, IIS) — replikera samma policy via plattformens egen mekanism:
 
-Yes, you can!
+| Header | Värde |
+|--------|-------|
+| `Strict-Transport-Security` | `max-age=63072000; includeSubDomains; preload` |
+| `X-Content-Type-Options` | `nosniff` |
+| `Referrer-Policy` | `strict-origin-when-cross-origin` |
+| `Permissions-Policy` | `camera=(), microphone=(), geolocation=(), interest-cohort=()` |
+| `X-Frame-Options` | `SAMEORIGIN` |
+| `Content-Security-Policy` | Se `public/_headers` |
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### HTTP → HTTPS redirect
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Konfigureras hos hostingen (Netlify/Cloudflare/Vercel gör det automatiskt vid HTTPS-cert). På `foreningsutvecklaren.se`: säkerställ att DNS pekar mot HTTPS-host, att SSL-cert är aktivt och att HTTP-trafik 301-redirectas till HTTPS.
+
+### SPA-routing
+
+`public/_redirects` skickar alla okända paths till `index.html` så client-side-routing fungerar på statisk hosting.
+
+## Struktur
+
+```
+src/
+  App.tsx                Routing + providers
+  main.tsx               React-bootstrap
+  contexts/AuthContext.tsx
+  components/
+    auth/ProtectedRoute.tsx
+    blocks/              ~30 layout-byggstenar
+    dashboard/           Inloggad startvy (Hero/Countdown, Successes, EffectLogic)
+    ui/                  shadcn-primitives (kopierade in)
+    GlobalNav.tsx, Footer.tsx
+  content/               *.ts — allt innehåll som typade objekt
+    campaignTimeline.ts  Datum + video-url:er för nedräkning
+    harvestedSuccesses.ts Skördade framgångar
+  pages/
+    Home.tsx, Login.tsx, ResetPassword.tsx, NotFound.tsx
+    areas/               Områdes/uppdragssidor
+  hooks/, lib/, assets/, test/
+```
+
+## Ändra dashboard-innehåll
+
+| Vad ska ändras? | Fil |
+|-----------------|-----|
+| Datum för senaste/nästa stora aktivitet | `src/content/campaignTimeline.ts` |
+| Video-url:er och poster-bilder | `src/content/campaignTimeline.ts` |
+| Skördade framgångar (kort + text + metric) | `src/content/harvestedSuccesses.ts` |
+| Effektlogik-text | `src/content/harvestedSuccesses.ts` (`EFFECT_LOGIC`) |
+
+Lägg lokala videos i `public/videos/` (skapas vid behov). Filerna serveras direkt från rooten i produktion.
+
+## Material och strategiskt underlag
+
+Strategiska källor och mötesunderlag ligger utanför webappen i `C:\Scripts\jobb_detektiven\` (`arbetsbeskrivning_*.md`, `Material/`).

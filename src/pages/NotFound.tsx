@@ -1,22 +1,52 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 const NotFound = () => {
   const location = useLocation();
+  useDocumentTitle("Sidan finns inte", "Sidan kunde inte hittas.");
 
   useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+    if (import.meta.env.DEV) {
+      console.warn(
+        "404 — försökt nå okänd route:",
+        location.pathname,
+      );
+    }
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
-        </a>
-      </div>
+    <div className="flex min-h-screen items-center justify-center bg-background px-4 py-16">
+      <a href="#main-content" className="skip-link">
+        Hoppa till innehållet
+      </a>
+      <main
+        id="main-content"
+        className="w-full max-w-md animate-fade-up text-center"
+      >
+        <p className="mb-4 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+          Fotbollsnyttan Arbetsrum
+        </p>
+        <p className="mb-3 font-mono text-micro uppercase tracking-wider text-primary">
+          404
+        </p>
+        <h1 className="mb-4 font-serif text-4xl font-medium tracking-tight text-foreground">
+          Sidan finns inte
+        </h1>
+        <p className="mb-10 text-small text-muted-foreground">
+          Vi hittar inte <code className="font-mono">{location.pathname}</code>.
+          Länken kan vara gammal eller felstavad.
+        </p>
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        >
+          Tillbaka till startsidan
+        </Link>
+        <p className="mt-16 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+          GFF · Göteborgs Fotbollförbund
+        </p>
+      </main>
     </div>
   );
 };

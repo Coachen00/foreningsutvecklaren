@@ -327,7 +327,7 @@ def on_page(canvas, doc):
     canvas.drawString(
         20 * mm,
         285 * mm,
-        "INNEHÅLLSKARTA · ARBETSDETEKTIVEN · GFF",
+        "INNEHÅLLSKARTA · FOTBOLLSNYTTAN ARBETSRUM · GFF",
     )
     # Footer: page number
     canvas.drawRightString(
@@ -357,7 +357,7 @@ def main():
         rightMargin=20 * mm,
         topMargin=22 * mm,
         bottomMargin=18 * mm,
-        title="Innehållskarta — Arbetsdetektiven",
+        title="Innehållskarta — Fotbollsnyttan Arbetsrum",
         author="GFF",
     )
 

@@ -1,5 +1,5 @@
-import { useState, type FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState, type FormEvent } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -26,10 +26,16 @@ const translateAuthError = (message: string) => {
   return "Det gick inte att logga in. Försök igen.";
 };
 
+type LocationState = { from?: { pathname?: string } } | null;
+
 const Login = () => {
-  useDocumentTitle("Logga in", "Logga in på Arbetsdetektiven.");
+  useDocumentTitle("Logga in", "Logga in på Fotbollsnyttan Arbetsrum.");
   const navigate = useNavigate();
-  const { signIn, resetPassword } = useAuth();
+  const location = useLocation();
+  const { signIn, resetPassword, session, loading } = useAuth();
+
+  const fromState = (location.state as LocationState)?.from?.pathname;
+  const redirectTo = fromState && fromState !== "/login" ? fromState : "/";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,13 +45,19 @@ const Login = () => {
   const [resetEmail, setResetEmail] = useState("");
   const [resetting, setResetting] = useState(false);
 
+  useEffect(() => {
+    if (!loading && session) {
+      navigate(redirectTo, { replace: true });
+    }
+  }, [loading, session, navigate, redirectTo]);
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (submitting) return;
     setSubmitting(true);
     try {
       await signIn(email.trim(), password);
-      navigate("/", { replace: true });
+      navigate(redirectTo, { replace: true });
     } catch (err) {
       const msg = err instanceof Error ? err.message : "";
       toast.error(translateAuthError(msg));
@@ -75,18 +87,44 @@ const Login = () => {
     setResetOpen(true);
   };
 
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background">
+        <Loader2
+          className="h-5 w-5 animate-spin text-muted-foreground"
+          aria-label="Verifierar inloggning"
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4 py-16">
+      <a href="#main-content" className="skip-link">
+        Hoppa till innehållet
+      </a>
       <main
         id="main-content"
         className="w-full max-w-sm animate-fade-up text-center"
       >
         <p className="mb-4 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
-          Arbetsdetektiven
+          Fotbollsnyttan Arbetsrum
         </p>
-        <h1 className="mb-10 font-serif text-4xl font-medium tracking-tight text-foreground">
+        <h1 className="mb-6 font-serif text-4xl font-medium tracking-tight text-foreground">
           Logga in
         </h1>
+
+        {fromState && fromState !== "/" ? (
+          <p
+            role="status"
+            className="mb-8 rounded-md border border-border bg-card px-4 py-3 text-left text-sm text-muted-foreground"
+          >
+            Sidan kräver inloggning. Logga in så fortsätter du till{" "}
+            <code className="font-mono text-foreground">{fromState}</code>.
+          </p>
+        ) : (
+          <div className="mb-4" />
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-5 text-left" noValidate>
           <div className="space-y-2">

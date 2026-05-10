@@ -52,12 +52,15 @@ const ResetPassword = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4 py-16">
+      <a href="#main-content" className="skip-link">
+        Hoppa till innehållet
+      </a>
       <main
         id="main-content"
         className="w-full max-w-sm animate-fade-up text-center"
       >
         <p className="mb-4 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
-          Arbetsdetektiven
+          Fotbollsnyttan Arbetsrum
         </p>
         <h1 className="mb-10 font-serif text-4xl font-medium tracking-tight text-foreground">
           Nytt lösenord

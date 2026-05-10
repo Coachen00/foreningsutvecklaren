@@ -4,6 +4,7 @@ import { Menu, X, LogOut, LogIn } from "lucide-react";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 import { useAuth } from "@/contexts/AuthContext";
+import { prefetchRoute } from "@/lib/routePrefetch";
 import { cn } from "@/lib/utils";
 
 const isPathActive = (pathname: string, path: string) =>
@@ -52,7 +53,7 @@ const GlobalNav = () => {
               className="inline-flex h-[7px] w-[7px] rounded-full bg-primary transition-transform duration-300 group-hover:scale-[1.6]"
               aria-hidden="true"
             />
-            Arbetsdetektiven
+            Fotbollsnyttan Arbetsrum
           </Link>
 
           {/* Desktop nav */}
@@ -65,6 +66,8 @@ const GlobalNav = () => {
                     <NavLink
                       to={item.path}
                       aria-current={active ? "page" : undefined}
+                      onMouseEnter={() => prefetchRoute(item.path)}
+                      onFocus={() => prefetchRoute(item.path)}
                       className={cn(
                         "relative rounded-md px-3.5 py-2 text-[0.8125rem] font-medium transition-colors duration-150",
                         "text-foreground/55 hover:text-foreground hover:bg-muted",
@@ -85,6 +88,8 @@ const GlobalNav = () => {
                       ? "page"
                       : undefined
                   }
+                  onMouseEnter={() => prefetchRoute(SECONDARY_LINK.path)}
+                  onFocus={() => prefetchRoute(SECONDARY_LINK.path)}
                   className={cn(
                     "rounded-md px-3 py-2 text-[0.75rem] font-medium transition-colors duration-150",
                     "text-muted-foreground hover:text-foreground hover:bg-muted",
@@ -165,7 +170,7 @@ const GlobalNav = () => {
                   onClick={() => setMobileOpen(false)}
                 >
                   <span className="inline-flex h-[7px] w-[7px] rounded-full bg-primary" aria-hidden="true" />
-                  Arbetsdetektiven
+                  Fotbollsnyttan Arbetsrum
                 </Link>
               </div>
 
