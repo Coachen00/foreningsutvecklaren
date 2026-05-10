@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
@@ -45,11 +45,20 @@ const Login = () => {
   const [resetEmail, setResetEmail] = useState("");
   const [resetting, setResetting] = useState(false);
 
+  const emailRef = useRef<HTMLInputElement | null>(null);
+
   useEffect(() => {
     if (!loading && session) {
       navigate(redirectTo, { replace: true });
     }
   }, [loading, session, navigate, redirectTo]);
+
+  useEffect(() => {
+    // Auto-fokusera e-postfältet när formuläret är synligt
+    if (!loading && !session && emailRef.current) {
+      emailRef.current.focus();
+    }
+  }, [loading, session]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -133,6 +142,7 @@ const Login = () => {
             </Label>
             <Input
               id="email"
+              ref={emailRef}
               type="email"
               autoComplete="email"
               required

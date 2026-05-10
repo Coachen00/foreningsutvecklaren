@@ -109,10 +109,23 @@ const LoggedInHeroCountdown = () => {
           <source src={CAMPAIGN_TIMELINE.heroVideoUrl} type="video/mp4" />
         </video>
       ) : (
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground to-primary/40"
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0" aria-hidden="true">
+          {/* Bas-gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground to-primary/40" />
+          {/* Mjuka cirklar — ger djup utan video */}
+          <div className="absolute -top-20 -left-20 h-[60vmin] w-[60vmin] rounded-full bg-primary/20 blur-3xl" />
+          <div className="absolute -bottom-32 -right-32 h-[70vmin] w-[70vmin] rounded-full bg-primary/15 blur-3xl" />
+          <div className="absolute top-1/2 left-1/3 h-[40vmin] w-[40vmin] -translate-y-1/2 rounded-full bg-primary/10 blur-3xl" />
+          {/* Subtilt grain via radial-pattern */}
+          <div
+            className="absolute inset-0 opacity-[0.06]"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+              backgroundSize: "32px 32px",
+            }}
+          />
+        </div>
       )}
 
       {/* Mörk overlay för textläsbarhet */}
