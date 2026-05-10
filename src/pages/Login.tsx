@@ -29,7 +29,7 @@ const translateAuthError = (message: string) => {
 type LocationState = { from?: { pathname?: string } } | null;
 
 const Login = () => {
-  useDocumentTitle("Logga in", "Logga in på Fotbollsnyttan Arbetsrum.");
+  useDocumentTitle("Logga in", "Logga in på Föreningsutvecklaren.");
   const navigate = useNavigate();
   const location = useLocation();
   const { signIn, resetPassword, session, loading } = useAuth();
@@ -108,7 +108,7 @@ const Login = () => {
         className="w-full max-w-sm animate-fade-up text-center"
       >
         <p className="mb-4 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
-          Fotbollsnyttan Arbetsrum
+          Föreningsutvecklaren
         </p>
         <h1 className="mb-6 font-serif text-4xl font-medium tracking-tight text-foreground">
           Logga in

@@ -14,7 +14,7 @@ const Footer = () => {
                 aria-hidden="true"
               />
               <span className="text-sm font-semibold text-foreground">
-                Fotbollsnyttan Arbetsrum
+                Föreningsutvecklaren
               </span>
             </div>
             <p className="text-small text-muted-foreground leading-relaxed">
@@ -46,7 +46,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col gap-2 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-small text-muted-foreground">
-            Fotbollsnyttan Göteborg · Kommittén för föreningsutveckling (GFF)
+            Föreningsutvecklaren · Göteborgs Fotbollförbund
           </p>
           <p className="font-mono text-micro text-muted-foreground/60">
             © {new Date().getFullYear()}

@@ -44,7 +44,7 @@ export const AREAS: Area[] = [
       "Rollen som binder ihop föreningar, förbund och spelarutbildning i vardagen.",
     heroSupport:
       "Utvecklingsdialoger, utvecklarträffar, styrelseförankring och riktade observationer är stommen. Runt det ligger planering, utbildning, partnerarbete och administration som gör att arbetet håller över tid.",
-    metaTitle: "Uppdrag, styrning och administration – Fotbollsnyttan Arbetsrum",
+    metaTitle: "Uppdrag, styrning och administration – Föreningsutvecklaren",
     metaDescription:
       "Kärnuppdraget inom GFF: utvecklingsdialoger, utvecklarträffar, styrelseförankring och riktade observationer – plus arbetsmetod, styrning och ansvarskedjan mellan GFF, SvFF, RF-SISU, föreningar och skolor.",
     icon: Briefcase,
@@ -83,7 +83,7 @@ export const AREAS: Area[] = [
       "Hur en förening går från ad hoc till medveten organisation – och stannar där.",
     heroSupport:
       "Kvalitetsklubb, matchklimat och föreningsutveckling i förening är tre sammanhängande spår. Tillsammans bygger de struktur, ledarskap och trygg miljö som håller över säsonger.",
-    metaTitle: "Föreningsutveckling och kvalitetsarbete – Fotbollsnyttan Arbetsrum",
+    metaTitle: "Föreningsutveckling och kvalitetsarbete – Föreningsutvecklaren",
     metaDescription:
       "Kvalitetsklubb, matchklimat, FU i förening och handlingsplaner – arbetsverktyg, kvalitetsstruktur och uppföljning som stärker föreningarnas vardag.",
     icon: Compass,
@@ -112,7 +112,7 @@ export const AREAS: Area[] = [
       "Sammanhanget runt skola, kommun, förening och sociala satsningar.",
     heroSupport:
       "Det här är en kontextsida, inte ett fjärde huvuduppdrag. En bättre väg och FU Skola har egna sidor; här förklaras hur skola, förening, förbund och kommun hänger ihop.",
-    metaTitle: "Skola, samverkan och sociala satsningar – Fotbollsnyttan Arbetsrum",
+    metaTitle: "Skola, samverkan och sociala satsningar – Föreningsutvecklaren",
     metaDescription:
       "Fotboll i skolan, En bättre väg och samverkan mellan förening, skola, GFF, SvFF, RF-SISU och Göteborgs Stad – inkludering, tillgänglighet och föreningsstärkning i prioriterade områden.",
     icon: Building2,

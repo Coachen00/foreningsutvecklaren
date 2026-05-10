@@ -1,6 +1,6 @@
-# Fotbollsnyttan Arbetsrum
+# Föreningsutvecklaren
 
-Webbplats för Göteborgs Fotbollförbunds satsning *Fotbollsnyttan* — språkrör/föreningsutvecklare-rollen och de tre huvuduppdragen *En bättre väg*, *FU Skola* och *Föreningslyftet*.
+Webbplats för rollen *föreningsutvecklare / språkrör* vid Göteborgs Fotbollförbund — de tre huvuduppdragen *En bättre väg*, *FU Skola* och *Föreningslyftet* samt övrigt arbetsmaterial.
 
 Bygget är en Vite + React 18 + TypeScript-app med Tailwind/shadcn-ui och Supabase för autentisering.
 

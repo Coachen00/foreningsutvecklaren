@@ -1,4 +1,4 @@
-# Innehållskarta — fotbollsnyttan / Fotbollsnyttan Arbetsrum
+# Innehållskarta — Föreningsutvecklaren
 
 > Beskrivning av **vad sajten faktiskt säger** och **var allt hör hemma**. Skrivet för dig som ska lägga till nytt innehåll utan att bryta sajtens kategorisering. Avancerad nivå — kräver att du redan känner till GFF, Kvalitetsklubb och En bättre väg på sakkunnig nivå.
 

@@ -40,7 +40,7 @@ export const PRIMARY_ASSIGNMENTS: PrimaryAssignment[] = [
     description:
       "Arbete där resurser möter de platser som behöver dem mest. Förstudier, samverkansdokument och insatser som kopplar förening, kommun, förbund och civilsamhälle.",
     icon: Route,
-    metaTitle: "En bättre väg – Fotbollsnyttan Arbetsrum",
+    metaTitle: "En bättre väg – Föreningsutvecklaren",
     metaDescription:
       "En bättre väg är SvFF:s riktade satsning på fotboll i prioriterade områden. Förstudier, partnerskap och riktade insatser – lokalt förankrat i Göteborg.",
     relatedAreaSlug: "skola-samverkan",
@@ -55,7 +55,7 @@ export const PRIMARY_ASSIGNMENTS: PrimaryAssignment[] = [
     description:
       "Fotbollsutveckling i skolan är inte en extra aktivitet, utan en väg in i föreningslivet. Projektledning, onboarding, samverkan och uppföljning som håller ihop arbetet.",
     icon: School,
-    metaTitle: "FU Skola – Fotbollsnyttan Arbetsrum",
+    metaTitle: "FU Skola – Föreningsutvecklaren",
     metaDescription:
       "FU Skola kopplar skolans vardag till föreningslivet – onboarding av skolor och föreningar, samverkan med RF-SISU och stöd i uppföljning.",
     relatedAreaSlug: "skola-samverkan",
@@ -70,7 +70,7 @@ export const PRIMARY_ASSIGNMENTS: PrimaryAssignment[] = [
     description:
       "Kvalitetsklubb, matchklimat och riktad föreningsutveckling – tre sammanhängande arbetssätt för struktur, ledarskap och kultur som håller över säsonger.",
     icon: Compass,
-    metaTitle: "Föreningslyftet – Fotbollsnyttan Arbetsrum",
+    metaTitle: "Föreningslyftet – Föreningsutvecklaren",
     metaDescription:
       "Föreningslyftet samlar Kvalitetsklubb, matchklimat och FU i förening – långsiktig utveckling av struktur, ledarskap och kultur i Göteborgs föreningsliv.",
     relatedAreaSlug: "foreningsutveckling",

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const BASE = "Fotbollsnyttan Arbetsrum";
+const BASE = "Föreningsutvecklaren";
 
 const upsertMeta = (
   attr: "name" | "property",

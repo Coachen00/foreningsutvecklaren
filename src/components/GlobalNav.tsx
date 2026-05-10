@@ -53,7 +53,7 @@ const GlobalNav = () => {
               className="inline-flex h-[7px] w-[7px] rounded-full bg-primary transition-transform duration-300 group-hover:scale-[1.6]"
               aria-hidden="true"
             />
-            Fotbollsnyttan Arbetsrum
+            Föreningsutvecklaren
           </Link>
 
           {/* Desktop nav */}
@@ -170,7 +170,7 @@ const GlobalNav = () => {
                   onClick={() => setMobileOpen(false)}
                 >
                   <span className="inline-flex h-[7px] w-[7px] rounded-full bg-primary" aria-hidden="true" />
-                  Fotbollsnyttan Arbetsrum
+                  Föreningsutvecklaren
                 </Link>
               </div>
 

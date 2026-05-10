@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { renderHook } from "@testing-library/react";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
-const BASE = "Fotbollsnyttan Arbetsrum";
+const BASE = "Föreningsutvecklaren";
 
 const cleanupMeta = () => {
   for (const key of [

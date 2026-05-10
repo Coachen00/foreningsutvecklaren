@@ -25,7 +25,7 @@ const NotFound = () => {
         className="w-full max-w-md animate-fade-up text-center"
       >
         <p className="mb-4 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
-          Fotbollsnyttan Arbetsrum
+          Föreningsutvecklaren
         </p>
         <p className="mb-3 font-mono text-micro uppercase tracking-wider text-primary">
           404

@@ -43,7 +43,7 @@ class ErrorBoundary extends Component<Props, State> {
           role="alert"
         >
           <p className="mb-4 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
-            Fotbollsnyttan Arbetsrum
+            Föreningsutvecklaren
           </p>
           <h1 className="mb-4 font-serif text-3xl font-medium tracking-tight text-foreground">
             Något gick fel
