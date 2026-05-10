@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { COMMITTEES } from "@/content/committees";
 
 /**
- * COMMITTEES — Fotbollsnyttan i Göteborg och Föreningskommittén.
+ * COMMITTEES — Samhällsforumet och Föreningskommittén.
  *
  * Två kort som beskriver forum jag deltar i — inte egna toppkategorier,
  * men viktiga som korslänkar in i resten av sajten.

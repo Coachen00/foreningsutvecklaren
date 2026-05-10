@@ -28,7 +28,7 @@ export const UPPDRAG_HUB_ITEMS: UppdragHubItem[] = [
     label: "Kommittéer och forum",
     eyebrow: "Arbetsgrupper",
     description:
-      "Fotbollsnyttan i Göteborg och Föreningskommittén som forum för samhällsnytta, struktur och gemensamma utvecklingsfrågor.",
+      "Samhällsforumet och Föreningskommittén som forum för samhällsnytta, struktur och gemensamma utvecklingsfrågor.",
     href: "#kommitteer",
   },
   {

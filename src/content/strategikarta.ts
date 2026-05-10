@@ -76,7 +76,7 @@ export const STRATEGI_MAPPING: MappingRow[] = [
   {
     level: "Social effekt",
     national: "Synlig samhällsnytta",
-    local: "Fotbollsnyttan i Göteborg",
+    local: "Samhällsforumet i Göteborg",
     effect: "Starkare stadsdelar",
   },
   {

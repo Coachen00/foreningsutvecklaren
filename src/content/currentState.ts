@@ -92,7 +92,7 @@ export const CURRENT_STATE: CurrentState = {
       {
         label: "Kommittéarbete",
         description:
-          "Fotbollsnyttan i Göteborg och Föreningskommittén — samhällsberättelse och utvecklingsforum.",
+          "Samhällsforumet och Föreningskommittén — samhällsberättelse och utvecklingsforum.",
       },
       {
         label: "Kvalitet och trygghet",

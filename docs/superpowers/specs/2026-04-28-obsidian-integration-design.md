@@ -4,6 +4,11 @@
 **Status:** Implementerad
 **Författare:** Joel + Claude
 
+> **Historisk anmärkning (2026-05-10):** sajten har bytt namn till
+> *Föreningsutvecklaren* (foreningsutvecklaren.se). Texten nedan
+> använder det gamla namnet "Fotbollsnyttan" — bevarat för historisk
+> kontext kring själva integrationen.
+
 ## Bakgrund
 
 Fotbollsnyttan är en publik React/TypeScript-sajt som dokumenterar Joels uppdrag på GFF. Den lever fristående från Joels Obsidian-baserade andrahjärna i Ture_Sventon. Behovet: göra fotbollsnyttan-innehåll **frågbart via wiki-llm** utan att skapa dubbelarbete eller bryta mot vault-arkitekturen.

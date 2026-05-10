@@ -39,7 +39,7 @@ Nio sektioner:
 3. **Min arbetsbeskrivning i en mening** — editorial sammanfattning av hela rollen.
 4. **Huvuduppdrag** — En bättre väg som tydlig prioritet 1; FU Skola och Föreningslyftet direkt under.
 5. **Effektlogik för hela uppdraget** — Resurser → Aktiviteter → Output → Effekt.
-6. **Kommittéer och arbetsgrupper** — Fotbollsnyttan i Göteborg och Föreningskommittén som forum, inte toppnivåer.
+6. **Kommittéer och arbetsgrupper** — Samhällsforumet och Föreningskommittén som forum, inte toppnivåer.
 7. **Partners, finansiering och samhällsnytta** — fyrrollslogik: strategiska, operativa, finansierande, mottagare/genomförande.
 8. **Hur allt sorteras** — åtta regler för var nytt innehåll hör hemma.
 9. **Vidare till fördjupning** — länkar till Kvalitetsklubb, Jämställdhet & trygghet, Spelarutbildning, Skola & samverkan, Arbetsuppgifter och Partners.
@@ -197,7 +197,7 @@ Sektioner:
 | Utöver kärnuppdraget | Längre insatser (uppstart nya lag, spelarutbildningsplan, utbildningsstruktur). Länkar till Arbetsuppgifter och Spelarutbildning. |
 | Så här arbetar jag | 4-stegs arbetsmetod (närvaro → dialog → struktur → uppföljning). |
 | Från idé till årshjul | Kort orientering om verksamhetsidé → verksamhetsmål → verksamhetsplan → årshjul som föreningsutvecklingens styrkedja. Länkar till Föreningslyftet för fördjupning. |
-| Forum jag deltar i | Kommittéer och arbetsgrupper: Fotbollsnyttan i Göteborg och Föreningskommittén. |
+| Forum jag deltar i | Kommittéer och arbetsgrupper: Samhällsforumet och Föreningskommittén. |
 | Vem gör vad | Partner-strip + länk till Partners-sidan. |
 | Därför ser uppdraget ut så här | ImpactBlock. |
 
@@ -375,11 +375,11 @@ Sex tematiska kategorier som alla insatser kan sorteras under. Varje tema mappar
 - **Som projektstöd/finansiering:** ej egen sida ännu — kan placeras under Föreningslyftet om volymen växer.
 
 ### F. Inkludering och samhällsnytta
-*En bättre väg, Fotbollsnyttan, skolor, fritidsgårdar, spontanfotboll, flickfotboll i prioriterade områden, integrationssammandrag, sociala effekter, områdestrygghet.*
+*En bättre väg, samhällsnyttan, skolor, fritidsgårdar, spontanfotboll, flickfotboll i prioriterade områden, integrationssammandrag, sociala effekter, områdestrygghet.*
 - **Riktad satsning:** En bättre väg
 - **Värdegrund som tema:** Jämställdhet & trygghet
 - **Skola–förening-bron:** FU Skola
-- **Som narrativ helhet:** Hem (Ekosystemet — Fotbollsnyttan-noden)
+- **Som narrativ helhet:** Hem (Ekosystemet — Samhällsnyttan-noden)
 
 ---
 

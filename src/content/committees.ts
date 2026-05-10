@@ -3,8 +3,8 @@
  *
  * Två forum jag deltar i — beskrivs som stöd, inte egna toppkategorier.
  *
- * Fotbollsnyttan i Göteborg = samhällsberättelsen och samverkansarenan.
- * Föreningskommittén       = forum för gemensamma utvecklingsfrågor.
+ * Samhällsforumet     = samhällsberättelsen och samverkansarenan.
+ * Föreningskommittén  = forum för gemensamma utvecklingsfrågor.
  */
 
 export interface CommitteeCrossLink {
@@ -13,7 +13,7 @@ export interface CommitteeCrossLink {
 }
 
 export interface Committee {
-  id: "fotbollsnyttan" | "foreningskommitten";
+  id: "samhallsforum" | "foreningskommitten";
   name: string;
   role: string;
   description: string;
@@ -23,13 +23,13 @@ export interface Committee {
 
 export const COMMITTEES: Committee[] = [
   {
-    id: "fotbollsnyttan",
-    name: "Fotbollsnyttan i Göteborg",
+    id: "samhallsforum",
+    name: "Samhällsforumet",
     role: "Samhällsberättelsen och samverkansarenan",
     description:
-      "Plattformen som visar vad fotbollen ger Göteborg — i indikatorer, sociala effekter och områdestrygghet. Knyter samman förbund, föreningar, partners och offentliga aktörer kring CSR, Starkare IF och sociala insatser.",
+      "Forumet som visar vad fotbollen ger Göteborg — i indikatorer, sociala effekter och områdestrygghet. Knyter samman förbund, föreningar, partners och offentliga aktörer kring CSR, Starkare IF och sociala insatser.",
     myParticipation:
-      "Jag deltar i Fotbollsnyttan i Göteborg och ansvarar för arbetsgruppen partners.",
+      "Jag deltar i samhällsforumet och ansvarar för arbetsgruppen partners.",
     crossLinks: [
       { label: "En bättre väg", href: "/en-battre-vag" },
       { label: "Partners", href: "/uppdrag/partners" },

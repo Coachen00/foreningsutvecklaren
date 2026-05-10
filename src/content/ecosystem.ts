@@ -62,11 +62,11 @@ export const ECOSYSTEM_NODES: EcosystemNode[] = [
     href: "/foreningsutveckling",
   },
   {
-    id: "fotbollsnyttan",
-    name: "Fotbollsnyttan",
+    id: "samhallsnyttan",
+    name: "Samhällsnyttan",
     role: "Samhällsberättelsen",
     description:
-      "Plattformen som visar vad fotbollen ger Göteborg — i indikatorer, sociala effekter och områdestrygghet.",
+      "Det som visar vad fotbollen ger Göteborg — indikatorer, sociala effekter och områdestrygghet.",
     icon: BookOpen,
   },
   {
