@@ -33,28 +33,37 @@ VITE_SUPABASE_ANON_KEY=<anon-key>
 
 ## Drift / produktion
 
-Sajten **måste** levereras över HTTPS. Webbläsaren markerar annars som *Inte säker* och `Strict-Transport-Security`-headern går inte att tillämpa.
+Sajten levereras nu live på **`https://foreningsutvecklaren.se`** via GitHub Pages med custom domain. HTTPS är enforced — HTTP-trafik 301-redirectas automatiskt.
 
-### Säkerhetsheaders
+### Säkerhetsheaders — vad fungerar var
 
-`public/_headers` levereras med plattformar som tolkar Netlify-formatet (Netlify, Cloudflare Pages). För andra plattformar (Vercel, statisk Nginx, IIS) — replikera samma policy via plattformens egen mekanism:
+GitHub Pages **stöder inte** `public/_headers` (Netlify-format). Vi har istället en hybrid:
 
-| Header | Värde |
-|--------|-------|
-| `Strict-Transport-Security` | `max-age=63072000; includeSubDomains; preload` |
-| `X-Content-Type-Options` | `nosniff` |
-| `Referrer-Policy` | `strict-origin-when-cross-origin` |
-| `Permissions-Policy` | `camera=(), microphone=(), geolocation=(), interest-cohort=()` |
-| `X-Frame-Options` | `SAMEORIGIN` |
-| `Content-Security-Policy` | Se `public/_headers` |
+| Header / direktiv | GitHub Pages (nu) | Netlify / Cloudflare Pages (vid flytt) |
+|-------------------|-------------------|---------------------------------------|
+| HTTPS + 301 från HTTP | ✅ via `https_enforced=true` på Pages-konfig | ✅ |
+| Content-Security-Policy | ✅ via `<meta http-equiv>` (injiceras vid `vite build`) | ✅ via `_headers` |
+| Strict-Transport-Security | ❌ (kräver HTTP-header) | ✅ via `_headers` |
+| X-Content-Type-Options, X-Frame-Options, Permissions-Policy | ❌ | ✅ via `_headers` |
+| Aggressiv cache på `/assets/*` | ❌ (default 600s) | ✅ via `_headers` |
+| SPA-fallback `* → /index.html` | ✅ via Pages SPA-stöd / 404.html | ✅ via `_redirects` |
 
-### HTTP → HTTPS redirect
+`public/_headers` och `public/_redirects` ligger kvar — det blir noll-arbete vid flytt till Netlify eller Cloudflare Pages och ger då full säkerhets-policy.
 
-Konfigureras hos hostingen (Netlify/Cloudflare/Vercel gör det automatiskt vid HTTPS-cert). På `foreningsutvecklaren.se`: säkerställ att DNS pekar mot HTTPS-host, att SSL-cert är aktivt och att HTTP-trafik 301-redirectas till HTTPS.
+### CSP
 
-### SPA-routing
+Policyn injiceras i `index.html` vid `vite build` via en custom plugin i `vite.config.ts`. Direktiven matchar det som finns i `public/_headers`. Källkoden för policyn ligger i `vite.config.ts` (`PROD_CSP`).
 
-`public/_redirects` skickar alla okända paths till `index.html` så client-side-routing fungerar på statisk hosting.
+### För hårdare säkerhet → flytt till Cloudflare Pages
+
+Snabbsteg om du vill ha HSTS + alla headers:
+
+1. Logga in på Cloudflare Pages, koppla GitHub-repot.
+2. Build command: `bun run build`. Output: `dist`. Env: kopiera från `.env.local`.
+3. Lägg till custom domain `foreningsutvecklaren.se`.
+4. CFP läser `_headers` och `_redirects` automatiskt.
+
+Inget behöver ändras i koden — allt är redan förberett.
 
 ## Struktur
 

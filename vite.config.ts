@@ -1,6 +1,43 @@
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+
+/**
+ * Lägger in CSP via <meta> i prod-bygget.
+ *
+ * GitHub Pages stöder INTE `public/_headers` (Netlify-format). Det är
+ * varför vi måste injicera CSP via meta-tag istället. HSTS, X-Frame-Options
+ * m.fl. går inte via meta — de tillkommer först om sajten flyttas till
+ * Netlify/Cloudflare Pages där `_headers`-filen tolkas.
+ *
+ * Direktiven här ska matcha det som finns i `public/_headers` så att en
+ * framtida flytt blir noll-arbete.
+ */
+const PROD_CSP = [
+  "default-src 'self'",
+  "script-src 'self'",
+  // 'unsafe-inline' krävs för Tailwind-genererade inline-styles via React
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com data:",
+  "img-src 'self' data:",
+  "media-src 'self'",
+  "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
+  "frame-ancestors 'self'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
+
+const injectCspMeta = (): Plugin => ({
+  name: "inject-csp-meta",
+  apply: "build",
+  transformIndexHtml(html) {
+    return html.replace(
+      '<meta name="referrer"',
+      `<meta http-equiv="Content-Security-Policy" content="${PROD_CSP}" />\n    <meta name="referrer"`,
+    );
+  },
+});
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,7 +48,7 @@ export default defineConfig({
       overlay: false,
     },
   },
-  plugins: [react()],
+  plugins: [react(), injectCspMeta()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
