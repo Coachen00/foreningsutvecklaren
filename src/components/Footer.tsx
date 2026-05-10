@@ -49,7 +49,9 @@ const Footer = () => {
             Föreningsutvecklaren · Göteborgs Fotbollförbund
           </p>
           <p className="font-mono text-micro text-muted-foreground/60">
-            © {new Date().getFullYear()}
+            Senast uppdaterad{" "}
+            <time dateTime={__BUILD_DATE__}>{__BUILD_DATE__}</time> · ©{" "}
+            {new Date().getFullYear()}
           </p>
         </div>
       </div>

@@ -65,6 +65,9 @@ export default defineConfig({
       overlay: false,
     },
   },
+  define: {
+    __BUILD_DATE__: JSON.stringify(new Date().toISOString().slice(0, 10)),
+  },
   plugins: [react(), injectCspMeta(), spa404Fallback()],
   resolve: {
     alias: {
