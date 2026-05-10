@@ -1,0 +1,19 @@
+{
+  "name": "Föreningsutvecklaren",
+  "short_name": "Föreningsutvecklaren",
+  "description": "Webbplats för rollen föreningsutvecklare/språkrör vid Göteborgs Fotbollförbund.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f5f2",
+  "theme_color": "#0e7c4e",
+  "lang": "sv-SE",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/og-image.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
