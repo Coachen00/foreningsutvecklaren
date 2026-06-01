@@ -23,12 +23,15 @@ import { EN_BATTRE_VAG_ROLES, SPRAKROR_DO_DONT } from "@/content/roles";
 import { EN_BATTRE_VAG_GOALS } from "@/content/goals";
 import { EN_BATTRE_VAG_CRITERIA } from "@/content/criteria";
 import { EN_BATTRE_VAG_METRICS } from "@/content/metrics";
+import { LOCAL_CASES } from "@/content/localCases";
+import { TARGET_AREAS } from "@/content/targetAreas";
 import type { TocSection } from "@/components/blocks/TableOfContents";
 
 const SECTIONS: TocSection[] = [
   { id: "satsningen", title: "Satsningen", level: 2 },
   { id: "mal", title: "Centrala mål", level: 2 },
-  { id: "girls-fc", title: "Girls FC — flickfotboll i prioriterade områden", level: 2 },
+  { id: "malomraden", title: "Sex målområden — hela stan på samma plan", level: 2 },
+  { id: "lokala-case", title: "Lokala case", level: 2 },
   { id: "roller", title: "Två roller", level: 2 },
   { id: "arbetsdelar", title: "Fem arbetsdelar", level: 2 },
   { id: "kriterier", title: "Kriterier för att delta", level: 2 },
@@ -125,25 +128,91 @@ const EnBattreVag = () => {
             </div>
           </ExpandableBlock>
 
-          {/* GIRLS FC — case under En bättre väg */}
+          {/* SEX MÅLOMRÅDEN — Hela stan på samma plan */}
           <ExpandableBlock
-            id="girls-fc"
-            kicker="Case"
-            title="Girls FC — flickfotboll i prioriterade områden"
-            defaultOpen
+            id="malomraden"
+            kicker="Hela stan på samma plan"
+            title="Sex målområden"
+            defaultOpen={false}
+            wide
             className="animate-fade-up animate-delay-200"
           >
             <p>
-              Girls FC visar hur riktad resursförstärkning kan öppna fotbollen
-              för flickor som tidigare stått utanför föreningsidrotten.
+              Vid mötet i november 2025 formulerades en gemensam idé: Göteborg
+              har stora skillnader i barns och ungas livsvillkor, och fotbollen
+              kan vara en folkrörelse som minskar avståndet mellan stadsdelar.
+              För att göra det mätbart samlades arbetet i sex målområden.
             </p>
-            <p className="mt-4">
-              Snart 80 flickor som aldrig spelat fotboll tidigare deltar i
-              verksamheten. Siffran är inte huvudberättelsen — beviset är att
-              riktad satsning på flickfotboll i prioriterade områden faktiskt
-              översätts till nya spelare, nya ledare och nya gemenskaper.
+            <ol
+              className="mt-6 grid gap-x-6 gap-y-5 sm:grid-cols-2 not-prose"
+              role="list"
+            >
+              {TARGET_AREAS.map((area) => (
+                <li key={area.number}>
+                  <p className="text-sm font-semibold text-foreground leading-tight">
+                    {area.number}. {area.title}
+                  </p>
+                  <p className="mt-1 text-small text-muted-foreground leading-relaxed">
+                    {area.core}
+                  </p>
+                  <p className="mt-1 text-small text-muted-foreground leading-relaxed">
+                    <span className="font-medium text-foreground/80">
+                      Indikatorer:
+                    </span>{" "}
+                    {area.indicators}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </ExpandableBlock>
+
+          {/* LOKALA CASE — konkreta föreningsexempel under En bättre väg */}
+          <ExpandableBlock
+            id="lokala-case"
+            kicker="Case"
+            title="Lokala case"
+            defaultOpen
+            wide
+            className="animate-fade-up animate-delay-200"
+          >
+            <p>
+              Tre lokala exempel visar samma mönster: behovet är inte bara
+              aktivitetstid, utan ledare, struktur, skolrelationer, flickfotboll
+              och vägar vidare in i föreningen.
             </p>
-            <p className="mt-4 text-small text-muted-foreground">
+            <div className="mt-6 grid gap-8 not-prose">
+              {LOCAL_CASES.map((c) => (
+                <article key={c.id}>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    {c.kicker}
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-foreground leading-tight">
+                    {c.name}
+                  </p>
+                  <p className="mt-2 text-small text-muted-foreground leading-relaxed">
+                    {c.summary}
+                  </p>
+                  <ul className="mt-3 space-y-1.5" role="list">
+                    {c.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex gap-2 text-small text-muted-foreground leading-relaxed"
+                      >
+                        <span aria-hidden className="text-foreground/40">
+                          —
+                        </span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-3 text-small text-foreground/80 leading-relaxed">
+                    <span className="font-medium">Strategisk betydelse:</span>{" "}
+                    {c.significance}
+                  </p>
+                </article>
+              ))}
+            </div>
+            <p className="mt-6 text-small text-muted-foreground">
               Korslänk: när fokus är flickfotboll, inkludering eller trygg miljö
               hör frågan hemma både här och under Jämställdhet &amp; trygghet —
               se vidare läsning i sidopanelen.

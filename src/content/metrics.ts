@@ -29,6 +29,16 @@ export const EN_BATTRE_VAG_METRICS: MetricList = {
       ],
     },
     {
+      label: "Systemnivå och områdesnytta",
+      items: [
+        "Antal deltagare per stadsdel och andel kostnadsfria aktiviteter",
+        "Flicklag per stadsdel — skillnader mellan flick- och pojklag",
+        "Föreningsekonomi och anläggningstillgång i prioriterade områden",
+        "Övergångar från skola till förening",
+        "Policybeslut och investeringar som stärker prioriterade områden",
+      ],
+    },
+    {
       label: "Kvalitativa lärdomar",
       items: [
         "Hur arbetet har blivit mindre personberoende",
