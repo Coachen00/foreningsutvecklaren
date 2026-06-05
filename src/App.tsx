@@ -18,6 +18,7 @@ const SkolaSamverkan = lazy(() => import("./pages/areas/SkolaSamverkan"));
 const Arbetsuppgifter = lazy(() => import("./pages/areas/Arbetsuppgifter"));
 const Partners = lazy(() => import("./pages/areas/Partners"));
 const Kvalitetsklubb = lazy(() => import("./pages/areas/Kvalitetsklubb"));
+const Begrepp = lazy(() => import("./pages/areas/Begrepp"));
 const FUiSkola = lazy(() => import("./pages/areas/FUiSkola"));
 const EnBattreVag = lazy(() => import("./pages/areas/EnBattreVag"));
 const JamstalldhetTrygghet = lazy(() => import("./pages/areas/JamstalldhetTrygghet"));
@@ -91,6 +92,10 @@ const App = () => (
               <Route
                 path="/foreningsutveckling/kvalitetsklubb"
                 element={<Protected><Kvalitetsklubb /></Protected>}
+              />
+              <Route
+                path="/foreningsutveckling/begrepp"
+                element={<Protected><Begrepp /></Protected>}
               />
               <Route
                 path="/foreningsutveckling/jamstalldhet-och-trygghet"

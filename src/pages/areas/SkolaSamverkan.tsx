@@ -5,8 +5,9 @@ import Footer from "@/components/Footer";
 import AreaShell from "@/components/blocks/AreaShell";
 import SectionBlock from "@/components/blocks/SectionBlock";
 import PartnerStrip from "@/components/blocks/PartnerStrip";
+import NextPageCTA from "@/components/blocks/NextPageCTA";
 import { getArea } from "@/content/areas";
-import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
+import { PRIMARY_ASSIGNMENTS, getPrimaryAssignment } from "@/content/primaryAssignments";
 
 /**
  * Sekundär kontextsida. De två primära uppdragen En bättre väg och FU Skola
@@ -18,6 +19,7 @@ const SkolaSamverkan = () => {
   const relevant = PRIMARY_ASSIGNMENTS.filter(
     (p) => p.id === "en-battre-vag" || p.id === "fu-skola",
   );
+  const next = getPrimaryAssignment("en-battre-vag");
 
   return (
     <div className="min-h-screen bg-background">
@@ -99,6 +101,7 @@ const SkolaSamverkan = () => {
           />
         </SectionBlock>
       </AreaShell>
+      <NextPageCTA next={next} label="Första huvuduppdraget" />
       <Footer />
     </div>
   );

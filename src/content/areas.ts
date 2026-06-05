@@ -98,6 +98,16 @@ export const AREAS: Area[] = [
         heroLead:
           "Ett sammanhållet arbetssätt för föreningar som vill utvecklas medvetet – inte bara växa.",
       },
+      {
+        slug: "begrepp",
+        path: "/foreningsutveckling/begrepp",
+        title: "Begrepp",
+        navLabel: "Begrepp",
+        metaDescription:
+          "Ordlista över centrala begrepp i en idrottsförening: bokföring, löpande bokföring, budget, bokslut, revision, verksamhetsplanering, stadgar, årsmöte och de vanligaste bidragen att söka.",
+        heroLead:
+          "En kort ordlista för förtroendevalda och ledare: ekonomi, planering, regler och bidrag i en idrottsförening – förklarat utan krångel.",
+      },
     ],
   },
   {

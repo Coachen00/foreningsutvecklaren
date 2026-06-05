@@ -18,6 +18,7 @@ const ResetPassword = () => {
   const [confirm, setConfirm] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [linkValid, setLinkValid] = useState<boolean | null>(null);
+  const [formError, setFormError] = useState<string | null>(null);
 
   useEffect(() => {
     if (loading) return;
@@ -27,13 +28,18 @@ const ResetPassword = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (submitting) return;
+    setFormError(null);
 
     if (password.length < 8) {
-      toast.error("Lösenordet behöver vara minst 8 tecken.");
+      const m = "Lösenordet behöver vara minst 8 tecken.";
+      setFormError(m);
+      toast.error(m);
       return;
     }
     if (password !== confirm) {
-      toast.error("Lösenorden matchar inte.");
+      const m = "Lösenorden matchar inte.";
+      setFormError(m);
+      toast.error(m);
       return;
     }
 
@@ -43,8 +49,11 @@ const ResetPassword = () => {
       if (error) throw error;
       toast.success("Lösenordet är uppdaterat.");
       navigate("/", { replace: true });
-    } catch {
-      toast.error("Det gick inte att uppdatera lösenordet. Försök igen.");
+    } catch (err) {
+      if (import.meta.env.DEV) console.error("Lösenordsbyte misslyckades:", err);
+      const m = "Det gick inte att uppdatera lösenordet. Försök igen.";
+      setFormError(m);
+      toast.error(m);
     } finally {
       setSubmitting(false);
     }
@@ -86,6 +95,15 @@ const ResetPassword = () => {
             className="space-y-5 text-left"
             noValidate
           >
+            {formError && (
+              <p
+                id="reset-error"
+                role="alert"
+                className="rounded-md border border-destructive/30 bg-destructive/10 px-3 py-2 text-sm text-destructive"
+              >
+                {formError}
+              </p>
+            )}
             <div className="space-y-2">
               <Label htmlFor="new-password" className="text-sm font-medium">
                 Nytt lösenord
@@ -95,6 +113,8 @@ const ResetPassword = () => {
                 type="password"
                 autoComplete="new-password"
                 required
+                aria-invalid={formError ? true : undefined}
+                aria-describedby={formError ? "reset-error" : undefined}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 disabled={submitting || loading}
@@ -110,6 +130,8 @@ const ResetPassword = () => {
                 type="password"
                 autoComplete="new-password"
                 required
+                aria-invalid={formError ? true : undefined}
+                aria-describedby={formError ? "reset-error" : undefined}
                 value={confirm}
                 onChange={(e) => setConfirm(e.target.value)}
                 disabled={submitting || loading}

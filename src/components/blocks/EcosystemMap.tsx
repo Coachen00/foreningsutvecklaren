@@ -53,7 +53,12 @@ const EcosystemMap = ({ className, showMetaphor = true }: Props) => (
 const NodeCard = ({ node }: { node: EcosystemNode }) => {
   const Icon = node.icon;
   const inner = (
-    <article className="group flex h-full flex-col bg-card p-7 transition-colors duration-150 hover:bg-primary-subtle/40">
+    <article
+      className={cn(
+        "group flex h-full flex-col bg-card p-7 transition-colors duration-150",
+        node.href && "hover:bg-primary-subtle/40",
+      )}
+    >
       <header className="flex items-center justify-between">
         <span
           aria-hidden="true"
