@@ -108,6 +108,16 @@ export const AREAS: Area[] = [
         heroLead:
           "En kort ordlista för förtroendevalda och ledare: ekonomi, planering, regler och bidrag i en idrottsförening – förklarat utan krångel.",
       },
+      {
+        slug: "case",
+        path: "/foreningsutveckling/case",
+        title: "Case",
+        navLabel: "Case",
+        metaDescription:
+          "Fem nivåanpassade övningscase i föreningsutveckling – registerutdrag, kommunikation, ekonomi, anläggning och drop-out – med utmanande fråga, vägledning och effektlogik.",
+        heroLead:
+          "Fem case att träna på, från enkel struktur till komplext föreningssystem. Tänk själv först – fäll sedan ut vägledningen.",
+      },
     ],
   },
   {

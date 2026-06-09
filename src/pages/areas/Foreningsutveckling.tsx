@@ -68,6 +68,11 @@ const Foreningslyftet = () => {
                   hint: "Ekonomi, planering, regler och bidrag – kort förklarat",
                 },
                 {
+                  label: "Case att träna på",
+                  href: "/foreningsutveckling/case",
+                  hint: "Fem nivåanpassade övningscase med vägledning",
+                },
+                {
                   label: "Jämställdhet & trygghet",
                   href: "/foreningsutveckling/jamstalldhet-och-trygghet",
                   hint: "Värdegrund som genomsyrar arbetet",
