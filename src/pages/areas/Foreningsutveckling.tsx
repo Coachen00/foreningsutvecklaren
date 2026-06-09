@@ -63,6 +63,16 @@ const Foreningslyftet = () => {
                   hint: "Tolv arbetsdelar, struktur och kvalitetsstämpel",
                 },
                 {
+                  label: "Begrepp (ordlista)",
+                  href: "/foreningsutveckling/begrepp",
+                  hint: "Ekonomi, planering, regler och bidrag – kort förklarat",
+                },
+                {
+                  label: "Case att träna på",
+                  href: "/foreningsutveckling/case",
+                  hint: "Fem nivåanpassade övningscase med vägledning",
+                },
+                {
                   label: "Jämställdhet & trygghet",
                   href: "/foreningsutveckling/jamstalldhet-och-trygghet",
                   hint: "Värdegrund som genomsyrar arbetet",

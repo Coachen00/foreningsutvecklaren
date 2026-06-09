@@ -242,3 +242,52 @@ export const METHOD_RHYTHM: MethodRhythm[] = [
     weight: "high",
   },
 ];
+
+export interface WorkMethodStep {
+  title: string;
+  description: string;
+}
+
+/** Steg i WorkMethodBlock på /uppdrag ("Så här arbetar jag"). */
+export const UPPDRAG_METHOD_STEPS: WorkMethodStep[] = [
+  {
+    title: "Närvaro",
+    description:
+      "Arbetet börjar i rätt forum: med föreningens utvecklare, styrelsefunktioner och vid behov i verksamhetsmiljön.",
+  },
+  {
+    title: "Dialog",
+    description:
+      "Samtal som bygger förtroende, sätter riktning och gör det möjligt att stötta föreningen på riktigt.",
+  },
+  {
+    title: "Struktur",
+    description: "Från observation till plan: roller, rytm och uppföljning.",
+  },
+  {
+    title: "Uppföljning",
+    description: "Återkoppling, anpassning och långsiktighet – utveckling som håller.",
+  },
+];
+
+/** Steg i WorkMethodBlock på /uppdrag/arbetsuppgifter ("Hur varje insats rullar"). */
+export const ARBETSUPPGIFTER_METHOD_STEPS: WorkMethodStep[] = [
+  {
+    title: "Planering",
+    description:
+      "Vilka utvecklingsdialoger, styrelseavstämningar och observationer ligger i kalendern – och varför.",
+  },
+  {
+    title: "Genomförande",
+    description:
+      "Närvaro i rätt forum: med föreningens utvecklare, styrelsefunktioner eller på plats i verksamheten.",
+  },
+  {
+    title: "Dokumentation",
+    description: "Kort notering i systemet så att det går att följa över tid.",
+  },
+  {
+    title: "Reflektion",
+    description: "Vad såg vi, vad tar vi med oss, vad justerar vi?",
+  },
+];

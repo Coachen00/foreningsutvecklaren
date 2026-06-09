@@ -98,6 +98,26 @@ export const AREAS: Area[] = [
         heroLead:
           "Ett sammanhållet arbetssätt för föreningar som vill utvecklas medvetet – inte bara växa.",
       },
+      {
+        slug: "begrepp",
+        path: "/foreningsutveckling/begrepp",
+        title: "Begrepp",
+        navLabel: "Begrepp",
+        metaDescription:
+          "Ordlista över centrala begrepp i en idrottsförening: bokföring, löpande bokföring, budget, bokslut, revision, verksamhetsplanering, stadgar, årsmöte och de vanligaste bidragen att söka.",
+        heroLead:
+          "En kort ordlista för förtroendevalda och ledare: ekonomi, planering, regler och bidrag i en idrottsförening – förklarat utan krångel.",
+      },
+      {
+        slug: "case",
+        path: "/foreningsutveckling/case",
+        title: "Case",
+        navLabel: "Case",
+        metaDescription:
+          "Fem nivåanpassade övningscase i föreningsutveckling – registerutdrag, kommunikation, ekonomi, anläggning och drop-out – med utmanande fråga, vägledning och effektlogik.",
+        heroLead:
+          "Fem case att träna på, från enkel struktur till komplext föreningssystem. Tänk själv först – fäll sedan ut vägledningen.",
+      },
     ],
   },
   {

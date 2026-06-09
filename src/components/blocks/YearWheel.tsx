@@ -251,10 +251,12 @@ const HjulView = ({ months, active, activeIdx, onSelect }: SubProps) => {
                     }
                     stroke="hsl(var(--background))"
                     strokeWidth={2}
-                    className="cursor-pointer transition-opacity hover:opacity-80"
+                    className="cursor-pointer transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:opacity-90"
                     onClick={() => onSelect(i)}
                     role="button"
                     tabIndex={0}
+                    aria-label={`${m.name} — ${m.focus}`}
+                    aria-pressed={selected}
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
                         e.preventDefault();

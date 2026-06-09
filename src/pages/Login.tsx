@@ -15,16 +15,7 @@ import {
 } from "@/components/ui/dialog";
 import { useAuth } from "@/contexts/AuthContext";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
-
-const translateAuthError = (message: string) => {
-  const m = message.toLowerCase();
-  if (m.includes("invalid login")) return "Fel e-post eller lösenord.";
-  if (m.includes("email not confirmed"))
-    return "E-postadressen är inte bekräftad ännu.";
-  if (m.includes("rate limit") || m.includes("too many"))
-    return "För många försök. Vänta en stund och försök igen.";
-  return "Det gick inte att logga in. Försök igen.";
-};
+import { translateAuthError } from "@/lib/authErrors";
 
 type LocationState = { from?: { pathname?: string } } | null;
 
@@ -35,11 +26,19 @@ const Login = () => {
   const { signIn, resetPassword, session, loading } = useAuth();
 
   const fromState = (location.state as LocationState)?.from?.pathname;
-  const redirectTo = fromState && fromState !== "/login" ? fromState : "/";
+  // Open-redirect-skydd: acceptera bara interna paths ("/x"), aldrig "//evil.com" eller "/\".
+  const isSafeInternalPath =
+    typeof fromState === "string" &&
+    fromState.startsWith("/") &&
+    !fromState.startsWith("//") &&
+    !fromState.startsWith("/\\");
+  const redirectTo =
+    isSafeInternalPath && fromState !== "/login" ? fromState : "/";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
 
   const [resetOpen, setResetOpen] = useState(false);
   const [resetEmail, setResetEmail] = useState("");
@@ -64,12 +63,16 @@ const Login = () => {
     e.preventDefault();
     if (submitting) return;
     setSubmitting(true);
+    setAuthError(null);
     try {
       await signIn(email.trim(), password);
       navigate(redirectTo, { replace: true });
     } catch (err) {
+      if (import.meta.env.DEV) console.error("Inloggning misslyckades:", err);
       const msg = err instanceof Error ? err.message : "";
-      toast.error(translateAuthError(msg));
+      const friendly = translateAuthError(msg);
+      setAuthError(friendly);
+      toast.error(friendly);
     } finally {
       setSubmitting(false);
     }
@@ -84,7 +87,8 @@ const Login = () => {
       toast.success("Återställningslänk skickad. Kolla din inkorg.");
       setResetOpen(false);
       setResetEmail("");
-    } catch {
+    } catch (err) {
+      if (import.meta.env.DEV) console.error("Återställning misslyckades:", err);
       toast.error("Det gick inte att skicka återställning. Försök igen.");
     } finally {
       setResetting(false);
@@ -136,6 +140,15 @@ const Login = () => {
         )}
 
         <form onSubmit={handleSubmit} className="space-y-5 text-left" noValidate>
+          {authError && (
+            <p
+              id="login-error"
+              role="alert"
+              className="rounded-md border border-destructive/30 bg-destructive/10 px-3 py-2 text-sm text-destructive"
+            >
+              {authError}
+            </p>
+          )}
           <div className="space-y-2">
             <Label htmlFor="email" className="text-sm font-medium">
               E-post
@@ -146,6 +159,8 @@ const Login = () => {
               type="email"
               autoComplete="email"
               required
+              aria-invalid={authError ? true : undefined}
+              aria-describedby={authError ? "login-error" : undefined}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={submitting}
@@ -161,6 +176,8 @@ const Login = () => {
               type="password"
               autoComplete="current-password"
               required
+              aria-invalid={authError ? true : undefined}
+              aria-describedby={authError ? "login-error" : undefined}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               disabled={submitting}

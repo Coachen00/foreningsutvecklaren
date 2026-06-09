@@ -12,21 +12,7 @@ import {
   OCCASIONAL_ACTIVITIES,
   EXTENDED_ACTIVITIES,
 } from "@/content/activities";
-
-const METHOD_STEPS = [
-  {
-    title: "Planering",
-    description:
-      "Vilka utvecklingsdialoger, styrelseavstämningar och observationer ligger i kalendern – och varför.",
-  },
-  {
-    title: "Genomförande",
-    description:
-      "Närvaro i rätt forum: med föreningens utvecklare, styrelsefunktioner eller på plats i verksamheten.",
-  },
-  { title: "Dokumentation", description: "Kort notering i systemet så att det går att följa över tid." },
-  { title: "Reflektion", description: "Vad såg vi, vad tar vi med oss, vad justerar vi?" },
-];
+import { ARBETSUPPGIFTER_METHOD_STEPS } from "@/content/method";
 
 const Arbetsuppgifter = () => {
   const area = getArea("uppdrag");
@@ -68,7 +54,7 @@ const Arbetsuppgifter = () => {
           title="Hur varje insats rullar"
           lead="Samma arbetsrytm oavsett om det är en utvecklingsdialog, styrelseförankring eller spelarutbildningsprocess."
         >
-          <WorkMethodBlock steps={METHOD_STEPS} />
+          <WorkMethodBlock steps={ARBETSUPPGIFTER_METHOD_STEPS} />
         </SectionBlock>
       </AreaShell>
       <NextPageCTA next={next} label="Första huvuduppdraget" />

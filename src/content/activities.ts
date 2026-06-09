@@ -1,4 +1,4 @@
-export type ActivityScope = "core" | "occasional" | "extended";
+export type ActivityScope = "core" | "occasional" | "extended" | "area";
 
 export interface Activity {
   id: string;
@@ -86,3 +86,44 @@ export const OCCASIONAL_ACTIVITIES = ACTIVITIES.filter(
 export const EXTENDED_ACTIVITIES = ACTIVITIES.filter(
   (a) => a.scope === "extended",
 );
+
+/**
+ * Arbetsområden — en övergripande beskrivning av vad rollen gör, grundad i
+ * arbetsbeskrivningens avsnitt 4. Hålls utanför ACTIVITIES så att scope-filtren
+ * ovan (core/occasional/extended) lämnas orörda; aktivitetslistorna ovan beskriver
+ * de konkreta arbetsformerna, WORK_AREAS beskriver uppdraget på en nivå högre.
+ *
+ * Heter WORK_AREAS (inte MISSION_AREAS) för att inte krocka med
+ * content/missionAreas.ts, som redan exporterar MISSION_AREAS för de tre
+ * huvuduppdragen — två olika koncept som inte ska dela namn.
+ */
+export const WORK_AREAS: Activity[] = [
+  {
+    id: "foreningsutveckling-metod",
+    title: "Föreningsutveckling med metod",
+    scope: "area",
+    description:
+      "Jag driver utvecklingen genom Kvalitetsklubb: nulägesbild med Klubbkollen, handlingsplan inom de fyra fokusområdena och dokumentation i Klubbverktyget — metod i stället för lösa aktiviteter.",
+  },
+  {
+    id: "starkare-organisation",
+    title: "Starkare organisation",
+    scope: "area",
+    description:
+      "Jag stärker styrelse och organisation: tydliga roller, ansvar och årshjul, verksamhetsplanering och ett arbetssätt som bärs av värdegrund, trygghet och delaktighet.",
+  },
+  {
+    id: "samverkan-sprakror",
+    title: "Samverkan och språkrör",
+    scope: "area",
+    description:
+      "Jag knyter ihop förening, GFF, RF-SISU, kommun, skola och partners — och för föreningens behov, hinder och resultat vidare så att alla drar åt samma håll.",
+  },
+  {
+    id: "uppfoljning-larande",
+    title: "Uppföljning och lärande",
+    scope: "area",
+    description:
+      "Jag ser till att planerna blir verklig praktik, kopplar insatserna till mål — fler ledare, fler aktiva, starkare föreningar — och återrapporterar på saklig grund.",
+  },
+];

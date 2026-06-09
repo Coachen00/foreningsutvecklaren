@@ -14,7 +14,8 @@ import UppdragHubBlock from "@/components/blocks/UppdragHubBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
 import { getArea } from "@/content/areas";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
-import { EXTENDED_ACTIVITIES } from "@/content/activities";
+import { EXTENDED_ACTIVITIES, WORK_AREAS } from "@/content/activities";
+import { UPPDRAG_METHOD_STEPS } from "@/content/method";
 import { impactForArea } from "@/content/impact";
 import { UPPDRAG_HUB_ITEMS } from "@/content/uppdragHub";
 import {
@@ -22,27 +23,6 @@ import {
   FORENINGSLYFTET_PLANNING_OUTCOMES,
   QUALITY_CLUB_PLANNING_FOCUS,
 } from "@/content/planningChain";
-
-const METHOD_STEPS = [
-  {
-    title: "Närvaro",
-    description:
-      "Arbetet börjar i rätt forum: med föreningens utvecklare, styrelsefunktioner och vid behov i verksamhetsmiljön.",
-  },
-  {
-    title: "Dialog",
-    description:
-      "Samtal som bygger förtroende, sätter riktning och gör det möjligt att stötta föreningen på riktigt.",
-  },
-  {
-    title: "Struktur",
-    description: "Från observation till plan: roller, rytm och uppföljning.",
-  },
-  {
-    title: "Uppföljning",
-    description: "Återkoppling, anpassning och långsiktighet – utveckling som håller.",
-  },
-];
 
 const Uppdrag = () => {
   const area = getArea("uppdrag");
@@ -66,10 +46,10 @@ const Uppdrag = () => {
 
         <SectionBlock
           eyebrow="Kärnuppdraget"
-          title="Det löpande arbetet"
-          lead="Utvecklingsdialogerna är navet. Jag arbetar främst genom föreningens förenings- och fotbollsutvecklare, och direkt eller indirekt med styrelsen i de föreningar som berörs."
+          title="Så stärker jag föreningarna"
+          lead="Uppdraget är att bygga varaktig kapacitet i föreningarna – att de ska stå starkare efter min insats än före. Det sker inom fyra arbetsområden som hänger ihop."
         >
-          <CoreMissionBlock title="" lead="" />
+          <CoreMissionBlock title="" lead="" activities={WORK_AREAS} />
         </SectionBlock>
 
         <SectionBlock
@@ -96,7 +76,7 @@ const Uppdrag = () => {
           title="Så här arbetar jag"
           lead="Fyra steg som återkommer oavsett om det handlar om en utvecklingsdialog, styrelseförankring, en kvalitetsklubbsprocess eller en skolinsats."
         >
-          <WorkMethodBlock steps={METHOD_STEPS} />
+          <WorkMethodBlock steps={UPPDRAG_METHOD_STEPS} />
         </SectionBlock>
 
         <SectionBlock

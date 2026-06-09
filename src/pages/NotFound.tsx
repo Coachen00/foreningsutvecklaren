@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 
 const NotFound = () => {
   const location = useLocation();
@@ -43,6 +44,25 @@ const NotFound = () => {
         >
           Tillbaka till startsidan
         </Link>
+
+        <div className="mt-10 border-t border-border pt-8">
+          <p className="mb-4 font-mono text-micro uppercase tracking-wider text-muted-foreground">
+            Eller gå direkt till ett huvuduppdrag
+          </p>
+          <ul className="flex flex-col items-center gap-2.5" role="list">
+            {PRIMARY_ASSIGNMENTS.map((p) => (
+              <li key={p.id}>
+                <Link
+                  to={p.path}
+                  className="rounded-sm text-sm text-foreground underline-offset-4 transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  {p.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <p className="mt-16 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
           GFF · Göteborgs Fotbollförbund
         </p>
