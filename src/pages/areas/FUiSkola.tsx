@@ -9,6 +9,7 @@ import ImpactBlock from "@/components/blocks/ImpactBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
 import CriteriaList from "@/components/blocks/CriteriaList";
 import MetricListBlock from "@/components/blocks/MetricListBlock";
+import GoalsBlock from "@/components/blocks/GoalsBlock";
 import {
   adjacentPrimaryAssignments,
   getPrimaryAssignment,
@@ -17,11 +18,17 @@ import { getProgram } from "@/content/programs";
 import { impactForArea } from "@/content/impact";
 import { FOTBOLLSPROFIL_CRITERIA } from "@/content/criteria";
 import { FU_SKOLA_METRICS } from "@/content/metrics";
+import {
+  FOTBOLLSPROFIL_DEFINITION,
+  FOTBOLLSPROFIL_GOALS,
+} from "@/content/fotbollsprofil";
 import type { TocSection } from "@/components/blocks/TableOfContents";
 
 const SECTIONS: TocSection[] = [
   { id: "arbetet", title: "Arbetet", level: 2 },
   { id: "spar", title: "Två huvudspår", level: 2 },
+  { id: "fotbollsprofil-mal", title: "Vad en fotbollsprofil är", level: 2 },
+  { id: "relationsbyggande", title: "Relationsbyggande", level: 2 },
   { id: "arbetsdelar", title: "Nio arbetsdelar", level: 2 },
   { id: "kriterier", title: "Kriterier för fotbollsprofil", level: 2 },
   { id: "aktorer", title: "Aktörsmatris", level: 2 },
@@ -194,6 +201,50 @@ const FUiSkola = () => {
                 </ul>
               </article>
             </div>
+          </ExpandableBlock>
+
+          {/* FOTBOLLSPROFIL — DEFINITION & MÅL */}
+          <ExpandableBlock
+            id="fotbollsprofil-mal"
+            kicker={FOTBOLLSPROFIL_DEFINITION.eyebrow}
+            title={FOTBOLLSPROFIL_DEFINITION.title}
+            defaultOpen={false}
+            wide
+          >
+            <p className="text-lead">{FOTBOLLSPROFIL_DEFINITION.lead}</p>
+            <p className="mt-4">{FOTBOLLSPROFIL_DEFINITION.body}</p>
+            <p className="mt-4">
+              <span className="font-mono text-micro uppercase tracking-wider text-primary">
+                {FOTBOLLSPROFIL_DEFINITION.purposeLabel}
+              </span>
+              <span className="mt-1 block text-foreground/80">
+                {FOTBOLLSPROFIL_DEFINITION.purpose}
+              </span>
+            </p>
+            <div className="mt-6 not-prose">
+              <GoalsBlock goals={FOTBOLLSPROFIL_GOALS} columns={3} />
+            </div>
+          </ExpandableBlock>
+
+          {/* RELATIONSBYGGANDE */}
+          <ExpandableBlock
+            id="relationsbyggande"
+            kicker="Arbetssätt"
+            title="Relationsbyggande — kom ut med bollsäcken"
+            defaultOpen={false}
+          >
+            <p>
+              Skolsamverkan bärs av relationer, inte av material. Att själv komma
+              ut till skolan med bollsäcken — leda ett pass, möta lärare och
+              elever på plats — bygger förtroende på ett sätt som utskickat
+              material aldrig gör.
+            </p>
+            <p className="mt-4">
+              Att &bdquo;kasta dit&rdquo; bollar och affischer ger sällan
+              effekt. Den fysiska närvaron är det som gör att skolan vill
+              fortsätta — och som öppnar dörren för en fast samverkan med
+              närliggande förening.
+            </p>
           </ExpandableBlock>
 
           {/* ARBETSDELAR */}

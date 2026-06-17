@@ -48,7 +48,7 @@ export const FU_SKOLA_METRICS: MetricList = {
     {
       label: "Verksamhet",
       items: [
-        "Antal skolor med fotbollsprofil",
+        "Antal skolor med fotbollsprofil (mål: ca 10 i Göteborg, ungefär en per stadsområde)",
         "Antal implementerade Skolbollen-program",
         "Antal flickor och pojkar i skolverksamheten",
       ],
@@ -58,6 +58,15 @@ export const FU_SKOLA_METRICS: MetricList = {
       items: [
         "Antal utbildade FU IF (fotbollsutvecklare i förening)",
         "Antal föreningar som implementerat spelarutbildningsplan i skolan",
+      ],
+    },
+    {
+      label: "Effektindikatorer — Skolbollen",
+      items: [
+        "Antal skolor som erbjuder fotboll i sin verksamhet",
+        "Antal föreningar som aktivt jobbar med skolfrågan",
+        "Antal nya kontaktytor skola–förening som lever vidare över läsår",
+        "Antal barn som tar steget från skolfotboll till förening",
       ],
     },
   ],
@@ -72,6 +81,7 @@ export const FORENINGSLYFTET_METRICS: MetricList = {
     {
       label: "Organisation",
       items: [
+        "Nationellt nuläge 2026: 49 certifierade Kvalitetsklubbar i Sverige",
         "Antal föreningar per kommun och antal föreningsutvecklare",
         "Genomsnittlig anställningstid för zonutvecklare och antal nyanställda",
         "Antal föreningar som aktivt arbetar i Kvalitetsklubb",

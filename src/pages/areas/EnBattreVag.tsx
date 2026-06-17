@@ -23,6 +23,7 @@ import { EN_BATTRE_VAG_ROLES, SPRAKROR_DO_DONT } from "@/content/roles";
 import { EN_BATTRE_VAG_GOALS } from "@/content/goals";
 import { EN_BATTRE_VAG_CRITERIA } from "@/content/criteria";
 import { EN_BATTRE_VAG_METRICS } from "@/content/metrics";
+import { EN_BATTRE_VAG_PROJEKTSTOD } from "@/content/projektstod";
 import type { TocSection } from "@/components/blocks/TableOfContents";
 
 const SECTIONS: TocSection[] = [
@@ -36,6 +37,7 @@ const SECTIONS: TocSection[] = [
   { id: "gransdragning", title: "Gör / Gör inte", level: 2 },
   { id: "matpunkter", title: "Mätpunkter", level: 2 },
   { id: "samverkan", title: "Samverkan", level: 2 },
+  { id: "stodformer", title: "Stödformer", level: 2 },
   { id: "varfor", title: "Varför satsningen finns", level: 2 },
 ];
 
@@ -290,6 +292,25 @@ const EnBattreVag = () => {
               <PartnerStrip
                 ids={["svff", "gff", "goteborgs-stad", "foreningar", "gis"]}
               />
+            </div>
+          </ExpandableBlock>
+
+          {/* STÖDFORMER */}
+          <ExpandableBlock
+            id="stodformer"
+            kicker="Finansiering"
+            title="Stödformer som kan kopplas"
+            defaultOpen={false}
+            wide
+          >
+            <p>
+              Olika stöd kan bära olika delar av satsningen. Logiken är
+              kapacitetsbyggande, inte bidragssökande — rätt stöd kopplas till
+              rätt insats så att pengar blir ledare, aktiviteter och struktur.
+              Stöd kan gå både till GFF och till lokala föreningar.
+            </p>
+            <div className="mt-6 not-prose">
+              <MetricListBlock data={EN_BATTRE_VAG_PROJEKTSTOD} />
             </div>
           </ExpandableBlock>
 
