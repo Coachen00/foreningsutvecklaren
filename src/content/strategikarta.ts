@@ -56,7 +56,7 @@ export const STRATEGI_MAPPING: MappingRow[] = [
     effect: "Gemensam riktning",
   },
   {
-    level: "Ramverk",
+    level: "Stöd",
     national: "Kvalitetsklubb",
     local: "Föreningslyftet med Kvalitetsklubb som verktyg",
     effect: "Föreningar driver utveckling",
@@ -64,7 +64,7 @@ export const STRATEGI_MAPPING: MappingRow[] = [
   {
     level: "Riktad insats",
     national: "En bättre väg",
-    local: "Prioriterade områden i Göteborg",
+    local: "Områden där behoven är stora i Göteborg",
     effect: "Fler barn i trygg fotboll",
   },
   {
@@ -96,5 +96,5 @@ export const FORENINGSLYFTET_KPI = {
   unit: "av Föreningslyftet",
   title: "i Kvalitetsklubb senast 2027",
   description:
-    "Minst hälften av föreningarna i Föreningslyftet ska aktivt arbeta i Kvalitetsklubb 2027 — det gör ramverket mätbart, inte bara kvalitativt.",
+    "Minst hälften av föreningarna i Föreningslyftet ska aktivt arbeta i Kvalitetsklubb 2027 — då blir arbetet möjligt att följa upp.",
 };

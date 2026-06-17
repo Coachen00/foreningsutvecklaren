@@ -30,19 +30,19 @@ const Kvalitetsklubb = () => {
       <AreaShell area={area} subtitle={subpage.title}>
         <SectionBlock
           eyebrow="Vad det är"
-          title="SvFF:s ramverk för föreningsutveckling"
-          lead="Kvalitetsklubb är inte en certifiering — det är ett styrsystem. Föreningar går från otydlighet till riktning, från personberoende till struktur, från projekt till långsiktig kapacitet."
+          title="SvFF:s stöd för bättre föreningsvardag"
+          lead="Kvalitetsklubb hjälper föreningen få ordning på roller, ledare, spelare, ekonomi och trygghet. Målet är att arbetet ska fungera även när personer byts ut."
           narrow
         >
           <div className="grid gap-6 max-w-prose text-foreground/85 leading-relaxed">
             <p>
-              SvFF beskriver Kvalitetsklubb som ett ramverk för effektiv och
+              SvFF beskriver Kvalitetsklubb som ett stöd för effektiv och
               schysst föreningsverksamhet. Föreningen får verktyg, stöd och
               motivation att ta nästa steg — och distriktet stöttar, granskar
               och godkänner längs vägen.
             </p>
             <p>
-              För GFF är Kvalitetsklubb det operativa verktyget i
+              För GFF är Kvalitetsklubb det praktiska stödet i
               Föreningslyftet. Mål 2027: minst 50 % av föreningarna i
               Föreningslyftet ska aktivt arbeta i Kvalitetsklubb.
             </p>
@@ -53,7 +53,7 @@ const Kvalitetsklubb = () => {
           variant="muted"
           eyebrow="Strukturen"
           title="Fyra fokusområden"
-          lead="SvFF:s officiella struktur. Tillsammans ringar de in hela föreningsverksamheten — om en del är svag blir helheten ostadig."
+          lead="SvFF:s fyra områden ringar in hela föreningen — om en del är svag blir helheten ostadig."
         >
           <FocusAreaBlock areas={KVALITETSKLUBB_FOCUS_AREAS} />
         </SectionBlock>
@@ -82,9 +82,9 @@ const Kvalitetsklubb = () => {
         </SectionBlock>
 
         <SectionBlock
-          eyebrow="Samverkan"
+          eyebrow="Tillsammans"
           title="Bakom konceptet"
-          lead="Kvalitetsklubb ägs av SvFF. GFF förvaltar det i Göteborg. Föreningen driver arbetet i sin vardag."
+          lead="SvFF äger Kvalitetsklubb. GFF hjälper föreningar i Göteborg att använda det. Föreningen driver arbetet i vardagen."
         >
           <PartnerStrip ids={["svff", "gff", "rf-sisu", "foreningar"]} />
         </SectionBlock>

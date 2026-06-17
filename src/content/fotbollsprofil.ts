@@ -17,10 +17,10 @@ export const FOTBOLLSPROFIL_DEFINITION = {
   lead:
     "En fotbollsprofil är en skola som gör fotboll till en bärande del av sin verksamhet — inte en enstaka aktivitet, utan en stabil väg in i föreningslivet på en plats där barnen redan finns.",
   body:
-    "Profilen kombinerar fotbollsundervisning enligt SvFF:s spelarutbildningsplan med en fast samverkan mellan skola och närliggande förening. Den fungerar som ett lokalt nav: ett tydligt ställe dit barn, föräldrar, lärare och ledare kan knytas, och varifrån övergången till föreningsfotboll blir kort.",
+    "Profilen kombinerar fotbollsundervisning enligt SvFF:s spelarutbildningsplan med ett fast samarbete mellan skola och närliggande förening. Den blir en tydlig plats där barn, föräldrar, lärare och ledare möts, och där steget till föreningsfotboll blir kort.",
   purposeLabel: "Målsättning",
   purpose:
-    "Att fler barn får tillgång till fotboll i sin vardag, att fler föreningar får en strukturerad rekryteringsväg, och att skolan blir en hållbar bro in i organiserad idrott — särskilt i prioriterade områden.",
+    "Att fler barn får fotboll i sin vardag, att fler föreningar hittar nya spelare, och att skolan blir en trygg bro in i organiserad idrott.",
 };
 
 export const FOTBOLLSPROFIL_GOALS: Goal[] = [
@@ -46,6 +46,6 @@ export const FOTBOLLSPROFIL_GOALS: Goal[] = [
     unit: "skola → förening",
     title: "Kort väg till föreningen",
     description:
-      "Fast samverkan med närliggande förening så att övergången från skolfotboll till föreningsfotboll blir enkel.",
+      "Fast samarbete med närliggande förening så att övergången från skolfotboll till föreningsfotboll blir enkel.",
   },
 ];

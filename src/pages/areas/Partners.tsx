@@ -19,8 +19,8 @@ const Partners = () => {
       <AreaShell area={area} subtitle={subpage.title}>
         <SectionBlock
           eyebrow="Fyra roller"
-          title="Partnerskap som bygger kapacitet"
-          lead="Partnersidan använder samma logik som startsidan: strategiska, operativa och finansierande partners samt mottagare och genomförandeaktörer."
+          title="Partnerskap som blir verklig hjälp"
+          lead="Här syns vem som bidrar med riktning, pengar, kunskap eller genomförande — och hur stödet når föreningarna."
           split
         >
           <PartnerFundingBlock />
@@ -30,7 +30,7 @@ const Partners = () => {
           variant="muted"
           eyebrow="Ansvarskedjan"
           title="Vem gör vad i vardagen"
-          lead="Den praktiska ansvarskedjan visar vem som äger riktning, vem som stödjer genomförandet och vilka aktörer som bär arbetet lokalt."
+          lead="Den praktiska ansvarskedjan visar vem som sätter riktningen, vem som stöttar och vem som gör jobbet lokalt."
           split
         >
           <PartnerMapBlock />

@@ -28,53 +28,53 @@ export const ECOSYSTEM_NODES: EcosystemNode[] = [
   {
     id: "kvalitetsklubb",
     name: "Kvalitetsklubb",
-    role: "Infrastrukturen",
+    role: "Grunden",
     description:
-      "SvFF:s ramverk för föreningsutveckling. Inte en certifiering — ett styrsystem som föreningar bygger på.",
+      "Ett stöd som hjälper föreningen få ordning på roller, ledare, spelare och trygghet.",
     icon: Layers,
     href: "/foreningsutveckling/kvalitetsklubb",
   },
   {
     id: "en-battre-vag",
     name: "En bättre väg",
-    role: "Riktad resursförstärkning",
+    role: "Extra stöd där behoven är störst",
     description:
-      "Använder Kvalitetsklubb som metod, men riktar resurserna till föreningar i prioriterade områden.",
+      "Riktar stöd till föreningar och områden där fler barn behöver trygga vägar in.",
     icon: Route,
     href: "/en-battre-vag",
   },
   {
     id: "fotbollslyftet",
     name: "Fotbollslyftet",
-    role: "Spelarutvecklingsmotorn",
+    role: "Bättre miljö för spelare",
     description:
-      "FU IF och zonutvecklare som bygger spelarutvecklingsmiljöer i föreningar och områden.",
+      "Stöd till tränare och föreningar så att spelare får bättre träning och miljö.",
     icon: Trophy,
     href: "/uppdrag/spelarutbildning",
   },
   {
     id: "foreningslyftet",
     name: "Föreningslyftet",
-    role: "Föreningsutvecklingsmotorn",
+    role: "Bättre vardag i föreningen",
     description:
-      "Den lokala motorn för att flytta föreningar från ad hoc till medveten organisation. Använder Kvalitetsklubb som verktyg.",
+      "Hjälper föreningar gå från brandsläckning till tydliga arbetssätt.",
     icon: Compass,
     href: "/foreningsutveckling",
   },
   {
     id: "samhallsnyttan",
     name: "Samhällsnyttan",
-    role: "Samhällsberättelsen",
+    role: "Det fotbollen bidrar med",
     description:
-      "Det som visar vad fotbollen ger Göteborg — indikatorer, sociala effekter och områdestrygghet.",
+      "Visar hur fotboll kan bidra till trygghet, hälsa, gemenskap och framtidstro.",
     icon: BookOpen,
   },
   {
     id: "verksamhetsplan",
     name: "Verksamhetsplanen",
-    role: "Den lokala styrningen",
+    role: "Planen för arbetet",
     description:
-      "GFF:s plan 2026–27 som binder ihop nationell strategi med lokala mål, KPI:er och prioriteringar.",
+      "GFF:s plan för vad som ska göras lokalt och vad som ska följas upp.",
     icon: Map,
   },
 ];
@@ -85,5 +85,5 @@ export const ECOSYSTEM_NODES: EcosystemNode[] = [
 export const ECOSYSTEM_METAPHOR = {
   kicker: "Pedagogiken",
   title: "Tänk att svensk fotboll är en stor skola",
-  body: "SvFF ritar kartan. Kvalitetsklubb är klassrummet. En bättre väg är extra stöd där barnen saknar bäst förutsättningar. Effektlogiken är enkel: resurser in, arbete görs, resultat syns, effekt stannar. När alla delar hänger ihop blir föreningen starkare och tryggare över tid.",
+  body: "SvFF ritar kartan. Kvalitetsklubb är klassrummet. En bättre väg är extra stöd där barnen behöver bättre förutsättningar. När stöd, människor och uppföljning hänger ihop blir föreningen starkare över tid.",
 };

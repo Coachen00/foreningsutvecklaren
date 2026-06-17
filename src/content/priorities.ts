@@ -12,9 +12,9 @@ export interface PriorityLevel {
 export const PRIORITY_LADDER: PriorityLevel[] = [
   {
     number: "01",
-    title: "Föreningens organisation och långsiktiga kapacitet",
+    title: "Föreningens organisation och förmåga över tid",
     description:
-      "Det som gör att föreningen klarar sig själv över tid. Ägarskap, struktur och rollfördelning.",
+      "Det som gör att föreningen klarar sig själv över tid: ägarskap, arbetssätt och tydliga roller.",
   },
   {
     number: "02",
@@ -30,7 +30,7 @@ export const PRIORITY_LADDER: PriorityLevel[] = [
   },
   {
     number: "04",
-    title: "Fungerande samverkan mellan föreningar och lokala aktörer",
+    title: "Fungerande samarbete mellan föreningar och lokala parter",
     description:
       "Skola, kommun, civilsamhälle och förbund som drar åt samma håll.",
   },

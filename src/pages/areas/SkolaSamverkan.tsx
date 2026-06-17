@@ -34,7 +34,7 @@ const SkolaSamverkan = () => {
                 Riktat område
               </p>
               <p className="mt-2 text-small leading-relaxed text-muted-foreground">
-                När insatsen gäller prioriterade geografier sorteras den under En bättre väg.
+                När insatsen gäller områden där behoven är stora sorteras den under En bättre väg.
               </p>
             </article>
             <article className="bg-card p-6">
@@ -50,7 +50,7 @@ const SkolaSamverkan = () => {
                 Samverkansbild
               </p>
               <p className="mt-2 text-small leading-relaxed text-muted-foreground">
-                När frågan gäller aktörer och ansvar visar den här sidan helheten.
+                När frågan gäller vem som gör vad visar den här sidan helheten.
               </p>
             </article>
           </div>

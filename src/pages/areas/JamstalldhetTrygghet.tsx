@@ -53,7 +53,7 @@ const JamstalldhetTrygghet = () => {
                 {
                   label: "En bättre väg",
                   href: "/en-battre-vag",
-                  hint: "Riktade satsningar i prioriterade områden",
+                  hint: "Riktat stöd där behoven är stora",
                 },
                 {
                   label: "FU Skola",

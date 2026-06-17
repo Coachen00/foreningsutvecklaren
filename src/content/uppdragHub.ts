@@ -12,7 +12,7 @@ export const UPPDRAG_HUB_ITEMS: UppdragHubItem[] = [
     label: "Arbetsuppgifter i detalj",
     eyebrow: "Arbetsformer",
     description:
-      "Utvecklingsdialoger, styrelseförankring, riktade observationer och längre insatser. Vad som görs, när och varför.",
+      "Samtal, föreningsbesök och längre insatser. Vad som görs, när och varför.",
     href: "/uppdrag/arbetsuppgifter",
   },
   {
@@ -20,7 +20,7 @@ export const UPPDRAG_HUB_ITEMS: UppdragHubItem[] = [
     label: "Från idé till årshjul",
     eyebrow: "Föreningsutveckling",
     description:
-      "Kopplingen mellan verksamhetsidé, verksamhetsmål, verksamhetsplan och årshjul som praktisk styrkedja.",
+      "Hur idé, mål, plan och årshjul hänger ihop i föreningens vardag.",
     href: "#planeringskedja",
   },
   {
@@ -28,15 +28,15 @@ export const UPPDRAG_HUB_ITEMS: UppdragHubItem[] = [
     label: "Kommittéer och forum",
     eyebrow: "Arbetsgrupper",
     description:
-      "Samhällsforumet och Föreningskommittén som forum för samhällsnytta, struktur och gemensamma utvecklingsfrågor.",
+      "Forum där viktiga frågor samlas, diskuteras och förs vidare.",
     href: "#kommitteer",
   },
   {
     id: "partners",
     label: "Partners och ansvarskedja",
-    eyebrow: "Samverkan",
+    eyebrow: "Tillsammans",
     description:
-      "Strategiska, operativa och finansierande partners samt de aktörer som omsätter stödet i verksamhet.",
+      "Vem som bidrar med pengar, kunskap, beslut och praktisk hjälp.",
     href: "/uppdrag/partners",
   },
   {
@@ -44,7 +44,7 @@ export const UPPDRAG_HUB_ITEMS: UppdragHubItem[] = [
     label: "Kvalitetsklubb",
     eyebrow: "Ramverk",
     description:
-      "Fördjupning i kvalitetsarbetet som hjälper föreningen att utveckla struktur, spelare, ledare och resurser.",
+      "Hur föreningen kan få bättre ordning på roller, ledare, spelare och stöd.",
     href: "/foreningsutveckling/kvalitetsklubb",
   },
   {
@@ -52,7 +52,7 @@ export const UPPDRAG_HUB_ITEMS: UppdragHubItem[] = [
     label: "Spelarutbildning",
     eyebrow: "Fördjupning",
     description:
-      "SUP, Fotbollslyftet och träningsinnehåll. Här ligger spelarens utveckling, separerad från FU Skola.",
+      "Träning, spelarutveckling och stöd till tränare.",
     href: "/uppdrag/spelarutbildning",
   },
 ];

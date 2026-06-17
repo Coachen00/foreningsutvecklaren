@@ -22,9 +22,9 @@ export const HARVESTED_SUCCESSES: HarvestedSuccess[] = [
   },
   {
     id: "starkare-foreningsstruktur",
-    title: "Starkare föreningsstruktur",
+    title: "Tydligare föreningsvardag",
     description: "Lättare att följa upp, dokumentera och lära.",
-    metric: "Tydligare process",
+    metric: "Tydligare arbetssätt",
   },
   {
     id: "partnernytta",
@@ -66,14 +66,14 @@ export const EFFECT_LOGIC: EffectLogicEntry[] = [
   },
   {
     label: "Aktiviteter",
-    body: "Skolsamverkan, föreningsstöd, partnerträffar, ledarutbildning, kommunikation och uppföljning.",
+    body: "Skola, föreningsstöd, partnerträffar, ledarutbildning, kommunikation och uppföljning.",
   },
   {
     label: "Mål",
-    body: "Fler barn i rörelse, starkare föreningar, bättre ledarskap och tydligare lokal samverkan.",
+    body: "Fler barn i rörelse, starkare föreningar, bättre ledarskap och tydligare lokalt samarbete.",
   },
   {
     label: "Effekt",
-    body: "Ett område där fotboll fungerar som infrastruktur för trygghet, lärande, hälsa och framtidstro.",
+    body: "Ett område där fotboll skapar trygghet, lärande, hälsa och framtidstro.",
   },
 ];

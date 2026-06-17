@@ -22,7 +22,7 @@ export const ACTIVITIES: Activity[] = [
     title: "Utvecklarträffar",
     scope: "core",
     description:
-      "Gemensamma träffar med föreningens förenings- och fotbollsutvecklare, och vid behov styrelsefunktioner. Fokus ligger på metod, struktur, spelarutbildning och förankring.",
+      "Gemensamma träffar med föreningens förenings- och fotbollsutvecklare, och vid behov styrelsen. Fokus ligger på arbetssätt, spelarutbildning och att få alla med.",
     cadence: "Flera per säsong",
   },
   {
@@ -71,7 +71,7 @@ export const ACTIVITIES: Activity[] = [
   },
   {
     id: "tranarutbildningar",
-    title: "Utbildningsstruktur",
+    title: "Utbildningsstöd",
     scope: "extended",
     description:
       "Initiering, förankring och stöd till föreningens utbildningsplanering, ofta via förenings- och fotbollsutvecklare samt styrelse.",

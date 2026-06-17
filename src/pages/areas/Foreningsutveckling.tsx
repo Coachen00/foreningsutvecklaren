@@ -32,9 +32,9 @@ const SECTIONS: TocSection[] = [
   { id: "vision", title: "Visionen bakom", level: 2 },
   { id: "tre-arbetssatt", title: "Tre arbetssätt", level: 2 },
   { id: "prioritering", title: "Prioriteringstrappa", level: 2 },
-  { id: "effektlogik", title: "Effektlogiken", level: 2 },
+  { id: "effektlogik", title: "Så ser vi om det fungerar", level: 2 },
   { id: "strategikartan", title: "Planeringskedjan", level: 2 },
-  { id: "samverkan", title: "Samverkan", level: 2 },
+  { id: "samverkan", title: "Tillsammans", level: 2 },
   { id: "matpunkter", title: "Det här följs upp", level: 2 },
   { id: "uppfoljning", title: "Hur det följs upp", level: 2 },
   { id: "faq", title: "Vanliga frågor", level: 2 },
@@ -60,7 +60,7 @@ const Foreningslyftet = () => {
                 {
                   label: "Kvalitetsklubb (djupdyk)",
                   href: "/foreningsutveckling/kvalitetsklubb",
-                  hint: "Tolv arbetsdelar, struktur och kvalitetsstämpel",
+                  hint: "Tolv delar som gör föreningen lättare att driva",
                 },
                 {
                   label: "Jämställdhet & trygghet",
@@ -90,12 +90,12 @@ const Foreningslyftet = () => {
           >
             <p className="text-lead">
               Föreningslyftet samlar tre sammanhängande arbetssätt för att
-              flytta föreningar från ad hoc till medveten organisation.
+              hjälpa föreningar gå från brandsläckning till tydliga arbetssätt.
             </p>
             <p className="mt-4">
               Det är inte en enskild kurs eller ett tidsbegränsat projekt – det
-              är en pågående resa där struktur, ledarskap och kultur byggs
-              parallellt. Kvalitetsklubb bygger strukturen. Matchklimat bygger
+              är en pågående resa där arbetssätt, ledarskap och kultur byggs
+              parallellt. Kvalitetsklubb gör vardagen tydligare. Matchklimat bygger
               kulturen runt matchen. FU i förening är den riktade insatsen där
               den behövs mest.
             </p>
@@ -197,7 +197,7 @@ const Foreningslyftet = () => {
 
           <ExpandableBlock
             id="prioritering"
-            kicker="Arbetslogik"
+            kicker="När allt känns viktigt"
             title="Prioriteringstrappan — när allt känns viktigt"
             defaultOpen={false}
             wide
@@ -216,15 +216,14 @@ const Foreningslyftet = () => {
           <ExpandableBlock
             id="effektlogik"
             kicker="Bevis på arbete"
-            title="Effektlogiken — fyra steg"
+            title="Så ser vi om det fungerar"
             defaultOpen={false}
             wide
           >
             <p>
               Resurser in, arbete görs, resultat syns, effekt stannar.
-              Effektlogiken är sättet att bevisa att arbetet faktiskt fungerar
-              — och att skilja mellan det som syns direkt och det som blir
-              kvar över tid.
+              Det här hjälper oss skilja mellan det som händer direkt och det
+              som faktiskt blir kvar i föreningen.
             </p>
             <div className="mt-6 not-prose">
               <EffectChain stages={FORENINGSLYFTET_EFFECT_CHAIN} />
@@ -257,12 +256,12 @@ const Foreningslyftet = () => {
           <ExpandableBlock
             id="samverkan"
             kicker="Vilka bär arbetet"
-            title="Samverkan"
+            title="Tillsammans"
             defaultOpen={false}
           >
             <p>
               Föreningslyftet lever i mötet mellan förening, förbund och
-              utbildningsstöd. Ingen enskild aktör kan bära det själv.
+              utbildningsstöd. Ingen kan bära det själv.
             </p>
             <div className="mt-5">
               <PartnerStrip ids={["gff", "svff", "rf-sisu", "foreningar", "gis"]} />
@@ -319,7 +318,7 @@ const Foreningslyftet = () => {
                 <p className="mt-1 text-muted-foreground">
                   Nej. Varje spår står på egna ben och kan startas där behovet
                   är störst. Många börjar med Kvalitetsklubb för att få
-                  struktur på plats.
+                  arbetssätt på plats.
                 </p>
               </div>
               <div>

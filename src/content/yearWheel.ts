@@ -35,7 +35,7 @@ export const YEAR_WHEEL_EN_BATTRE_VAG: YearWheelMonth[] = [
     short: "Feb",
     focus: "Förankring",
     description:
-      "Startmöten med styrelser i prioriterade föreningar och partners (kommun, skola, RF-SISU). Klargör uppdraget för alla.",
+      "Startmöten med styrelser i utvalda föreningar och partners (kommun, skola, RF-SISU). Klargör uppdraget för alla.",
     intensity: "hög",
   },
   {
@@ -62,7 +62,7 @@ export const YEAR_WHEEL_EN_BATTRE_VAG: YearWheelMonth[] = [
     short: "Maj",
     focus: "Ledar- & resursfokus",
     description:
-      "Inventering av utbildningsbehov, föreningsstöd och samverkansaktiviteter. Resurser justeras inför hösten.",
+      "Inventering av utbildningsbehov, föreningsstöd och gemensamma aktiviteter. Resurser justeras inför hösten.",
     intensity: "medel",
   },
   {
@@ -96,9 +96,9 @@ export const YEAR_WHEEL_EN_BATTRE_VAG: YearWheelMonth[] = [
     number: "09",
     name: "September",
     short: "Sep",
-    focus: "Strategisk fastställan",
+    focus: "Beslut om nästa steg",
     description:
-      "Avstämning med GFF, föreningar och partners. Prioriteringar för 2027 förankras i data.",
+      "Avstämning med GFF, föreningar och partners. Nästa års fokus bestäms utifrån vad vi vet.",
     intensity: "hög",
   },
   {
@@ -107,7 +107,7 @@ export const YEAR_WHEEL_EN_BATTRE_VAG: YearWheelMonth[] = [
     short: "Okt",
     focus: "Kvalitetssäkring",
     description:
-      "Dokumentation i Klubbverktyget, budgetlogik och återrapporteringsprocesser säkerställs.",
+      "Dokumentation i Klubbverktyget, budget och återrapportering säkras.",
     intensity: "medel",
   },
   {
@@ -125,7 +125,7 @@ export const YEAR_WHEEL_EN_BATTRE_VAG: YearWheelMonth[] = [
     short: "Dec",
     focus: "Slutrapport",
     description:
-      "Effekter, risker och prioriteringar sammanfattas. Förbättringar inför nästa år föreslås.",
+      "Effekter, risker och nästa fokus sammanfattas. Förbättringar inför nästa år föreslås.",
     intensity: "medel",
   },
 ];

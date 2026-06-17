@@ -71,7 +71,7 @@ export const PORTAL_GROUPS: PortalGroup[] = [
         label: "Kvalitetsklubb",
         eyebrow: "Ramverk",
         description:
-          "Arbetssättet för föreningar som vill utvecklas medvetet — struktur, ledare, spelare och resurser.",
+          "Arbetssättet för föreningar som vill utvecklas medvetet — ledare, spelare, resurser och vardag.",
         href: "/foreningsutveckling/kvalitetsklubb",
         external: false,
       },
@@ -80,7 +80,7 @@ export const PORTAL_GROUPS: PortalGroup[] = [
         label: "Partners och ansvarskedja",
         eyebrow: "Samverkan",
         description:
-          "Vilka aktörer som stöttar föreningen och hur stödet rör sig mellan förbund, kommun och förening.",
+          "Vilka som stöttar föreningen och hur stödet rör sig mellan förbund, kommun och förening.",
         href: "/uppdrag/partners",
         external: false,
       },

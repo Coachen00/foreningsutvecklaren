@@ -38,7 +38,7 @@ const CurrentStateBlock = () => {
                 {role.label}
               </p>
               <p className="mt-3 max-w-[34ch] text-lead text-foreground/85">
-                En roll som riktar resurser, relationer och kvalitet dit fotbollen kan göra mest nytta.
+                En roll som ser till att stöd, relationer och kvalitet hamnar där fotbollen kan göra mest nytta.
               </p>
             </div>
           </div>

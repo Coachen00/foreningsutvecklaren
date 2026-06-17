@@ -28,13 +28,13 @@ export const EN_BATTRE_VAG_ROLES: AssignmentRole[] = [
     kicker: "Organisationen runt fotbollen",
     icon: Building2,
     summary:
-      "Bygger en hållbar förening med tydliga strukturer, demokrati och samverkan.",
+      "Hjälper föreningen få ordning på roller, beslut, ekonomi och kontakter.",
     responsibilities: [
       "Organisation och styrelsearbete",
       "Ekonomi och finansiering",
       "Värdegrund och demokrati",
-      "Samverkan med kommun och skola",
-      "Långsiktig kapacitet och rollfördelning",
+      "Kontakt med kommun och skola",
+      "Tydliga roller över tid",
     ],
   },
   {
@@ -70,22 +70,22 @@ export const SPRAKROR_DO_DONT: { do: DoDontGroup; dont: DoDontGroup } = {
     kicker: "Gör",
     title: "Det här bygger vi",
     description:
-      "Språkröret arbetar processledande. Allt som ökar föreningens egen kapacitet är rätt riktning.",
+      "Språkröret hjälper föreningen framåt, men föreningen ska själv äga arbetet.",
     items: [
       {
-        text: "Säkrar att föreningar genomför Klubbkollen och dokumenterar handlingsplaner.",
+        text: "Ser till att föreningar gör Klubbkollen och skriver enkla planer.",
       },
       {
-        text: "Driver fram handlingsplaner inom Kvalitetsklubbs fyra fokusområden.",
+        text: "Hjälper föreningen välja vad som behöver bli bättre först.",
       },
       {
-        text: "Stärker föreningens demokratiska arbetssätt och tydliggör roller och årshjul.",
+        text: "Gör roller, beslut och årshjul tydligare.",
       },
       {
-        text: "Skapar samsyn mellan GFF, förening, RF-SISU, kommun/skola och civilsamhälle.",
+        text: "Får GFF, förening, RF-SISU, kommun och skola att dra åt samma håll.",
       },
       {
-        text: "Samlar konkreta resultat och lärdomar; kopplar insatser till mål.",
+        text: "Samlar resultat och lärdomar efter arbetet.",
       },
     ],
   },
@@ -93,13 +93,13 @@ export const SPRAKROR_DO_DONT: { do: DoDontGroup; dont: DoDontGroup } = {
     kicker: "Gör inte",
     title: "Det här undviker vi",
     description:
-      "Det som skapar beroende av GFF eller flyttar ägarskap från föreningen är fel väg.",
+      "Språkröret ska inte ta över föreningens ansvar.",
     items: [
       {
-        text: "Skriver inte allt åt föreningen — styrelsen ska ha ägarskap.",
+        text: "Skriver inte allt åt föreningen — styrelsen ska äga arbetet.",
       },
       {
-        text: "Låter inte Kvalitetsklubb bli en pappersprodukt utan förankring.",
+        text: "Låter inte Kvalitetsklubb bli papper som ingen använder.",
       },
       {
         text: "Ersätter inte föreningens styrelse eller blir deras kansli.",
@@ -108,7 +108,7 @@ export const SPRAKROR_DO_DONT: { do: DoDontGroup; dont: DoDontGroup } = {
         text: "Tar inte över alla externa relationer eller varje lokal aktivitet.",
       },
       {
-        text: "Driver inte konflikter utan mandat.",
+        text: "Driver inte konflikter utan ett tydligt uppdrag.",
       },
     ],
   },

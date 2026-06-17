@@ -3,7 +3,7 @@
  *
  * Svarar på "Vilka pengar kan kopplas till En Bättre Väg?".
  * Återanvänder MetricList-formen så att det renderas med MetricListBlock.
- * Logiken följer partnerlogiken: finansiering är kapacitetsbyggande,
+ * Logiken följer partnerlogiken: finansiering ska bli verklig hjälp,
  * inte bidragssökande (se partnerFunding.ts).
  *
  * Källa: arbetsmaterial En bättre väg / partners 2026.
@@ -15,14 +15,14 @@ export const EN_BATTRE_VAG_PROJEKTSTOD: MetricList = {
   id: "en-battre-vag-projektstod",
   title: "Stödformer som kan kopplas",
   description:
-    "Olika stöd kan bära olika delar av satsningen. Poängen är att koppla rätt stöd till rätt insats — så att pengar blir ledare, aktiviteter och struktur.",
+    "Olika stöd kan bära olika delar av satsningen. Poängen är att koppla rätt stöd till rätt insats — så att pengar blir ledare, aktiviteter och tydligare arbetssätt.",
   groups: [
     {
       label: "Idrottens stöd",
       items: [
         "Projektstöd IF (barn- och ungdomsidrott) via RF-SISU",
         "Verksamhetsstöd och utvecklingsstöd från RF-SISU Västra Götaland",
-        "SvFF:s riktade medel för En bättre väg i prioriterade områden",
+        "SvFF:s riktade medel för En bättre väg",
       ],
     },
     {
@@ -30,7 +30,7 @@ export const EN_BATTRE_VAG_PROJEKTSTOD: MetricList = {
       items: [
         "Föreningsbidrag och aktivitetsstöd via Göteborgs Stad",
         "Idéburet offentligt partnerskap (IOP) med kommun eller förvaltning",
-        "Riktade kommunala satsningar i prioriterade områden",
+        "Riktade kommunala satsningar där behoven är stora",
       ],
     },
     {

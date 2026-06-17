@@ -54,7 +54,7 @@ export const CAMPAIGN_TIMELINE: CampaignTimeline = {
     name: "Nästa partner- och föreningsinsats",
     date: "2026-06-15",
     description:
-      "Riktad insats där samverkan, struktur och uppföljning kopplas ihop.",
+      "Riktad insats där samarbete, arbetssätt och uppföljning kopplas ihop.",
   },
 };
 

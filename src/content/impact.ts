@@ -20,7 +20,7 @@ export const IMPACTS: ImpactStatement[] = [
     areaSlug: "foreningsutveckling",
     headline: "Effekt i förening",
     statements: [
-      "Tydligare roller och starkare struktur.",
+      "Tydligare roller och lättare vardag.",
       "Ledare som utvecklas och stannar.",
       "Tryggare matchmiljö där barn får spela på riktigt.",
       "Spelarutbildning som syns i träningen, inte bara i pärmen.",

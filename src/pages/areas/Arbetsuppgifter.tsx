@@ -66,7 +66,7 @@ const Arbetsuppgifter = () => {
           variant="muted"
           eyebrow="Process"
           title="Hur varje insats rullar"
-          lead="Samma arbetsrytm oavsett om det är en utvecklingsdialog, styrelseförankring eller spelarutbildningsprocess."
+          lead="Samma arbetsrytm oavsett om det gäller föreningssamtal, styrelsebeslut eller spelarutbildning."
         >
           <WorkMethodBlock steps={METHOD_STEPS} />
         </SectionBlock>

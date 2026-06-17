@@ -17,7 +17,7 @@ export const EN_BATTRE_VAG_CRITERIA: CriteriaList = {
   description:
     "Föreningar som vill ingå i En bättre väg behöver uppfylla en uppsättning grundkrav. De är till för att säkra att satsningen landar där den gör mest nytta.",
   items: [
-    "Föreningen verkar i ett prioriterat område enligt polisens klassificering.",
+    "Föreningen verkar i ett område där behoven är stora enligt polisens klassificering.",
     "Föreningen anställer båda nyckelrollerna — föreningsutvecklare och fotbollsutvecklare.",
     "Föreningen deltar aktivt i forum med GFF, kommun och övriga partners.",
     "Föreningen erbjuder verksamhet för flickor och pojkar 7–25 år.",

@@ -17,7 +17,7 @@ const Case = () => (
       title="Case ur föreningsutvecklingen"
       lead="Korta, verkliga exempel på hur föreningar utvecklats — i text, film och ett quiz som befäster lärandet."
       description="Varje case tar några minuter. Titta, läs och testa dig själv."
-      metaDescription="Case ur föreningsutvecklingen: korta exempel i text och film, avslutade med ett quiz. Lär av hur andra föreningar gått från problem till struktur och kultur."
+      metaDescription="Case ur föreningsutvecklingen: korta exempel i text och film, avslutade med ett quiz. Lär av hur andra föreningar gått från problem till tydliga arbetssätt och bättre kultur."
     >
       <SectionBlock
         eyebrow="Välj ett case"

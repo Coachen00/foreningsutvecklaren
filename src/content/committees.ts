@@ -3,7 +3,7 @@
  *
  * Två forum jag deltar i — beskrivs som stöd, inte egna toppkategorier.
  *
- * Samhällsforumet     = samhällsberättelsen och samverkansarenan.
+ * Samhällsforumet     = samhällsberättelsen och mötesplatsen.
  * Föreningskommittén  = forum för gemensamma utvecklingsfrågor.
  */
 
@@ -25,9 +25,9 @@ export const COMMITTEES: Committee[] = [
   {
     id: "samhallsforum",
     name: "Samhällsforumet",
-    role: "Samhällsberättelsen och samverkansarenan",
+    role: "Samhällsberättelsen och mötesplatsen",
     description:
-      "Forumet som visar vad fotbollen ger Göteborg — i indikatorer, sociala effekter och områdestrygghet. Knyter samman förbund, föreningar, partners och offentliga aktörer kring CSR, Starkare IF och sociala insatser.",
+      "Forumet som visar vad fotbollen ger Göteborg: social effekt, trygghet och fler barn i rörelse. Knyter samman förbund, föreningar, partners och offentliga parter kring CSR, Starkare IF och sociala insatser.",
     myParticipation:
       "Jag deltar i samhällsforumet och ansvarar för arbetsgruppen partners.",
     crossLinks: [
@@ -43,7 +43,7 @@ export const COMMITTEES: Committee[] = [
     description:
       "Knyter ihop Föreningslyftet med generell föreningsutveckling. Hanterar Kvalitetsklubb, Trygg Fotboll, matchklimat, multiidrott och föreningarnas handlingsplaner.",
     myParticipation:
-      "Jag deltar i föreningskommittén som processledande språkrör för utvecklingsfrågor.",
+      "Jag deltar i föreningskommittén som språkrör för utvecklingsfrågor.",
     crossLinks: [
       { label: "Föreningslyftet", href: "/foreningsutveckling" },
       { label: "Kvalitetsklubb", href: "/foreningsutveckling/kvalitetsklubb" },

@@ -33,7 +33,7 @@ const SECTIONS: TocSection[] = [
   { id: "kriterier", title: "Kriterier för fotbollsprofil", level: 2 },
   { id: "aktorer", title: "Aktörsmatris", level: 2 },
   { id: "matpunkter", title: "Det här följs upp", level: 2 },
-  { id: "samverkan", title: "Samverkan", level: 2 },
+  { id: "samverkan", title: "Tillsammans", level: 2 },
   { id: "effekt", title: "Därför ett huvuduppdrag", level: 2 },
 ];
 
@@ -54,19 +54,19 @@ const ACTOR_ROWS: ActorRow[] = [
     actor: "SvFF",
     role: "Strategisk ägare",
     description:
-      "Sätter riktning, utbildningsstruktur och strategi för fotboll i skolan.",
+      "Sätter riktning och utbildningsstöd för fotboll i skolan.",
   },
   {
     actor: "RF-SISU Västra Götaland",
     role: "Operativ partner",
     description:
-      "Bidrar med utbildnings- och utvecklingsstöd till föreningsliv och skolsamverkan.",
+      "Bidrar med utbildnings- och utvecklingsstöd till föreningsliv och skola.",
   },
   {
     actor: "Göteborgs Stad",
     role: "Strategisk partner",
     description:
-      "Idrotts- och föreningsförvaltningen samt skolförvaltningen säkerställer att skolor öppnar upp för samverkan.",
+      "Idrotts- och föreningsförvaltningen samt skolförvaltningen gör det möjligt för skolor och föreningar att arbeta ihop.",
   },
   {
     actor: "Föreningar",
@@ -192,7 +192,7 @@ const FUiSkola = () => {
                 <p className="mt-3 text-base leading-relaxed text-foreground/80">
                   Fotbollsprofilerad undervisning för högstadiet som följer
                   SvFF:s spelarutbildningsplan. Kräver lärare med
-                  fotbollsutbildning och samverkan med förening.
+                  fotbollsutbildning och samarbete med förening.
                 </p>
                 <ul className="mt-4 space-y-1.5 text-small text-muted-foreground" role="list">
                   <li>· Minst två fotbollspass per vecka i schemat</li>
@@ -234,7 +234,7 @@ const FUiSkola = () => {
             defaultOpen={false}
           >
             <p>
-              Skolsamverkan bärs av relationer, inte av material. Att själv komma
+              Skola och förening bärs av relationer, inte av material. Att själv komma
               ut till skolan med bollsäcken — leda ett pass, möta lärare och
               elever på plats — bygger förtroende på ett sätt som utskickat
               material aldrig gör.
@@ -242,7 +242,7 @@ const FUiSkola = () => {
             <p className="mt-4">
               Att &bdquo;kasta dit&rdquo; bollar och affischer ger sällan
               effekt. Den fysiska närvaron är det som gör att skolan vill
-              fortsätta — och som öppnar dörren för en fast samverkan med
+              fortsätta — och som öppnar dörren för ett fast samarbete med
               närliggande förening.
             </p>
           </ExpandableBlock>
@@ -306,8 +306,8 @@ const FUiSkola = () => {
             wide
           >
             <p>
-              Arbetet korsar flera huvudmän. Varje aktör fyller en egen lucka —
-              det är själva poängen med strukturen.
+              Arbetet korsar flera huvudmän. Varje part fyller en egen lucka —
+              det är själva poängen med samarbetet.
             </p>
             <div className="mt-6 overflow-hidden rounded-md border border-border not-prose">
               <table className="w-full text-left text-sm">
@@ -385,8 +385,8 @@ const FUiSkola = () => {
             defaultOpen={false}
           >
             <p>
-              Arbetet korsar flera huvudmän. Varje aktör fyller en egen lucka —
-              det är själva poängen med strukturen.
+              Arbetet korsar flera huvudmän. Varje part fyller en egen lucka —
+              det är själva poängen med samarbetet.
             </p>
             <div className="mt-5">
               <PartnerStrip

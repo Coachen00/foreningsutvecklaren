@@ -36,13 +36,13 @@ export const PRIMARY_ASSIGNMENTS: PrimaryAssignment[] = [
     navLabel: "En bättre väg",
     kicker: "Riktad samhällsbärande satsning",
     path: "/en-battre-vag",
-    lead: "SvFF:s riktade satsning på fotbollen i prioriterade områden – lokalt förankrad genom förstudier, partnerskap och riktade insatser.",
+    lead: "Extra stöd till fotboll där fler barn behöver trygga vägar in.",
     description:
-      "Arbete där resurser möter de platser som behöver dem mest. Förstudier, samverkansdokument och insatser som kopplar förening, kommun, förbund och civilsamhälle.",
+      "Förening, kommun, förbund och partners jobbar tillsammans där behoven är störst.",
     icon: Route,
     metaTitle: "En bättre väg – Föreningsutvecklaren",
     metaDescription:
-      "En bättre väg är SvFF:s riktade satsning på fotboll i prioriterade områden. Förstudier, partnerskap och riktade insatser – lokalt förankrat i Göteborg.",
+      "En bättre väg ger extra stöd till fotboll i områden där fler barn behöver trygga vägar in.",
     relatedAreaSlug: "skola-samverkan",
   },
   {
@@ -53,11 +53,11 @@ export const PRIMARY_ASSIGNMENTS: PrimaryAssignment[] = [
     path: "/fu-skola",
     lead: "Där skola, förening och förbund möts – och där många barn får sin första väg in i organiserad fotboll.",
     description:
-      "Fotbollsutveckling i skolan är inte en extra aktivitet, utan en väg in i föreningslivet. Projektledning, onboarding, samverkan och uppföljning som håller ihop arbetet.",
+      "Fotboll i skolan hjälper barn hitta vidare till föreningslivet. Skolor och föreningar får stöd att komma igång.",
     icon: School,
     metaTitle: "FU Skola – Föreningsutvecklaren",
     metaDescription:
-      "FU Skola kopplar skolans vardag till föreningslivet – onboarding av skolor och föreningar, samverkan med RF-SISU och stöd i uppföljning.",
+      "FU Skola kopplar skolans vardag till föreningslivet och hjälper skolor och föreningar komma igång.",
     relatedAreaSlug: "skola-samverkan",
   },
   {
@@ -66,13 +66,13 @@ export const PRIMARY_ASSIGNMENTS: PrimaryAssignment[] = [
     navLabel: "Föreningslyftet",
     kicker: "Långsiktig föreningsförflyttning",
     path: "/foreningsutveckling",
-    lead: "Ett sammanhållet utvecklingsspår där föreningar går från ad hoc till medveten organisation.",
+    lead: "Stöd till föreningar som vill få bättre ordning och hålla över tid.",
     description:
-      "Kvalitetsklubb, matchklimat och riktad föreningsutveckling – tre sammanhängande arbetssätt för struktur, ledarskap och kultur som håller över säsonger.",
+      "Kvalitetsklubb, matchklimat och föreningsstöd hjälper föreningen bygga trygghet, ledarskap och tydliga rutiner.",
     icon: Compass,
     metaTitle: "Föreningslyftet – Föreningsutvecklaren",
     metaDescription:
-      "Föreningslyftet samlar Kvalitetsklubb, matchklimat och FU i förening – långsiktig utveckling av struktur, ledarskap och kultur i Göteborgs föreningsliv.",
+      "Föreningslyftet hjälper föreningar bygga trygghet, ledarskap och tydliga rutiner som håller över tid.",
     relatedAreaSlug: "foreningsutveckling",
   },
 ];

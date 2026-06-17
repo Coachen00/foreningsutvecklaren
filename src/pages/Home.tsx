@@ -26,7 +26,7 @@ const NEXT_STEP_LINKS = [
     href: "/uppdrag/spelarutbildning",
   },
   {
-    label: "Skola & samverkan",
+    label: "Skola & förening",
     hint: "Vägen från skoldag till föreningsliv.",
     href: "/skola-samverkan",
   },
@@ -37,7 +37,7 @@ const NEXT_STEP_LINKS = [
   },
   {
     label: "Partners",
-    hint: "Resurser som blir kapacitet.",
+    hint: "Stöd som blir verklig hjälp.",
     href: "/uppdrag/partners",
   },
 ];

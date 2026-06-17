@@ -14,7 +14,7 @@ export interface AssignmentOverview {
 export const ASSIGNMENT_OVERVIEW: AssignmentOverview = {
   eyebrow: "Min arbetsbeskrivning",
   oneLine:
-    "Jag är språkrör och föreningsutvecklare för Göteborgs föreningsliv — och kopplar resurser, samverkan och kvalitet till föreningar som behöver det mest.",
+    "Jag är språkrör och föreningsutvecklare för Göteborgs föreningsliv — och kopplar stöd, samarbeten och kvalitet till föreningar som behöver det mest.",
   support:
     "Tre huvuduppdrag bär arbetet: En bättre väg, FU Skola och Föreningslyftet. Resten hjälper läsaren att förstå ansvar, stöd och fördjupning.",
 };

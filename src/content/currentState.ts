@@ -47,7 +47,7 @@ export const CURRENT_STATE: CurrentState = {
   title: "Så ser uppdraget ut just nu",
   role: {
     label: "Roll",
-    body: "Språkrör och föreningsutvecklare inom Göteborgs Fotbollförbund. Fokus: riktad föreningsutveckling, skola–förening, samhällsnytta, partners och uppföljning.",
+    body: "Språkrör och föreningsutvecklare inom Göteborgs Fotbollförbund. Fokus är att hjälpa föreningar, skolor och partners jobba åt samma håll.",
   },
   topMissions: [
     {
@@ -55,7 +55,7 @@ export const CURRENT_STATE: CurrentState = {
       title: "En bättre väg",
       kicker: "Riktad samhällsbärande satsning",
       summary:
-        "Riktade insatser i prioriterade områden. Uppdragets starkaste samhällsnytta.",
+        "Extra stöd där fler barn behöver trygga vägar in i fotbollen.",
       path: "/en-battre-vag",
     },
     {
@@ -63,7 +63,7 @@ export const CURRENT_STATE: CurrentState = {
       title: "FU Skola",
       kicker: "Bron mellan skola och förening",
       summary:
-        "Skolan som väg in i fotboll: Skolbollen, fotbollsprofil och lokal samverkan.",
+        "Skolan blir en väg in till fotboll och föreningsliv.",
       path: "/fu-skola",
     },
     {
@@ -71,7 +71,7 @@ export const CURRENT_STATE: CurrentState = {
       title: "Föreningsutveckling / Föreningslyftet",
       kicker: "Den generella föreningsmotorn",
       summary:
-        "Struktur och kvalitet. Kvalitetsklubb är verktyget, Föreningslyftet är arbetet.",
+        "Stöd till föreningar som vill få bättre ordning och tryggare vardag.",
       path: "/foreningsutveckling",
     },
   ],
@@ -82,35 +82,35 @@ export const CURRENT_STATE: CurrentState = {
     items: [
       {
         label: "Girls FC och flickfotboll",
-        description: "Riktad satsning i prioriterade områden under En bättre väg.",
+        description: "Fler flickor ska hitta in och stanna kvar i fotbollen.",
       },
       {
         label: "Partners och finansiering",
         description:
-          "Samhällsaktörer som omsätts till föreningskapacitet.",
+          "Stöd från andra ska bli konkret hjälp i föreningen.",
       },
       {
         label: "Kommittéarbete",
         description:
-          "Samhällsberättelse, utvecklingsforum och beslut.",
+          "Forum där frågor samlas, diskuteras och blir beslut.",
       },
       {
         label: "Kvalitet och trygghet",
         description:
-          "Kvalitetsklubb, matchklimat och trygg föreningsstruktur.",
+          "Kvalitetsklubb, matchklimat och trygghet i vardagen.",
       },
     ],
   },
   effect: {
-    eyebrow: "Snabb effektlogik",
-    intro: "Hur resurser översätts till verklig förändring.",
+    eyebrow: "Så blir stöd till förändring",
+    intro: "Från människor och pengar till något som märks i föreningen.",
     stages: [
       {
         number: "01",
         label: "Resurser",
-        title: "Resurser — det som stoppas in",
+        title: "Resurser — det som behövs",
         description:
-          "Människor, kapital och samverkan som möjliggör arbetet.",
+          "Människor, pengar och kontakter som gör arbetet möjligt.",
         examples: [
           "Förbund och föreningar",
           "Skolor och kommun",
@@ -121,24 +121,24 @@ export const CURRENT_STATE: CurrentState = {
       {
         number: "02",
         label: "Aktiviteter",
-        title: "Aktiviteter — det som görs",
-        description: "Det dagliga arbetet som omsätter resurserna.",
+        title: "Aktiviteter — det vi gör",
+        description: "Möten, träffar, utbildning och stöd i vardagen.",
         examples: [
           "Möten och uppföljning",
-          "Ansökningar och samverkan",
+          "Ansökningar och samarbete",
           "Utbildning och start av nya grupper",
         ],
         icon: Hammer,
       },
       {
         number: "03",
-        label: "Output",
-        title: "Output — det som syns direkt",
-        description: "Beviset på att aktiviteterna sker.",
+        label: "Resultat",
+        title: "Resultat — det som syns direkt",
+        description: "Det första beviset på att arbetet rör sig framåt.",
         examples: [
           "Fler träffar och fler ledare",
           "Fler flickor i träning",
-          "Mer finansiering, tydligare handlingsplaner",
+          "Mer stöd, tydligare planer",
         ],
         icon: ListChecks,
       },

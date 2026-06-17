@@ -7,7 +7,7 @@ const RUTE_LABELS: Record<string, string> = {
   foreningslyftet: "Föreningslyftet",
   "en-battre-vag": "En bättre väg",
   "fu-skola": "FU Skola",
-  "skola-samverkan": "Skola & samverkan",
+  "skola-samverkan": "Skola & förening",
   kvalitetsklubb: "Kvalitetsklubb",
   portalen: "Föreningsportalen",
   uppdrag: "Uppdrag",

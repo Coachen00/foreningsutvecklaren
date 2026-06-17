@@ -41,14 +41,14 @@ export interface Case {
 export const CASES: Case[] = [
   {
     slug: "fran-ad-hoc-till-arshjul",
-    title: "Från ad hoc till årshjul",
+    title: "Från brandsläckning till årshjul",
     kicker: "Case · Struktur",
     intro:
       "En förening som drevs på eldsjälar och tur fick på ett år en rytm som höll även när nyckelpersoner försvann.",
     summary:
       "Hur en förening gick från brandkårsutryckningar till ett årshjul som gör arbetet förutsägbart.",
     body: [
-      "Föreningen hade allt som krävdes utom struktur: engagerade ledare, fulla lag och en stark kultur. Men allt hängde på enskilda personer. När en eldsjäl tog paus stannade halva verksamheten.",
+      "Föreningen hade engagerade ledare, fulla lag och stark gemenskap. Men för mycket hängde på enskilda personer. När en eldsjäl tog paus stannade halva verksamheten.",
       "Vi började inte med dokument, utan med dialog. Vad gör vi varje månad, oavsett vem som är på plats? Svaren blev ett första årshjul — grovt, men gemensamt ägt.",
       "Efter en säsong kunde styrelsen leda efter hjulet i stället för efter kalenderns kriser. Nya ledare kunde kliva in och se vad som förväntades. Strukturen blev inte byråkrati — den blev trygghet.",
     ],
@@ -67,7 +67,7 @@ export const CASES: Case[] = [
         ],
         correctOptionId: "b",
         explanation:
-          "Föreningen hade både ledare och spelare — men ingen struktur som överlevde när en nyckelperson försvann.",
+          "Föreningen hade både ledare och spelare — men arbetet höll inte när en nyckelperson försvann.",
       },
       {
         id: "q2",

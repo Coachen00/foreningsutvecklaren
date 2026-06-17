@@ -31,7 +31,7 @@ const Spelarutbildning = () => {
         kicker="Våra spelare · Fördjupning"
         icon={GraduationCap}
         title="Spelarutbildning"
-        lead="Världsledande spelarutbildning är ingen slogan — det är en arbetslogik som ska gå att se på en träning."
+        lead="Världsledande spelarutbildning är ingen slogan — det ska märkas på träningen."
         description="SvFF:s spelarutbildningsplan, Fotbollslyftet, futsal och arbetet med drop out. En sammanhållen sektion för det som handlar om spelaren själv."
         metaDescription="Spelarutbildning i GFF — SvFF:s spelarutbildningsplan (SUP), Fotbollslyftet med FU IF och zonutvecklare, futsal och arbete mot drop out."
       >
@@ -75,13 +75,13 @@ const Spelarutbildning = () => {
           >
             <p className="text-lead">
               SvFF:s strategi pekar på en världsledande spelarutbildning för
-              alla spelare — från bredd till elit. Det är en målbild som ska
+              alla spelare — från bredd till elit. Det är ett mål som ska
               bli synlig i vardagen, inte bara i pärmen.
             </p>
             <p className="mt-4">
-              I GFF:s verksamhetsplan 2026–27 konkretiseras visionen: fler
+              I GFF:s verksamhetsplan 2026–27 blir visionen konkret: fler
               föreningar med fotbollsutvecklare i förening (FU IF) och
-              zonutvecklare, implementering av Fotbollslyftet Vision och
+              zonutvecklare, införande av Fotbollslyftet Vision och
               fortsatt införande av utbildningskrav för ledare.
             </p>
           </ExpandableBlock>
@@ -103,7 +103,7 @@ const Spelarutbildning = () => {
               {[
                 {
                   icon: GraduationCap,
-                  title: "Implementering",
+                  title: "Från plan till träning",
                   description:
                     "Från dokument till träningsyta. Stöd till föreningar att översätta SUP i sin vardag.",
                 },
@@ -117,7 +117,7 @@ const Spelarutbildning = () => {
                   icon: Trophy,
                   title: "Uppföljning",
                   description:
-                    "Antal föreningar med implementerad SUP följs i verksamhetsplanen.",
+                    "Antal föreningar som använder SUP följs i verksamhetsplanen.",
                 },
               ].map((item) => {
                 const Icon = item.icon;
@@ -148,7 +148,7 @@ const Spelarutbildning = () => {
             <p>
               Fotbollslyftet är GFF:s och SvFF:s satsning på att anställa och
               utbilda fotbollsutvecklare i förening (FU IF) och zonutvecklare
-              (ZU). Det är en strukturell investering i lokala personer som
+              (ZU). Det är en satsning på lokala personer som
               kan bära spelarutbildningen över tid.
             </p>
             <ul className="mt-5 space-y-2 text-base leading-relaxed text-foreground/85" role="list">
@@ -181,7 +181,7 @@ const Spelarutbildning = () => {
               Verksamhetsplanen lyfter futsal som en egen pelare. GFF arbetar
               för mer resurser till futsal och en regional lösning för
               futsaltävlingar — med egen spelarutbildningsplan och
-              tävlingsstruktur.
+              tävlingsformer.
             </p>
             <p className="mt-4">
               Futsal är inte ett komplement till elvamannafotbollen — det är
@@ -204,7 +204,7 @@ const Spelarutbildning = () => {
             </p>
             <p className="mt-4">
               Insatserna kring drop out hänger ihop med övriga uppdrag:
-              integrationssammandrag, skolsamverkan via FU Skola,
+              integrationssammandrag, FU Skola,
               fritidsverksamhet och unga ledarskapsprogram. Det är genom
               broarna mellan skola, förening och samhälle som de som riskerar
               att försvinna fångas upp.

@@ -94,7 +94,7 @@ const Uppdrag = () => {
         <SectionBlock
           eyebrow="Arbetsmetod"
           title="Så här arbetar jag"
-          lead="Fyra steg som återkommer oavsett om det handlar om en utvecklingsdialog, styrelseförankring, en kvalitetsklubbsprocess eller en skolinsats."
+          lead="Fyra steg som återkommer oavsett om det handlar om föreningssamtal, styrelsebeslut, Kvalitetsklubb eller en skolinsats."
         >
           <WorkMethodBlock steps={METHOD_STEPS} />
         </SectionBlock>
@@ -127,7 +127,7 @@ const Uppdrag = () => {
           variant="muted"
           eyebrow="Ansvarskedjan"
           title="Vem gör vad"
-          lead="Uppdraget är ett gemensamt arbete mellan flera aktörer. Här är hur beslut och stöd rör sig mellan nivåerna."
+          lead="Uppdraget görs tillsammans. Här syns hur beslut och stöd rör sig mellan nivåerna."
         >
           <PartnerStrip />
           <p className="mt-8 text-sm text-muted-foreground">

@@ -45,10 +45,10 @@ export const FORENINGSLYFTET_PLANNING_CHAIN: PlanningChainStep[] = [
     title: "Verksamhetsidé",
     question: "Varför finns föreningen?",
     description:
-      "Verksamhetsidén samlar föreningens syfte, värdegrund och riktning. Den ska vara känd, nedskriven och möjlig att återkomma till när prioriteringar skaver.",
+      "Föreningen behöver veta varför den finns och vad den står för. Det hjälper när svåra val ska göras.",
     qualityClubArea: "Vår Förening",
     qualityClubPoint: "Verksamhetsidé, värdegrund och vision",
-    output: "En gemensam riktning som styrelse, ledare och medlemmar kan pröva beslut mot.",
+    output: "En riktning som hjälper föreningen välja rätt.",
     icon: Compass,
   },
   {
@@ -56,10 +56,10 @@ export const FORENINGSLYFTET_PLANNING_CHAIN: PlanningChainStep[] = [
     title: "Verksamhetsmål",
     question: "Vad ska flytta sig?",
     description:
-      "Målen gör riktningen mätbar. I föreningsutveckling handlar det om få men tydliga mål som visar om organisation, ledarskap och vardag faktiskt utvecklas.",
+      "Målen visar vad föreningen vill förändra. De ska vara få, tydliga och möjliga att följa.",
     qualityClubArea: "Vår Förening",
     qualityClubPoint: "Verksamhetsplan",
-    output: "Mål som kan följas upp över tid, inte bara formuleringar i ett dokument.",
+    output: "Mål som går att följa upp.",
     icon: Target,
   },
   {
@@ -67,10 +67,10 @@ export const FORENINGSLYFTET_PLANNING_CHAIN: PlanningChainStep[] = [
     title: "Verksamhetsplan",
     question: "Vad ska göras och av vem?",
     description:
-      "Verksamhetsplanen översätter idé och mål till prioriterade aktiviteter, ansvar och resurser. Den ska beslutas demokratiskt och följas av styrelsen mellan årsmötena.",
+      "Planen visar vad som ska göras, vem som ansvarar och vilka resurser som behövs.",
     qualityClubArea: "Vår Förening",
     qualityClubPoint: "Föreningens demokrati och verksamhetsplan",
-    output: "En beslutad plan där aktiviteter, ansvar och budget hänger ihop.",
+    output: "En plan där aktivitet, ansvar och budget hänger ihop.",
     icon: ClipboardList,
   },
   {
@@ -78,10 +78,10 @@ export const FORENINGSLYFTET_PLANNING_CHAIN: PlanningChainStep[] = [
     title: "Årshjul",
     question: "När ska arbetet ske?",
     description:
-      "Årshjulet gör planen genomförbar. Det placerar årsmöte, budget, uppföljning, utbildning och föreningsträffar i rätt rytm över säsongen.",
+      "Årshjulet visar när saker ska hända under säsongen.",
     qualityClubArea: "Vår Förening + Våra Resurser",
     qualityClubPoint: "Styrelsens uppföljning, ekonomi och kommunikation",
-    output: "En årsrytm som minskar personberoende och gör uppföljning till vardag.",
+    output: "En rytm som gör arbetet lättare att hålla i.",
     icon: CalendarDays,
   },
 ];
@@ -91,15 +91,15 @@ export const QUALITY_CLUB_PLANNING_FOCUS: QualityClubPlanningFocus[] = [
     area: "Vår Förening",
     label: "Primär hemvist",
     description:
-      "Här hör verksamhetsidé, demokrati, årsmöte, styrelsearbete och verksamhetsplan hemma. Det är styrningen som bär hela kedjan.",
+      "Här finns idé, årsmöte, styrelsearbete och plan. Det är grunden.",
     role: "primär",
     icon: Compass,
   },
   {
     area: "Våra Resurser",
-    label: "När plan blir kapacitet",
+    label: "När plan blir verklighet",
     description:
-      "Budget, ekonomi, anläggning och kommunikation ska spegla verksamhetsplanen. Resurserna ska ligga i linje med mål och aktiviteter.",
+      "Budget, planer och kommunikation ska hänga ihop med det föreningen vill göra.",
     role: "stöd",
     icon: ClipboardList,
   },
@@ -107,7 +107,7 @@ export const QUALITY_CLUB_PLANNING_FOCUS: QualityClubPlanningFocus[] = [
     area: "Våra Ledare",
     label: "När målen kräver roller",
     description:
-      "Ledarförsörjningsplan och tydliga roller kopplas in när verksamhetsmålen kräver fler eller mer hållbara ledare.",
+      "När målen kräver fler ledare behöver roller och stöd vara tydliga.",
     role: "stöd",
     icon: Target,
   },
@@ -118,7 +118,7 @@ export const FORENINGSLYFTET_PLANNING_OUTCOMES: PlanningOutcome[] = [
     label: "Målbild",
     value: "Eget utvecklingsarbete",
     description:
-      "Föreningarna ska driva sitt eget utvecklingsarbete med stöd av Kvalitetsklubb, inte vara beroende av punktinsatser.",
+      "Föreningen ska kunna driva sitt eget arbete, med stöd när det behövs.",
   },
   {
     label: "Verksamhetsplan 2026–2027",
@@ -130,6 +130,6 @@ export const FORENINGSLYFTET_PLANNING_OUTCOMES: PlanningOutcome[] = [
     label: "Årsrytm",
     value: "Planera · genomföra · följa upp",
     description:
-      "GFF:s årshjul placerar verksamhetsplanering, fastställande och uppföljning i en återkommande rytm som kan översättas till föreningarnas vardag.",
+      "Årshjulet gör planering, beslut och uppföljning återkommande och tydligt.",
   },
 ];

@@ -19,7 +19,7 @@ const Footer = () => {
             </div>
             <p className="text-small text-muted-foreground leading-relaxed">
               En karta över uppdraget inom Göteborgs Fotbollförbund — kärnuppgifter,
-              föreningsutveckling och samverkan.
+              föreningsutveckling och samarbete.
             </p>
           </div>
 

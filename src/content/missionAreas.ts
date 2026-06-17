@@ -50,7 +50,7 @@ export const MISSION_AREAS: MissionArea[] = [
     bearing: "Bär samhällsnyttan",
     contains: [
       "Girls FC",
-      "Prioriterade områden",
+      "Där behoven är störst",
       "Lokala förebilder",
     ],
     crossLinks: [
@@ -61,7 +61,7 @@ export const MISSION_AREAS: MissionArea[] = [
       },
       {
         label: "Partners",
-        hint: "När fokus är aktörskedjan bakom satsningen",
+        hint: "När fokus är vem som gör vad bakom satsningen",
         href: "/uppdrag/partners",
       },
     ],
@@ -83,7 +83,7 @@ export const MISSION_AREAS: MissionArea[] = [
     ],
     crossLinks: [
       {
-        label: "Skola & samverkan",
+        label: "Skola & förening",
         hint: "Bredare hubb för skola, förening, förbund och kommun",
         href: "/skola-samverkan",
       },
@@ -102,8 +102,8 @@ export const MISSION_AREAS: MissionArea[] = [
     number: "03",
     title: "Föreningsutveckling / Föreningslyftet",
     kicker: "Den generella föreningsmotorn",
-    lead: "Struktur, ledarskap och kultur som håller över säsonger.",
-    bearing: "Bär struktur, kvalitet och föreningsmotor",
+    lead: "Arbetssätt, ledarskap och kultur som håller över säsonger.",
+    bearing: "Bär kvalitet, arbetssätt och föreningsmotor",
     contains: [
       "Kvalitetsklubb",
       "Trygg Fotboll",
@@ -112,7 +112,7 @@ export const MISSION_AREAS: MissionArea[] = [
     crossLinks: [
       {
         label: "Kvalitetsklubb",
-        hint: "Fördjupning av ramverket — inte huvudberättelsen",
+        hint: "Fördjupning av stödet — inte huvudberättelsen",
         href: "/foreningsutveckling/kvalitetsklubb",
       },
       {

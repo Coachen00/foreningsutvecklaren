@@ -34,7 +34,7 @@ export interface SortingRule {
 export const SORTING_RULES: SortingRule[] = [
   {
     number: "01",
-    question: "Är det riktat till prioriterat område?",
+    question: "Är det riktat till ett område där behoven är stora?",
     destination: { key: "en-battre-vag", label: "En bättre väg", href: "/en-battre-vag" },
   },
   {
@@ -44,7 +44,7 @@ export const SORTING_RULES: SortingRule[] = [
   },
   {
     number: "03",
-    question: "Handlar det om föreningens struktur, ledning eller kvalitet?",
+    question: "Handlar det om föreningens arbetssätt, ledning eller kvalitet?",
     destination: {
       key: "foreningslyftet",
       label: "Föreningslyftet",
@@ -60,7 +60,7 @@ export const SORTING_RULES: SortingRule[] = [
       label: "Jämställdhet & trygghet",
       href: "/foreningsutveckling/jamstalldhet-och-trygghet",
     },
-    also: { key: "en-battre-vag", label: "Korslänka till En bättre väg om i prioriterat område" },
+    also: { key: "en-battre-vag", label: "Länka även till En bättre väg om stödet hör dit" },
   },
   {
     number: "05",
@@ -81,7 +81,7 @@ export const SORTING_RULES: SortingRule[] = [
     },
     also: {
       key: "en-battre-vag",
-      label: "Huvudplaceras under En bättre väg om stödet avser prioriterade områden",
+      label: "Placeras under En bättre väg när stödet hör dit",
     },
   },
   {

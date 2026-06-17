@@ -38,33 +38,33 @@ export const KVALITETSKLUBB_FOCUS_AREAS: FocusArea[] = [
     name: "Vår Förening",
     kicker: "Skelettet",
     summary:
-      "Basen för allt annat. Demokrati, riktning och organisation. När Vår Förening är svag blir resten ostadigt.",
+      "Basen för allt annat. Här finns besluten, planen och ordningen som gör föreningen trygg att vara i.",
     icon: Building2,
     points: [
       {
         title: "Föreningens demokrati",
         description:
-          "Stadgar i linje med RF, årsmöten, beslutad verksamhetsplan och budget, styrelse som leder mellan årsmötena.",
+          "Tydliga stadgar, årsmöten, budget och en styrelse som leder arbetet mellan årsmötena.",
       },
       {
         title: "Verksamhetsidé, värdegrund och vision",
         description:
-          "Gemensam syn på syfte, väg framåt och värderingar — nedskriven, tillgänglig och regelbundet utvärderad.",
+          "Alla vet varför föreningen finns, vad den står för och vart den vill.",
       },
       {
         title: "Jämställdhet, inkludering och mångfald",
         description:
-          "Inte en separat fokuspunkt — ska genomsyra alla fokusområden i föreningens vardag.",
+          "Alla barn och vuxna ska känna att föreningen är till för dem.",
       },
       {
         title: "Verksamhetsplan",
         description:
-          "Hela verksamheten beskriven i en övergripande plan, beslutad på årsmöte och följd upp av styrelsen.",
+          "En enkel plan för vad föreningen ska göra, vem som ansvarar och hur det följs upp.",
       },
       {
         title: "Trygg Fotboll",
         description:
-          "Handlingsplan för trivsel, registerutdrag, referenstagning och flödesschema för incidenter.",
+          "Rutiner för trygghet: registerutdrag, kontaktvägar och vad föreningen gör om något händer.",
       },
     ],
   },
@@ -73,28 +73,28 @@ export const KVALITETSKLUBB_FOCUS_AREAS: FocusArea[] = [
     name: "Våra Spelare",
     kicker: "Verksamheten",
     summary:
-      "Att fler börjar spela och stannar längre. Spelarutbildning, rekrytering, retention och vårdnadshavare.",
+      "Att fler barn börjar, trivs och vill fortsätta spela fotboll.",
     icon: Trophy,
     points: [
       {
         title: "Spelarutbildningsplan",
         description:
-          "Utgångspunkten för tränarna när de planerar och genomför träning och match. Bygger på Fotbollens spela, lek och lär.",
+          "Ett stöd för tränare när de planerar träning och match.",
       },
       {
         title: "Rekrytera",
         description:
-          "Plan för att nå nya barn, ta emot dem och vårdnadshavare, och utveckla uppstarten över tid.",
+          "Så når föreningen nya barn och tar emot dem på ett bra sätt.",
       },
       {
         title: "Behålla",
         description:
-          "Stöd till tränare för glädjefylld verksamhet, spelarinflytande och uppföljning av dem som slutar.",
+          "Så skapas glädje, delaktighet och trygghet så att fler vill fortsätta.",
       },
       {
         title: "Vårdnadshavare",
         description:
-          "Plan för engagemang och kommunikation kring föreningen och laget — vårdnadshavare som central resurs.",
+          "Så får föräldrar veta vad som gäller och hur de kan bidra.",
       },
     ],
   },
@@ -103,28 +103,28 @@ export const KVALITETSKLUBB_FOCUS_AREAS: FocusArea[] = [
     name: "Våra Ledare",
     kicker: "Människorna",
     summary:
-      "Ledarförsörjning, kompetens och hållbarhet. Många ledare med rätt utbildning — och en plan för att hålla dem.",
+      "Fler ledare som får stöd, utbildning och orkar stanna kvar.",
     icon: Users,
     points: [
       {
         title: "Ledarförsörjningsplan",
         description:
-          "Struktur för att rekrytera, utveckla och avsluta ledare. Vilka roller eftersträvas, hur används planen?",
+          "Hur föreningen hittar, tar emot, utvecklar och tackar av ledare.",
       },
       {
         title: "Fotbollsutvecklare",
         description:
-          "Tränarnas tränare i föreningen. Stöttar tränare på planen, genomför ledarsamtal och ledarträffar, vägleder genom SvFF:s tränarutbildning.",
+          "Tränarnas stödperson. Hjälper tränare på planen, i samtal och i utbildning.",
       },
       {
         title: "Domarutvecklare",
         description:
-          "Domarnas tränare. Möjliggör domarutbildning, hjälper i planering, stöttar under matcher och utvecklar föreningens domararbete.",
+          "Domarnas stödperson. Hjälper nya domare att lära, våga och fortsätta.",
       },
       {
         title: "Trygghetsansvarig",
         description:
-          "Arbetar både proaktivt och reaktivt med trygg miljö. Följer värdegrund, ansvarar för ärendehantering, har mandat via styrelse.",
+          "Personen som hjälper föreningen att förebygga problem och agera när något händer.",
       },
     ],
   },
@@ -133,28 +133,28 @@ export const KVALITETSKLUBB_FOCUS_AREAS: FocusArea[] = [
     name: "Våra Resurser",
     kicker: "Det som möjliggör",
     summary:
-      "Människor, ekonomi, anläggning, kommunikation. Resurserna ska ligga i linje med mål och aktiviteter — inte bredvid dem.",
+      "Pengar, planer, människor och kommunikation som gör arbetet möjligt.",
     icon: Wrench,
     points: [
       {
         title: "Medlemsengagemang",
         description:
-          "Plan för medlemsinflytande — vilka forum finns, hur tillgängliggörs planen, hur följs den upp?",
+          "Hur medlemmar får information, kan påverka och känna sig delaktiga.",
       },
       {
         title: "Ekonomi",
         description:
-          "Rutiner för redovisning, lagkassor inom föreningens ekonomi, budget som speglar verksamhetsplanen och en jämställd resursfördelning.",
+          "Ordning på budget, lagkassor och hur pengar fördelas.",
       },
       {
         title: "Anläggning",
         description:
-          "Anläggningsbehov, trygg anläggning, jämställd plantidsfördelning, underhållsplan, rätt planmått.",
+          "Trygga planer, rätt ytor och rättvis fördelning av tider.",
       },
       {
         title: "Kommunikationsplan",
         description:
-          "Nedskriven plan med målgrupper, kanaler, vad som kommuniceras när, hur och varför — utvärderad årligen.",
+          "Vem som behöver veta vad, var informationen finns och när den skickas.",
       },
     ],
   },
@@ -174,36 +174,36 @@ export const KVALITETSKLUBB_PROCESS: ProcessStep[] = [
     number: "01",
     title: "Klubbkollen — nuläge",
     description:
-      "Föreningen skickar ut en enkät till medlemmar. Svaren ger en visuell nulägesbild inom de fyra fokusområdena.",
-    output: "Visuell nulägesbild",
+      "Föreningen frågar medlemmarna hur de upplever verksamheten.",
+    output: "En bild av vad som fungerar och vad som behöver bli bättre",
   },
   {
     number: "02",
     title: "Analys",
     description:
-      "Föreningen analyserar resultatet — helst tillsammans med distriktet. Mallar för nulägesanalys finns per fokusområde.",
-    output: "Förståelse för styrkor och behov",
+      "Föreningen går igenom svaren och väljer vad som är viktigast att börja med.",
+    output: "Styrkor, behov och första prioritering",
   },
   {
     number: "03",
     title: "Handlingsplan",
     description:
-      "Vad behöver utvecklas, vem ansvarar, hur drivs arbetet, vad räknas som bevis? Föreningen arbetar i den takt den hinner.",
-    output: "Beslutad plan med ansvar",
+      "Föreningen bestämmer vad som ska göras, vem som gör det och när det följs upp.",
+    output: "En plan som går att använda",
   },
   {
     number: "04",
     title: "Klubbverktyget",
     description:
-      "Föreningen arbetar vidare inom de fyra fokusområdena med löpande dialog, granskning och godkännande från distriktet.",
-    output: "Dokumenterade utvecklingssteg",
+      "Föreningen samlar sitt arbete och får stöd av distriktet på vägen.",
+    output: "Tydliga steg framåt",
   },
   {
     number: "05",
     title: "Certifiering & omcertifiering",
     description:
-      "När alla kriterier är uppfyllda utnämns föreningen till Kvalitetsklubb i två år. Sedan följer omcertifiering.",
-    output: "Kvalitetsstämpel · 2 år",
+      "När kraven är uppfyllda blir föreningen Kvalitetsklubb. Efter två år görs en ny genomgång.",
+    output: "Kvalitetsklubb i två år",
   },
 ];
 
@@ -225,12 +225,12 @@ export const KVALITETSKLUBB_ROLES: KlubbRole[] = [
     metaphor: "Tränarnas tränare",
     icon: Compass,
     description:
-      "Stödjer och vägleder tränare på planen. Utvecklar tillämpningen av spelarutbildningsplanen i föreningens vardag.",
+      "Stöttar tränare så att träning och match blir bättre för spelarna.",
     responsibilities: [
       "Ledarsamtal och ledarträffar",
       "Träningsbesök och matchbesök",
       "Vägleder tränare i SvFF:s tränarutbildning",
-      "Utvecklar tillämpningen av spelarutbildningsplanen",
+      "Hjälper tränare använda spelarutbildningsplanen",
     ],
   },
   {
@@ -239,7 +239,7 @@ export const KVALITETSKLUBB_ROLES: KlubbRole[] = [
     metaphor: "Domarnas tränare",
     icon: Flag,
     description:
-      "Möjliggör domarutbildning, stöttar nya domare, hjälper i planering och utvecklar föreningens domararbete.",
+      "Stöttar domare så att fler vågar börja och fortsätta döma.",
     responsibilities: [
       "Möjliggör domarutbildning",
       "Stöttar domare under matcher",
@@ -253,12 +253,12 @@ export const KVALITETSKLUBB_ROLES: KlubbRole[] = [
     metaphor: "Värdegrund i praktiken",
     icon: Shield,
     description:
-      "Arbetar proaktivt och reaktivt med trygg miljö. Följer värdegrund och hanterar ärenden — med mandat från styrelsen.",
+      "Hjälper föreningen skapa trygg miljö och hantera ärenden på rätt sätt.",
     responsibilities: [
       "Följer värdegrund och riktlinjer",
       "Ansvarar för ärendehantering",
       "Delar kontaktuppgifter till medlemmar",
-      "Mandat via styrelse eller delegerat ansvar",
+      "Tydligt uppdrag från styrelsen",
     ],
   },
 ];

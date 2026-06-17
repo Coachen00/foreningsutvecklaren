@@ -29,14 +29,14 @@ import type { TocSection } from "@/components/blocks/TableOfContents";
 const SECTIONS: TocSection[] = [
   { id: "satsningen", title: "Satsningen", level: 2 },
   { id: "mal", title: "Centrala mål", level: 2 },
-  { id: "girls-fc", title: "Girls FC — flickfotboll i prioriterade områden", level: 2 },
+  { id: "girls-fc", title: "Girls FC — fler tjejer börjar spela", level: 2 },
   { id: "roller", title: "Två roller", level: 2 },
   { id: "arbetsdelar", title: "Fem arbetsdelar", level: 2 },
   { id: "kriterier", title: "Kriterier för att delta", level: 2 },
   { id: "arshjul", title: "Årshjul 2026", level: 2 },
   { id: "gransdragning", title: "Gör / Gör inte", level: 2 },
   { id: "matpunkter", title: "Mätpunkter", level: 2 },
-  { id: "samverkan", title: "Samverkan", level: 2 },
+  { id: "samverkan", title: "Tillsammans", level: 2 },
   { id: "stodformer", title: "Stödformer", level: 2 },
   { id: "varfor", title: "Varför satsningen finns", level: 2 },
 ];
@@ -92,14 +92,14 @@ const EnBattreVag = () => {
           >
             <p className="text-lead">
               En bättre väg är SvFF:s och regeringens riktade satsning på
-              fotbollens närvaro i prioriterade områden — lokalt genomförd i
+              fotboll där behoven är stora — lokalt genomförd i
               Göteborg.
             </p>
             <p className="mt-4">
               Satsningen får stöd av Riksidrottsförbundet, Folksam, ICA och
               Svenska Spel. Syftet är att skapa meningsfulla fritidsaktiviteter
               för barn och unga i områden som polisen klassar som särskilt
-              utsatta — och att bygga en hållbar struktur runt fotbollen som
+              utsatta — och att bygga en vardag runt fotbollen som
               håller över tid.
             </p>
             {program && (
@@ -117,10 +117,10 @@ const EnBattreVag = () => {
             className="animate-fade-up animate-delay-150"
           >
             <p>
-              SvFF:s nationella målbild förstärks av GFF:s lokala
-              verksamhetsplan: merparten av föreningarna i prioriterade
-              områden ska ta del av GFF:s stöd senast 2027, och fler tjejer
-              ska spela fotboll i prioriterade områden.
+              SvFF:s nationella mål förstärks av GFF:s lokala
+              verksamhetsplan: merparten av föreningarna i utvalda områden ska
+              ta del av GFF:s stöd senast 2027, och fler tjejer
+              ska börja spela fotboll där behoven är stora.
             </p>
             <div className="mt-6 not-prose">
               <GoalsBlock goals={EN_BATTRE_VAG_GOALS} columns={4} />
@@ -131,7 +131,7 @@ const EnBattreVag = () => {
           <ExpandableBlock
             id="girls-fc"
             kicker="Case"
-            title="Girls FC — flickfotboll i prioriterade områden"
+            title="Girls FC — fler tjejer börjar spela"
             defaultOpen
             className="animate-fade-up animate-delay-200"
           >
@@ -142,8 +142,8 @@ const EnBattreVag = () => {
             <p className="mt-4">
               Snart 80 flickor som aldrig spelat fotboll tidigare deltar i
               verksamheten. Siffran är inte huvudberättelsen — beviset är att
-              riktad satsning på flickfotboll i prioriterade områden faktiskt
-              översätts till nya spelare, nya ledare och nya gemenskaper.
+              en riktad satsning faktiskt blir nya spelare, nya ledare och nya
+              gemenskaper.
             </p>
             <p className="mt-4 text-small text-muted-foreground">
               Korslänk: när fokus är flickfotboll, inkludering eller trygg miljö
@@ -162,7 +162,7 @@ const EnBattreVag = () => {
             className="animate-fade-up animate-delay-200"
           >
             <p>
-              Programmet möjliggör att föreningar i prioriterade områden kan
+              Programmet gör det möjligt för föreningar i utvalda områden att
               anställa två nyckelroller — en för organisationen runt fotbollen
               och en för det som händer på planen. Tillsammans bär de hela
               satsningen.
@@ -246,8 +246,8 @@ const EnBattreVag = () => {
             wide
           >
             <p>
-              Språkröret arbetar processledande. Gränsdragningen säkerställer
-              att arbetet bygger föreningens egen kapacitet i stället för
+              Språkröret leder arbetet framåt. Gränsdragningen säkerställer
+              att föreningen blir starkare själv, i stället för
               beroende av GFF.
             </p>
             <div className="mt-6 not-prose">
@@ -276,16 +276,16 @@ const EnBattreVag = () => {
             </div>
           </ExpandableBlock>
 
-          {/* SAMVERKAN */}
+          {/* SAMARBETE */}
           <ExpandableBlock
             id="samverkan"
-            kicker="Samverkan"
+            kicker="Tillsammans"
             title="Detta är ingen enmansinsats"
             defaultOpen={false}
           >
             <p>
               En bättre väg fungerar när förbund, kommun, förening och
-              civilsamhälle drar åt samma håll. Varje aktör fyller en egen
+              civilsamhälle drar åt samma håll. Varje part fyller en egen
               lucka.
             </p>
             <div className="mt-5">
@@ -305,8 +305,8 @@ const EnBattreVag = () => {
           >
             <p>
               Olika stöd kan bära olika delar av satsningen. Logiken är
-              kapacitetsbyggande, inte bidragssökande — rätt stöd kopplas till
-              rätt insats så att pengar blir ledare, aktiviteter och struktur.
+              enkel: rätt stöd kopplas till rätt insats så att pengar blir
+              ledare, aktiviteter och tydligare arbetssätt.
               Stöd kan gå både till GFF och till lokala föreningar.
             </p>
             <div className="mt-6 not-prose">

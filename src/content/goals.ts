@@ -57,7 +57,7 @@ export const EN_BATTRE_VAG_GOALS: Goal[] = [
     unit: "föreningar",
     title: "Välorganiserade föreningar",
     description:
-      "Tydliga strukturer och ansvar i föreningar i prioriterade områden.",
+      "Tydliga arbetssätt och ansvar i föreningar där behoven är stora.",
   },
   {
     id: "ledare-tranare",

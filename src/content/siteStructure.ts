@@ -9,5 +9,5 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   { slug: "uppdrag", path: "/uppdrag", navLabel: "Uppdrag" },
   { slug: "foreningsutveckling", path: "/foreningsutveckling", navLabel: "Föreningsutveckling" },
-  { slug: "skola-samverkan", path: "/skola-samverkan", navLabel: "Skola & samverkan" },
+  { slug: "skola-samverkan", path: "/skola-samverkan", navLabel: "Skola & förening" },
 ];

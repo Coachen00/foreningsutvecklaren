@@ -6,7 +6,7 @@ interface Props {
   title?: string;
 }
 
-const PartnerStrip = ({ ids, title = "I samverkan med" }: Props) => {
+const PartnerStrip = ({ ids, title = "Tillsammans med" }: Props) => {
   const list = ids ? PARTNERS.filter((p) => ids.includes(p.id)) : PARTNERS;
   if (list.length === 0) return null;
 
