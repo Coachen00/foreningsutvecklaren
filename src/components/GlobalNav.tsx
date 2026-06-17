@@ -10,7 +10,10 @@ import { cn } from "@/lib/utils";
 const isPathActive = (pathname: string, path: string) =>
   pathname === path || pathname.startsWith(path + "/");
 
-const SECONDARY_LINK = { path: "/uppdrag", label: "Uppdrag" };
+const SECONDARY_LINKS = [
+  { path: "/portalen", label: "Föreningsportalen" },
+  { path: "/uppdrag", label: "Uppdrag" },
+];
 
 const GlobalNav = () => {
   const location = useLocation();
@@ -79,27 +82,32 @@ const GlobalNav = () => {
                   </li>
                 );
               })}
-              {/* Secondary link — visually quieter, flyttad till höger om primära */}
-              <li className="ml-2 border-l border-border/60 pl-2">
-                <NavLink
-                  to={SECONDARY_LINK.path}
-                  aria-current={
-                    isPathActive(location.pathname, SECONDARY_LINK.path)
-                      ? "page"
-                      : undefined
-                  }
-                  onMouseEnter={() => prefetchRoute(SECONDARY_LINK.path)}
-                  onFocus={() => prefetchRoute(SECONDARY_LINK.path)}
-                  className={cn(
-                    "rounded-md px-3 py-2 text-[0.75rem] font-medium transition-colors duration-150",
-                    "text-muted-foreground hover:text-foreground hover:bg-muted",
-                    isPathActive(location.pathname, SECONDARY_LINK.path) &&
-                      "text-foreground",
-                  )}
+              {/* Secondary links — visually quieter, flyttade till höger om primära */}
+              {SECONDARY_LINKS.map((link, i) => (
+                <li
+                  key={link.path}
+                  className={cn(i === 0 && "ml-2 border-l border-border/60 pl-2")}
                 >
-                  {SECONDARY_LINK.label}
-                </NavLink>
-              </li>
+                  <NavLink
+                    to={link.path}
+                    aria-current={
+                      isPathActive(location.pathname, link.path)
+                        ? "page"
+                        : undefined
+                    }
+                    onMouseEnter={() => prefetchRoute(link.path)}
+                    onFocus={() => prefetchRoute(link.path)}
+                    className={cn(
+                      "rounded-md px-3 py-2 text-[0.75rem] font-medium transition-colors duration-150",
+                      "text-muted-foreground hover:text-foreground hover:bg-muted",
+                      isPathActive(location.pathname, link.path) &&
+                        "text-foreground",
+                    )}
+                  >
+                    {link.label}
+                  </NavLink>
+                </li>
+              ))}
               {session ? (
                 <li className="ml-1">
                   <button
@@ -218,21 +226,23 @@ const GlobalNav = () => {
                   Stöd & struktur
                 </p>
                 <ul className="space-y-0.5" role="list">
-                  <li>
-                    <NavLink
-                      to={SECONDARY_LINK.path}
-                      onClick={() => setMobileOpen(false)}
-                      className={({ isActive: a }) =>
-                        cn(
-                          "block rounded-md px-3 py-2 text-sm transition-colors",
-                          "text-muted-foreground hover:text-foreground hover:bg-muted",
-                          a && "text-foreground bg-muted",
-                        )
-                      }
-                    >
-                      {SECONDARY_LINK.label}
-                    </NavLink>
-                  </li>
+                  {SECONDARY_LINKS.map((link) => (
+                    <li key={link.path}>
+                      <NavLink
+                        to={link.path}
+                        onClick={() => setMobileOpen(false)}
+                        className={({ isActive: a }) =>
+                          cn(
+                            "block rounded-md px-3 py-2 text-sm transition-colors",
+                            "text-muted-foreground hover:text-foreground hover:bg-muted",
+                            a && "text-foreground bg-muted",
+                          )
+                        }
+                      >
+                        {link.label}
+                      </NavLink>
+                    </li>
+                  ))}
                 </ul>
               </nav>
 

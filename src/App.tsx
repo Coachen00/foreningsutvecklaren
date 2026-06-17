@@ -22,6 +22,10 @@ const FUiSkola = lazy(() => import("./pages/areas/FUiSkola"));
 const EnBattreVag = lazy(() => import("./pages/areas/EnBattreVag"));
 const JamstalldhetTrygghet = lazy(() => import("./pages/areas/JamstalldhetTrygghet"));
 const Spelarutbildning = lazy(() => import("./pages/areas/Spelarutbildning"));
+const Portalen = lazy(() => import("./pages/areas/Portalen"));
+const Case = lazy(() => import("./pages/areas/Case"));
+const CaseDetail = lazy(() => import("./pages/areas/CaseDetail"));
+const Uppdateringar = lazy(() => import("./pages/areas/Uppdateringar"));
 
 const queryClient = new QueryClient();
 
@@ -85,6 +89,10 @@ const App = () => (
               />
 
               {/* Sekundära / stödjande sidor */}
+              <Route path="/portalen" element={<Protected><Portalen /></Protected>} />
+              <Route path="/case" element={<Protected><Case /></Protected>} />
+              <Route path="/case/:slug" element={<Protected><CaseDetail /></Protected>} />
+              <Route path="/uppdateringar" element={<Protected><Uppdateringar /></Protected>} />
               <Route path="/uppdrag" element={<Protected><Uppdrag /></Protected>} />
               <Route path="/uppdrag/arbetsuppgifter" element={<Protected><Arbetsuppgifter /></Protected>} />
               <Route path="/uppdrag/partners" element={<Protected><Partners /></Protected>} />

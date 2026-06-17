@@ -1,0 +1,17 @@
+{
+  "comment": "VIKTIGT: De flesta förbunds-/klubbsajter (gbgfotboll.se, svenskfotboll.se) saknar RSS (404). SvFF-podden nedan är verifierad och aktiverad som TEST så hela kedjan (secrets -> workflow -> Supabase) kan provköras. Byt mot riktiga källor när strategin är vald. Respektera robots.txt och villkor.",
+  "maxItemsPerSource": 10,
+  "sources": [
+    {
+      "name": "SvFF-podden (test)",
+      "feedUrl": "https://feed.podbean.com/svenskfotboll/feed.xml",
+      "enabled": true
+    },
+    {
+      "name": "Göteborgs FF",
+      "feedUrl": "https://www.gbgfotboll.se/rss",
+      "enabled": false,
+      "note": "Ingen RSS (404) per 2026-06. Kräver annan strategi än RSS."
+    }
+  ]
+}
