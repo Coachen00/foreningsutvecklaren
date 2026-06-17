@@ -1,190 +1,84 @@
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 import type { CSSProperties } from "react";
 import { CURRENT_STATE } from "@/content/currentState";
-import { cn } from "@/lib/utils";
 
 /**
- * CURRENT STATE — startsidans Nuläge-dashboard.
- *
- * Editorial layout med stark typografisk hierarki:
- *   • stor rubrik och kort ingress (rollbeskrivning)
- *   • tre stora huvudkort (de tre största arbetsområdena)
- *   • "Just nu"-rad med pågående fokus
- *   • fyra kompakta effektlogikkort (Resurser → Aktiviteter → Output → Effekt)
+ * Browse-first overview: startsidan ska ge karta och nyfikenhet.
+ * Fördjupning bor på länkarna, inte här.
  */
 const CurrentStateBlock = () => {
-  const { eyebrow, title, role, topMissions, focus, effect } = CURRENT_STATE;
-  const missionSignals = ["var(--signal-green)", "var(--signal-blue)", "var(--signal-gold)"];
+  const { role, topMissions, focus } = CURRENT_STATE;
+  const signals = ["var(--signal-green)", "var(--signal-blue)", "var(--signal-gold)"];
+  const promise = [
+    "Hitta var insatsen gör störst nytta.",
+    "Koppla ihop förening, skola och samhälle.",
+    "Göra stödet synligt, följbart och användbart.",
+  ];
 
   return (
     <section
       aria-labelledby="nulage-heading"
-      className="border-b border-border bg-background"
+      className="border-b border-border bg-background pitch-lines"
     >
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="section-y-lg">
-          {/* Header */}
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.4fr] md:gap-16 lg:gap-24">
+        <div className="section-y">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-[0.9fr_1.4fr] md:gap-16 lg:gap-24">
             <div>
               <p className="signal-label mb-5" style={{ "--signal": "var(--signal-coral)" } as CSSProperties}>
-                {eyebrow}
+                På 30 sekunder
               </p>
               <h2
                 id="nulage-heading"
-                className="font-serif text-display font-semibold leading-[1.05] text-foreground"
+                className="max-w-[9ch] font-serif text-display font-semibold leading-[1.05] text-foreground"
               >
-                {title}
+                Vad är det?
               </h2>
             </div>
             <div className="self-end">
               <p className="font-mono text-micro uppercase tracking-wider text-muted-foreground">
                 {role.label}
               </p>
-              <p className="mt-3 max-w-[48ch] text-lead text-foreground/85">
-                {role.body}
+              <p className="mt-3 max-w-[34ch] text-lead text-foreground/85">
+                En roll som riktar resurser, relationer och kvalitet dit fotbollen kan göra mest nytta.
               </p>
             </div>
           </div>
 
-          {/* Tre största arbetsområden */}
-          <div className="mt-14 lg:mt-20">
-            <p className="signal-label mb-5" style={{ "--signal": "var(--signal-green)" } as CSSProperties}>
-              Tre största arbetsområden just nu
+          <ul className="mt-12 grid grid-cols-1 gap-3 md:grid-cols-3" role="list">
+            {promise.map((text, index) => (
+              <li
+                key={text}
+                className="signal-card rounded-md border border-border bg-card p-6 shadow-xs"
+                style={{ "--signal": signals[index] } as CSSProperties}
+              >
+                <p className="font-mono text-micro tabular-nums text-muted-foreground">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <p className="mt-4 font-serif text-subhead font-semibold leading-snug text-foreground">
+                  {text}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-[0.7fr_1.3fr] md:items-start">
+            <p className="signal-label" style={{ "--signal": "var(--signal-gold)" } as CSSProperties}>
+              Just nu
             </p>
-            <ul
-              className="grid grid-cols-1 gap-3 md:grid-cols-2"
-              role="list"
-            >
-              {topMissions.map((m, i) => (
-                <li
-                  key={m.id}
-                  className={cn(
-                    "min-h-full",
-                    // Markera En bättre väg som störst — den är priority 1, full bredd
-                    i === 0 && "md:col-span-2",
-                  )}
-                >
-                  <Link
-                    to={m.path}
-                    className={cn(
-                      "signal-card group relative flex h-full flex-col rounded-md border border-border bg-card p-6 shadow-xs lg:p-8",
-                      "transition-[background,color,border-color,transform] duration-200",
-                      "hover:-translate-y-0.5 hover:border-primary/35 hover:bg-primary-subtle",
-                      "focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring",
-                      i === 0 && "md:p-9 lg:p-12",
-                    )}
-                    style={{ "--signal": missionSignals[i] } as CSSProperties}
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="absolute right-6 top-5 font-mono text-[3rem] font-bold leading-none text-border/70 transition-colors duration-200 group-hover:text-primary/20 select-none lg:text-[3.5rem]"
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-
-                    <p className="mb-2 max-w-[34ch] font-mono text-micro uppercase tracking-wider text-muted-foreground">
-                      {m.kicker}
-                    </p>
-
-                    <h3
-                      className={cn(
-                        "mb-3 font-serif font-semibold text-foreground",
-                        i === 0 ? "text-headline" : "text-subhead",
-                      )}
-                    >
-                      {m.title}
-                    </h3>
-
-                    <p
-                      className={cn(
-                        "mb-6 max-w-[46ch] text-foreground/75",
-                        i === 0 ? "text-lead" : "text-small",
-                      )}
-                    >
-                      {m.summary}
-                    </p>
-
-                    <span className="mt-auto inline-flex items-center gap-2 font-mono text-micro font-medium uppercase tracking-wider text-primary">
-                      Gå till uppdraget
-                      <ArrowRight
-                        className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1"
-                        aria-hidden="true"
-                      />
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Pågående fokus */}
-          <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.4fr] md:gap-16 lg:gap-24">
-            <div>
-              <p className="signal-label mb-3" style={{ "--signal": "var(--signal-gold)" } as CSSProperties}>
-                {focus.eyebrow}
-              </p>
-              <p className="text-small text-muted-foreground">{focus.intro}</p>
-            </div>
-            <ul
-              className="grid grid-cols-1 gap-3 sm:grid-cols-2"
-              role="list"
-            >
+            <ul className="flex flex-wrap gap-2" role="list">
               {focus.items.map((item) => (
-                <li key={item.label} className="rounded-md border border-border bg-card p-5">
-                  <p className="font-semibold text-base leading-tight text-foreground">
-                    {item.label}
-                  </p>
-                  <p className="mt-2 text-small leading-relaxed text-muted-foreground">
-                    {item.description}
-                  </p>
+                <li
+                  key={item.label}
+                  className="rounded-full border border-border bg-card px-3.5 py-2 text-small font-medium text-foreground"
+                >
+                  {item.label}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Effektlogik — kompakt teaser. Full version finns i sektion 4 (EffectChain). */}
-          <div className="mt-14">
-            <div className="mb-6 grid grid-cols-1 gap-2 md:grid-cols-[1fr_1.4fr] md:gap-16 lg:gap-24">
-              <div>
-                <p className="signal-label" style={{ "--signal": "var(--signal-blue)" } as CSSProperties}>
-                  {effect.eyebrow}
-                </p>
-                <p className="mt-2 font-serif text-subhead font-semibold text-foreground">
-                  Resurser → Aktiviteter → Output → Effekt
-                </p>
-              </div>
-              <p className="self-end text-small text-muted-foreground">
-                {effect.intro}
-              </p>
-            </div>
-            <ol
-              className="grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4"
-              role="list"
-            >
-              {effect.stages.map((stage) => {
-                const Icon = stage.icon;
-                return (
-                  <li
-                    key={stage.number}
-                    className="flex items-center gap-3 bg-card p-5"
-                  >
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                      <Icon className="h-4 w-4" aria-hidden="true" />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block font-mono text-micro tabular-nums text-muted-foreground">
-                        {stage.number}
-                      </span>
-                      <span className="block font-semibold text-base leading-tight text-foreground">
-                        {stage.label}
-                      </span>
-                    </span>
-                  </li>
-                );
-              })}
-            </ol>
-          </div>
+          <p className="mt-8 max-w-[46ch] text-small leading-relaxed text-muted-foreground">
+            Tre huvudspår visar vägen vidare: {topMissions.map((m) => m.title).join(", ")}.
+          </p>
         </div>
       </div>
     </section>

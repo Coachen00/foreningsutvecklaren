@@ -17,23 +17,20 @@ export const HARVESTED_SUCCESSES: HarvestedSuccess[] = [
   {
     id: "barn-i-rorelse",
     title: "Fler barn i rörelse",
-    description:
-      "Satsningen har skapat fler organiserade möten mellan förening, skola och lokalsamhälle.",
-    metric: "Barn, ledare och föreningar i gemensam riktning",
+    description: "Fler möten mellan förening, skola och lokalsamhälle.",
+    metric: "Barn i rörelse",
   },
   {
     id: "starkare-foreningsstruktur",
     title: "Starkare föreningsstruktur",
-    description:
-      "Arbetssättet gör det lättare att följa upp, dokumentera och visa effekt över tid.",
-    metric: "Tydligare process från idé till effekt",
+    description: "Lättare att följa upp, dokumentera och lära.",
+    metric: "Tydligare process",
   },
   {
     id: "partnernytta",
-    title: "Partnernytta som går att visa",
-    description:
-      "Insatserna kopplas till konkret samhällsnytta, lokal närvaro och långsiktig föreningsutveckling.",
-    metric: "Synlig effekt före, under och efter insats",
+    title: "Partnernytta som syns",
+    description: "Samhällsnytta kopplad till plats, förening och effekt.",
+    metric: "Synlig effekt",
   },
 ];
 
@@ -47,8 +44,8 @@ export interface SuccessVideoConfig {
 
 export const SUCCESS_VIDEO: SuccessVideoConfig = {
   eyebrow: "Skördade framgångar",
-  title: "Framgångar vi redan har skördat",
-  lead: "Det här har satsningen redan givit. Inte färdiga sanningar — men spår som går att följa, mäta och bygga vidare på.",
+  title: "Det finns redan spår",
+  lead: "Inte hela berättelsen. Bara tillräckligt för att vilja se mer.",
   videoUrl: "/videos/successes.mp4",
   posterUrl: "/images/video-poster-successes.jpg",
 };

@@ -3,48 +3,41 @@ import { ArrowUpRight } from "lucide-react";
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
 import SectionBlock from "@/components/blocks/SectionBlock";
-import MethodBlock from "@/components/blocks/MethodBlock";
 import CurrentStateBlock from "@/components/blocks/CurrentStateBlock";
-import AssignmentOverviewBlock from "@/components/blocks/AssignmentOverviewBlock";
 import MissionPriorityBlock from "@/components/blocks/MissionPriorityBlock";
-import EffectChain from "@/components/blocks/EffectChain";
-import CommitteeBlock from "@/components/blocks/CommitteeBlock";
-import PartnerFundingBlock from "@/components/blocks/PartnerFundingBlock";
-import SortingMapBlock from "@/components/blocks/SortingMapBlock";
 import LoggedInHeroCountdown from "@/components/dashboard/LoggedInHeroCountdown";
 import HarvestedSuccessesVideo from "@/components/dashboard/HarvestedSuccessesVideo";
-import { CURRENT_STATE } from "@/content/currentState";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 const NEXT_STEP_LINKS = [
   {
     label: "Kvalitetsklubb",
-    hint: "Ramverket som gör föreningsutveckling möjlig att följa.",
+    hint: "Hur föreningen blir starkare över tid.",
     href: "/foreningsutveckling/kvalitetsklubb",
   },
   {
     label: "Jämställdhet & trygghet",
-    hint: "Flickfotboll, matchklimat och barnperspektiv i samma riktning.",
+    hint: "När miljön runt barnen måste hålla.",
     href: "/foreningsutveckling/jamstalldhet-och-trygghet",
   },
   {
     label: "Spelarutbildning",
-    hint: "Spelarens miljö, träningsinnehåll och SUP.",
+    hint: "Fotbollsinnehållet bakom utveckling.",
     href: "/uppdrag/spelarutbildning",
   },
   {
     label: "Skola & samverkan",
-    hint: "När skola, förening, förbund och kommun behöver samma karta.",
+    hint: "Vägen från skoldag till föreningsliv.",
     href: "/skola-samverkan",
   },
   {
     label: "Arbetsuppgifter",
-    hint: "Dialog, förankring, observation och uppföljning i vardagen.",
+    hint: "Vad rollen faktiskt gör.",
     href: "/uppdrag/arbetsuppgifter",
   },
   {
     label: "Partners",
-    hint: "Roller, ansvar och finansiering utan att tappa riktningen.",
+    hint: "Resurser som blir kapacitet.",
     href: "/uppdrag/partners",
   },
 ];
@@ -66,74 +59,23 @@ const Home = () => {
         {/* Akt 2 — Skördade framgångar (scroll-revealed) */}
         <HarvestedSuccessesVideo />
 
-        {/* Fördjupningsstart — full sajtkarta nedanför kontrollrummet */}
-        {/* 1. Metod — sidans första orientering */}
-        <MethodBlock />
-
-        {/* 2. Nuläge */}
+        {/* Akt 3 — snabb översikt, inte underlag */}
         <CurrentStateBlock />
 
-        {/* 3. Arbetsbeskrivningen i en mening */}
-        <AssignmentOverviewBlock />
-
-        {/* 4. Huvuduppdrag — En bättre väg som hero, FU Skola + Föreningslyftet under */}
         <SectionBlock
           eyebrow="Huvuduppdrag"
-          title="Tre spår bär arbetet"
-          lead="En bättre väg bär samhällsnyttan. FU Skola bygger bron. Föreningslyftet gör strukturen hållbar."
+          title="Tre vägar in"
+          lead="Välj spår när du vill förstå mer. Startsidan ska bara ge kartan."
           split
         >
           <MissionPriorityBlock />
         </SectionBlock>
 
-        {/* 5. Effektlogik för hela uppdraget */}
         <SectionBlock
           variant="muted"
-          eyebrow="Effektlogik"
-          title="Resurser blir effekt"
-          lead="Fyra steg räcker för att skilja aktivitet från verklig förändring."
-          split
-        >
-          <EffectChain stages={CURRENT_STATE.effect.stages} />
-        </SectionBlock>
-
-        {/* 6. Kommittéer och arbetsgrupper */}
-        <SectionBlock
-          eyebrow="Kommittéer och arbetsgrupper"
-          title="Forum jag deltar i"
-          lead="Två forum där strategi möter vardag och blir till beslut."
-          split
-        >
-          <CommitteeBlock />
-        </SectionBlock>
-
-        {/* 7. Partners, finansiering och samhällsnytta */}
-        <SectionBlock
-          variant="muted"
-          eyebrow="Partners, finansiering och samhällsnytta"
-          title="Så fungerar partnerskap och finansiering"
-          lead="Partnerskap ska öka föreningens kapacitet, inte bara fylla en budgetrad."
-          split
-        >
-          <PartnerFundingBlock />
-        </SectionBlock>
-
-        {/* 8. Hur allt sorteras */}
-        <SectionBlock
-          eyebrow="Sorteringskarta"
-          title="Var hör detta hemma?"
-          lead="Åtta frågor som håller sajten ren när uppdraget växer."
-          split
-        >
-          <SortingMapBlock />
-        </SectionBlock>
-
-        {/* 9. Vidare till fördjupning */}
-        <SectionBlock
-          variant="muted"
-          eyebrow="Vidare till fördjupning"
-          title="Fortsätt läsa"
-          lead="Välj nästa yta efter vad du behöver förstå, besluta eller göra."
+          eyebrow="Fördjupa"
+          title="När du vill veta mer"
+          lead="Kort väg vidare. Inga långa förklaringar innan du själv väljer dem."
           split
         >
           <ul

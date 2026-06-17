@@ -46,14 +46,12 @@ export const MISSION_AREAS: MissionArea[] = [
     number: "01",
     title: "En bättre väg",
     kicker: "Riktad samhällsbärande satsning",
-    lead: "Riktade insatser där behoven är störst: inkludering, trygghet och meningsfull fritid.",
+    lead: "Där behoven är störst: trygghet, inkludering och meningsfull fritid.",
     bearing: "Bär samhällsnyttan",
     contains: [
-      "Girls FC och flickfotboll i prioriterade områden",
-      "Hisingsbacka, Tynnered, Biskopsgården och andra geografier",
-      "Förenings- och fotbollsutvecklare i satsningen",
-      "Partners och finansiering kopplat till riktade insatser",
-      "Lokala förebilder, trygghet och meningsfull fritid",
+      "Girls FC",
+      "Prioriterade områden",
+      "Lokala förebilder",
     ],
     crossLinks: [
       {
@@ -76,14 +74,12 @@ export const MISSION_AREAS: MissionArea[] = [
     number: "02",
     title: "FU Skola",
     kicker: "Bron mellan skola och förening",
-    lead: "Skolan som väg in i fotboll. Barn nås där de redan är.",
+    lead: "Skolan blir vägen in. Barn nås där de redan är.",
     bearing: "Bär skola–förening-bron",
     contains: [
-      "Skolbollen och fotbollsprofil åk 7–9",
-      "Onboarding av skolor, rektorer och kommun",
-      "Samverkan mellan GFF, skolor, föreningar och RF-SISU",
-      "Uppföljning av skolrelaterad fotbollsverksamhet",
-      "Kompetenshöjning kopplad till skola–förening",
+      "Skolbollen",
+      "Fotbollsprofil",
+      "Skola–förening",
     ],
     crossLinks: [
       {
@@ -106,16 +102,12 @@ export const MISSION_AREAS: MissionArea[] = [
     number: "03",
     title: "Föreningsutveckling / Föreningslyftet",
     kicker: "Den generella föreningsmotorn",
-    lead: "Den generella motorn. Här byggs struktur, ledarskap och kultur som håller över säsonger.",
+    lead: "Struktur, ledarskap och kultur som håller över säsonger.",
     bearing: "Bär struktur, kvalitet och föreningsmotor",
     contains: [
-      "Föreningslyftet som huvudmotor",
-      "Kvalitetsklubb som ramverk",
-      "Nulägesanalys, handlingsplaner och uppföljning",
-      "Styrelsearbete, årshjul och verksamhetsplan",
-      "Matchklimat, Trygg Fotboll och ledarförsörjning",
-      "Samverkan med RF-SISU och andra idrotter",
-      "Digitala och fysiska föreningsträffar, konferenser och erfarenhetsutbyte",
+      "Kvalitetsklubb",
+      "Trygg Fotboll",
+      "Årshjul",
     ],
     crossLinks: [
       {
