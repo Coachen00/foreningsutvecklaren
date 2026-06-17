@@ -18,7 +18,7 @@ const HeroNumber = ({
   caption: string;
 }) => (
   <div>
-    <div className="font-serif text-[clamp(3.5rem,12vw,8rem)] font-medium leading-none tracking-tight text-white">
+    <div className="font-serif text-[clamp(3.5rem,12vw,8rem)] font-medium leading-none text-white">
       {value}
       <span className="ml-2 align-baseline font-mono text-base uppercase tracking-[0.18em] text-white/60">
         {unit}
@@ -111,12 +111,10 @@ const LoggedInHeroCountdown = () => {
       ) : (
         <div className="absolute inset-0" aria-hidden="true">
           {/* Bas-gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground to-primary/40" />
-          {/* Mjuka cirklar — ger djup utan video */}
-          <div className="absolute -top-20 -left-20 h-[60vmin] w-[60vmin] rounded-full bg-primary/20 blur-3xl" />
-          <div className="absolute -bottom-32 -right-32 h-[70vmin] w-[70vmin] rounded-full bg-primary/15 blur-3xl" />
-          <div className="absolute top-1/2 left-1/3 h-[40vmin] w-[40vmin] -translate-y-1/2 rounded-full bg-primary/10 blur-3xl" />
-          {/* Subtilt grain via radial-pattern */}
+          <div className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground to-primary/45" />
+          <div className="absolute inset-0 pitch-lines opacity-20" />
+          <div className="absolute left-1/2 top-0 h-full w-px bg-white/10" />
+          <div className="absolute left-0 top-1/2 h-px w-full bg-white/10" />
           <div
             className="absolute inset-0 opacity-[0.06]"
             style={{
@@ -143,7 +141,7 @@ const LoggedInHeroCountdown = () => {
           </p>
           <h1
             id="hero-countdown-heading"
-            className="max-w-[18ch] font-serif text-[clamp(2.25rem,6vw,4.25rem)] font-medium leading-[1.05] tracking-tight"
+            className="max-w-[18ch] font-serif text-[clamp(2.25rem,6vw,4.25rem)] font-medium leading-[1.05]"
           >
             {heroTitle}
           </h1>

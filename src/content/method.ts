@@ -51,11 +51,11 @@ export interface MethodRhythm {
 
 export const METHOD_OVERVIEW = {
   eyebrow: "Metod",
-  title: "Metod",
+  title: "Metoden ska göra nästa steg självklart",
   lead:
-    "Metoden beskriver hur uppdraget rör sig från nuläge till prioritering, genomförande och lärande. Den gör arbetet möjligt att leda, förklara, följa upp och utveckla utan att varje ny fråga blir en ny struktur.",
+    "Från nuläge till prioritering, genomförande och lärande. Samma karta används varje gång, så nya frågor inte blir nya strukturer.",
   support:
-    "Arbetet sker främst genom föreningens förenings- och fotbollsutvecklare samt direkt eller indirekt med styrelsen. Ledare, spelare och barn påverkas genom den struktur som föreningen bygger.",
+    "Arbetet sker genom föreningens utvecklare och styrelse. Ledare, spelare och barn påverkas när strukturen runt dem blir starkare.",
 };
 
 export const METHOD_STAGES: MethodStage[] = [
@@ -64,8 +64,8 @@ export const METHOD_STAGES: MethodStage[] = [
     title: "Rikta frågan",
     kicker: "Sortering",
     description:
-      "Först avgörs var frågan hör hemma: En bättre väg, FU Skola, Föreningslyftet, Uppdrag, Partners eller en fördjupning. Rätt placering minskar dubbelarbete och gör sidan begriplig för läsaren.",
-    output: "En tydlig huvudplacering och eventuella korslänkar.",
+      "Avgör var frågan hör hemma innan arbetet växer. Rätt plats minskar dubbelarbete.",
+    output: "Huvudplacering och korslänkar.",
     icon: Compass,
   },
   {
@@ -73,8 +73,8 @@ export const METHOD_STAGES: MethodStage[] = [
     title: "Förankra ägarskap",
     kicker: "Mandat",
     description:
-      "Innan insatsen växer behöver ägarskapet vara tydligt. Vem äger frågan i föreningen, vilka behöver vara med och vilken nivå kräver styrelseförankring?",
-    output: "Rätt personer i dialogen och en rimlig beslutsväg.",
+      "Klargör vem som äger frågan, vilka som behöver vara med och när styrelsen ska in.",
+    output: "Rätt personer och rimlig beslutsväg.",
     icon: Users,
   },
   {
@@ -82,8 +82,8 @@ export const METHOD_STAGES: MethodStage[] = [
     title: "Kartlägg nuläge",
     kicker: "Underlag",
     description:
-      "Nuläget samlas från samtal, dokument, observationer, mätpunkter och tidigare erfarenhet. Poängen är inte att veta allt, utan att veta tillräckligt för att kunna prioritera klokt.",
-    output: "En koncentrerad nulägesbild med behov, hinder och möjligheter.",
+      "Samla precis nog från samtal, dokument, observationer och mätpunkter för att kunna välja klokt.",
+    output: "Behov, hinder och möjligheter.",
     icon: ClipboardCheck,
   },
   {
@@ -91,8 +91,8 @@ export const METHOD_STAGES: MethodStage[] = [
     title: "Prioritera insats",
     kicker: "Val",
     description:
-      "När allt verkar viktigt behövs en tydlig prioritering. Insatsen väljs utifrån effekt, genomförbarhet, tajming och hur väl den stärker föreningens egen kapacitet.",
-    output: "Ett avgränsat nästa steg som går att genomföra och följa upp.",
+      "Välj insats utifrån effekt, tajming, genomförbarhet och föreningens egen kapacitet.",
+    output: "Ett avgränsat nästa steg.",
     icon: Target,
   },
   {
@@ -100,8 +100,8 @@ export const METHOD_STAGES: MethodStage[] = [
     title: "Genomför i rytm",
     kicker: "Arbete",
     description:
-      "Genomförandet sker i en återkommande rytm: dialog, dokumentation, avstämning och justering. Tränings- och matchbesök används när de tillför underlag, inte som rutin.",
-    output: "Aktiviteter som hänger ihop över tid i stället för enskilda punktinsatser.",
+      "Arbeta i rytm: dialog, dokumentation, avstämning och justering. Platsbesök används när de ger bättre underlag.",
+    output: "Sammanhängande insatser över tid.",
     icon: Workflow,
   },
   {
@@ -109,8 +109,8 @@ export const METHOD_STAGES: MethodStage[] = [
     title: "Följ upp och lär",
     kicker: "Utveckling",
     description:
-      "Uppföljningen skiljer på aktivitet, output och effekt. Det visar vad som faktiskt hände, vad som blev starkare och vad metoden behöver justera inför nästa cykel.",
-    output: "Lärande som kan återanvändas i nästa förening, område eller process.",
+      "Skilj aktivitet från output och effekt. Då syns vad som faktiskt blev starkare.",
+    output: "Lärande som kan återanvändas.",
     icon: Repeat2,
   },
 ];
@@ -120,7 +120,7 @@ export const METHOD_WORK_MODES: MethodWorkMode[] = [
     title: "Utvecklingsdialog",
     label: "Navet",
     description:
-      "Den löpande dialogen med föreningens utvecklare och nyckelpersoner. Här upptäcks behov, hinder och möjliga nästa steg.",
+      "Löpande samtal där behov, hinder och nästa steg blir synliga.",
     examples: ["Riktningssamtal", "Uppföljning", "Prioritering"],
     icon: GitBranch,
   },
@@ -128,7 +128,7 @@ export const METHOD_WORK_MODES: MethodWorkMode[] = [
     title: "Styrelseförankring",
     label: "Mandat",
     description:
-      "När frågan påverkar organisation, resurser eller långsiktig riktning behöver styrelsen vara direkt eller indirekt förankrad.",
+      "När frågan påverkar resurser eller riktning behöver styrelsen vara med.",
     examples: ["Beslutsväg", "Ansvar", "Verksamhetsplan"],
     icon: Layers,
   },
@@ -136,7 +136,7 @@ export const METHOD_WORK_MODES: MethodWorkMode[] = [
     title: "Riktad observation",
     label: "Underlag",
     description:
-      "Träning och match används som metod när miljön behöver läsas av. Observationen ska alltid kopplas till en fråga och en efterföljande dialog.",
+      "Träning och match används när miljön behöver läsas av, alltid kopplat till en fråga.",
     examples: ["Träningsmiljö", "Matchklimat", "Kultur"],
     icon: Eye,
   },
@@ -144,7 +144,7 @@ export const METHOD_WORK_MODES: MethodWorkMode[] = [
     title: "Dokumenterad process",
     label: "Spårbarhet",
     description:
-      "Kort dokumentation gör att arbetet går att följa över tid. Den ska visa beslut, riktning, ansvar och nästa steg utan att bli tung administration.",
+      "Kort dokumentation visar beslut, riktning, ansvar och nästa steg.",
     examples: ["Nuläge", "Handlingsplan", "Årshjul"],
     icon: FileText,
   },
@@ -152,7 +152,7 @@ export const METHOD_WORK_MODES: MethodWorkMode[] = [
     title: "Resurskoppling",
     label: "Kapacitet",
     description:
-      "Partners, finansiering och utbildningsstöd kopplas till rätt förening och rätt insats. Stödet ska bli kapacitet, inte beroende.",
+      "Partners, finansiering och utbildningsstöd kopplas till rätt insats.",
     examples: ["Partners", "RF-SISU", "Finansiering"],
     icon: Network,
   },
@@ -160,7 +160,7 @@ export const METHOD_WORK_MODES: MethodWorkMode[] = [
     title: "Effektlärande",
     label: "Metodutveckling",
     description:
-      "Efter insatsen analyseras vad som fungerade, vad som saknades och vad som ska ändras i metoden. Lärandet är en del av leveransen.",
+      "Efter insatsen blir lärandet en del av leveransen.",
     examples: ["Output", "Effekt", "Justering"],
     icon: BarChart3,
   },
@@ -172,28 +172,28 @@ export const METHOD_MATRIX: MethodMatrixItem[] = [
     title: "Avgränsa först",
     context: "Oklart behov · låg kapacitet",
     action:
-      "Börja med nuläge, rollfördelning och en liten första åtgärd. För stor insats för tidigt skapar mer friktion än utveckling.",
+      "Börja med nuläge, roller och en liten första åtgärd.",
   },
   {
     id: "samla-riktning",
     title: "Samla riktning",
     context: "Oklart behov · hög kapacitet",
     action:
-      "Använd dialog och verksamhetsidé för att sortera ambitionerna. Kapaciteten finns, men den behöver riktning.",
+      "Sortera ambitionerna. Kapaciteten finns, men behöver riktning.",
   },
   {
     id: "bygg-struktur",
     title: "Bygg struktur",
     context: "Tydligt behov · låg kapacitet",
     action:
-      "Prioritera ansvar, årshjul, resurser och stödpersoner. Insatsen behöver minska personberoende och skapa hållbarhet.",
+      "Prioritera ansvar, årshjul, resurser och stödpersoner.",
   },
   {
     id: "delegera-folj-upp",
     title: "Delegera och följ upp",
     context: "Tydligt behov · hög kapacitet",
     action:
-      "Lägg arbetet nära föreningen. Rollen blir att säkra riktning, följa upp och koppla på rätt stöd vid rätt tidpunkt.",
+      "Lägg arbetet nära föreningen och följ upp riktningen.",
   },
 ];
 

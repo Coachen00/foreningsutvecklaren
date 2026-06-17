@@ -47,7 +47,7 @@ export const CURRENT_STATE: CurrentState = {
   title: "Så ser uppdraget ut just nu",
   role: {
     label: "Roll",
-    body: "Språkrör och föreningsutvecklare inom Göteborgs Fotbollförbund. Jag arbetar med riktad föreningsutveckling, skola–förening, samhällsnytta, partners och operativ uppföljning.",
+    body: "Språkrör och föreningsutvecklare inom Göteborgs Fotbollförbund. Fokus: riktad föreningsutveckling, skola–förening, samhällsnytta, partners och uppföljning.",
   },
   topMissions: [
     {
@@ -55,7 +55,7 @@ export const CURRENT_STATE: CurrentState = {
       title: "En bättre väg",
       kicker: "Riktad samhällsbärande satsning",
       summary:
-        "Riktade insatser i prioriterade områden. Här bär uppdraget den stora samhällsnyttan.",
+        "Riktade insatser i prioriterade områden. Uppdragets starkaste samhällsnytta.",
       path: "/en-battre-vag",
     },
     {
@@ -63,7 +63,7 @@ export const CURRENT_STATE: CurrentState = {
       title: "FU Skola",
       kicker: "Bron mellan skola och förening",
       summary:
-        "Skolan som väg in i fotboll. Skolbollen, fotbollsprofil och samverkan med kommun, RF-SISU och GIS.",
+        "Skolan som väg in i fotboll: Skolbollen, fotbollsprofil och lokal samverkan.",
       path: "/fu-skola",
     },
     {
@@ -71,14 +71,14 @@ export const CURRENT_STATE: CurrentState = {
       title: "Föreningsutveckling / Föreningslyftet",
       kicker: "Den generella föreningsmotorn",
       summary:
-        "Struktur, kvalitet och föreningsmotor. Kvalitetsklubb är verktyget — Föreningslyftet är arbetet.",
+        "Struktur och kvalitet. Kvalitetsklubb är verktyget, Föreningslyftet är arbetet.",
       path: "/foreningsutveckling",
     },
   ],
   focus: {
     eyebrow: "Just nu",
     intro:
-      "Prioriterat arbete under innevarande period. Listan justeras när tyngdpunkten flyttar.",
+      "Tyngdpunkter under nuvarande period.",
     items: [
       {
         label: "Girls FC och flickfotboll",
@@ -87,17 +87,17 @@ export const CURRENT_STATE: CurrentState = {
       {
         label: "Partners och finansiering",
         description:
-          "Stiftelser, bostadsbolag och samhällsaktörer som omsätts till föreningskapacitet.",
+          "Samhällsaktörer som omsätts till föreningskapacitet.",
       },
       {
         label: "Kommittéarbete",
         description:
-          "Samhällsforumet och Föreningskommittén — samhällsberättelse och utvecklingsforum.",
+          "Samhällsberättelse, utvecklingsforum och beslut.",
       },
       {
         label: "Kvalitet och trygghet",
         description:
-          "Kvalitetsklubb, matchklimat, trygg fotboll och föreningsstruktur.",
+          "Kvalitetsklubb, matchklimat och trygg föreningsstruktur.",
       },
     ],
   },

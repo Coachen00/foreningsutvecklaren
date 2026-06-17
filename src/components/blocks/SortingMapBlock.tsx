@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import type { CSSProperties } from "react";
 import { SORTING_RULES } from "@/content/sortingRules";
 
 /**
@@ -13,13 +14,21 @@ import { SORTING_RULES } from "@/content/sortingRules";
  */
 const SortingMapBlock = () => (
   <ul
-    className="grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-2"
+    className="grid grid-cols-1 gap-4 md:grid-cols-2"
     role="list"
   >
-    {SORTING_RULES.map((rule) => (
+    {SORTING_RULES.map((rule, index) => {
+      const signals = [
+        "var(--signal-green)",
+        "var(--signal-blue)",
+        "var(--signal-gold)",
+        "var(--signal-coral)",
+      ];
+      return (
       <li
         key={rule.number}
-        className="flex flex-col gap-4 bg-card p-6 lg:p-7"
+        className="signal-card flex flex-col gap-4 rounded-md border border-border bg-card p-6 shadow-xs lg:p-7"
+        style={{ "--signal": signals[index % signals.length] } as CSSProperties}
       >
         <div className="flex items-baseline gap-3">
           <span className="font-mono text-micro tabular-nums text-muted-foreground">
@@ -66,7 +75,8 @@ const SortingMapBlock = () => (
           )}
         </div>
       </li>
-    ))}
+      );
+    })}
   </ul>
 );
 

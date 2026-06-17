@@ -23,18 +23,18 @@ export default {
       fontSize: {
         /* Display — H1, hero only, Lora */
         display: [
-          "clamp(2.5rem, 4.5vw + 1rem, 4.25rem)",
-          { lineHeight: "1.06", letterSpacing: "-0.03em" },
+          "clamp(2.75rem, 4.2vw + 1rem, 4.85rem)",
+          { lineHeight: "1.02", letterSpacing: "0" },
         ],
         /* Headline — H2, section titles, Work Sans */
         headline: [
-          "clamp(1.625rem, 2vw + 0.875rem, 2.375rem)",
-          { lineHeight: "1.16", letterSpacing: "-0.022em" },
+          "clamp(1.75rem, 1.7vw + 1rem, 2.55rem)",
+          { lineHeight: "1.1", letterSpacing: "0" },
         ],
         /* Subhead — H3, card titles, Work Sans */
         subhead: [
-          "clamp(1.125rem, 1vw + 0.75rem, 1.375rem)",
-          { lineHeight: "1.28", letterSpacing: "-0.014em" },
+          "clamp(1.125rem, 0.8vw + 0.875rem, 1.45rem)",
+          { lineHeight: "1.22", letterSpacing: "0" },
         ],
         /* Lead — ingress text */
         lead: [
@@ -94,6 +94,13 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        signal: {
+          green: "hsl(var(--signal-green))",
+          blue: "hsl(var(--signal-blue))",
+          gold: "hsl(var(--signal-gold))",
+          coral: "hsl(var(--signal-coral))",
+          ink: "hsl(var(--signal-ink))",
+        },
       },
 
       borderRadius: {
@@ -115,7 +122,7 @@ export default {
 
       fontFamily: {
         sans: [
-          "Work Sans",
+          "IBM Plex Sans",
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
@@ -128,7 +135,7 @@ export default {
           "sans-serif",
         ],
         serif: [
-          "Lora",
+          "Fraunces",
           "ui-serif",
           "Georgia",
           "Cambria",
@@ -137,7 +144,7 @@ export default {
           "serif",
         ],
         mono: [
-          "Inconsolata",
+          "IBM Plex Mono",
           "ui-monospace",
           "SFMono-Regular",
           "Menlo",

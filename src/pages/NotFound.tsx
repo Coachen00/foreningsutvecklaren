@@ -30,7 +30,7 @@ const NotFound = () => {
         <p className="mb-3 font-mono text-micro uppercase tracking-wider text-primary">
           404
         </p>
-        <h1 className="mb-4 font-serif text-4xl font-medium tracking-tight text-foreground">
+        <h1 className="mb-4 font-serif text-4xl font-medium text-foreground">
           Sidan finns inte
         </h1>
         <p className="mb-10 text-small text-muted-foreground">

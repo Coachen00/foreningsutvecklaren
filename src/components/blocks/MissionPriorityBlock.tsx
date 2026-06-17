@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import type { CSSProperties } from "react";
 import { MISSION_AREAS } from "@/content/missionAreas";
 import { cn } from "@/lib/utils";
 
@@ -13,14 +14,22 @@ import { cn } from "@/lib/utils";
 const MissionPriorityBlock = () => {
   const primary = MISSION_AREAS.find((m) => m.priority === "primary")!;
   const secondary = MISSION_AREAS.filter((m) => m.priority === "secondary");
+  const missionSignal = {
+    "en-battre-vag": "var(--signal-green)",
+    "fu-skola": "var(--signal-blue)",
+    foreningslyftet: "var(--signal-gold)",
+  };
 
   return (
-    <div className="space-y-px bg-border">
+    <div className="space-y-4">
       {/* PRIMARY — En bättre väg som hero */}
-      <article className="bg-card">
+      <article
+        className="signal-card overflow-hidden rounded-md border border-border bg-card shadow-xs"
+        style={{ "--signal": missionSignal[primary.id] } as CSSProperties}
+      >
         <div className="grid grid-cols-1 gap-6 p-7 md:grid-cols-[1.1fr_1.4fr] md:gap-12 md:p-10 lg:gap-16 lg:p-12">
           <div>
-            <p className="font-mono text-micro uppercase tracking-wider text-primary">
+            <p className="signal-label" style={{ "--signal": missionSignal[primary.id] } as CSSProperties}>
               {primary.bearing}
             </p>
             <h3 className="mt-4 font-serif text-headline font-semibold leading-[1.05] text-foreground">
@@ -30,7 +39,7 @@ const MissionPriorityBlock = () => {
               {primary.kicker}
             </p>
 
-            <p className="mt-7 max-w-[44ch] text-lead text-foreground/85">
+            <p className="mt-7 max-w-[38ch] text-lead text-foreground/85">
               {primary.lead}
             </p>
 
@@ -47,16 +56,12 @@ const MissionPriorityBlock = () => {
             <p className="font-mono text-micro uppercase tracking-wider text-muted-foreground">
               Det här hör hit
             </p>
-            <ul className="mt-4 space-y-2.5" role="list">
+            <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2" role="list">
               {primary.contains.map((item) => (
                 <li
                   key={item}
-                  className="flex gap-3 text-small leading-relaxed text-foreground/85"
+                  className="rounded-sm border border-border bg-background px-3 py-2 text-small leading-snug text-foreground/85"
                 >
-                  <span
-                    aria-hidden="true"
-                    className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-primary"
-                  />
                   <span>{item}</span>
                 </li>
               ))}
@@ -93,10 +98,14 @@ const MissionPriorityBlock = () => {
       </article>
 
       {/* SECONDARY — FU Skola + Föreningslyftet sida-vid-sida */}
-      <div className="grid grid-cols-1 gap-px bg-border md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {secondary.map((mission) => (
-          <article key={mission.id} className="flex flex-col bg-card p-7 lg:p-9">
-            <p className="font-mono text-micro uppercase tracking-wider text-primary">
+          <article
+            key={mission.id}
+            className="signal-card flex flex-col rounded-md border border-border bg-card p-7 shadow-xs lg:p-9"
+            style={{ "--signal": missionSignal[mission.id] } as CSSProperties}
+          >
+            <p className="signal-label" style={{ "--signal": missionSignal[mission.id] } as CSSProperties}>
               {mission.bearing}
             </p>
             <h3 className="mt-3 font-serif text-subhead font-semibold leading-tight text-foreground">
@@ -105,23 +114,19 @@ const MissionPriorityBlock = () => {
             <p className="mt-2 font-mono text-micro uppercase tracking-wider text-muted-foreground">
               {mission.kicker}
             </p>
-            <p className="mt-5 max-w-[48ch] text-base leading-relaxed text-foreground/80">
+            <p className="mt-5 max-w-[42ch] text-base leading-relaxed text-foreground/80">
               {mission.lead}
             </p>
 
             <p className="mt-7 font-mono text-micro uppercase tracking-wider text-muted-foreground">
               Det här hör hit
             </p>
-            <ul className="mt-3 space-y-2" role="list">
+            <ul className="mt-3 flex flex-wrap gap-2" role="list">
               {mission.contains.slice(0, 5).map((item) => (
                 <li
                   key={item}
-                  className="flex gap-2.5 text-small leading-relaxed text-foreground/80"
+                  className="rounded-sm border border-border bg-background px-2.5 py-1.5 text-small leading-snug text-foreground/80"
                 >
-                  <span
-                    aria-hidden="true"
-                    className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-primary/60"
-                  />
                   <span>{item}</span>
                 </li>
               ))}

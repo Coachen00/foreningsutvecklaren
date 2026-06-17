@@ -18,7 +18,7 @@ interface SectionBlockProps {
 
 const variantClass: Record<Variant, string> = {
   default: "bg-background",
-  muted: "bg-card",
+  muted: "bg-card pitch-lines",
   accent: "bg-primary-subtle",
   flush: "bg-background border-t border-border",
 };
@@ -43,39 +43,48 @@ const SectionBlock = ({
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section header */}
         {split ? (
-          <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-[1fr_1.2fr] md:gap-12 lg:gap-16">
-            <div>
+          <div className="mb-12 grid grid-cols-1 gap-6 border-b border-border pb-8 md:grid-cols-[minmax(14rem,0.78fr)_minmax(0,1.22fr)] md:gap-12 lg:gap-20">
+            <div className="max-w-[30rem]">
               {eyebrow && (
-                <p className="mb-3 font-mono text-micro uppercase tracking-wider text-primary">
+                <p className="signal-label mb-4" style={{ "--signal": "var(--signal-blue)" } as React.CSSProperties}>
                   {eyebrow}
                 </p>
               )}
               <h2
                 id={id ? `${id}-heading` : undefined}
-                className="text-headline font-semibold text-foreground"
+                className="font-serif text-headline font-semibold text-foreground"
               >
                 {title}
               </h2>
             </div>
             {lead && (
-              <p className="self-end text-lead text-muted-foreground">{lead}</p>
+              <p className="max-w-[52ch] self-end text-base leading-relaxed text-muted-foreground md:text-[1.0625rem]">
+                {lead}
+              </p>
             )}
           </div>
         ) : (
-          <div className={cn("mb-10", narrow ? "w-reading" : "max-w-[44rem]")}>
+          <div
+            className={cn(
+              "mb-12 border-b border-border pb-8",
+              narrow ? "w-reading" : "max-w-[52rem]",
+            )}
+          >
             {eyebrow && (
-              <p className="mb-3 font-mono text-micro uppercase tracking-wider text-primary">
+              <p className="signal-label mb-4" style={{ "--signal": "var(--signal-blue)" } as React.CSSProperties}>
                 {eyebrow}
               </p>
             )}
             <h2
               id={id ? `${id}-heading` : undefined}
-              className="text-headline font-semibold text-foreground"
+              className="font-serif text-headline font-semibold text-foreground"
             >
               {title}
             </h2>
             {lead && (
-              <p className="mt-3 text-lead text-muted-foreground">{lead}</p>
+              <p className="mt-4 max-w-[54ch] text-base leading-relaxed text-muted-foreground md:text-[1.0625rem]">
+                {lead}
+              </p>
             )}
           </div>
         )}

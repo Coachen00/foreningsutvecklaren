@@ -19,7 +19,7 @@ const AreaShell = ({ area, subtitle, children }: AreaShellProps) => {
 
   return (
     <>
-      <div className="border-b border-border bg-card" id="main-content">
+      <div className="border-b border-border bg-card pitch-lines" id="main-content">
         <div className="container mx-auto px-4 sm:px-6">
           {/* Breadcrumb */}
           <nav
@@ -66,9 +66,9 @@ const AreaShell = ({ area, subtitle, children }: AreaShellProps) => {
           </nav>
 
           {/* Hero content */}
-          <header className="section-y max-w-[52rem]">
+          <header className="section-y max-w-[56rem]">
             {/* Area marker */}
-            <p className="mb-6 inline-flex items-center gap-2.5 font-mono text-micro uppercase tracking-wider text-muted-foreground">
+            <p className="signal-label mb-6">
               <span className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10 text-primary">
                 <Icon className="h-3.5 w-3.5" aria-hidden="true" />
               </span>
@@ -87,7 +87,7 @@ const AreaShell = ({ area, subtitle, children }: AreaShellProps) => {
             </h1>
 
             {/* Lead */}
-            <p className="mt-5 max-w-[48ch] text-lead text-muted-foreground">
+            <p className="mt-5 max-w-[46ch] text-lead text-muted-foreground">
               {isSubpage
                 ? area.subpages.find(
                     (s) => s.title === subtitle
@@ -97,7 +97,7 @@ const AreaShell = ({ area, subtitle, children }: AreaShellProps) => {
 
             {/* Support — only on area root */}
             {!isSubpage && (
-              <p className="mt-3 max-w-[52ch] text-base text-foreground/65">
+              <p className="mt-4 max-w-[50ch] text-base leading-relaxed text-foreground/65">
                 {area.heroSupport}
               </p>
             )}

@@ -13,8 +13,8 @@
     --nav-height: 4rem;
 
     /* Core palette */
-    --background: 30 12% 97%;
-    --foreground: 220 18% 9%;
+    --background: 60 20% 97%;
+    --foreground: 210 13% 10%;
 
     --card: 0 0% 100%;
     --card-foreground: 220 18% 9%;
@@ -22,25 +22,25 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 18% 9%;
 
-    --primary: 161 82% 26%;
-    --primary-foreground: 151 80% 96%;
-    --primary-subtle: 161 45% 94%;
+    --primary: 158 84% 23%;
+    --primary-foreground: 150 85% 96%;
+    --primary-subtle: 154 42% 93%;
 
     --secondary: 220 8% 38%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 8% 93%;
-    --muted-foreground: 220 8% 44%;
+    --muted: 72 12% 91%;
+    --muted-foreground: 210 9% 38%;
 
-    --accent: 161 45% 94%;
-    --accent-foreground: 161 82% 20%;
+    --accent: 43 82% 90%;
+    --accent-foreground: 37 88% 23%;
 
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 85% 97%;
 
-    --border: 220 10% 88%;
-    --border-subtle: 220 10% 93%;
-    --input: 220 10% 88%;
+    --border: 64 11% 83%;
+    --border-subtle: 60 13% 90%;
+    --input: 64 11% 83%;
     --ring: 161 82% 26%;
 
     --radius: 0.375rem;
@@ -56,9 +56,15 @@
     --shadow-2xl: 0 40px 64px hsl(220 18% 9% / 0.14);
 
     /* Fonts */
-    --font-sans: 'Work Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
-    --font-serif: 'Lora', ui-serif, Georgia, serif;
-    --font-mono: 'Inconsolata', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --signal-green: 158 84% 23%;
+    --signal-blue: 202 58% 35%;
+    --signal-gold: 39 84% 46%;
+    --signal-coral: 9 61% 49%;
+    --signal-ink: 210 13% 10%;
+
+    --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-serif: 'Fraunces', ui-serif, Georgia, serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
     /* Sidebar */
     --sidebar-background: 0 0% 100%;
@@ -71,38 +77,43 @@
     --sidebar-ring: 161 82% 26%;
     --sidebar: 0 0% 100%;
 
-    --chart-1: 161 72% 42%;
-    --chart-2: 141 65% 50%;
-    --chart-3: 172 60% 44%;
-    --chart-4: 82 65% 48%;
-    --chart-5: 220 10% 40%;
+    --chart-1: 158 84% 34%;
+    --chart-2: 202 58% 42%;
+    --chart-3: 39 84% 49%;
+    --chart-4: 9 61% 54%;
+    --chart-5: 210 13% 34%;
 
     --tracking-normal: 0em;
     --spacing: 0.25rem;
   }
 
   .dark {
-    --background: 220 18% 8%;
-    --foreground: 220 8% 95%;
-    --card: 220 15% 12%;
+    --background: 210 14% 8%;
+    --foreground: 60 18% 94%;
+    --card: 210 14% 12%;
     --card-foreground: 220 8% 95%;
     --popover: 220 15% 15%;
     --popover-foreground: 220 8% 95%;
-    --primary: 158 62% 50%;
-    --primary-foreground: 165 91% 9%;
-    --primary-subtle: 161 40% 14%;
+    --primary: 156 66% 55%;
+    --primary-foreground: 158 84% 8%;
+    --primary-subtle: 156 36% 15%;
     --secondary: 220 8% 42%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 220 10% 17%;
-    --muted-foreground: 220 6% 58%;
-    --accent: 178 45% 11%;
-    --accent-foreground: 172 62% 50%;
+    --muted: 210 12% 18%;
+    --muted-foreground: 60 8% 66%;
+    --accent: 39 40% 18%;
+    --accent-foreground: 39 84% 65%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 85% 97%;
     --border: 220 10% 21%;
     --border-subtle: 220 10% 16%;
     --input: 220 10% 21%;
     --ring: 158 62% 50%;
+    --signal-green: 156 66% 55%;
+    --signal-blue: 199 66% 62%;
+    --signal-gold: 39 84% 61%;
+    --signal-coral: 9 70% 62%;
+    --signal-ink: 60 18% 94%;
     --shadow-2xs: 0 1px 2px hsl(0 0% 0% / 0.3);
     --shadow-xs: 0 1px 3px hsl(0 0% 0% / 0.32);
     --shadow-sm: 0 2px 4px hsl(0 0% 0% / 0.32);
@@ -145,8 +156,14 @@
     font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   }
 
+  body::selection {
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
   h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
+    font-variation-settings: "SOFT" 75;
   }
 
   p {
@@ -198,8 +215,8 @@
 
   /* Section rhythm via clamp */
   .section-y {
-    padding-top: clamp(4rem, 8vw, 6.5rem);
-    padding-bottom: clamp(4rem, 8vw, 6.5rem);
+    padding-top: clamp(4.5rem, 8vw, 7rem);
+    padding-bottom: clamp(4.5rem, 8vw, 7rem);
   }
   .section-y-sm {
     padding-top: clamp(2.5rem, 5vw, 4rem);
@@ -231,6 +248,58 @@
     letter-spacing: -0.04em;
     color: hsl(var(--border));
     user-select: none;
+  }
+
+  .pitch-lines {
+    background-image:
+      linear-gradient(hsl(var(--border-subtle) / 0.7) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border-subtle) / 0.7) 1px, transparent 1px);
+    background-size: 56px 56px;
+    background-position: center;
+  }
+
+  .signal-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .signal-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: hsl(var(--signal, var(--primary)));
+  }
+
+  .signal-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .signal-label::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: hsl(var(--signal, var(--primary)));
+  }
+
+  .pull-quote {
+    border-left: 4px solid hsl(var(--signal-gold));
+    background:
+      linear-gradient(90deg, hsl(var(--accent) / 0.62), transparent 70%),
+      hsl(var(--background));
+  }
+
+  .reading-dim {
+    color: hsl(var(--muted-foreground));
   }
 }
 

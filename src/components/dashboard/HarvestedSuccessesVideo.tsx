@@ -90,7 +90,7 @@ const HarvestedSuccessesVideo = () => {
             </p>
             <h2
               id="harvested-successes-heading"
-              className="font-serif text-headline font-semibold leading-tight tracking-tight"
+              className="font-serif text-headline font-semibold leading-tight"
             >
               {SUCCESS_VIDEO.title}
             </h2>
@@ -100,17 +100,17 @@ const HarvestedSuccessesVideo = () => {
 
         <ul
           role="list"
-          className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-md border border-white/15 bg-white/10 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-12 grid grid-cols-1 gap-4 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3"
         >
           {HARVESTED_SUCCESSES.map((s) => (
             <li
               key={s.id}
-              className="flex h-full flex-col gap-3 bg-foreground/85 p-6 backdrop-blur-sm sm:p-7"
+              className="flex h-full flex-col gap-3 rounded-md border border-white/15 bg-foreground/82 p-6 backdrop-blur-sm sm:p-7"
             >
               <p className="font-mono text-micro uppercase tracking-wider text-primary-foreground/80">
                 {s.metric}
               </p>
-              <h3 className="font-serif text-2xl font-medium leading-tight tracking-tight">
+              <h3 className="font-serif text-2xl font-medium leading-tight">
                 {s.title}
               </h3>
               <p className="text-small leading-relaxed text-white/75">

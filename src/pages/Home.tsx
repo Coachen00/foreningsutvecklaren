@@ -13,39 +13,38 @@ import PartnerFundingBlock from "@/components/blocks/PartnerFundingBlock";
 import SortingMapBlock from "@/components/blocks/SortingMapBlock";
 import LoggedInHeroCountdown from "@/components/dashboard/LoggedInHeroCountdown";
 import HarvestedSuccessesVideo from "@/components/dashboard/HarvestedSuccessesVideo";
-import EffectLogicSummary from "@/components/dashboard/EffectLogicSummary";
 import { CURRENT_STATE } from "@/content/currentState";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 const NEXT_STEP_LINKS = [
   {
     label: "Kvalitetsklubb",
-    hint: "Ramverket för föreningsutveckling — fördjupning under Föreningslyftet.",
+    hint: "Ramverket som gör föreningsutveckling möjlig att följa.",
     href: "/foreningsutveckling/kvalitetsklubb",
   },
   {
     label: "Jämställdhet & trygghet",
-    hint: "Värdegrund som genomsyrar arbetet — flickfotboll, matchklimat, barnperspektiv.",
+    hint: "Flickfotboll, matchklimat och barnperspektiv i samma riktning.",
     href: "/foreningsutveckling/jamstalldhet-och-trygghet",
   },
   {
     label: "Spelarutbildning",
-    hint: "Spelarens utveckling, SUP och träningsinnehåll — separerat från FU Skola.",
+    hint: "Spelarens miljö, träningsinnehåll och SUP.",
     href: "/uppdrag/spelarutbildning",
   },
   {
     label: "Skola & samverkan",
-    hint: "Bredare hubb för skola, förening, förbund och kommun.",
+    hint: "När skola, förening, förbund och kommun behöver samma karta.",
     href: "/skola-samverkan",
   },
   {
     label: "Arbetsuppgifter",
-    hint: "Arbetsformer i detalj — utvecklingsdialoger, styrelseförankring och riktade observationer.",
+    hint: "Dialog, förankring, observation och uppföljning i vardagen.",
     href: "/uppdrag/arbetsuppgifter",
   },
   {
     label: "Partners",
-    hint: "Hela ansvarskedjan — strategiska, operativa, finansierande, mottagare.",
+    hint: "Roller, ansvar och finansiering utan att tappa riktningen.",
     href: "/uppdrag/partners",
   },
 ];
@@ -67,9 +66,6 @@ const Home = () => {
         {/* Akt 2 — Skördade framgångar (scroll-revealed) */}
         <HarvestedSuccessesVideo />
 
-        {/* Effektlogik — resurser → effekt */}
-        <EffectLogicSummary />
-
         {/* Fördjupningsstart — full sajtkarta nedanför kontrollrummet */}
         {/* 1. Metod — sidans första orientering */}
         <MethodBlock />
@@ -84,7 +80,7 @@ const Home = () => {
         <SectionBlock
           eyebrow="Huvuduppdrag"
           title="Tre spår bär arbetet"
-          lead="En bättre väg bär samhällsnyttan. FU Skola bär bron mellan skola och förening. Föreningslyftet bär struktur, kvalitet och föreningsmotor. Allt annat är stödstruktur, korslänk eller fördjupning."
+          lead="En bättre väg bär samhällsnyttan. FU Skola bygger bron. Föreningslyftet gör strukturen hållbar."
           split
         >
           <MissionPriorityBlock />
@@ -95,7 +91,7 @@ const Home = () => {
           variant="muted"
           eyebrow="Effektlogik"
           title="Resurser blir effekt"
-          lead="Den röda tråden från det som stoppas in till det som stannar kvar. Samma fyra steg gäller för alla tre huvuduppdragen."
+          lead="Fyra steg räcker för att skilja aktivitet från verklig förändring."
           split
         >
           <EffectChain stages={CURRENT_STATE.effect.stages} />
@@ -105,7 +101,7 @@ const Home = () => {
         <SectionBlock
           eyebrow="Kommittéer och arbetsgrupper"
           title="Forum jag deltar i"
-          lead="Två arbetsgrupper som binder ihop strategi och vardag. Inga egna toppkategorier — viktiga som korslänkar in i resten av sajten."
+          lead="Två forum där strategi möter vardag och blir till beslut."
           split
         >
           <CommitteeBlock />
@@ -116,7 +112,7 @@ const Home = () => {
           variant="muted"
           eyebrow="Partners, finansiering och samhällsnytta"
           title="Så fungerar partnerskap och finansiering"
-          lead="Partnerskap är en arbetsdel — inte ett sidospår. Finansiering är kapacitetsbyggande, inte bidragssökande."
+          lead="Partnerskap ska öka föreningens kapacitet, inte bara fylla en budgetrad."
           split
         >
           <PartnerFundingBlock />
@@ -126,7 +122,7 @@ const Home = () => {
         <SectionBlock
           eyebrow="Sorteringskarta"
           title="Var hör detta hemma?"
-          lead="Åtta frågor som avgör var nytt innehåll placeras. Reglerna gäller för mig själv när jag bygger sajten — och för läsaren som vill förstå strukturen."
+          lead="Åtta frågor som håller sajten ren när uppdraget växer."
           split
         >
           <SortingMapBlock />
@@ -137,18 +133,18 @@ const Home = () => {
           variant="muted"
           eyebrow="Vidare till fördjupning"
           title="Fortsätt läsa"
-          lead="Fördjupningssidor och stödytor — sortera in efter behov."
+          lead="Välj nästa yta efter vad du behöver förstå, besluta eller göra."
           split
         >
           <ul
-            className="grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2 lg:grid-cols-3"
+            className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
             role="list"
           >
             {NEXT_STEP_LINKS.map((link) => (
-              <li key={link.href} className="bg-card">
+              <li key={link.href} className="min-h-full">
                 <Link
                   to={link.href}
-                  className="group flex h-full flex-col gap-3 p-6 transition-colors hover:bg-primary-subtle/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  className="group flex h-full flex-col gap-3 rounded-md border border-border bg-card p-6 shadow-xs transition-[background,border-color,transform] hover:-translate-y-0.5 hover:border-primary/35 hover:bg-primary-subtle/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
                   <span className="flex items-center justify-between">
                     <span className="font-serif text-base font-semibold text-foreground">

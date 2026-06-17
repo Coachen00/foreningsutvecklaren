@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import type { CSSProperties } from "react";
 import { CURRENT_STATE } from "@/content/currentState";
 import { cn } from "@/lib/utils";
 
@@ -14,6 +15,7 @@ import { cn } from "@/lib/utils";
  */
 const CurrentStateBlock = () => {
   const { eyebrow, title, role, topMissions, focus, effect } = CURRENT_STATE;
+  const missionSignals = ["var(--signal-green)", "var(--signal-blue)", "var(--signal-gold)"];
 
   return (
     <section
@@ -25,11 +27,7 @@ const CurrentStateBlock = () => {
           {/* Header */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.4fr] md:gap-16 lg:gap-24">
             <div>
-              <p className="mb-4 inline-flex items-center gap-2.5 font-mono text-micro uppercase tracking-wider text-primary">
-                <span
-                  className="inline-flex h-[5px] w-[5px] rounded-full bg-primary"
-                  aria-hidden="true"
-                />
+              <p className="signal-label mb-5" style={{ "--signal": "var(--signal-coral)" } as CSSProperties}>
                 {eyebrow}
               </p>
               <h2
@@ -43,7 +41,7 @@ const CurrentStateBlock = () => {
               <p className="font-mono text-micro uppercase tracking-wider text-muted-foreground">
                 {role.label}
               </p>
-              <p className="mt-3 max-w-[52ch] text-lead text-foreground/85">
+              <p className="mt-3 max-w-[48ch] text-lead text-foreground/85">
                 {role.body}
               </p>
             </div>
@@ -51,18 +49,18 @@ const CurrentStateBlock = () => {
 
           {/* Tre största arbetsområden */}
           <div className="mt-14 lg:mt-20">
-            <p className="mb-5 font-mono text-micro uppercase tracking-wider text-primary">
+            <p className="signal-label mb-5" style={{ "--signal": "var(--signal-green)" } as CSSProperties}>
               Tre största arbetsområden just nu
             </p>
             <ul
-              className="grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-2"
+              className="grid grid-cols-1 gap-3 md:grid-cols-2"
               role="list"
             >
               {topMissions.map((m, i) => (
                 <li
                   key={m.id}
                   className={cn(
-                    "bg-background",
+                    "min-h-full",
                     // Markera En bättre väg som störst — den är priority 1, full bredd
                     i === 0 && "md:col-span-2",
                   )}
@@ -70,27 +68,28 @@ const CurrentStateBlock = () => {
                   <Link
                     to={m.path}
                     className={cn(
-                      "group relative flex h-full flex-col bg-card p-6 lg:p-8",
-                      "transition-colors duration-200",
-                      "hover:bg-primary hover:text-primary-foreground",
+                      "signal-card group relative flex h-full flex-col rounded-md border border-border bg-card p-6 shadow-xs lg:p-8",
+                      "transition-[background,color,border-color,transform] duration-200",
+                      "hover:-translate-y-0.5 hover:border-primary/35 hover:bg-primary-subtle",
                       "focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ring",
                       i === 0 && "md:p-9 lg:p-12",
                     )}
+                    style={{ "--signal": missionSignals[i] } as CSSProperties}
                   >
                     <span
                       aria-hidden="true"
-                      className="absolute right-6 top-5 font-mono text-[3rem] font-bold leading-none text-border/60 transition-colors duration-200 group-hover:text-primary-foreground/15 select-none lg:text-[3.5rem]"
+                      className="absolute right-6 top-5 font-mono text-[3rem] font-bold leading-none text-border/70 transition-colors duration-200 group-hover:text-primary/20 select-none lg:text-[3.5rem]"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
 
-                    <p className="mb-2 font-mono text-micro uppercase tracking-wider text-muted-foreground transition-colors duration-200 group-hover:text-primary-foreground/60">
+                    <p className="mb-2 max-w-[34ch] font-mono text-micro uppercase tracking-wider text-muted-foreground">
                       {m.kicker}
                     </p>
 
                     <h3
                       className={cn(
-                        "mb-3 font-serif font-semibold text-foreground transition-colors duration-200 group-hover:text-primary-foreground",
+                        "mb-3 font-serif font-semibold text-foreground",
                         i === 0 ? "text-headline" : "text-subhead",
                       )}
                     >
@@ -99,14 +98,14 @@ const CurrentStateBlock = () => {
 
                     <p
                       className={cn(
-                        "mb-6 max-w-[52ch] text-foreground/75 transition-colors duration-200 group-hover:text-primary-foreground/80",
+                        "mb-6 max-w-[46ch] text-foreground/75",
                         i === 0 ? "text-lead" : "text-small",
                       )}
                     >
                       {m.summary}
                     </p>
 
-                    <span className="mt-auto inline-flex items-center gap-2 font-mono text-micro font-medium uppercase tracking-wider text-primary transition-colors duration-200 group-hover:text-primary-foreground">
+                    <span className="mt-auto inline-flex items-center gap-2 font-mono text-micro font-medium uppercase tracking-wider text-primary">
                       Gå till uppdraget
                       <ArrowRight
                         className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1"
@@ -122,17 +121,17 @@ const CurrentStateBlock = () => {
           {/* Pågående fokus */}
           <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.4fr] md:gap-16 lg:gap-24">
             <div>
-              <p className="mb-3 font-mono text-micro uppercase tracking-wider text-primary">
+              <p className="signal-label mb-3" style={{ "--signal": "var(--signal-gold)" } as CSSProperties}>
                 {focus.eyebrow}
               </p>
               <p className="text-small text-muted-foreground">{focus.intro}</p>
             </div>
             <ul
-              className="grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2"
+              className="grid grid-cols-1 gap-3 sm:grid-cols-2"
               role="list"
             >
               {focus.items.map((item) => (
-                <li key={item.label} className="bg-card p-5">
+                <li key={item.label} className="rounded-md border border-border bg-card p-5">
                   <p className="font-semibold text-base leading-tight text-foreground">
                     {item.label}
                   </p>
@@ -148,7 +147,7 @@ const CurrentStateBlock = () => {
           <div className="mt-14">
             <div className="mb-6 grid grid-cols-1 gap-2 md:grid-cols-[1fr_1.4fr] md:gap-16 lg:gap-24">
               <div>
-                <p className="font-mono text-micro uppercase tracking-wider text-primary">
+                <p className="signal-label" style={{ "--signal": "var(--signal-blue)" } as CSSProperties}>
                   {effect.eyebrow}
                 </p>
                 <p className="mt-2 font-serif text-subhead font-semibold text-foreground">

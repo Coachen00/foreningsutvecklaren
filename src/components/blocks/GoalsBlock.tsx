@@ -35,7 +35,7 @@ const GoalsBlock = ({ goals, className, columns = 4 }: Props) => (
         className="flex flex-col bg-card p-6 sm:p-7"
       >
         <p
-          className="font-mono leading-none tracking-tight text-foreground"
+          className="font-mono leading-none text-foreground"
           style={{
             fontSize: "clamp(2rem, 4vw, 2.75rem)",
             fontWeight: 600,

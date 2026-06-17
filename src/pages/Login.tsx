@@ -119,7 +119,7 @@ const Login = () => {
         <p className="mb-4 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
           Föreningsutvecklaren
         </p>
-        <h1 className="mb-6 font-serif text-4xl font-medium tracking-tight text-foreground">
+        <h1 className="mb-6 font-serif text-4xl font-medium text-foreground">
           Logga in
         </h1>
 

@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import type { CSSProperties } from "react";
 import {
   METHOD_MATRIX,
   METHOD_OVERVIEW,
@@ -11,24 +12,29 @@ import { cn } from "@/lib/utils";
 
 const weightClass = {
   high: "w-full bg-primary",
-  medium: "w-3/4 bg-primary/70",
-  low: "w-1/2 bg-primary/45",
+  medium: "w-3/4 bg-signal-blue",
+  low: "w-1/2 bg-signal-gold",
 };
+
+const stageSignals = [
+  "var(--signal-blue)",
+  "var(--signal-green)",
+  "var(--signal-gold)",
+  "var(--signal-coral)",
+  "var(--signal-blue)",
+  "var(--signal-green)",
+];
 
 const MethodBlock = () => (
   <section
     aria-labelledby="metod-heading"
-    className="border-b border-border bg-background"
+    className="border-b border-border bg-background pitch-lines"
   >
     <div className="container mx-auto px-4 sm:px-6">
       <div className="section-y-lg">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-[0.9fr_1.45fr] md:gap-16 lg:gap-24">
           <div>
-            <p className="mb-4 inline-flex items-center gap-2.5 font-mono text-micro uppercase tracking-wider text-primary">
-              <span
-                className="inline-flex h-[5px] w-[5px] rounded-full bg-primary"
-                aria-hidden="true"
-              />
+            <p className="signal-label mb-5" style={{ "--signal": "var(--signal-green)" } as CSSProperties}>
               {METHOD_OVERVIEW.eyebrow}
             </p>
             <h1
@@ -39,29 +45,35 @@ const MethodBlock = () => (
             </h1>
           </div>
           <div className="self-end">
-            <p className="max-w-[58ch] text-lead text-foreground/85">
+            <p className="max-w-[48ch] text-lead text-foreground/85">
               {METHOD_OVERVIEW.lead}
             </p>
-            <p className="mt-4 max-w-[62ch] text-base leading-relaxed text-muted-foreground">
+            <p className="mt-4 max-w-[50ch] text-base leading-relaxed text-muted-foreground">
               {METHOD_OVERVIEW.support}
             </p>
           </div>
         </div>
 
+        <aside className="pull-quote mt-12 max-w-[58rem] p-6 sm:p-8">
+          <p className="font-serif text-subhead font-semibold leading-snug text-foreground">
+            Om metoden fungerar ska läsaren snabbt förstå: var hör frågan hemma,
+            vem äger nästa steg och vad räknas som effekt?
+          </p>
+        </aside>
+
         <div className="mt-14 lg:mt-20">
           <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-[0.9fr_1.45fr] md:gap-16 lg:gap-24">
             <div>
-              <p className="font-mono text-micro uppercase tracking-wider text-primary">
+              <p className="signal-label" style={{ "--signal": "var(--signal-blue)" } as CSSProperties}>
                 Processgraf
               </p>
               <h2 className="mt-2 text-headline font-semibold text-foreground">
                 Från fråga till lärande
               </h2>
             </div>
-            <p className="self-end text-small leading-relaxed text-muted-foreground">
-              Processen är byggd för metodutveckling. Varje steg ska lämna ett
-              spår efter sig: en placering, ett mandat, ett underlag, ett val,
-              en genomförd rytm eller ett lärande.
+            <p className="max-w-[46ch] self-end text-small leading-relaxed text-muted-foreground">
+              Varje steg ska lämna ett spår: placering, mandat, underlag, val,
+              rytm eller lärande.
             </p>
           </div>
 
@@ -72,10 +84,14 @@ const MethodBlock = () => (
             {METHOD_STAGES.map((stage, index) => {
               const Icon = stage.icon;
               return (
-                <li key={stage.number} className="relative bg-card p-6">
+                <li
+                  key={stage.number}
+                  className="signal-card relative bg-card p-6"
+                  style={{ "--signal": stageSignals[index] } as CSSProperties}
+                >
                   {index < METHOD_STAGES.length - 1 && (
                     <ArrowRight
-                      className="absolute right-5 top-6 hidden h-4 w-4 text-primary/45 lg:block"
+                      className="absolute right-5 top-6 hidden h-4 w-4 text-muted-foreground/45 lg:block"
                       aria-hidden="true"
                     />
                   )}
@@ -87,7 +103,7 @@ const MethodBlock = () => (
                       <p className="font-mono text-micro tabular-nums text-muted-foreground">
                         {stage.number} · {stage.kicker}
                       </p>
-                      <h3 className="mt-1 font-serif text-base font-semibold leading-tight text-foreground">
+                      <h3 className="mt-1 text-base font-semibold leading-tight text-foreground">
                         {stage.title}
                       </h3>
                     </div>
@@ -107,7 +123,7 @@ const MethodBlock = () => (
 
         <div className="mt-14 grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1.15fr)_minmax(21rem,0.85fr)]">
           <section>
-            <p className="mb-5 font-mono text-micro uppercase tracking-wider text-primary">
+            <p className="signal-label mb-5" style={{ "--signal": "var(--signal-green)" } as CSSProperties}>
               Arbetssätt
             </p>
             <ul
@@ -123,10 +139,10 @@ const MethodBlock = () => (
                         <Icon className="h-4 w-4" aria-hidden="true" />
                       </span>
                       <div>
-                        <p className="font-mono text-micro uppercase tracking-wider text-primary">
+                        <p className="font-mono text-micro uppercase tracking-wider text-muted-foreground">
                           {mode.label}
                         </p>
-                        <h3 className="mt-1 font-serif text-base font-semibold leading-tight text-foreground">
+                        <h3 className="mt-1 text-base font-semibold leading-tight text-foreground">
                           {mode.title}
                         </h3>
                       </div>
@@ -150,17 +166,16 @@ const MethodBlock = () => (
             </ul>
           </section>
 
-          <section className="rounded-md border border-border bg-card p-6">
-            <p className="font-mono text-micro uppercase tracking-wider text-primary">
+          <section className="rounded-md border border-border bg-card p-6 shadow-xs">
+            <p className="signal-label" style={{ "--signal": "var(--signal-gold)" } as CSSProperties}>
               Arbetsrytm
             </p>
             <h2 className="mt-2 font-serif text-subhead font-semibold text-foreground">
               Vad som ska bära mest vikt
             </h2>
             <p className="mt-3 text-small leading-relaxed text-muted-foreground">
-              Grafen visar metodens tyngdpunkter. Den påminner om att rollen
-              främst ska bygga riktning, kapacitet och lärande, inte bara öka
-              mängden aktiviteter.
+              Rollen ska bygga riktning, kapacitet och lärande, inte bara fler
+              aktiviteter.
             </p>
             <div className="mt-6 space-y-5">
               {METHOD_RHYTHM.map((item) => (
@@ -194,16 +209,15 @@ const MethodBlock = () => (
 
         <div className="mt-14 grid grid-cols-1 gap-8 xl:grid-cols-[minmax(21rem,0.8fr)_minmax(0,1.2fr)]">
           <section className="rounded-md border border-border bg-card p-6 lg:p-7">
-            <p className="font-mono text-micro uppercase tracking-wider text-primary">
+            <p className="signal-label" style={{ "--signal": "var(--signal-blue)" } as CSSProperties}>
               Beslutsmatris
             </p>
             <h2 className="mt-2 font-serif text-subhead font-semibold text-foreground">
               Välj metod efter behov och kapacitet
             </h2>
             <p className="mt-3 text-small leading-relaxed text-muted-foreground">
-              Samma arbetssätt passar inte alla lägen. Matrisen sorterar
-              insatsen efter två frågor: hur tydligt behovet är och hur mycket
-              kapacitet föreningen har att bära arbetet själv.
+              Två frågor räcker: hur tydligt är behovet, och hur mycket kan
+              föreningen bära själv?
             </p>
             <div className="mt-6 grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2">
               {METHOD_MATRIX.map((item) => (
@@ -223,7 +237,7 @@ const MethodBlock = () => (
           </section>
 
           <section>
-            <p className="mb-5 font-mono text-micro uppercase tracking-wider text-primary">
+            <p className="signal-label mb-5" style={{ "--signal": "var(--signal-green)" } as CSSProperties}>
               Principer för metodutveckling
             </p>
             <ul

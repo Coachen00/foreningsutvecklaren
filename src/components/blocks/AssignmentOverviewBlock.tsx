@@ -12,22 +12,22 @@ const AssignmentOverviewBlock = () => {
   return (
     <section
       aria-labelledby="overview-heading"
-      className="border-b border-border bg-card"
+      className="border-b border-border bg-card pitch-lines"
     >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="section-y">
-          <p className="mb-6 font-mono text-micro uppercase tracking-wider text-primary">
-            {eyebrow}
-          </p>
-          <h2
-            id="overview-heading"
-            className="max-w-[40ch] font-serif text-headline font-semibold leading-[1.15] text-foreground"
-          >
-            {oneLine}
-          </h2>
-          <p className="mt-8 max-w-[60ch] text-lead text-muted-foreground">
-            {support}
-          </p>
+          <div className="pull-quote max-w-[64rem] p-6 sm:p-8 lg:p-10">
+            <p className="signal-label mb-6">{eyebrow}</p>
+            <h2
+              id="overview-heading"
+              className="max-w-[36ch] font-serif text-headline font-semibold leading-[1.12] text-foreground"
+            >
+              {oneLine}
+            </h2>
+            <p className="mt-7 max-w-[52ch] text-base leading-relaxed text-muted-foreground md:text-[1.0625rem]">
+              {support}
+            </p>
+          </div>
         </div>
       </div>
     </section>

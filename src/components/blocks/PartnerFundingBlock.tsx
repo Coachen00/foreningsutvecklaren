@@ -2,6 +2,7 @@ import {
   PARTNER_FUNDING_GROUPS,
   PARTNER_FUNDING_NARRATIVE,
 } from "@/content/partnerFunding";
+import type { CSSProperties } from "react";
 
 /**
  * PARTNER FUNDING — partners i fyra roller plus finansieringsnarrativ.
@@ -14,7 +15,7 @@ const PartnerFundingBlock = () => (
     {/* Narrativ — så fungerar det */}
     <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.3fr] md:gap-16 lg:gap-24">
       <div>
-        <p className="font-mono text-micro uppercase tracking-wider text-primary">
+        <p className="signal-label" style={{ "--signal": "var(--signal-gold)" } as CSSProperties}>
           Positionering
         </p>
         <p className="mt-4 font-serif text-subhead font-semibold leading-snug text-foreground">
@@ -35,13 +36,24 @@ const PartnerFundingBlock = () => (
 
     {/* Fyra roller */}
     <ul
-      className="grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2 lg:grid-cols-4"
+      className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
       role="list"
     >
-      {PARTNER_FUNDING_GROUPS.map((group) => (
-        <li key={group.id} className="flex flex-col gap-4 bg-card p-6 lg:p-7">
+      {PARTNER_FUNDING_GROUPS.map((group, index) => {
+        const signals = [
+          "var(--signal-blue)",
+          "var(--signal-green)",
+          "var(--signal-gold)",
+          "var(--signal-coral)",
+        ];
+        return (
+        <li
+          key={group.id}
+          className="signal-card flex flex-col gap-4 rounded-md border border-border bg-card p-6 shadow-xs lg:p-7"
+          style={{ "--signal": signals[index] } as CSSProperties}
+        >
           <div className="flex items-baseline justify-between">
-            <span className="font-mono text-micro uppercase tracking-wider text-primary">
+            <span className="font-mono text-micro uppercase tracking-wider text-muted-foreground">
               Roll {group.number}
             </span>
           </div>
@@ -63,7 +75,8 @@ const PartnerFundingBlock = () => (
             ))}
           </ul>
         </li>
-      ))}
+        );
+      })}
     </ul>
   </div>
 );

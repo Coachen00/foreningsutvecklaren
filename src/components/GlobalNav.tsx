@@ -50,7 +50,7 @@ const GlobalNav = () => {
           <Link
             to="/"
             aria-current={isHome ? "page" : undefined}
-            className="group flex items-center gap-2.5 text-sm font-semibold tracking-tight text-foreground transition-opacity duration-200 hover:opacity-60"
+            className="group flex items-center gap-2.5 text-sm font-semibold text-foreground transition-opacity duration-200 hover:opacity-60"
           >
             <span
               className="inline-flex h-[7px] w-[7px] rounded-full bg-primary transition-transform duration-300 group-hover:scale-[1.6]"

@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
+import type { CSSProperties } from "react";
 import type { EffectStage } from "@/content/effectChain";
 
 interface Props {
@@ -22,9 +23,9 @@ interface Props {
 const EffectChain = ({ stages, className }: Props) => (
   <div className={cn("space-y-6", className)}>
     {/* Pilkedja — överblick */}
-    <div className="overflow-x-auto">
+    <div>
       <ol
-        className="flex min-w-max items-center gap-3 rounded-md border border-border bg-card px-5 py-4"
+        className="grid grid-cols-2 gap-3 rounded-md border border-border bg-card px-5 py-4 shadow-xs sm:flex sm:items-center"
         role="list"
       >
         {stages.map((stage, i) => (
@@ -33,13 +34,13 @@ const EffectChain = ({ stages, className }: Props) => (
               <span className="font-mono text-micro tabular-nums text-muted-foreground">
                 {stage.number}
               </span>
-              <span className="font-serif text-base font-semibold text-foreground">
+              <span className="text-base font-semibold text-foreground">
                 {stage.label}
               </span>
             </div>
             {i < stages.length - 1 && (
               <ArrowRight
-                className="h-4 w-4 shrink-0 text-primary/60"
+                className="hidden h-4 w-4 shrink-0 text-primary/60 sm:block"
                 aria-hidden="true"
               />
             )}
@@ -49,13 +50,20 @@ const EffectChain = ({ stages, className }: Props) => (
     </div>
 
     {/* Detaljerade kort */}
-    <div className="grid gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-2 xl:grid-cols-4">
-      {stages.map((stage) => {
+    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      {stages.map((stage, index) => {
         const Icon = stage.icon;
+        const signals = [
+          "var(--signal-blue)",
+          "var(--signal-green)",
+          "var(--signal-gold)",
+          "var(--signal-coral)",
+        ];
         return (
           <article
             key={stage.number}
-            className="flex flex-col bg-card p-6"
+            className="signal-card flex flex-col rounded-md border border-border bg-card p-6 shadow-xs"
+            style={{ "--signal": signals[index] } as CSSProperties}
           >
             <header className="flex items-center gap-3">
               <span
@@ -64,12 +72,12 @@ const EffectChain = ({ stages, className }: Props) => (
               >
                 <Icon className="h-4 w-4" />
               </span>
-              <span className="font-mono text-micro uppercase tracking-wider text-primary">
+              <span className="font-mono text-micro uppercase tracking-wider text-muted-foreground">
                 Steg {stage.number}
               </span>
             </header>
 
-            <h3 className="mt-4 font-serif text-base font-semibold leading-snug text-foreground">
+            <h3 className="mt-4 text-base font-semibold leading-snug text-foreground">
               {stage.title}
             </h3>
             <p className="mt-2 text-small leading-relaxed text-muted-foreground">

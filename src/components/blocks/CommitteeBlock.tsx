@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import type { CSSProperties } from "react";
 import { COMMITTEES } from "@/content/committees";
 
 /**
@@ -10,12 +11,17 @@ import { COMMITTEES } from "@/content/committees";
  */
 const CommitteeBlock = () => (
   <div
-    className="grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-2"
+    className="grid grid-cols-1 gap-4 md:grid-cols-2"
     role="list"
   >
-    {COMMITTEES.map((c) => (
-      <article key={c.id} role="listitem" className="flex flex-col bg-card p-7 lg:p-8">
-        <p className="font-mono text-micro uppercase tracking-wider text-primary">
+    {COMMITTEES.map((c, index) => (
+      <article
+        key={c.id}
+        role="listitem"
+        className="signal-card flex flex-col rounded-md border border-border bg-card p-7 shadow-xs lg:p-8"
+        style={{ "--signal": index === 0 ? "var(--signal-blue)" : "var(--signal-green)" } as CSSProperties}
+      >
+        <p className="signal-label" style={{ "--signal": index === 0 ? "var(--signal-blue)" : "var(--signal-green)" } as CSSProperties}>
           {c.role}
         </p>
         <h3 className="mt-3 font-serif text-subhead font-semibold leading-snug text-foreground">
