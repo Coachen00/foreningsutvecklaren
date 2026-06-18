@@ -122,7 +122,7 @@ export default {
 
       fontFamily: {
         sans: [
-          "IBM Plex Sans",
+          "Archivo",
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
@@ -135,7 +135,7 @@ export default {
           "sans-serif",
         ],
         serif: [
-          "Fraunces",
+          "EB Garamond",
           "ui-serif",
           "Georgia",
           "Cambria",
