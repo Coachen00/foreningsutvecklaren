@@ -15,6 +15,7 @@ const Uppdateringar = () => {
       <GlobalNav />
       <SubpageShell
         breadcrumbs={[{ label: "Uppdateringar" }]}
+        headingLevel="tool"
         kicker="Omvärld · Skördat arbete"
         icon={Rss}
         title="Uppdateringar från rutiner"
@@ -37,7 +38,7 @@ const Uppdateringar = () => {
 
         <SectionBlock
           variant="muted"
-          eyebrow="Så fungerar det"
+          eyebrow="Metod"
           title="Skördat, inte kopierat"
           narrow
         >

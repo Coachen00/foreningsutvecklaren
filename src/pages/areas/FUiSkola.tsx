@@ -290,7 +290,7 @@ const FUiSkola = () => {
           {/* AKTÖRSMATRIS */}
           <ExpandableBlock
             id="aktorer"
-            kicker="Vem gör vad"
+            kicker="Ansvar"
             title="Vem gör vad"
             defaultOpen={false}
             wide

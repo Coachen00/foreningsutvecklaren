@@ -12,6 +12,7 @@ const Case = () => (
     <GlobalNav />
     <SubpageShell
       breadcrumbs={[{ label: "Case" }]}
+      headingLevel="tool"
       kicker="Lärande · Case"
       icon={GraduationCap}
       title="Case ur föreningsutvecklingen"
@@ -20,8 +21,8 @@ const Case = () => (
       metaDescription="Case ur föreningsutvecklingen: korta exempel i text och film, avslutade med ett quiz. Lär av hur andra föreningar gått från problem till tydliga arbetssätt och bättre kultur."
     >
       <SectionBlock
-        eyebrow="Välj ett case"
-        title="Att lära av"
+        eyebrow="Casebibliotek"
+        title="Tillgängliga case"
         lead="Klicka på ett case för att läsa, se filmen och göra quizet."
       >
         <ul

@@ -28,6 +28,23 @@ Det är detta som startsidan kommunicerar genom `Home.tsx` och content-filerna i
 
 ---
 
+## 2b. Nivåmodell — hierarkisk koherens
+
+Varje sida tillhör **exakt en nivå**. Nivån styr kicker-format, rubriktypografi
+och plats i navigeringen. Lägg aldrig till en sida utan att placera den på en nivå.
+
+| Nivå | Sidor | Kicker-format | h1 |
+|------|-------|---------------|----|
+| **L1 Huvuduppdrag** | En bättre väg, FU Skola, Föreningslyftet | `Huvuduppdrag · …` | Serif display |
+| **L2 Stöd/struktur** | Uppdrag, Arbetsuppgifter, Partners, Skola & förening, Kvalitetsklubb, Jämställdhet & trygghet, Spelarutbildning | `Stöd · …` | Serif display |
+| **L3 Verktyg/lärande** | Föreningsportalen, Case, Uppdateringar | `Hubb·/Lärande·/Omvärld· …` | Work Sans headline |
+
+**Kanonisk prioritetsordning (L1):** En bättre väg → FU Skola → Föreningslyftet.
+**Kicker-grammatik:** `Kategori · kort kvalificerare` överallt.
+**Eyebrow (sektioner):** alltid substantiv, aldrig verb i imperativ.
+
+---
+
 ## 3. Sidkartan — vad varje sida innehåller
 
 ### 3.1 Hem (`/`)

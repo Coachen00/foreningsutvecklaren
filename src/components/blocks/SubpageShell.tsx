@@ -16,6 +16,12 @@ interface Props {
   lead: string;
   description?: string;
   metaDescription: string;
+  /**
+   * Nivå i informationshierarkin (se docs/site-positioning.md):
+   * "support" (L2, default) = serif display-h1, jämbördig huvuduppdragen.
+   * "tool" (L3, verktyg/lärande) = Work Sans headline-h1, visuellt dämpad.
+   */
+  headingLevel?: "support" | "tool";
   children: React.ReactNode;
 }
 
@@ -33,6 +39,7 @@ const SubpageShell = ({
   lead,
   description,
   metaDescription,
+  headingLevel = "support",
   children,
 }: Props) => {
   useDocumentTitle(title, metaDescription);
@@ -87,7 +94,13 @@ const SubpageShell = ({
               {kicker}
             </p>
 
-            <h1 className="font-serif text-display font-semibold text-foreground">
+            <h1
+              className={
+                headingLevel === "tool"
+                  ? "text-headline font-semibold text-foreground"
+                  : "font-serif text-display font-semibold text-foreground"
+              }
+            >
               {title}
             </h1>
 

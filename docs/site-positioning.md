@@ -2,15 +2,41 @@
 
 ## Beslut
 
-Den externa logiken på hemsidan kommuniceras genom **tre huvuduppdrag**:
+Den externa logiken på hemsidan kommuniceras genom **tre huvuduppdrag** i
+**kanonisk prioritetsordning**:
 
-1. **Föreningslyftet** — `/foreningsutveckling`
-2. **En bättre väg** — `/en-battre-vag`
-3. **FU Skola** — `/fu-skola`
+1. **En bättre väg** — `/en-battre-vag`
+2. **FU Skola** — `/fu-skola`
+3. **Föreningslyftet** — `/foreningsutveckling`
+
+Denna ordning är sanningen: `PrimaryAssignmentId`-typen, `PRIMARY_ASSIGNMENTS`,
+top-nav och next/prev-flödet ska alla följa den. Avviker koden → koden har fel.
 
 Tidigare primära ytor ("Uppdrag", "Föreningsutveckling", "Skola & samverkan")
 fungerar inte längre som extern navigation. De lever vidare som intern
 innehållsmodell och stödsidor.
+
+## Nivåmodell (hierarkisk koherens)
+
+Varje sida tillhör **exakt en nivå**. Nivån styr kicker-ord, rubriktypografi
+och plats i navigeringen — inga ad hoc-beslut.
+
+| Nivå | Sidor | Kicker-format | h1-typografi |
+|------|-------|---------------|--------------|
+| **L1 Huvuduppdrag** | En bättre väg, FU Skola, Föreningslyftet | `Huvuduppdrag · …` | Serif display |
+| **L2 Stöd/struktur** | Uppdrag, Arbetsuppgifter, Partners, Skola & förening, Kvalitetsklubb | `Stöd · …` | Serif display |
+| **L3 Verktyg/lärande** | Föreningsportalen, Case, Uppdateringar | `Hubb·/Lärande·/Omvärld· …` | Work Sans headline |
+
+**Kicker-grammatik (en regel överallt):** `Kategori · kort kvalificerare`.
+**Eyebrow-grammatik (sektioner):** alltid substantiv, aldrig verb i imperativ.
+
+### L3 — verktyg och lärande (nya moduler)
+
+| Sida | Path | Roll |
+|------|------|------|
+| Föreningsportalen | `/portalen` | Hubb: samlade genvägar till system, stöd och utbildning |
+| Case | `/case`, `/case/:slug` | Lärande: case i text + film + quiz |
+| Uppdateringar | `/uppdateringar` | Omvärld: skördat, granskat arbete från andra föreningar |
 
 ## Varför
 

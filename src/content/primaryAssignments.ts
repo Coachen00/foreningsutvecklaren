@@ -12,7 +12,8 @@ import type { AreaSlug } from "./siteStructure";
  * Gör inte detta beroende av AREAS.
  */
 
-export type PrimaryAssignmentId = "foreningslyftet" | "en-battre-vag" | "fu-skola";
+// Kanonisk prioritetsordning — typ = array = nav (se docs/site-positioning.md).
+export type PrimaryAssignmentId = "en-battre-vag" | "fu-skola" | "foreningslyftet";
 
 export interface PrimaryAssignment {
   id: PrimaryAssignmentId;
@@ -34,7 +35,7 @@ export const PRIMARY_ASSIGNMENTS: PrimaryAssignment[] = [
     id: "en-battre-vag",
     title: "En bättre väg",
     navLabel: "En bättre väg",
-    kicker: "Riktad samhällsbärande satsning",
+    kicker: "Huvuduppdrag · Riktad satsning",
     path: "/en-battre-vag",
     lead: "Extra stöd till fotboll där fler barn behöver trygga vägar in.",
     description:
@@ -49,7 +50,7 @@ export const PRIMARY_ASSIGNMENTS: PrimaryAssignment[] = [
     id: "fu-skola",
     title: "FU Skola",
     navLabel: "FU Skola",
-    kicker: "Bron mellan skola och förening",
+    kicker: "Huvuduppdrag · Bron skola–förening",
     path: "/fu-skola",
     lead: "Där skola, förening och förbund möts – och där många barn får sin första väg in i organiserad fotboll.",
     description:
@@ -64,7 +65,7 @@ export const PRIMARY_ASSIGNMENTS: PrimaryAssignment[] = [
     id: "foreningslyftet",
     title: "Föreningslyftet",
     navLabel: "Föreningslyftet",
-    kicker: "Långsiktig föreningsförflyttning",
+    kicker: "Huvuduppdrag · Långsiktig förflyttning",
     path: "/foreningsutveckling",
     lead: "Stöd till föreningar som vill få bättre ordning och hålla över tid.",
     description:

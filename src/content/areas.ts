@@ -39,7 +39,7 @@ export const AREAS: Area[] = [
     title: "Uppdrag, styrning och administration",
     shortTitle: "Uppdrag",
     navLabel: "Uppdrag",
-    kicker: "Kärnuppdraget",
+    kicker: "Stöd · Kärnuppdraget",
     heroLead:
       "Här förklaras vad rollen gör i vardagen.",
     heroSupport:
@@ -78,7 +78,7 @@ export const AREAS: Area[] = [
     title: "Föreningsutveckling och kvalitetsarbete",
     shortTitle: "Föreningsutveckling",
     navLabel: "Föreningsutveckling",
-    kicker: "Kvalitet & kultur",
+    kicker: "Stöd · Kvalitet & kultur",
     heroLead:
       "Hur en förening får bättre ordning och kan fortsätta utvecklas.",
     heroSupport:
@@ -107,7 +107,7 @@ export const AREAS: Area[] = [
     title: "Skola, förening och sociala satsningar",
     shortTitle: "Skola & förening",
     navLabel: "Skola & förening",
-    kicker: "Utveckling utanför föreningsväggarna",
+    kicker: "Stöd · Utanför föreningsväggarna",
     heroLead:
       "Hur skola, kommun och förening kan hjälpa fler barn in i fotbollen.",
     heroSupport:

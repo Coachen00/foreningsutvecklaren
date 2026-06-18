@@ -28,7 +28,7 @@ export const PORTAL_GROUPS: PortalGroup[] = [
   {
     id: "system",
     title: "System och verktyg",
-    eyebrow: "Logga in",
+    eyebrow: "System",
     lead: "De plattformar föreningen administrerar sin verksamhet i.",
     links: [
       {
@@ -63,7 +63,7 @@ export const PORTAL_GROUPS: PortalGroup[] = [
   {
     id: "stod",
     title: "Stöd och resurser",
-    eyebrow: "Hämta hjälp",
+    eyebrow: "Stöd",
     lead: "Mallar, kontaktvägar och material som stöttar föreningens utveckling.",
     links: [
       {
@@ -98,7 +98,7 @@ export const PORTAL_GROUPS: PortalGroup[] = [
   {
     id: "utbildning",
     title: "Utbildning",
-    eyebrow: "Lär mer",
+    eyebrow: "Utbildning",
     lead: "Utbildningar och case som höjer kompetensen i föreningen.",
     links: [
       {
