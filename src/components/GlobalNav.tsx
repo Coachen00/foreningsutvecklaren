@@ -223,7 +223,7 @@ const GlobalNav = () => {
                 </ul>
 
                 <p className="mt-6 mb-2 px-3 font-mono text-micro uppercase tracking-wider text-muted-foreground">
-                  Stöd & struktur
+                  Stöd & ansvar
                 </p>
                 <ul className="space-y-0.5" role="list">
                   {SECONDARY_LINKS.map((link) => (

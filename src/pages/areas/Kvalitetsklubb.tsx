@@ -31,29 +31,26 @@ const Kvalitetsklubb = () => {
         <SectionBlock
           eyebrow="Vad det är"
           title="SvFF:s stöd för bättre föreningsvardag"
-          lead="Kvalitetsklubb hjälper föreningen få ordning på roller, ledare, spelare, ekonomi och trygghet. Målet är att arbetet ska fungera även när personer byts ut."
+          lead="Kvalitetsklubb gör föreningen lättare att driva: tydliga roller, trygg vardag och arbete som håller när personer byts ut."
           narrow
         >
           <div className="grid gap-6 max-w-prose text-foreground/85 leading-relaxed">
             <p>
-              SvFF beskriver Kvalitetsklubb som ett stöd för effektiv och
-              schysst föreningsverksamhet. Föreningen får verktyg, stöd och
-              motivation att ta nästa steg — och distriktet stöttar, granskar
-              och godkänner längs vägen.
+              Föreningen får stöd att se vad som fungerar, välja nästa steg och
+              följa upp arbetet. GFF finns med som stöd längs vägen.
             </p>
             <p>
-              För GFF är Kvalitetsklubb det praktiska stödet i
-              Föreningslyftet. Mål 2027: minst 50 % av föreningarna i
-              Föreningslyftet ska aktivt arbeta i Kvalitetsklubb.
+              I Föreningslyftet är målet tydligt: minst hälften av föreningarna
+              ska arbeta aktivt med Kvalitetsklubb senast 2027.
             </p>
           </div>
         </SectionBlock>
 
         <SectionBlock
           variant="muted"
-          eyebrow="Strukturen"
+          eyebrow="Fyra delar"
           title="Fyra fokusområden"
-          lead="SvFF:s fyra områden ringar in hela föreningen — om en del är svag blir helheten ostadig."
+          lead="Roller, ledare, spelare och stöd runt föreningen behöver fungera samtidigt."
         >
           <FocusAreaBlock areas={KVALITETSKLUBB_FOCUS_AREAS} />
         </SectionBlock>
@@ -61,7 +58,7 @@ const Kvalitetsklubb = () => {
         <SectionBlock
           eyebrow="Vägen dit"
           title="Fem steg från nuläge till certifiering"
-          lead="Processen är samma för alla — men takten är föreningens egen. Distriktet stöttar, granskar och godkänner längs vägen."
+          lead="Samma väg för alla, men i föreningens egen takt."
         >
           <KvalitetsklubbProcess steps={KVALITETSKLUBB_PROCESS} />
         </SectionBlock>
@@ -70,21 +67,19 @@ const Kvalitetsklubb = () => {
           variant="muted"
           eyebrow="Klubb-rollerna"
           title="Tre roller i Kvalitetsklubben"
-          lead="Inte att förväxla med En bättre väg-tjänsterna — detta är de roller som föreningen själv bygger upp internt."
+          lead="Det här är roller som föreningen själv bygger upp."
         >
           <KlubbRolesBlock roles={KVALITETSKLUBB_ROLES} />
           <p className="mt-6 max-w-prose text-small text-muted-foreground">
-            Skillnaden från En bättre väg-tjänsterna: där är{" "}
-            <em>fotbollsutvecklare</em> en tjänst som GFF/SvFF bidrar till
-            satsningen med. Här är klubb-rollen något föreningen själv
-            bemannar — ofta ideellt eller på del av tjänst.
+            Skillnaden: i En bättre väg kan fotbollsutvecklare vara en tjänst
+            i satsningen. Här är rollen föreningens egen.
           </p>
         </SectionBlock>
 
         <SectionBlock
           eyebrow="Tillsammans"
           title="Bakom konceptet"
-          lead="SvFF äger Kvalitetsklubb. GFF hjälper föreningar i Göteborg att använda det. Föreningen driver arbetet i vardagen."
+          lead="SvFF äger modellen. GFF hjälper till. Föreningen gör jobbet i vardagen."
         >
           <PartnerStrip ids={["svff", "gff", "rf-sisu", "foreningar"]} />
         </SectionBlock>

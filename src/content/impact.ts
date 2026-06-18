@@ -32,7 +32,7 @@ export const IMPACTS: ImpactStatement[] = [
     statements: [
       "Inkludering – fler barn får en väg in oavsett bakgrund.",
       "Tillgänglighet – fotbollen möter barnen där de redan är.",
-      "Långsiktig föreningsstärkning i områden med tuffa förutsättningar.",
+      "Föreningar som blir starkare i områden där vardagen är tuff.",
       "Fler vägar in i organiserad idrott för de som idag står utanför.",
     ],
   },

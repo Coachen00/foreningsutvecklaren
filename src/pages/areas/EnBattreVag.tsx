@@ -66,17 +66,17 @@ const EnBattreVag = () => {
                 {
                   label: "Föreningslyftet",
                   href: "/foreningsutveckling",
-                  hint: "Långsiktig föreningsförflyttning",
+                  hint: "Föreningar som håller över tid",
                 },
                 {
                   label: "Jämställdhet & trygghet",
                   href: "/foreningsutveckling/jamstalldhet-och-trygghet",
-                  hint: "Värdegrund som genomsyrar arbetet",
+                  hint: "Trygg miljö runt barnen",
                 },
                 {
                   label: "Partners",
                   href: "/uppdrag/partners",
-                  hint: "Vilka som bär arbetet tillsammans",
+                  hint: "Vem som hjälper till",
                 },
               ]}
             />
@@ -91,16 +91,11 @@ const EnBattreVag = () => {
             className="animate-fade-up animate-delay-100"
           >
             <p className="text-lead">
-              En bättre väg är SvFF:s och regeringens riktade satsning på
-              fotboll där behoven är stora — lokalt genomförd i
-              Göteborg.
+              En bättre väg ger mer fotboll där behoven är störst.
             </p>
             <p className="mt-4">
-              Satsningen får stöd av Riksidrottsförbundet, Folksam, ICA och
-              Svenska Spel. Syftet är att skapa meningsfulla fritidsaktiviteter
-              för barn och unga i områden som polisen klassar som särskilt
-              utsatta — och att bygga en vardag runt fotbollen som
-              håller över tid.
+              Barn ska få en meningsfull fritid, föreningar ska bli starkare
+              och fler tjejer ska hitta in i spelet.
             </p>
             {program && (
               <p className="mt-4 text-foreground/80">{program.summary}</p>
@@ -117,10 +112,8 @@ const EnBattreVag = () => {
             className="animate-fade-up animate-delay-150"
           >
             <p>
-              SvFF:s nationella mål förstärks av GFF:s lokala
-              verksamhetsplan: merparten av föreningarna i utvalda områden ska
-              ta del av GFF:s stöd senast 2027, och fler tjejer
-              ska börja spela fotboll där behoven är stora.
+              GFF:s mål till 2027: fler föreningar i utvalda områden ska få
+              stöd, och fler tjejer ska börja spela.
             </p>
             <div className="mt-6 not-prose">
               <GoalsBlock goals={EN_BATTRE_VAG_GOALS} columns={4} />
@@ -136,19 +129,16 @@ const EnBattreVag = () => {
             className="animate-fade-up animate-delay-200"
           >
             <p>
-              Girls FC visar hur riktad resursförstärkning kan öppna fotbollen
-              för flickor som tidigare stått utanför föreningsidrotten.
-            </p>
-            <p className="mt-4">
-              Snart 80 flickor som aldrig spelat fotboll tidigare deltar i
-              verksamheten. Siffran är inte huvudberättelsen — beviset är att
-              en riktad satsning faktiskt blir nya spelare, nya ledare och nya
+              Girls FC visar hur extra stöd kan bli nya spelare, ledare och
               gemenskaper.
             </p>
+            <p className="mt-4">
+              Snart 80 flickor som aldrig spelat fotboll tidigare deltar.
+              Siffran är bara början.
+            </p>
             <p className="mt-4 text-small text-muted-foreground">
-              Korslänk: när fokus är flickfotboll, inkludering eller trygg miljö
-              hör frågan hemma både här och under Jämställdhet &amp; trygghet —
-              se vidare läsning i sidopanelen.
+              Flickfotboll, trygghet och inkludering hänger ihop med sidan om
+              jämställdhet och trygghet.
             </p>
           </ExpandableBlock>
 
@@ -162,10 +152,8 @@ const EnBattreVag = () => {
             className="animate-fade-up animate-delay-200"
           >
             <p>
-              Programmet gör det möjligt för föreningar i utvalda områden att
-              anställa två nyckelroller — en för organisationen runt fotbollen
-              och en för det som händer på planen. Tillsammans bär de hela
-              satsningen.
+              Två roller behövs: en som stärker föreningen runt fotbollen och
+              en som stärker det som händer på planen.
             </p>
             <div className="mt-6 not-prose">
               <RolePair roles={EN_BATTRE_VAG_ROLES} />
@@ -181,8 +169,7 @@ const EnBattreVag = () => {
               defaultOpen={false}
             >
               <p>
-                Arbetet är uppdelat i fem delar som tillsammans bär satsningen
-                — från första kartläggning till uppföljning över tid.
+                Fem delar håller ihop stödet från första nuläge till uppföljning.
               </p>
               <ul className="mt-5 grid gap-x-6 gap-y-3 sm:grid-cols-2" role="list">
                 {program.pillars.map((p) => (
@@ -210,9 +197,7 @@ const EnBattreVag = () => {
             wide
           >
             <p>
-              Föreningar som vill ingå i En bättre väg behöver uppfylla en
-              uppsättning grundkrav. De är till för att säkra att satsningen
-              landar där den gör mest nytta.
+              Grundkraven hjälper stödet hamna där det gör mest nytta.
             </p>
             <div className="mt-6 not-prose">
               <CriteriaList data={EN_BATTRE_VAG_CRITERIA} />
@@ -228,9 +213,8 @@ const EnBattreVag = () => {
             wide
           >
             <p>
-              Arbetet följer en tolvmånaderscykel — från nuläge i januari till
-              slutrapport i december. Klicka på en månad för att se fokus och
-              aktiviteter. Växla mellan tidslinje och årshjul efter behov.
+              Året går från nuläge till uppföljning. Klicka på en månad för att
+              se vad som händer.
             </p>
             <div className="mt-6 not-prose">
               <YearWheel months={YEAR_WHEEL_EN_BATTRE_VAG} />
@@ -246,9 +230,8 @@ const EnBattreVag = () => {
             wide
           >
             <p>
-              Språkröret leder arbetet framåt. Gränsdragningen säkerställer
-              att föreningen blir starkare själv, i stället för
-              beroende av GFF.
+              Språkröret leder arbetet framåt. Gränsen är viktig: föreningen
+              ska bli starkare själv, inte beroende av GFF.
             </p>
             <div className="mt-6 not-prose">
               <DoDontPair
@@ -267,9 +250,8 @@ const EnBattreVag = () => {
             wide
           >
             <p>
-              Uppföljning sker både kvantitativt och kvalitativt — i statistik
-              och i berättelser. Båda krävs för att förstå om arbetet faktiskt
-              flyttar sig.
+              Vi följer både siffror och berättelser för att se om arbetet
+              faktiskt flyttar sig.
             </p>
             <div className="mt-6 not-prose">
               <MetricListBlock data={EN_BATTRE_VAG_METRICS} />
@@ -284,9 +266,8 @@ const EnBattreVag = () => {
             defaultOpen={false}
           >
             <p>
-              En bättre väg fungerar när förbund, kommun, förening och
-              civilsamhälle drar åt samma håll. Varje part fyller en egen
-              lucka.
+              Förbund, kommun, förening och civilsamhälle behöver dra åt samma
+              håll.
             </p>
             <div className="mt-5">
               <PartnerStrip
@@ -304,10 +285,8 @@ const EnBattreVag = () => {
             wide
           >
             <p>
-              Olika stöd kan bära olika delar av satsningen. Logiken är
-              enkel: rätt stöd kopplas till rätt insats så att pengar blir
-              ledare, aktiviteter och tydligare arbetssätt.
-              Stöd kan gå både till GFF och till lokala föreningar.
+              Rätt stöd kopplas till rätt insats: pengar blir ledare,
+              aktiviteter och tydligare arbetssätt.
             </p>
             <div className="mt-6 not-prose">
               <MetricListBlock data={EN_BATTRE_VAG_PROJEKTSTOD} />
@@ -322,8 +301,8 @@ const EnBattreVag = () => {
             defaultOpen={false}
           >
             <p>
-              Inkludering och tillgänglighet är inte tillägg — de är själva
-              skälet till att arbetet finns.
+              Satsningen finns för att fler barn ska få en trygg väg in i
+              fotbollen.
             </p>
             {impact && (
               <div className="mt-6">

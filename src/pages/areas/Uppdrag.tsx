@@ -56,9 +56,9 @@ const Uppdrag = () => {
         <SectionBlock
           id="hitta-ratt"
           variant="muted"
-          eyebrow="Intern karta"
+          eyebrow="Karta"
           title="Hitta rätt i uppdraget"
-          lead="Uppdragssidan ska vara en hubb, inte en samlingsplats för lösa länkar. Här syns var stödytor, fördjupningar och forum hör hemma."
+          lead="Börja här när du vill förstå vad rollen gör, vilka spår som finns och var nästa klick leder."
           split
         >
           <UppdragHubBlock items={UPPDRAG_HUB_ITEMS} />
@@ -67,15 +67,15 @@ const Uppdrag = () => {
         <SectionBlock
           eyebrow="Kärnuppdraget"
           title="Det löpande arbetet"
-          lead="Utvecklingsdialogerna är navet. Jag arbetar främst genom föreningens förenings- och fotbollsutvecklare, och direkt eller indirekt med styrelsen i de föreningar som berörs."
+          lead="Kärnan är samtal som leder vidare: med utvecklare, styrelse och föreningar som behöver stöd."
         >
           <CoreMissionBlock title="" lead="" />
         </SectionBlock>
 
         <SectionBlock
-          eyebrow="Fördjupning"
+          eyebrow="Mer än samtal"
           title="Utöver kärnuppdraget"
-          lead="Längre insatser som kommer ur relationen till föreningens nyckelpersoner – ofta över en hel säsong eller flera."
+          lead="Vissa frågor kräver längre stöd över en säsong eller flera år."
         >
           <ActivityListBlock activities={EXTENDED_ACTIVITIES} columns={3} />
           <p className="mt-8 text-sm text-muted-foreground">
@@ -94,7 +94,7 @@ const Uppdrag = () => {
         <SectionBlock
           eyebrow="Arbetsmetod"
           title="Så här arbetar jag"
-          lead="Fyra steg som återkommer oavsett om det handlar om föreningssamtal, styrelsebeslut, Kvalitetsklubb eller en skolinsats."
+          lead="Samma enkla rytm: var nära, lyssna, välj nästa steg och följ upp."
         >
           <WorkMethodBlock steps={METHOD_STEPS} />
         </SectionBlock>
@@ -102,9 +102,9 @@ const Uppdrag = () => {
         <SectionBlock
           id="planeringskedja"
           variant="muted"
-          eyebrow="Föreningsutveckling som arbetsform"
+          eyebrow="Från idé till vardag"
           title="Från idé till årshjul"
-          lead="När uppdraget handlar om föreningsutveckling ska dokumenten hänga ihop. Verksamhetsidé, mål, plan och årshjul blir en styrkedja som gör föreningens utveckling möjlig att leda och följa upp."
+          lead="En bra idé behöver bli mål, plan och årshjul. Annars stannar den i ett dokument."
         >
           <PlanningChainTeaserBlock
             steps={FORENINGSLYFTET_PLANNING_CHAIN}
@@ -118,7 +118,7 @@ const Uppdrag = () => {
           id="kommitteer"
           eyebrow="Kommittéer och arbetsgrupper"
           title="Forum jag deltar i"
-          lead="Två arbetsgrupper som binder ihop strategi och vardag. Inga egna toppkategorier — beskrivs här som del av uppdraget."
+          lead="Två forum där beslut, vardag och lärande kopplas ihop."
         >
           <CommitteeBlock />
         </SectionBlock>
@@ -127,7 +127,7 @@ const Uppdrag = () => {
           variant="muted"
           eyebrow="Ansvarskedjan"
           title="Vem gör vad"
-          lead="Uppdraget görs tillsammans. Här syns hur beslut och stöd rör sig mellan nivåerna."
+          lead="Här syns hur beslut, stöd och genomförande hänger ihop."
         >
           <PartnerStrip />
           <p className="mt-8 text-sm text-muted-foreground">

@@ -9,15 +9,15 @@ interface Props {
 
 const roleLabel: Record<PartnerRole, string> = {
   ansvarig: "Ansvarig",
-  strategisk: "Strategisk partner",
-  operativ: "Operativ partner",
+  strategisk: "Sätter riktning",
+  operativ: "Gör arbetet",
   mottagare: "Mottagare",
 };
 
 const roleDescription: Record<PartnerRole, string> = {
   ansvarig: "Äger och driver uppdraget",
-  strategisk: "Sätter riktning och ramverk",
-  operativ: "Genomför och stödjer",
+  strategisk: "Sätter riktning och gör stöd möjligt",
+  operativ: "Gör arbetet och stöttar föreningen",
   mottagare: "Tar emot och verkar",
 };
 

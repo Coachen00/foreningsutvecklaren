@@ -32,7 +32,7 @@ const Spelarutbildning = () => {
         icon={GraduationCap}
         title="Spelarutbildning"
         lead="Världsledande spelarutbildning är ingen slogan — det ska märkas på träningen."
-        description="SvFF:s spelarutbildningsplan, Fotbollslyftet, futsal och arbetet med drop out. En sammanhållen sektion för det som handlar om spelaren själv."
+        description="SUP, Fotbollslyftet, futsal och arbetet med spelare som riskerar att sluta."
         metaDescription="Spelarutbildning i GFF — SvFF:s spelarutbildningsplan (SUP), Fotbollslyftet med FU IF och zonutvecklare, futsal och arbete mot drop out."
       >
         <PageWithDepth
@@ -45,7 +45,7 @@ const Spelarutbildning = () => {
                 {
                   label: "Föreningslyftet",
                   href: "/foreningsutveckling",
-                  hint: "Strukturen som bär utbildningen",
+                  hint: "Föreningen som bär utbildningen",
                 },
                 {
                   label: "FU Skola",
@@ -55,7 +55,7 @@ const Spelarutbildning = () => {
                 {
                   label: "Jämställdhet & trygghet",
                   href: "/foreningsutveckling/jamstalldhet-och-trygghet",
-                  hint: "Värdegrund som genomsyrar utbildningen",
+                  hint: "Trygg miljö runt spelaren",
                 },
                 {
                   label: "Arbetsuppgifter",
@@ -74,15 +74,12 @@ const Spelarutbildning = () => {
             className="animate-fade-up animate-delay-100"
           >
             <p className="text-lead">
-              SvFF:s strategi pekar på en världsledande spelarutbildning för
-              alla spelare — från bredd till elit. Det är ett mål som ska
-              bli synlig i vardagen, inte bara i pärmen.
+              Spelarutbildning ska märkas på planen: i övningar, samtal och
+              hur ledare möter spelare.
             </p>
             <p className="mt-4">
-              I GFF:s verksamhetsplan 2026–27 blir visionen konkret: fler
-              föreningar med fotbollsutvecklare i förening (FU IF) och
-              zonutvecklare, införande av Fotbollslyftet Vision och
-              fortsatt införande av utbildningskrav för ledare.
+              GFF följer detta genom fler FU IF, zonutvecklare och tydligare
+              utbildningskrav för ledare.
             </p>
           </ExpandableBlock>
 
@@ -95,9 +92,8 @@ const Spelarutbildning = () => {
             className="animate-fade-up animate-delay-150"
           >
             <p>
-              Spelarutbildningsplanen (SUP) är SvFF:s gemensamma karta för
-              spelarens resa. Värdet uppstår först när planen översätts till
-              träningsupplägg, ledardialoger och säsongsplanering på klubbnivå.
+              SUP är kartan. Den blir värdefull först när den syns i
+              träningsupplägg, ledarsamtal och säsongsplanering.
             </p>
             <div className="mt-6 grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-3 not-prose">
               {[
@@ -105,19 +101,19 @@ const Spelarutbildning = () => {
                   icon: GraduationCap,
                   title: "Från plan till träning",
                   description:
-                    "Från dokument till träningsyta. Stöd till föreningar att översätta SUP i sin vardag.",
+                    "Stöd till föreningar att göra SUP synlig i vardagen.",
                 },
                 {
                   icon: Layers,
                   title: "Utbildningstrappa",
                   description:
-                    "SvFF D, UEFA C, UEFA B, futsal C, målvaktsutbildningar — en samlad utbildningstrappa för ledare.",
+                    "En tydlig väg för ledare: från SvFF D till mer specialiserade utbildningar.",
                 },
                 {
                   icon: Trophy,
                   title: "Uppföljning",
                   description:
-                    "Antal föreningar som använder SUP följs i verksamhetsplanen.",
+                    "Antal föreningar som använder SUP följs upp.",
                 },
               ].map((item) => {
                 const Icon = item.icon;
@@ -146,10 +142,8 @@ const Spelarutbildning = () => {
             className="animate-fade-up animate-delay-200"
           >
             <p>
-              Fotbollslyftet är GFF:s och SvFF:s satsning på att anställa och
-              utbilda fotbollsutvecklare i förening (FU IF) och zonutvecklare
-              (ZU). Det är en satsning på lokala personer som
-              kan bära spelarutbildningen över tid.
+              Fotbollslyftet bygger på lokala personer som kan bära
+              spelarutbildningen över tid.
             </p>
             <ul className="mt-5 space-y-2 text-base leading-relaxed text-foreground/85" role="list">
               <li className="flex gap-3">
@@ -162,7 +156,7 @@ const Spelarutbildning = () => {
               </li>
               <li className="flex gap-3">
                 <span aria-hidden="true" className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-primary" />
-                <span>Visionen för Fotbollslyftet — inklusive zonutvecklare — ska implementeras lokalt.</span>
+                <span>Fotbollslyftet och zonutvecklare ska fungera lokalt.</span>
               </li>
               <li className="flex gap-3">
                 <span aria-hidden="true" className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-primary" />
@@ -174,20 +168,15 @@ const Spelarutbildning = () => {
           <ExpandableBlock
             id="futsal"
             kicker="Futsal"
-            title="Futsal som del av helheten"
+            title="Futsal som egen väg"
             defaultOpen={false}
           >
             <p>
-              Verksamhetsplanen lyfter futsal som en egen pelare. GFF arbetar
-              för mer resurser till futsal och en regional lösning för
-              futsaltävlingar — med egen spelarutbildningsplan och
-              tävlingsformer.
+              Futsal är en egen väg in i fotbollen, med egna tävlingar och egen
+              spelarutbildning.
             </p>
             <p className="mt-4">
-              Futsal är inte ett komplement till elvamannafotbollen — det är
-              en parallell väg in i fotbollsfamiljen som passar olika
-              spelartyper och olika säsonger. På sajten kommer futsal lyftas
-              fram med egen rättighet, inte som notis.
+              Det passar andra spelartyper, andra säsonger och andra vägar in.
             </p>
           </ExpandableBlock>
 
@@ -198,16 +187,11 @@ const Spelarutbildning = () => {
             defaultOpen={false}
           >
             <p>
-              Verksamhetsplanen pekar på att antalet lag i seriespel i drop
-              out-zonen ska öka — och att GFF ska arbeta för att förhindra
-              kollaps i föreningar.
+              Fler spelare ska vilja fortsätta. Fler lag ska hålla ihop.
             </p>
             <p className="mt-4">
-              Insatserna kring drop out hänger ihop med övriga uppdrag:
-              integrationssammandrag, FU Skola,
-              fritidsverksamhet och unga ledarskapsprogram. Det är genom
-              broarna mellan skola, förening och samhälle som de som riskerar
-              att försvinna fångas upp.
+              Därför hänger arbetet ihop med FU Skola, fritidsverksamhet och
+              unga ledare. Broarna fångar upp dem som annars försvinner.
             </p>
           </ExpandableBlock>
         </PageWithDepth>

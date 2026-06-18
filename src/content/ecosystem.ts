@@ -85,5 +85,5 @@ export const ECOSYSTEM_NODES: EcosystemNode[] = [
 export const ECOSYSTEM_METAPHOR = {
   kicker: "Pedagogiken",
   title: "Tänk att svensk fotboll är en stor skola",
-  body: "SvFF ritar kartan. Kvalitetsklubb är klassrummet. En bättre väg är extra stöd där barnen behöver bättre förutsättningar. När stöd, människor och uppföljning hänger ihop blir föreningen starkare över tid.",
+  body: "SvFF ritar kartan. Kvalitetsklubb är klassrummet. En bättre väg ger extra stöd där barnen behöver en bättre fotbollsvardag. När stöd, människor och uppföljning hänger ihop blir föreningen starkare över tid.",
 };

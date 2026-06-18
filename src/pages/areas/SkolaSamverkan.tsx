@@ -24,9 +24,9 @@ const SkolaSamverkan = () => {
       <GlobalNav />
       <AreaShell area={area}>
         <SectionBlock
-          eyebrow="Sammanhangssida"
-          title="Här möts skola, samhälle och fotboll"
-          lead="Det här är inte ett fjärde huvuduppdrag. Sidan hjälper läsaren att förstå hur En bättre väg och FU Skola hänger ihop med kommun, förening och civilsamhälle."
+          eyebrow="Snabb karta"
+          title="Skola, förening och samhälle"
+          lead="En bättre väg visar var behoven är störst. FU Skola visar hur skolan blir vägen in. Här ser du hur allt hänger ihop."
         >
           <div className="mb-8 grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-3">
             <article className="bg-card p-6">
@@ -34,7 +34,7 @@ const SkolaSamverkan = () => {
                 Riktat område
               </p>
               <p className="mt-2 text-small leading-relaxed text-muted-foreground">
-                När insatsen gäller områden där behoven är stora sorteras den under En bättre väg.
+                Behoven är störst. Då hör arbetet hemma i En bättre väg.
               </p>
             </article>
             <article className="bg-card p-6">
@@ -42,7 +42,7 @@ const SkolaSamverkan = () => {
                 Skolan som bro
               </p>
               <p className="mt-2 text-small leading-relaxed text-muted-foreground">
-                När skolan är vägen in till föreningslivet sorteras den under FU Skola.
+                Skolan är vägen in. Då hör arbetet hemma i FU Skola.
               </p>
             </article>
             <article className="bg-card p-6">
@@ -50,7 +50,7 @@ const SkolaSamverkan = () => {
                 Samverkansbild
               </p>
               <p className="mt-2 text-small leading-relaxed text-muted-foreground">
-                När frågan gäller vem som gör vad visar den här sidan helheten.
+                Vem gör vad? Här syns kedjan mellan skola, förening och stöd.
               </p>
             </article>
           </div>
@@ -90,9 +90,9 @@ const SkolaSamverkan = () => {
 
         <SectionBlock
           variant="muted"
-          eyebrow="Samverkan"
+          eyebrow="Tillsammans"
           title="Alla led behövs"
-          lead="Det här arbetet fungerar bara när skola, förening, kommun, förbund och civilsamhälle drar åt samma håll."
+          lead="Barnen märker skillnad först när skola, förening, kommun, förbund och civilsamhälle drar åt samma håll."
         >
           <PartnerStrip
             ids={["gff", "svff", "rf-sisu", "goteborgs-stad", "foreningar", "skolor", "gis"]}

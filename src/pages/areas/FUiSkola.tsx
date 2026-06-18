@@ -26,12 +26,12 @@ import type { TocSection } from "@/components/blocks/TableOfContents";
 
 const SECTIONS: TocSection[] = [
   { id: "arbetet", title: "Arbetet", level: 2 },
-  { id: "spar", title: "Två huvudspår", level: 2 },
+  { id: "spar", title: "Två vägar in", level: 2 },
   { id: "fotbollsprofil-mal", title: "Vad en fotbollsprofil är", level: 2 },
   { id: "relationsbyggande", title: "Relationsbyggande", level: 2 },
   { id: "arbetsdelar", title: "Nio arbetsdelar", level: 2 },
   { id: "kriterier", title: "Kriterier för fotbollsprofil", level: 2 },
-  { id: "aktorer", title: "Aktörsmatris", level: 2 },
+  { id: "aktorer", title: "Vem gör vad", level: 2 },
   { id: "matpunkter", title: "Det här följs upp", level: 2 },
   { id: "samverkan", title: "Tillsammans", level: 2 },
   { id: "effekt", title: "Därför ett huvuduppdrag", level: 2 },
@@ -52,37 +52,37 @@ const ACTOR_ROWS: ActorRow[] = [
   },
   {
     actor: "SvFF",
-    role: "Strategisk ägare",
+    role: "Sätter riktning",
     description:
       "Sätter riktning och utbildningsstöd för fotboll i skolan.",
   },
   {
     actor: "RF-SISU Västra Götaland",
-    role: "Operativ partner",
+    role: "Ger stöd",
     description:
       "Bidrar med utbildnings- och utvecklingsstöd till föreningsliv och skola.",
   },
   {
     actor: "Göteborgs Stad",
-    role: "Strategisk partner",
+    role: "Öppnar dörrar",
     description:
       "Idrotts- och föreningsförvaltningen samt skolförvaltningen gör det möjligt för skolor och föreningar att arbeta ihop.",
   },
   {
     actor: "Föreningar",
-    role: "Mottagare",
+    role: "Gör aktiviteter",
     description:
       "Genomför aktiviteter, tar emot elever och håller i fotbollspassen.",
   },
   {
     actor: "Skolor",
-    role: "Mottagare",
+    role: "Skapar plats",
     description:
       "Deltar i programmet — erbjuder tid i schemat och samarbetar med föreningar.",
   },
   {
     actor: "GIS",
-    role: "Strategisk partner",
+    role: "Bidrar med kunskap",
     description:
       "Göteborgs institut för samhällsansvar bidrar med kompetens inom socialt ansvar och inkludering.",
   },
@@ -113,7 +113,7 @@ const FUiSkola = () => {
                 {
                   label: "Föreningslyftet",
                   href: "/foreningsutveckling",
-                  hint: "Strukturen som tar emot eleverna",
+                  hint: "Föreningen som tar emot eleverna",
                 },
                 {
                   label: "Spelarutbildning",
@@ -123,7 +123,7 @@ const FUiSkola = () => {
                 {
                   label: "Partners",
                   href: "/uppdrag/partners",
-                  hint: "Vilka som bär arbetet tillsammans",
+                  hint: "Vem som hjälper till",
                 },
               ]}
             />
@@ -138,15 +138,13 @@ const FUiSkola = () => {
             className="animate-fade-up animate-delay-100"
           >
             <p className="text-lead">
-              Skolan är platsen där barnen redan är. Därifrån byggs bron in i
-              föreningslivet.
+              Skolan är platsen där barnen redan är. Där börjar vägen in i
+              föreningen.
             </p>
             {program && <p className="mt-4">{program.summary}</p>}
             <p className="mt-4">
-              FU Skola ska inte ses som en extra aktivitet, utan som ett sätt
-              att integrera fysisk aktivitet och värdegrundsarbete i skolans
-              vardag — och en konkret väg in för barn som annars aldrig hittar
-              till organiserad idrott.
+              Målet är enkelt: fler barn rör sig, fler hittar föreningen och
+              steget från skola till organiserad idrott blir kortare.
             </p>
           </ExpandableBlock>
 
@@ -154,14 +152,14 @@ const FUiSkola = () => {
           <ExpandableBlock
             id="spar"
             kicker="Två spår"
-            title="Skolbollen och Fotbollsprofil åk 7–9"
+            title="Två vägar in"
             defaultOpen
             wide
             className="animate-fade-up animate-delay-150"
           >
             <p>
-              SvFF erbjuder två huvudspår för skolor — ett för bredd och
-              rörelse, ett för fördjupning och spelarutbildning.
+              Skolbollen är bred och enkel att starta. Fotbollsprofilen är mer
+              fördjupad och kräver tydligare samarbete.
             </p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 not-prose">
               <article className="border border-border bg-card p-6">
@@ -172,9 +170,7 @@ const FUiSkola = () => {
                   Skolbollen
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-foreground/80">
-                  Ett rörelseprogram med bollspel och lek som hjälper lärare
-                  och elever att vara aktiva under skoldagen. Lågt
-                  trösklar, stor räckvidd.
+                  Bollspel och lek under skoldagen. Låg tröskel, många barn.
                 </p>
                 <ul className="mt-4 space-y-1.5 text-small text-muted-foreground" role="list">
                   <li>· Inga särskilda lärarkrav</li>
@@ -190,14 +186,13 @@ const FUiSkola = () => {
                   Fotbollsprofil åk 7–9
                 </h3>
                 <p className="mt-3 text-base leading-relaxed text-foreground/80">
-                  Fotbollsprofilerad undervisning för högstadiet som följer
-                  SvFF:s spelarutbildningsplan. Kräver lärare med
-                  fotbollsutbildning och samarbete med förening.
+                  Fotbollsundervisning på högstadiet enligt SvFF:s plan.
+                  Kräver utbildade lärare och föreningskontakt.
                 </p>
                 <ul className="mt-4 space-y-1.5 text-small text-muted-foreground" role="list">
                   <li>· Minst två fotbollspass per vecka i schemat</li>
                   <li>· Utbildade lärare</li>
-                  <li>· Samverkan med närliggande förening</li>
+                  <li>· Samarbete med närliggande förening</li>
                 </ul>
               </article>
             </div>
@@ -234,16 +229,12 @@ const FUiSkola = () => {
             defaultOpen={false}
           >
             <p>
-              Skola och förening bärs av relationer, inte av material. Att själv komma
-              ut till skolan med bollsäcken — leda ett pass, möta lärare och
-              elever på plats — bygger förtroende på ett sätt som utskickat
-              material aldrig gör.
+              Skola och förening bärs av relationer. Ett pass på plats bygger
+              mer förtroende än material i en mapp.
             </p>
             <p className="mt-4">
-              Att &bdquo;kasta dit&rdquo; bollar och affischer ger sällan
-              effekt. Den fysiska närvaron är det som gör att skolan vill
-              fortsätta — och som öppnar dörren för ett fast samarbete med
-              närliggande förening.
+              När någon kommer dit, leder aktiviteten och möter lärarna blir
+              nästa steg enklare.
             </p>
           </ExpandableBlock>
 
@@ -256,8 +247,7 @@ const FUiSkola = () => {
               defaultOpen={false}
             >
               <p>
-                Arbetsdelarna håller arbetet igång — från onboarding av nya
-                skolor till uppföljning över läsår.
+                Arbetsdelarna gör stödet lättare att hålla i under läsåret.
               </p>
               <ul
                 className="mt-5 grid gap-x-6 gap-y-3 sm:grid-cols-2"
@@ -301,13 +291,13 @@ const FUiSkola = () => {
           <ExpandableBlock
             id="aktorer"
             kicker="Vem gör vad"
-            title="Aktörsmatris"
+            title="Vem gör vad"
             defaultOpen={false}
             wide
           >
             <p>
-              Arbetet korsar flera huvudmän. Varje part fyller en egen lucka —
-              det är själva poängen med samarbetet.
+              Skolan, föreningen och stödet runt omkring behöver göra olika
+              saker. Här syns vem som tar vilken del.
             </p>
             <div className="mt-6 overflow-hidden rounded-md border border-border not-prose">
               <table className="w-full text-left text-sm">
@@ -380,13 +370,13 @@ const FUiSkola = () => {
           {/* SAMVERKAN */}
           <ExpandableBlock
             id="samverkan"
-            kicker="Samverkan"
+            kicker="Tillsammans"
             title="Alla led behövs"
             defaultOpen={false}
           >
             <p>
-              Arbetet korsar flera huvudmän. Varje part fyller en egen lucka —
-              det är själva poängen med samarbetet.
+              Ingen äger hela vägen själv. Barnen märker skillnad när alla
+              led fungerar ihop.
             </p>
             <div className="mt-5">
               <PartnerStrip

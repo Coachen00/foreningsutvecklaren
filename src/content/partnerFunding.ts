@@ -29,7 +29,7 @@ export const PARTNER_FUNDING_GROUPS: PartnerFundingGroup[] = [
     id: "strategisk",
     number: "01",
     label: "Partners som sätter riktning",
-    shortDescription: "Bestämmer riktning och skapar förutsättningar.",
+    shortDescription: "Sätter riktning och gör stöd möjligt.",
     examples: ["SvFF", "GFF", "RF-SISU Västra Götaland", "Göteborgs Stad"],
   },
   {

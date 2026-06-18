@@ -12,8 +12,8 @@ import { getPrimaryAssignment } from "@/content/primaryAssignments";
 import type { TocSection } from "@/components/blocks/TableOfContents";
 
 const SECTIONS: TocSection[] = [
-  { id: "varfor", title: "Varför detta hör ihop", level: 2 },
-  { id: "jamstalldhet", title: "Jämställdhet — kvantifierade mål", level: 2 },
+  { id: "varfor", title: "Varför det spelar roll", level: 2 },
+  { id: "jamstalldhet", title: "Jämställdhet i siffror", level: 2 },
   { id: "trygg-fotboll", title: "Trygg fotboll & matchklimat", level: 2 },
   { id: "domarlyftet", title: "Domarlyftet", level: 2 },
   { id: "natverk", title: "Nätverk för kvinnor", level: 2 },
@@ -34,8 +34,8 @@ const JamstalldhetTrygghet = () => {
         kicker="Värdegrund · Genomgående tema"
         icon={ShieldCheck}
         title="Jämställdhet och trygghet"
-        lead="Värdegrund som inte är ett tillägg — utan själva förutsättningen för att uppdraget ska gå att bära."
-        description="Jämställdhet, mångfald, trygg miljö och inkludering är genomgående teman i alla tre uppdragen. Här samlas målen, programmen och nätverken som driver det arbetet."
+        lead="Barn och ledare stannar där miljön är trygg, rättvis och värd att komma tillbaka till."
+        description="Mål, program och nätverk som gör fotbollen tryggare och mer jämställd."
         metaDescription="Jämställdhet och trygghet i GFF — 50/50-representation, fler kvinnliga domare, Trygg fotboll, matchklimatpolicy, Domarlyftet och Styrelselyftet."
       >
         <PageWithDepth
@@ -48,7 +48,7 @@ const JamstalldhetTrygghet = () => {
                 {
                   label: "Föreningslyftet",
                   href: "/foreningsutveckling",
-                  hint: "Strukturen och kulturen i föreningarna",
+                  hint: "Arbetssätt och kultur i föreningarna",
                 },
                 {
                   label: "En bättre väg",
@@ -71,21 +71,18 @@ const JamstalldhetTrygghet = () => {
         >
           <ExpandableBlock
             id="varfor"
-            kicker="Sammanhanget"
-            title="Varför detta hör ihop"
+            kicker="Poängen"
+            title="Varför det spelar roll"
             defaultOpen
             className="animate-fade-up animate-delay-100"
           >
             <p className="text-lead">
-              Jämställdhet och trygghet är inte två sidor av sidoarbete. De är
-              den värdegrund som gör att hela uppdraget — Föreningslyftet, En
-              bättre väg och FU Skola — fungerar.
+              Trygghet och jämställdhet är inte sidospår. De avgör om barn,
+              ledare och domare vill vara kvar.
             </p>
             <p className="mt-4">
-              GFF:s verksamhetsplan 2026–27 ställer upp tydliga mål inom
-              representation, ledarskap och tryggare miljöer. Den här sidan
-              samlar dem på ett ställe — inte för att flytta dem ur de andra
-              programmen, utan för att göra dem läsbara som helhet.
+              Därför finns arbetet både i Föreningslyftet, En bättre väg och
+              FU Skola.
             </p>
           </ExpandableBlock>
 
@@ -98,9 +95,8 @@ const JamstalldhetTrygghet = () => {
             className="animate-fade-up animate-delay-150"
           >
             <p>
-              Verksamhetsplanen 2026–27 sätter konkreta mål för representation
-              och rekrytering. De är inte ambitionsformuleringar — de är
-              tidsatta åtaganden.
+              Målen gör arbetet lättare att följa: representation, rekrytering
+              och tryggare miljöer.
             </p>
             <div className="mt-6 not-prose">
               <GoalsBlock goals={JAMSTALLDHET_GOALS} columns={4} />
@@ -116,9 +112,8 @@ const JamstalldhetTrygghet = () => {
             className="animate-fade-up animate-delay-200"
           >
             <p>
-              Ett gott matchklimat är lika viktigt som själva spelet.
-              Programmet rymmer matchvärdar, guider och avtal, trygg fotboll,
-              föräldramaterial och planering kring matchmiljön.
+              Ett gott matchklimat är en del av spelet. Matchvärdar, guider,
+              föräldramaterial och tydliga förväntningar gör miljön tryggare.
             </p>
             <div className="mt-6 grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-3 not-prose">
               {[
@@ -172,9 +167,8 @@ const JamstalldhetTrygghet = () => {
             defaultOpen={false}
           >
             <p>
-              Domarlyftet är GFF:s riktade arbete för att förbättra
-              matchklimatet, rekrytera fler domare och öka förståelsen för
-              domarrollen.
+              Fler domare stannar när de får stöd, mentorskap och bättre
+              matchmiljö.
             </p>
             <ul className="mt-5 space-y-2.5 text-base leading-relaxed text-foreground/85" role="list">
               {[
@@ -201,15 +195,12 @@ const JamstalldhetTrygghet = () => {
             defaultOpen={false}
           >
             <p>
-              Riktade insatser för att utbilda och stötta kvinnliga ledare
-              och styrelsemedlemmar — inklusive Styrelselyftet, ett nätverk
-              för kvinnliga föreningsstyrelser.
+              Kvinnliga ledare behöver utbildning, nätverk och vägar in i
+              styrelserummen.
             </p>
             <p className="mt-4">
-              Här finns också mentorskap, fadderprogram och
-              ordförandedialoger som specifikt vänder sig till kvinnor i
-              ledarskap. Målet är inte representation som siffra — det är
-              hållbart ledarskap över tid.
+              Målet är inte bara en bättre siffra. Det är ledarskap som håller
+              över tid.
             </p>
           </ExpandableBlock>
 
@@ -220,8 +211,8 @@ const JamstalldhetTrygghet = () => {
             defaultOpen={false}
           >
             <p>
-              Barnkonventionen och Spela – Lek – Lär är de styrdokument som
-              säkerställer att barnperspektivet genomsyrar all verksamhet.
+              Barnkonventionen och Spela – Lek – Lär påminner vuxna om vad
+              fotbollen är till för.
             </p>
             <p className="mt-4">
               I praktiken betyder det att åldersanpassning, glädje och

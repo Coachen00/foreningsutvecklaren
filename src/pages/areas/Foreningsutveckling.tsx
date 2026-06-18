@@ -65,7 +65,7 @@ const Foreningslyftet = () => {
                 {
                   label: "Jämställdhet & trygghet",
                   href: "/foreningsutveckling/jamstalldhet-och-trygghet",
-                  hint: "Värdegrund som genomsyrar arbetet",
+                  hint: "Trygg miljö runt barnen",
                 },
                 {
                   label: "Spelarutbildning",
@@ -75,7 +75,7 @@ const Foreningslyftet = () => {
                 {
                   label: "En bättre väg",
                   href: "/en-battre-vag",
-                  hint: "Nationell satsning, lokalt förankrad",
+                  hint: "Riktat stöd där behoven är störst",
                 },
               ]}
             />
@@ -89,15 +89,13 @@ const Foreningslyftet = () => {
             className="animate-fade-up animate-delay-100"
           >
             <p className="text-lead">
-              Föreningslyftet samlar tre sammanhängande arbetssätt för att
-              hjälpa föreningar gå från brandsläckning till tydliga arbetssätt.
+              Föreningslyftet hjälper föreningar gå från brandsläckning till
+              tydliga arbetssätt.
             </p>
             <p className="mt-4">
-              Det är inte en enskild kurs eller ett tidsbegränsat projekt – det
-              är en pågående resa där arbetssätt, ledarskap och kultur byggs
-              parallellt. Kvalitetsklubb gör vardagen tydligare. Matchklimat bygger
-              kulturen runt matchen. FU i förening är den riktade insatsen där
-              den behövs mest.
+              Kvalitetsklubb gör vardagen tydligare. Matchklimat bygger
+              kulturen runt matchen. FU i förening ger riktat stöd där det
+              behövs mest.
             </p>
           </ExpandableBlock>
 
@@ -109,18 +107,12 @@ const Foreningslyftet = () => {
             className="animate-fade-up animate-delay-150"
           >
             <p>
-              SvFF:s vision <em>"Nationalsporten – för alla överallt"</em> är
-              fonden mot vilket allt arbete vägs. Föreningar är grunden för
-              svensk fotboll, och starka, välorganiserade föreningar är
-              avgörande för att utveckla spelare, ledare, resurser och
-              samhället i stort.
+              SvFF:s vision är enkel: fotboll ska vara möjlig för alla,
+              överallt. Då behöver föreningar som orkar hålla över tid.
             </p>
             <p className="mt-4">
-              En stark förening har en tydlig riktning, demokrati och
-              organisation, samt förmåga att rekrytera, utveckla och behålla
-              ledare och spelare. Föreningslyftet är GFF:s lokala översättning
-              av den visionen — och förändringsresan{" "}
-              <em>Starkare föreningar</em> är dess motor.
+              Föreningslyftet är GFF:s sätt att göra den visionen praktisk:
+              tydligare roller, bättre ledarskap och fler som vill stanna.
             </p>
           </ExpandableBlock>
 
@@ -131,8 +123,7 @@ const Foreningslyftet = () => {
             defaultOpen
           >
             <p>
-              Spåren är fristående men förstärker varandra. En förening kan
-              börja på vilket spår som helst beroende på behov.
+              En förening kan börja där behovet är störst.
             </p>
 
             <div className="mt-6 space-y-2">
@@ -203,10 +194,7 @@ const Foreningslyftet = () => {
             wide
           >
             <p>
-              Språkrörets vardag är full av legitima krav som drar i olika
-              riktningar. Trappan är hjälpmedlet för att veta vad som ska
-              göras först — och vad som ska ifrågasättas, delegeras eller
-              tidsbegränsas.
+              När allt känns viktigt visar trappan vad som behöver göras först.
             </p>
             <div className="mt-6 not-prose">
               <PriorityLadder levels={PRIORITY_LADDER} />
@@ -232,17 +220,14 @@ const Foreningslyftet = () => {
 
           <ExpandableBlock
             id="strategikartan"
-            kicker="Styrkedja"
+            kicker="Plan till vardag"
             title="Från verksamhetsidé till årshjul"
             defaultOpen
             wide
           >
             <p>
-              I rollen som föreningsutvecklare handlar arbetet om att göra
-              Kvalitetsklubb praktiskt. Verksamhetsidén ska ge riktning,
-              verksamhetsmålen ska visa vad som ska flytta sig,
-              verksamhetsplanen ska samla arbetet och årshjulet ska göra det
-              möjligt att följa upp.
+              En idé behöver bli mål, plan och årshjul. Då går arbetet att
+              leda, följa upp och fortsätta även när vardagen blir rörig.
             </p>
             <div className="mt-6 not-prose">
               <PlanningChainBlock
@@ -276,9 +261,8 @@ const Foreningslyftet = () => {
             wide
           >
             <p>
-              Föreningsutveckling mäts både i organisation och i kultur.
-              Indikatorerna nedan kommer från GFF:s verksamhetsplan 2026–27 och
-              kompletteras av kvalitativa lärdomar från arbetet i föreningarna.
+              Vi följer både siffror och berättelser: vad som händer, vad som
+              fastnar och vad föreningen själv klarar nästa gång.
             </p>
             <div className="mt-6 not-prose">
               <MetricListBlock data={FORENINGSLYFTET_METRICS} />
@@ -292,10 +276,8 @@ const Foreningslyftet = () => {
             defaultOpen={false}
           >
             <p>
-              När de tre spåren rullar ihop syns det i vardagen — i träningar, i
-              matcher och i hur klubben organiseras. Uppföljningen kombinerar
-              data och berättelser, så att rörelsen kan beskrivas både i
-              nyckeltal och i kultur.
+              Det syns i vardagen: på träningen, runt matchen och i hur
+              föreningen organiserar sig.
             </p>
             {impact && (
               <div className="mt-6">
@@ -318,7 +300,7 @@ const Foreningslyftet = () => {
                 <p className="mt-1 text-muted-foreground">
                   Nej. Varje spår står på egna ben och kan startas där behovet
                   är störst. Många börjar med Kvalitetsklubb för att få
-                  arbetssätt på plats.
+                  ordning på arbetet.
                 </p>
               </div>
               <div>
@@ -326,9 +308,8 @@ const Foreningslyftet = () => {
                   Hur lång tid tar Kvalitetsklubb?
                 </p>
                 <p className="mt-1 text-muted-foreground">
-                  Det är en pågående resa, inte en kurs. Första certifieringen
-                  är vanligen 12–18 månader, sedan förvaltas arbetet vidare år
-                  för år.
+                  Det är en resa, inte en kurs. Första certifieringen tar ofta
+                  12–18 månader.
                 </p>
               </div>
               <div>

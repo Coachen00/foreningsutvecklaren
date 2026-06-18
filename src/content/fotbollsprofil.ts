@@ -30,7 +30,7 @@ export const FOTBOLLSPROFIL_GOALS: Goal[] = [
     unit: "i Göteborg",
     title: "Cirka en profil per stadsområde",
     description:
-      "Riktmärket är ungefär tio fotbollsprofiler i Göteborg — ungefär en per kommun/stadsområde — så att täckningen blir geografiskt jämn. Talet är en arbetshypotes som ska valideras mot behov och förutsättningar.",
+      "Riktmärket är ungefär tio fotbollsprofiler i Göteborg — ungefär en per kommun/stadsområde — så att fler barn får nära till fotboll. Talet prövas mot behov och möjlighet att genomföra.",
   },
   {
     id: "lokalt-nav",
