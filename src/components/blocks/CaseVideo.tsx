@@ -18,7 +18,7 @@ const CaseVideo = ({ videoUrl, posterUrl, caption }: Props) => {
     <figure className="overflow-hidden rounded-md border border-border bg-card">
       {!failed ? (
         <video
-          className="aspect-video w-full bg-foreground"
+          className="aspect-video w-full bg-background"
           controls
           preload="metadata"
           poster={posterUrl}
@@ -29,7 +29,7 @@ const CaseVideo = ({ videoUrl, posterUrl, caption }: Props) => {
         </video>
       ) : (
         <div
-          className="flex aspect-video w-full flex-col items-center justify-center gap-3 bg-gradient-to-br from-foreground via-primary/15 to-foreground text-white/80"
+          className="flex aspect-video w-full flex-col items-center justify-center gap-3 bg-gradient-to-br from-card via-primary/15 to-card text-white/80"
           role="img"
           aria-label="Filmen är inte tillgänglig ännu"
         >

@@ -90,7 +90,7 @@ const LoggedInHeroCountdown = () => {
   return (
     <section
       aria-labelledby="hero-countdown-heading"
-      className="relative isolate overflow-hidden bg-foreground text-white"
+      className="relative isolate overflow-hidden bg-background text-white"
       style={{ minHeight: "calc(100dvh - var(--nav-height))" }}
     >
       {/* Bakgrundsvideo */}
@@ -111,7 +111,7 @@ const LoggedInHeroCountdown = () => {
       ) : (
         <div className="absolute inset-0" aria-hidden="true">
           {/* Bas-gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-foreground via-foreground to-primary/45" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/45" />
           <div className="absolute inset-0 pitch-lines opacity-20" />
           <div className="absolute left-1/2 top-0 h-full w-px bg-white/10" />
           <div className="absolute left-0 top-1/2 h-px w-full bg-white/10" />

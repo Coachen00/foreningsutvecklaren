@@ -101,6 +101,24 @@ export default {
           coral: "hsl(var(--signal-coral))",
           ink: "hsl(var(--signal-ink))",
         },
+        surface: {
+          DEFAULT: "hsl(var(--card))",
+          hover: "hsl(var(--surface-hover))",
+        },
+        swedish: {
+          blue: "hsl(var(--swedish-blue))",
+          yellow: "hsl(var(--swedish-yellow))",
+        },
+        zone: {
+          attack: "hsl(var(--zone-attack))",
+          midfield: "hsl(var(--zone-midfield))",
+          defense: "hsl(var(--zone-defense))",
+        },
+        pitch: {
+          DEFAULT: "hsl(var(--pitch))",
+          lines: "hsl(var(--pitch-lines))",
+          dark: "hsl(var(--pitch-dark))",
+        },
       },
 
       borderRadius: {
@@ -122,7 +140,7 @@ export default {
 
       fontFamily: {
         sans: [
-          "Archivo",
+          "Inter",
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
@@ -135,13 +153,11 @@ export default {
           "sans-serif",
         ],
         serif: [
-          "EB Garamond",
-          "ui-serif",
-          "Georgia",
-          "Cambria",
-          "Times New Roman",
-          "Times",
-          "serif",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "sans-serif",
         ],
         mono: [
           "IBM Plex Mono",

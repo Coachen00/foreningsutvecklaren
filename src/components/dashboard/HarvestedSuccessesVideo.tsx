@@ -53,7 +53,7 @@ const HarvestedSuccessesVideo = () => {
       id="harvested-successes"
       aria-labelledby="harvested-successes-heading"
       className={cn(
-        "relative isolate overflow-hidden bg-foreground text-white motion-safe:transition-[opacity,transform] motion-safe:duration-700 motion-safe:ease-out",
+        "relative isolate overflow-hidden bg-background text-white motion-safe:transition-[opacity,transform] motion-safe:duration-700 motion-safe:ease-out",
         revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
       )}
     >
@@ -73,7 +73,7 @@ const HarvestedSuccessesVideo = () => {
         </video>
       ) : (
         <div
-          className="absolute inset-0 bg-gradient-to-br from-foreground via-primary/15 to-foreground"
+          className="absolute inset-0 bg-gradient-to-br from-background via-primary/15 to-background"
           aria-hidden="true"
         />
       )}
@@ -105,7 +105,7 @@ const HarvestedSuccessesVideo = () => {
           {HARVESTED_SUCCESSES.map((s) => (
             <li
               key={s.id}
-              className="flex h-full flex-col gap-3 rounded-md border border-white/15 bg-foreground/82 p-6 backdrop-blur-sm sm:p-7"
+              className="flex h-full flex-col gap-3 rounded-md border border-white/15 bg-black/30 p-6 backdrop-blur-sm sm:p-7"
             >
               <p className="font-mono text-micro uppercase tracking-wider text-primary-foreground/80">
                 {s.metric}
