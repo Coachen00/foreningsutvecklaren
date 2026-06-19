@@ -11,6 +11,7 @@ import PriorityLadder from "@/components/blocks/PriorityLadder";
 import MetricListBlock from "@/components/blocks/MetricListBlock";
 import EffectChain from "@/components/blocks/EffectChain";
 import PlanningChainBlock from "@/components/blocks/PlanningChainBlock";
+import { Reveal } from "@/components/motion";
 import {
   adjacentPrimaryAssignments,
   getPrimaryAssignment,
@@ -81,47 +82,50 @@ const Foreningslyftet = () => {
             />
           }
         >
-          <ExpandableBlock
-            id="vad"
-            kicker="Översikt"
-            title="Vad är Föreningslyftet?"
-            defaultOpen
-            className="animate-fade-up animate-delay-100"
-          >
-            <p className="text-lead">
-              Föreningslyftet hjälper föreningar gå från brandsläckning till
-              tydliga arbetssätt.
-            </p>
-            <p className="mt-4">
-              Kvalitetsklubb gör vardagen tydligare. Matchklimat bygger
-              kulturen runt matchen. FU i förening ger riktat stöd där det
-              behövs mest.
-            </p>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="vad"
+              kicker="Översikt"
+              title="Vad är Föreningslyftet?"
+              defaultOpen
+            >
+              <p className="text-lead">
+                Föreningslyftet hjälper föreningar gå från brandsläckning till
+                tydliga arbetssätt.
+              </p>
+              <p className="mt-4">
+                Kvalitetsklubb gör vardagen tydligare. Matchklimat bygger
+                kulturen runt matchen. FU i förening ger riktat stöd där det
+                behövs mest.
+              </p>
+            </ExpandableBlock>
+          </Reveal>
 
-          <ExpandableBlock
-            id="vision"
-            kicker="Riktningen"
-            title="Visionen bakom — Nationalsporten, för alla överallt"
-            defaultOpen={false}
-            className="animate-fade-up animate-delay-150"
-          >
-            <p>
-              SvFF:s vision är enkel: fotboll ska vara möjlig för alla,
-              överallt. Då behöver föreningar som orkar hålla över tid.
-            </p>
-            <p className="mt-4">
-              Föreningslyftet är GFF:s sätt att göra den visionen praktisk:
-              tydligare roller, bättre ledarskap och fler som vill stanna.
-            </p>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="vision"
+              kicker="Riktningen"
+              title="Visionen bakom — Nationalsporten, för alla överallt"
+              defaultOpen={false}
+            >
+              <p>
+                SvFF:s vision är enkel: fotboll ska vara möjlig för alla,
+                överallt. Då behöver föreningar som orkar hålla över tid.
+              </p>
+              <p className="mt-4">
+                Föreningslyftet är GFF:s sätt att göra den visionen praktisk:
+                tydligare roller, bättre ledarskap och fler som vill stanna.
+              </p>
+            </ExpandableBlock>
+          </Reveal>
 
-          <ExpandableBlock
-            id="tre-arbetssatt"
-            kicker="Tre spår"
-            title="Tre arbetssätt"
-            defaultOpen
-          >
+          <Reveal>
+            <ExpandableBlock
+              id="tre-arbetssatt"
+              kicker="Tre spår"
+              title="Tre arbetssätt"
+              defaultOpen
+            >
             <p>
               En förening kan börja där behovet är störst.
             </p>
@@ -184,114 +188,128 @@ const Foreningslyftet = () => {
                 </ExpandableBlock>
               ))}
             </div>
-          </ExpandableBlock>
+            </ExpandableBlock>
+          </Reveal>
 
-          <ExpandableBlock
-            id="prioritering"
-            kicker="När allt känns viktigt"
-            title="Prioriteringstrappan — när allt känns viktigt"
-            defaultOpen={false}
-            wide
-          >
-            <p>
-              När allt känns viktigt visar trappan vad som behöver göras först.
-            </p>
-            <div className="mt-6 not-prose">
-              <PriorityLadder levels={PRIORITY_LADDER} />
-            </div>
-          </ExpandableBlock>
-
-          <ExpandableBlock
-            id="effektlogik"
-            kicker="Bevis på arbete"
-            title="Så ser vi om det fungerar"
-            defaultOpen={false}
-            wide
-          >
-            <p>
-              Resurser in, arbete görs, resultat syns, effekt stannar.
-              Det här hjälper oss skilja mellan det som händer direkt och det
-              som faktiskt blir kvar i föreningen.
-            </p>
-            <div className="mt-6 not-prose">
-              <EffectChain stages={FORENINGSLYFTET_EFFECT_CHAIN} />
-            </div>
-          </ExpandableBlock>
-
-          <ExpandableBlock
-            id="strategikartan"
-            kicker="Plan till vardag"
-            title="Från verksamhetsidé till årshjul"
-            defaultOpen
-            wide
-          >
-            <p>
-              En idé behöver bli mål, plan och årshjul. Då går arbetet att
-              leda, följa upp och fortsätta även när vardagen blir rörig.
-            </p>
-            <div className="mt-6 not-prose">
-              <PlanningChainBlock
-                steps={FORENINGSLYFTET_PLANNING_CHAIN}
-                focus={QUALITY_CLUB_PLANNING_FOCUS}
-                outcomes={FORENINGSLYFTET_PLANNING_OUTCOMES}
-              />
-            </div>
-          </ExpandableBlock>
-
-          <ExpandableBlock
-            id="samverkan"
-            kicker="Vilka bär arbetet"
-            title="Tillsammans"
-            defaultOpen={false}
-          >
-            <p>
-              Föreningslyftet lever i mötet mellan förening, förbund och
-              utbildningsstöd. Ingen kan bära det själv.
-            </p>
-            <div className="mt-5">
-              <PartnerStrip ids={["gff", "svff", "rf-sisu", "foreningar", "gis"]} />
-            </div>
-          </ExpandableBlock>
-
-          <ExpandableBlock
-            id="matpunkter"
-            kicker="Uppföljning"
-            title="Det här följs över tid"
-            defaultOpen={false}
-            wide
-          >
-            <p>
-              Vi följer både siffror och berättelser: vad som händer, vad som
-              fastnar och vad föreningen själv klarar nästa gång.
-            </p>
-            <div className="mt-6 not-prose">
-              <MetricListBlock data={FORENINGSLYFTET_METRICS} />
-            </div>
-          </ExpandableBlock>
-
-          <ExpandableBlock
-            id="uppfoljning"
-            kicker="Effekt"
-            title="Hur det följs upp"
-            defaultOpen={false}
-          >
-            <p>
-              Det syns i vardagen: på träningen, runt matchen och i hur
-              föreningen organiserar sig.
-            </p>
-            {impact && (
-              <div className="mt-6">
-                <ImpactBlock impact={impact} />
+          <Reveal>
+            <ExpandableBlock
+              id="prioritering"
+              kicker="När allt känns viktigt"
+              title="Prioriteringstrappan — när allt känns viktigt"
+              defaultOpen={false}
+              wide
+            >
+              <p>
+                När allt känns viktigt visar trappan vad som behöver göras först.
+              </p>
+              <div className="mt-6 not-prose">
+                <PriorityLadder levels={PRIORITY_LADDER} />
               </div>
-            )}
-          </ExpandableBlock>
+            </ExpandableBlock>
+          </Reveal>
 
-          <ExpandableBlock
-            id="faq"
-            kicker="FAQ"
-            title="Vanliga frågor"
-            defaultOpen={false}
-          >
+          <Reveal>
+            <ExpandableBlock
+              id="effektlogik"
+              kicker="Bevis på arbete"
+              title="Så ser vi om det fungerar"
+              defaultOpen={false}
+              wide
+            >
+              <p>
+                Resurser in, arbete görs, resultat syns, effekt stannar.
+                Det här hjälper oss skilja mellan det som händer direkt och det
+                som faktiskt blir kvar i föreningen.
+              </p>
+              <div className="mt-6 not-prose">
+                <EffectChain stages={FORENINGSLYFTET_EFFECT_CHAIN} />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
+
+          <Reveal>
+            <ExpandableBlock
+              id="strategikartan"
+              kicker="Plan till vardag"
+              title="Från verksamhetsidé till årshjul"
+              defaultOpen
+              wide
+            >
+              <p>
+                En idé behöver bli mål, plan och årshjul. Då går arbetet att
+                leda, följa upp och fortsätta även när vardagen blir rörig.
+              </p>
+              <div className="mt-6 not-prose">
+                <PlanningChainBlock
+                  steps={FORENINGSLYFTET_PLANNING_CHAIN}
+                  focus={QUALITY_CLUB_PLANNING_FOCUS}
+                  outcomes={FORENINGSLYFTET_PLANNING_OUTCOMES}
+                />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
+
+          <Reveal>
+            <ExpandableBlock
+              id="samverkan"
+              kicker="Vilka bär arbetet"
+              title="Tillsammans"
+              defaultOpen={false}
+            >
+              <p>
+                Föreningslyftet lever i mötet mellan förening, förbund och
+                utbildningsstöd. Ingen kan bära det själv.
+              </p>
+              <div className="mt-5">
+                <PartnerStrip ids={["gff", "svff", "rf-sisu", "foreningar", "gis"]} />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
+
+          <Reveal>
+            <ExpandableBlock
+              id="matpunkter"
+              kicker="Uppföljning"
+              title="Det här följs över tid"
+              defaultOpen={false}
+              wide
+            >
+              <p>
+                Vi följer både siffror och berättelser: vad som händer, vad som
+                fastnar och vad föreningen själv klarar nästa gång.
+              </p>
+              <div className="mt-6 not-prose">
+                <MetricListBlock data={FORENINGSLYFTET_METRICS} />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
+
+          <Reveal>
+            <ExpandableBlock
+              id="uppfoljning"
+              kicker="Effekt"
+              title="Hur det följs upp"
+              defaultOpen={false}
+            >
+              <p>
+                Det syns i vardagen: på träningen, runt matchen och i hur
+                föreningen organiserar sig.
+              </p>
+              {impact && (
+                <div className="mt-6">
+                  <ImpactBlock impact={impact} />
+                </div>
+              )}
+            </ExpandableBlock>
+          </Reveal>
+
+          <Reveal>
+            <ExpandableBlock
+              id="faq"
+              kicker="FAQ"
+              title="Vanliga frågor"
+              defaultOpen={false}
+            >
             <div className="space-y-5">
               <div>
                 <p className="font-medium text-foreground">
@@ -339,7 +357,8 @@ const Foreningslyftet = () => {
                 </p>
               </div>
             </div>
-          </ExpandableBlock>
+            </ExpandableBlock>
+          </Reveal>
         </PageWithDepth>
       </AssignmentShell>
       <NextPageCTA

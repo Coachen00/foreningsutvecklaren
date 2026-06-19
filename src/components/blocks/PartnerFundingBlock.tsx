@@ -18,7 +18,7 @@ const PartnerFundingBlock = () => (
         <p className="signal-label" style={{ "--signal": "var(--signal-gold)" } as CSSProperties}>
           Positionering
         </p>
-        <p className="mt-4 font-serif text-subhead font-semibold leading-snug text-foreground">
+        <p className="mt-4 text-subhead font-semibold leading-snug text-foreground">
           {PARTNER_FUNDING_NARRATIVE.positioning}
         </p>
       </div>
@@ -49,7 +49,7 @@ const PartnerFundingBlock = () => (
         return (
         <li
           key={group.id}
-          className="signal-card flex flex-col gap-4 rounded-md border border-border bg-card p-6 shadow-xs lg:p-7"
+          className="signal-card card-gradient flex h-full flex-col gap-4 rounded-xl border border-border p-6 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md lg:p-7"
           style={{ "--signal": signals[index] } as CSSProperties}
         >
           <div className="flex items-baseline justify-between">
@@ -57,7 +57,7 @@ const PartnerFundingBlock = () => (
               Roll {group.number}
             </span>
           </div>
-          <h3 className="font-serif text-base font-semibold leading-tight text-foreground">
+          <h3 className="text-base font-semibold leading-tight text-foreground">
             {group.label}
           </h3>
           <p className="text-small leading-relaxed text-muted-foreground">
@@ -68,7 +68,7 @@ const PartnerFundingBlock = () => (
               <li key={ex} className="flex gap-2">
                 <span
                   aria-hidden="true"
-                  className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-primary/50"
+                  className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-accent/60"
                 />
                 <span>{ex}</span>
               </li>

@@ -10,21 +10,20 @@ import { COMMITTEES } from "@/content/committees";
  * men viktiga som korslänkar in i resten av sajten.
  */
 const CommitteeBlock = () => (
-  <div
+  <ul
     className="grid grid-cols-1 gap-4 md:grid-cols-2"
     role="list"
   >
     {COMMITTEES.map((c, index) => (
-      <article
+      <li
         key={c.id}
-        role="listitem"
-        className="signal-card flex flex-col rounded-md border border-border bg-card p-7 shadow-xs lg:p-8"
+        className="signal-card card-gradient flex h-full flex-col rounded-xl border border-border p-7 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md lg:p-8"
         style={{ "--signal": index === 0 ? "var(--signal-blue)" : "var(--signal-green)" } as CSSProperties}
       >
         <p className="signal-label" style={{ "--signal": index === 0 ? "var(--signal-blue)" : "var(--signal-green)" } as CSSProperties}>
           {c.role}
         </p>
-        <h3 className="mt-3 font-serif text-subhead font-semibold leading-snug text-foreground">
+        <h3 className="mt-3 text-subhead font-semibold leading-snug text-foreground">
           {c.name}
         </h3>
         <p className="mt-4 text-small leading-relaxed text-muted-foreground">
@@ -35,8 +34,8 @@ const CommitteeBlock = () => (
         </p>
 
         {c.crossLinks.length > 0 && (
-          <div className="mt-auto pt-6 border-t border-border">
-            <p className="font-mono text-micro uppercase tracking-wider text-muted-foreground">
+          <div className="mt-auto border-t border-border pt-6">
+            <p className="signal-label" style={{ "--signal": "var(--signal-gold)" } as CSSProperties}>
               Korslänkar
             </p>
             <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2" role="list">
@@ -59,9 +58,9 @@ const CommitteeBlock = () => (
             </ul>
           </div>
         )}
-      </article>
+      </li>
     ))}
-  </div>
+  </ul>
 );
 
 export default CommitteeBlock;

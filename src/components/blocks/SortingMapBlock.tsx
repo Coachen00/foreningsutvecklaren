@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import type { CSSProperties } from "react";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 import { SORTING_RULES } from "@/content/sortingRules";
 
 /**
@@ -13,9 +14,9 @@ import { SORTING_RULES } from "@/content/sortingRules";
  * hur sajtens sorteringslogik fungerar.
  */
 const SortingMapBlock = () => (
-  <ul
+  <StaggerGroup
+    as="ul"
     className="grid grid-cols-1 gap-4 md:grid-cols-2"
-    role="list"
   >
     {SORTING_RULES.map((rule, index) => {
       const signals = [
@@ -25,9 +26,9 @@ const SortingMapBlock = () => (
         "var(--signal-coral)",
       ];
       return (
-      <li
-        key={rule.number}
-        className="signal-card flex flex-col gap-4 rounded-md border border-border bg-card p-6 shadow-xs lg:p-7"
+      <StaggerItem as="li" key={rule.number} className="flex">
+      <div
+        className="signal-card flex w-full flex-col gap-4 rounded-md border border-border bg-card p-6 shadow-xs transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md lg:p-7"
         style={{ "--signal": signals[index % signals.length] } as CSSProperties}
       >
         <div className="flex items-baseline gap-3">
@@ -74,10 +75,11 @@ const SortingMapBlock = () => (
             </p>
           )}
         </div>
-      </li>
+      </div>
+      </StaggerItem>
       );
     })}
-  </ul>
+  </StaggerGroup>
 );
 
 export default SortingMapBlock;

@@ -12,6 +12,9 @@ import { RolePair, DoDontPair } from "@/components/blocks/RolePairBlock";
 import GoalsBlock from "@/components/blocks/GoalsBlock";
 import CriteriaList from "@/components/blocks/CriteriaList";
 import MetricListBlock from "@/components/blocks/MetricListBlock";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion";
+import { Scene3D } from "@/components/three";
+import { MediaFrame } from "@/components/media/MediaFrame";
 import {
   adjacentPrimaryAssignments,
   getPrimaryAssignment,
@@ -83,233 +86,275 @@ const EnBattreVag = () => {
           }
         >
           {/* SATSNINGEN */}
-          <ExpandableBlock
-            id="satsningen"
-            kicker="Satsningen"
-            title="Riktade insatser där de behövs mest"
-            defaultOpen
-            className="animate-fade-up animate-delay-100"
-          >
-            <p className="text-lead">
-              En bättre väg ger mer fotboll där behoven är störst.
-            </p>
-            <p className="mt-4">
-              Barn ska få en meningsfull fritid, föreningar ska bli starkare
-              och fler tjejer ska hitta in i spelet.
-            </p>
-            {program && (
-              <p className="mt-4 text-foreground/80">{program.summary}</p>
-            )}
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="satsningen"
+              kicker="Satsningen"
+              title="Riktade insatser där de behövs mest"
+              defaultOpen
+              wide
+            >
+              <div className="grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-center">
+                <div>
+                  <p className="text-lead">
+                    En bättre väg ger mer fotboll där behoven är störst.
+                  </p>
+                  <p className="mt-4">
+                    Barn ska få en meningsfull fritid, föreningar ska bli starkare
+                    och fler tjejer ska hitta in i spelet.
+                  </p>
+                  {program && (
+                    <p className="mt-4 text-foreground/80">{program.summary}</p>
+                  )}
+                </div>
+                <div className="mx-auto w-full max-w-[18rem] not-prose">
+                  <Scene3D
+                    model="ball"
+                    label="Tredimensionell fotboll som symbol för satsningen En bättre väg"
+                  />
+                </div>
+              </div>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* CENTRALA MÅL */}
-          <ExpandableBlock
-            id="mal"
-            kicker="Mål"
-            title="Centrala mål för satsningen"
-            defaultOpen
-            wide
-            className="animate-fade-up animate-delay-150"
-          >
-            <p>
-              GFF:s mål till 2027: fler föreningar i utvalda områden ska få
-              stöd, och fler tjejer ska börja spela.
-            </p>
-            <div className="mt-6 not-prose">
-              <GoalsBlock goals={EN_BATTRE_VAG_GOALS} columns={4} />
-            </div>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="mal"
+              kicker="Mål"
+              title="Centrala mål för satsningen"
+              defaultOpen
+              wide
+            >
+              <p>
+                GFF:s mål till 2027: fler föreningar i utvalda områden ska få
+                stöd, och fler tjejer ska börja spela.
+              </p>
+              <div className="mt-6 not-prose">
+                <GoalsBlock goals={EN_BATTRE_VAG_GOALS} columns={4} />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* GIRLS FC — case under En bättre väg */}
-          <ExpandableBlock
-            id="girls-fc"
-            kicker="Case"
-            title="Girls FC — fler tjejer börjar spela"
-            defaultOpen
-            className="animate-fade-up animate-delay-200"
-          >
-            <p>
-              Girls FC visar hur extra stöd kan bli nya spelare, ledare och
-              gemenskaper.
-            </p>
-            <p className="mt-4">
-              Snart 80 flickor som aldrig spelat fotboll tidigare deltar.
-              Siffran är bara början.
-            </p>
-            <p className="mt-4 text-small text-muted-foreground">
-              Flickfotboll, trygghet och inkludering hänger ihop med sidan om
-              jämställdhet och trygghet.
-            </p>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="girls-fc"
+              kicker="Case"
+              title="Girls FC — fler tjejer börjar spela"
+              defaultOpen
+              wide
+            >
+              <div className="grid gap-8 md:grid-cols-2 md:items-start">
+                <div>
+                  <p>
+                    Girls FC visar hur extra stöd kan bli nya spelare, ledare och
+                    gemenskaper.
+                  </p>
+                  <p className="mt-4">
+                    Snart 80 flickor som aldrig spelat fotboll tidigare deltar.
+                    Siffran är bara början.
+                  </p>
+                  <p className="mt-4 text-small text-muted-foreground">
+                    Flickfotboll, trygghet och inkludering hänger ihop med sidan om
+                    jämställdhet och trygghet.
+                  </p>
+                </div>
+                <div className="not-prose">
+                  <MediaFrame chapterLabel="Case · Girls FC" comingSoon />
+                </div>
+              </div>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* ROLLER */}
-          <ExpandableBlock
-            id="roller"
-            kicker="Rollerna"
-            title="Två tjänster som bär satsningen"
-            defaultOpen={false}
-            wide
-            className="animate-fade-up animate-delay-200"
-          >
-            <p>
-              Två roller behövs: en som stärker föreningen runt fotbollen och
-              en som stärker det som händer på planen.
-            </p>
-            <div className="mt-6 not-prose">
-              <RolePair roles={EN_BATTRE_VAG_ROLES} />
-            </div>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="roller"
+              kicker="Rollerna"
+              title="Två tjänster som bär satsningen"
+              defaultOpen={false}
+              wide
+            >
+              <p>
+                Två roller behövs: en som stärker föreningen runt fotbollen och
+                en som stärker det som händer på planen.
+              </p>
+              <div className="mt-6 not-prose">
+                <RolePair roles={EN_BATTRE_VAG_ROLES} />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* ARBETSDELAR */}
           {program && program.pillars.length > 0 && (
-            <ExpandableBlock
-              id="arbetsdelar"
-              kicker="Arbetet"
-              title="Fem arbetsdelar"
-              defaultOpen={false}
-            >
-              <p>
-                Fem delar håller ihop stödet från första nuläge till uppföljning.
-              </p>
-              <ul className="mt-5 grid gap-x-6 gap-y-3 sm:grid-cols-2" role="list">
-                {program.pillars.map((p) => (
-                  <li key={p.title}>
-                    <p className="text-sm font-semibold text-foreground leading-tight">
-                      {p.title}
-                    </p>
-                    {p.description && (
-                      <p className="mt-1 text-small text-muted-foreground leading-relaxed">
-                        {p.description}
+            <Reveal>
+              <ExpandableBlock
+                id="arbetsdelar"
+                kicker="Arbetet"
+                title="Fem arbetsdelar"
+                defaultOpen={false}
+              >
+                <p>
+                  Fem delar håller ihop stödet från första nuläge till uppföljning.
+                </p>
+                <StaggerGroup
+                  as="ul"
+                  className="mt-5 grid gap-x-6 gap-y-3 sm:grid-cols-2"
+                >
+                  {program.pillars.map((p) => (
+                    <StaggerItem as="li" key={p.title}>
+                      <p className="text-sm font-semibold text-foreground leading-tight">
+                        {p.title}
                       </p>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </ExpandableBlock>
+                      {p.description && (
+                        <p className="mt-1 text-small text-muted-foreground leading-relaxed">
+                          {p.description}
+                        </p>
+                      )}
+                    </StaggerItem>
+                  ))}
+                </StaggerGroup>
+              </ExpandableBlock>
+            </Reveal>
           )}
 
           {/* KRITERIER */}
-          <ExpandableBlock
-            id="kriterier"
-            kicker="Kriterier"
-            title="Kriterier för att delta"
-            defaultOpen={false}
-            wide
-          >
-            <p>
-              Grundkraven hjälper stödet hamna där det gör mest nytta.
-            </p>
-            <div className="mt-6 not-prose">
-              <CriteriaList data={EN_BATTRE_VAG_CRITERIA} />
-            </div>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="kriterier"
+              kicker="Kriterier"
+              title="Kriterier för att delta"
+              defaultOpen={false}
+              wide
+            >
+              <p>
+                Grundkraven hjälper stödet hamna där det gör mest nytta.
+              </p>
+              <div className="mt-6 not-prose">
+                <CriteriaList data={EN_BATTRE_VAG_CRITERIA} />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* ÅRSHJUL */}
-          <ExpandableBlock
-            id="arshjul"
-            kicker="Året runt"
-            title="Årshjul 2026"
-            defaultOpen={false}
-            wide
-          >
-            <p>
-              Året går från nuläge till uppföljning. Klicka på en månad för att
-              se vad som händer.
-            </p>
-            <div className="mt-6 not-prose">
-              <YearWheel months={YEAR_WHEEL_EN_BATTRE_VAG} />
-            </div>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="arshjul"
+              kicker="Året runt"
+              title="Årshjul 2026"
+              defaultOpen={false}
+              wide
+            >
+              <p>
+                Året går från nuläge till uppföljning. Klicka på en månad för att
+                se vad som händer.
+              </p>
+              <div className="mt-6 not-prose">
+                <YearWheel months={YEAR_WHEEL_EN_BATTRE_VAG} />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* GÖR / GÖR INTE */}
-          <ExpandableBlock
-            id="gransdragning"
-            kicker="Rolltydlighet"
-            title="Gör — och gör inte"
-            defaultOpen={false}
-            wide
-          >
-            <p>
-              Språkröret leder arbetet framåt. Gränsen är viktig: föreningen
-              ska bli starkare själv, inte beroende av GFF.
-            </p>
-            <div className="mt-6 not-prose">
-              <DoDontPair
-                doGroup={SPRAKROR_DO_DONT.do}
-                dontGroup={SPRAKROR_DO_DONT.dont}
-              />
-            </div>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="gransdragning"
+              kicker="Rolltydlighet"
+              title="Gör — och gör inte"
+              defaultOpen={false}
+              wide
+            >
+              <p>
+                Språkröret leder arbetet framåt. Gränsen är viktig: föreningen
+                ska bli starkare själv, inte beroende av GFF.
+              </p>
+              <div className="mt-6 not-prose">
+                <DoDontPair
+                  doGroup={SPRAKROR_DO_DONT.do}
+                  dontGroup={SPRAKROR_DO_DONT.dont}
+                />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* MÄTPUNKTER */}
-          <ExpandableBlock
-            id="matpunkter"
-            kicker="Uppföljning"
-            title="Mätpunkter"
-            defaultOpen={false}
-            wide
-          >
-            <p>
-              Vi följer både siffror och berättelser för att se om arbetet
-              faktiskt flyttar sig.
-            </p>
-            <div className="mt-6 not-prose">
-              <MetricListBlock data={EN_BATTRE_VAG_METRICS} />
-            </div>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="matpunkter"
+              kicker="Uppföljning"
+              title="Mätpunkter"
+              defaultOpen={false}
+              wide
+            >
+              <p>
+                Vi följer både siffror och berättelser för att se om arbetet
+                faktiskt flyttar sig.
+              </p>
+              <div className="mt-6 not-prose">
+                <MetricListBlock data={EN_BATTRE_VAG_METRICS} />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* SAMARBETE */}
-          <ExpandableBlock
-            id="samverkan"
-            kicker="Tillsammans"
-            title="Detta är ingen enmansinsats"
-            defaultOpen={false}
-          >
-            <p>
-              Förbund, kommun, förening och civilsamhälle behöver dra åt samma
-              håll.
-            </p>
-            <div className="mt-5">
-              <PartnerStrip
-                ids={["svff", "gff", "goteborgs-stad", "foreningar", "gis"]}
-              />
-            </div>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="samverkan"
+              kicker="Tillsammans"
+              title="Detta är ingen enmansinsats"
+              defaultOpen={false}
+            >
+              <p>
+                Förbund, kommun, förening och civilsamhälle behöver dra åt samma
+                håll.
+              </p>
+              <div className="mt-5">
+                <PartnerStrip
+                  ids={["svff", "gff", "goteborgs-stad", "foreningar", "gis"]}
+                />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* STÖDFORMER */}
-          <ExpandableBlock
-            id="stodformer"
-            kicker="Finansiering"
-            title="Stödformer som kan kopplas"
-            defaultOpen={false}
-            wide
-          >
-            <p>
-              Rätt stöd kopplas till rätt insats: pengar blir ledare,
-              aktiviteter och tydligare arbetssätt.
-            </p>
-            <div className="mt-6 not-prose">
-              <MetricListBlock data={EN_BATTRE_VAG_PROJEKTSTOD} />
-            </div>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="stodformer"
+              kicker="Finansiering"
+              title="Stödformer som kan kopplas"
+              defaultOpen={false}
+              wide
+            >
+              <p>
+                Rätt stöd kopplas till rätt insats: pengar blir ledare,
+                aktiviteter och tydligare arbetssätt.
+              </p>
+              <div className="mt-6 not-prose">
+                <MetricListBlock data={EN_BATTRE_VAG_PROJEKTSTOD} />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* VARFÖR */}
-          <ExpandableBlock
-            id="varfor"
-            kicker="Varför"
-            title="Det är därför satsningen finns"
-            defaultOpen={false}
-          >
-            <p>
-              Satsningen finns för att fler barn ska få en trygg väg in i
-              fotbollen.
-            </p>
-            {impact && (
-              <div className="mt-6">
-                <ImpactBlock impact={impact} />
-              </div>
-            )}
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="varfor"
+              kicker="Varför"
+              title="Det är därför satsningen finns"
+              defaultOpen={false}
+            >
+              <p>
+                Satsningen finns för att fler barn ska få en trygg väg in i
+                fotbollen.
+              </p>
+              {impact && (
+                <div className="mt-6">
+                  <ImpactBlock impact={impact} />
+                </div>
+              )}
+            </ExpandableBlock>
+          </Reveal>
         </PageWithDepth>
       </AssignmentShell>
       <NextPageCTA

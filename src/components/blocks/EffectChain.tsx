@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import type { CSSProperties } from "react";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 import type { EffectStage } from "@/content/effectChain";
 
 interface Props {
@@ -40,7 +41,7 @@ const EffectChain = ({ stages, className }: Props) => (
             </div>
             {i < stages.length - 1 && (
               <ArrowRight
-                className="hidden h-4 w-4 shrink-0 text-primary/60 sm:block"
+                className="hidden h-4 w-4 shrink-0 text-accent/70 sm:block"
                 aria-hidden="true"
               />
             )}
@@ -50,7 +51,7 @@ const EffectChain = ({ stages, className }: Props) => (
     </div>
 
     {/* Detaljerade kort */}
-    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <StaggerGroup className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
       {stages.map((stage, index) => {
         const Icon = stage.icon;
         const signals = [
@@ -60,15 +61,15 @@ const EffectChain = ({ stages, className }: Props) => (
           "var(--signal-coral)",
         ];
         return (
+          <StaggerItem key={stage.number} className="flex">
           <article
-            key={stage.number}
-            className="signal-card flex flex-col rounded-md border border-border bg-card p-6 shadow-xs"
+            className="signal-card group flex w-full flex-col rounded-md border border-border bg-card p-6 shadow-xs transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md"
             style={{ "--signal": signals[index] } as CSSProperties}
           >
             <header className="flex items-center gap-3">
               <span
                 aria-hidden="true"
-                className="flex h-9 w-9 items-center justify-center rounded-md bg-primary/10 text-primary"
+                className="flex h-9 w-9 items-center justify-center rounded-md bg-primary/10 text-primary transition-colors group-hover:bg-accent/15 group-hover:text-accent"
               >
                 <Icon className="h-4 w-4" />
               </span>
@@ -99,9 +100,10 @@ const EffectChain = ({ stages, className }: Props) => (
               ))}
             </ul>
           </article>
+          </StaggerItem>
         );
       })}
-    </div>
+    </StaggerGroup>
   </div>
 );
 

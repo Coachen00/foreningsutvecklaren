@@ -62,18 +62,18 @@ const ExpandableBlock = ({
         >
           <ChevronRight
             className={cn(
-              "h-4 w-4 shrink-0 self-center text-muted-foreground transition-transform duration-200",
-              open && "rotate-90",
+              "h-4 w-4 shrink-0 self-center text-muted-foreground transition-[transform,color] duration-200 group-hover:text-foreground",
+              open && "rotate-90 text-accent",
             )}
             aria-hidden="true"
           />
           <span className="flex-1 min-w-0">
             {kicker && (
-              <span className="mb-1.5 block font-mono text-micro uppercase tracking-wider text-primary">
+              <span className="mb-1.5 block font-mono text-micro uppercase tracking-wider text-signal-gold">
                 {kicker}
               </span>
             )}
-            <span className="block font-serif text-subhead font-semibold text-foreground">
+            <span className="block text-subhead font-semibold text-foreground">
               {title}
             </span>
           </span>
@@ -91,7 +91,7 @@ const ExpandableBlock = ({
         <div className="overflow-hidden">
           <div
             className={cn(
-              "ml-8 border-l-accent pb-6 pt-1",
+              "ml-8 border-l border-accent/30 pl-6 pb-6 pt-1",
               open && "animate-fade-in",
             )}
           >

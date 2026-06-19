@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 import {
   ECOSYSTEM_NODES,
   ECOSYSTEM_METAPHOR,
@@ -27,7 +28,7 @@ const EcosystemMap = ({ className, showMetaphor = true }: Props) => (
   <div className={cn("space-y-10", className)}>
     {showMetaphor && (
       <div className="border-l-accent">
-        <p className="font-mono text-micro uppercase tracking-wider text-primary">
+        <p className="signal-label" style={{ "--signal": "var(--signal-gold)" } as React.CSSProperties}>
           {ECOSYSTEM_METAPHOR.kicker}
         </p>
         <h3 className="mt-2 font-serif text-headline font-semibold text-foreground">
@@ -39,31 +40,30 @@ const EcosystemMap = ({ className, showMetaphor = true }: Props) => (
       </div>
     )}
 
-    <div
+    <StaggerGroup
       className="grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2 lg:grid-cols-3"
-      role="list"
     >
       {ECOSYSTEM_NODES.map((node) => (
         <NodeCard key={node.id} node={node} />
       ))}
-    </div>
+    </StaggerGroup>
   </div>
 );
 
 const NodeCard = ({ node }: { node: EcosystemNode }) => {
   const Icon = node.icon;
   const inner = (
-    <article className="group flex h-full flex-col bg-card p-7 transition-colors duration-150 hover:bg-primary-subtle/40">
+    <article className="group flex h-full flex-col bg-card p-7 transition-colors duration-150 hover:bg-accent/[0.06]">
       <header className="flex items-center justify-between">
         <span
           aria-hidden="true"
-          className="flex h-9 w-9 items-center justify-center rounded-md bg-primary/10 text-primary"
+          className="flex h-9 w-9 items-center justify-center rounded-md bg-primary/10 text-primary transition-colors group-hover:bg-accent/15 group-hover:text-accent"
         >
           <Icon className="h-4 w-4" />
         </span>
         {node.href && (
           <ArrowUpRight
-            className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary"
+            className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-accent"
             aria-hidden="true"
           />
         )}
@@ -82,18 +82,18 @@ const NodeCard = ({ node }: { node: EcosystemNode }) => {
   );
 
   return (
-    <div role="listitem" className="contents">
+    <StaggerItem className="flex">
       {node.href ? (
         <Link
           to={node.href}
-          className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          className="block w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         >
           {inner}
         </Link>
       ) : (
         inner
       )}
-    </div>
+    </StaggerItem>
   );
 };
 

@@ -92,9 +92,9 @@ const UpdatesFeedBlock = ({ items, isLoading, isError, onRetry }: Props) => {
               href={item.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex h-full min-h-[12rem] flex-col p-6 transition-colors hover:bg-primary-subtle/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="group flex h-full min-h-[12rem] flex-col p-6 card-gradient transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              <p className="flex items-center gap-2 font-mono text-micro uppercase tracking-wider text-primary">
+              <p className="flex items-center gap-2 font-mono text-micro uppercase tracking-wider text-signal-gold">
                 {item.sourceName}
                 {date && (
                   <>
@@ -105,13 +105,13 @@ const UpdatesFeedBlock = ({ items, isLoading, isError, onRetry }: Props) => {
                   </>
                 )}
               </p>
-              <h3 className="mt-3 font-serif text-base font-semibold leading-tight text-foreground">
+              <h3 className="mt-3 text-base font-semibold leading-tight text-foreground">
                 {item.title}
               </h3>
               <p className="mt-3 text-small leading-relaxed text-muted-foreground">
                 {item.summary}
               </p>
-              <span className="mt-auto inline-flex items-center gap-2 pt-5 font-mono text-micro uppercase tracking-wider text-primary">
+              <span className="mt-auto inline-flex items-center gap-2 pt-5 font-mono text-micro uppercase tracking-wider text-primary transition-colors group-hover:text-accent">
                 Läs hos källan
                 <ArrowUpRight
                   className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

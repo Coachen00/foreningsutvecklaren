@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 import type { FocusArea } from "@/content/kvalitetsklubb";
 
 interface Props {
@@ -14,9 +15,10 @@ interface Props {
  * fokuspunkterna är underordnade.
  */
 const FocusAreaBlock = ({ areas, className }: Props) => (
-  <div
+  <StaggerGroup
+    as="div"
     className={cn(
-      "grid gap-px overflow-hidden rounded-md border border-border bg-border",
+      "grid gap-4",
       "sm:grid-cols-2",
       className,
     )}
@@ -24,19 +26,20 @@ const FocusAreaBlock = ({ areas, className }: Props) => (
     {areas.map((area, idx) => {
       const Icon = area.icon;
       return (
-        <article
+        <StaggerItem
+          as="div"
           key={area.id}
-          className="flex flex-col bg-card p-7"
+          className="group flex h-full flex-col rounded-xl border border-border card-gradient p-7 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md"
         >
           <header className="flex items-start gap-4">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-accent/10 text-accent transition-colors">
               <Icon className="h-5 w-5" aria-hidden="true" />
             </span>
             <div className="min-w-0 flex-1">
               <p className="font-mono text-micro uppercase tracking-wider text-muted-foreground">
                 Fokusområde {String(idx + 1).padStart(2, "0")} · {area.kicker}
               </p>
-              <h3 className="mt-1 font-serif text-subhead font-semibold text-foreground">
+              <h3 className="mt-1 text-subhead font-semibold text-foreground">
                 {area.name}
               </h3>
             </div>
@@ -63,10 +66,10 @@ const FocusAreaBlock = ({ areas, className }: Props) => (
               ))}
             </ul>
           </div>
-        </article>
+        </StaggerItem>
       );
     })}
-  </div>
+  </StaggerGroup>
 );
 
 export default FocusAreaBlock;

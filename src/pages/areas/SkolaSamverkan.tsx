@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import AreaShell from "@/components/blocks/AreaShell";
 import SectionBlock from "@/components/blocks/SectionBlock";
 import PartnerStrip from "@/components/blocks/PartnerStrip";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 import { getArea } from "@/content/areas";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 
@@ -28,38 +29,44 @@ const SkolaSamverkan = () => {
           title="Skola, förening och samhälle"
           lead="En bättre väg visar var behoven är störst. FU Skola visar hur skolan blir vägen in. Här ser du hur allt hänger ihop."
         >
-          <div className="mb-8 grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-3">
-            <article className="bg-card p-6">
-              <p className="font-mono text-micro uppercase tracking-wider text-primary">
-                Riktat område
-              </p>
-              <p className="mt-2 text-small leading-relaxed text-muted-foreground">
-                Behoven är störst. Då hör arbetet hemma i En bättre väg.
-              </p>
-            </article>
-            <article className="bg-card p-6">
-              <p className="font-mono text-micro uppercase tracking-wider text-primary">
-                Skolan som bro
-              </p>
-              <p className="mt-2 text-small leading-relaxed text-muted-foreground">
-                Skolan är vägen in. Då hör arbetet hemma i FU Skola.
-              </p>
-            </article>
-            <article className="bg-card p-6">
-              <p className="font-mono text-micro uppercase tracking-wider text-primary">
-                Samverkansbild
-              </p>
-              <p className="mt-2 text-small leading-relaxed text-muted-foreground">
-                Vem gör vad? Här syns kedjan mellan skola, förening och stöd.
-              </p>
-            </article>
-          </div>
+          <StaggerGroup className="mb-8 grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-3">
+            <StaggerItem className="bg-card p-6">
+              <article>
+                <p className="font-mono text-micro uppercase tracking-wider text-primary">
+                  Riktat område
+                </p>
+                <p className="mt-2 text-small leading-relaxed text-muted-foreground">
+                  Behoven är störst. Då hör arbetet hemma i En bättre väg.
+                </p>
+              </article>
+            </StaggerItem>
+            <StaggerItem className="bg-card p-6">
+              <article>
+                <p className="font-mono text-micro uppercase tracking-wider text-primary">
+                  Skolan som bro
+                </p>
+                <p className="mt-2 text-small leading-relaxed text-muted-foreground">
+                  Skolan är vägen in. Då hör arbetet hemma i FU Skola.
+                </p>
+              </article>
+            </StaggerItem>
+            <StaggerItem className="bg-card p-6">
+              <article>
+                <p className="font-mono text-micro uppercase tracking-wider text-primary">
+                  Samverkansbild
+                </p>
+                <p className="mt-2 text-small leading-relaxed text-muted-foreground">
+                  Vem gör vad? Här syns kedjan mellan skola, förening och stöd.
+                </p>
+              </article>
+            </StaggerItem>
+          </StaggerGroup>
 
-          <ul className="grid grid-cols-1 gap-6 md:grid-cols-2" role="list">
+          <StaggerGroup as="ul" className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {relevant.map((p) => {
               const Icon = p.icon;
               return (
-                <li key={p.id}>
+                <StaggerItem as="li" key={p.id}>
                   <Link
                     to={p.path}
                     className="group flex h-full flex-col rounded-md border border-border bg-card p-7 transition-colors hover:border-primary/40"
@@ -82,10 +89,10 @@ const SkolaSamverkan = () => {
                       />
                     </span>
                   </Link>
-                </li>
+                </StaggerItem>
               );
             })}
-          </ul>
+          </StaggerGroup>
         </SectionBlock>
 
         <SectionBlock

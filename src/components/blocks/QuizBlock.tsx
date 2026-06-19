@@ -62,11 +62,11 @@ const QuizBlock = ({ storageKey, questions }: Props) => {
   };
 
   return (
-    <div className="rounded-md border border-border bg-card p-6 sm:p-8">
-      <p className="font-mono text-micro uppercase tracking-wider text-primary">
+    <div className="card-gradient rounded-xl border border-border p-6 sm:p-8">
+      <p className="font-mono text-micro uppercase tracking-wider text-signal-gold">
         Quiz · {answeredCount}/{questions.length} besvarade
       </p>
-      <h3 className="mt-3 font-serif text-headline font-semibold text-foreground">
+      <h3 className="mt-3 text-headline font-semibold text-foreground">
         Testa dig själv
       </h3>
 
@@ -104,11 +104,11 @@ const QuizBlock = ({ storageKey, questions }: Props) => {
                           "flex min-h-[44px] cursor-pointer items-center gap-3 rounded-md border px-4 py-3 text-base transition-colors",
                           "focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2",
                           !answered &&
-                            "border-border hover:border-primary/40 hover:bg-primary-subtle/40",
+                            "border-border hover:border-accent/40 hover:bg-accent/5",
                           answered && !showAsCorrect && !showAsWrong &&
                             "border-border opacity-70",
                           showAsCorrect &&
-                            "border-primary/50 bg-primary-subtle text-foreground",
+                            "border-accent/50 bg-accent/10 text-foreground",
                           showAsWrong &&
                             "border-destructive/50 bg-destructive/10 text-foreground",
                           answered && "cursor-default",
@@ -126,7 +126,7 @@ const QuizBlock = ({ storageKey, questions }: Props) => {
                         <span className="flex-1">{opt.label}</span>
                         {showAsCorrect && (
                           <CheckCircle2
-                            className="h-5 w-5 shrink-0 text-primary"
+                            className="h-5 w-5 shrink-0 text-accent"
                             aria-hidden="true"
                           />
                         )}
@@ -147,7 +147,7 @@ const QuizBlock = ({ storageKey, questions }: Props) => {
                     aria-live="polite"
                     className={cn(
                       "mt-3 text-small leading-relaxed",
-                      correct ? "text-primary" : "text-foreground/75",
+                      correct ? "text-accent" : "text-foreground/75",
                     )}
                   >
                     <span className="font-semibold">
@@ -165,10 +165,10 @@ const QuizBlock = ({ storageKey, questions }: Props) => {
       {allAnswered && (
         <div
           role="status"
-          className="mt-8 flex flex-col gap-4 rounded-md border border-primary/30 bg-primary-subtle p-5 sm:flex-row sm:items-center sm:justify-between"
+          className="mt-8 flex flex-col gap-4 rounded-xl border border-accent/30 bg-accent/10 p-5 sm:flex-row sm:items-center sm:justify-between"
         >
           <p className="flex items-center gap-3 text-base font-semibold text-foreground">
-            <Trophy className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+            <Trophy className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
             Klart — {score} av {questions.length} rätt.
           </p>
           <button

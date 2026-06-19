@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 import type { ProcessStep } from "@/content/kvalitetsklubb";
 
 interface Props {
@@ -16,20 +17,20 @@ interface Props {
  * "väg" snarare än "tabell".
  */
 const KvalitetsklubbProcess = ({ steps, className }: Props) => (
-  <ol className={cn("relative", className)} role="list">
+  <StaggerGroup as="ol" className={cn("relative", className)}>
     {steps.map((step, i) => {
       const isLast = i === steps.length - 1;
       return (
-        <li key={step.number} className="relative flex gap-5 sm:gap-7">
+        <StaggerItem as="li" key={step.number} className="group relative flex gap-5 sm:gap-7">
           {/* Vänster: nummer + linje */}
           <div className="relative flex shrink-0 flex-col items-center">
             <span
               aria-hidden="true"
               className={cn(
                 "z-10 flex h-12 w-12 shrink-0 items-center justify-center",
-                "rounded-md border bg-card text-foreground",
+                "rounded-md border bg-card",
                 "font-mono text-base font-semibold tabular-nums",
-                "border-primary/30 bg-primary-subtle/40 text-primary",
+                "border-accent/35 bg-accent/10 text-accent transition-shadow group-hover:glow-accent",
               )}
             >
               {step.number}
@@ -51,15 +52,15 @@ const KvalitetsklubbProcess = ({ steps, className }: Props) => (
             <p className="mt-2 text-base leading-relaxed text-foreground/80">
               {step.description}
             </p>
-            <p className="mt-3 inline-flex items-center gap-2 font-mono text-micro uppercase tracking-wider text-primary">
+            <p className="mt-3 inline-flex items-center gap-2 font-mono text-micro uppercase tracking-wider text-accent">
               <span aria-hidden="true">→</span>
               {step.output}
             </p>
           </div>
-        </li>
+        </StaggerItem>
       );
     })}
-  </ol>
+  </StaggerGroup>
 );
 
 export default KvalitetsklubbProcess;

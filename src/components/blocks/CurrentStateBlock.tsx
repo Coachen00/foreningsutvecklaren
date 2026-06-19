@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { CURRENT_STATE } from "@/content/currentState";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 
 /**
  * Browse-first overview: startsidan ska ge karta och nyfikenhet.
@@ -7,7 +8,11 @@ import { CURRENT_STATE } from "@/content/currentState";
  */
 const CurrentStateBlock = () => {
   const { role, topMissions, focus } = CURRENT_STATE;
-  const signals = ["var(--signal-green)", "var(--signal-blue)", "var(--signal-gold)"];
+  const signalClass = [
+    "[--signal:var(--signal-green)]",
+    "[--signal:var(--signal-blue)]",
+    "[--signal:var(--signal-gold)]",
+  ];
   const promise = [
     "Hitta var insatsen gör störst nytta.",
     "Koppla ihop förening, skola och samhälle.",
@@ -28,7 +33,7 @@ const CurrentStateBlock = () => {
               </p>
               <h2
                 id="nulage-heading"
-                className="max-w-[9ch] font-serif text-display font-semibold leading-[1.05] text-foreground"
+                className="max-w-[9ch] text-display font-semibold leading-[1.05] text-foreground"
               >
                 Vad är det?
               </h2>
@@ -43,22 +48,22 @@ const CurrentStateBlock = () => {
             </div>
           </div>
 
-          <ul className="mt-12 grid grid-cols-1 gap-3 md:grid-cols-3" role="list">
+          <StaggerGroup as="ul" className="mt-12 grid grid-cols-1 gap-3 md:grid-cols-3">
             {promise.map((text, index) => (
-              <li
+              <StaggerItem
+                as="li"
                 key={text}
-                className="signal-card rounded-md border border-border bg-card p-6 shadow-xs"
-                style={{ "--signal": signals[index] } as CSSProperties}
+                className={`signal-card card-gradient rounded-xl border border-border p-6 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md ${signalClass[index]}`}
               >
-                <p className="font-mono text-micro tabular-nums text-muted-foreground">
+                <p className="font-mono text-micro tabular-nums text-accent">
                   {String(index + 1).padStart(2, "0")}
                 </p>
-                <p className="mt-4 font-serif text-subhead font-semibold leading-snug text-foreground">
+                <p className="mt-4 text-subhead font-semibold leading-snug text-foreground">
                   {text}
                 </p>
-              </li>
+              </StaggerItem>
             ))}
-          </ul>
+          </StaggerGroup>
 
           <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-[0.7fr_1.3fr] md:items-start">
             <p className="signal-label" style={{ "--signal": "var(--signal-gold)" } as CSSProperties}>

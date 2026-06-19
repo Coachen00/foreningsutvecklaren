@@ -1,7 +1,7 @@
 import type { Partner, PartnerRole } from "@/content/partners";
 import type { AreaSlug } from "@/content/siteStructure";
 import { PARTNERS } from "@/content/partners";
-import { cn } from "@/lib/utils";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 
 interface Props {
   areaSlug?: AreaSlug;
@@ -43,12 +43,12 @@ const PartnerMapBlock = ({ areaSlug }: Props) => {
     .filter((g) => g.partners.length > 0);
 
   return (
-    <div className="space-y-0 border border-border divide-y divide-border">
+    <StaggerGroup className="space-y-0 border border-border divide-y divide-border">
       {grouped.map((group) => (
-        <div key={group.role} className="grid grid-cols-1 md:grid-cols-[14rem_1fr] gap-0">
+        <StaggerItem key={group.role} className="grid grid-cols-1 md:grid-cols-[14rem_1fr] gap-0">
           {/* Role column */}
           <div className="flex flex-col justify-start gap-1 border-b border-border bg-muted px-6 py-5 md:border-b-0 md:border-r md:py-6">
-            <p className="font-mono text-micro font-medium uppercase tracking-wider text-primary">
+            <p className="signal-label" style={{ "--signal": "var(--signal-gold)" } as React.CSSProperties}>
               {roleLabel[group.role]}
             </p>
             <p className="text-small text-muted-foreground leading-snug">
@@ -64,9 +64,9 @@ const PartnerMapBlock = ({ areaSlug }: Props) => {
             {group.partners.map((p) => (
               <li
                 key={p.id}
-                className="flex flex-col gap-1.5 bg-card px-6 py-5 sm:py-6"
+                className="group flex flex-col gap-1.5 bg-card px-6 py-5 transition-colors hover:bg-accent/[0.06] sm:py-6"
               >
-                <p className="font-semibold text-base text-foreground leading-tight">
+                <p className="font-semibold text-base text-foreground leading-tight transition-colors group-hover:text-accent">
                   {p.name}
                 </p>
                 <p className="text-small text-muted-foreground leading-relaxed">
@@ -75,9 +75,9 @@ const PartnerMapBlock = ({ areaSlug }: Props) => {
               </li>
             ))}
           </ul>
-        </div>
+        </StaggerItem>
       ))}
-    </div>
+    </StaggerGroup>
   );
 };
 

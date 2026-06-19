@@ -1,4 +1,6 @@
+import type { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 import type { MetricList } from "@/content/metrics";
 
 interface Props {
@@ -13,12 +15,12 @@ interface Props {
  * Använder mono-numrering i marginalen för editorial-känsla.
  */
 const MetricListBlock = ({ data, className }: Props) => (
-  <div className={cn("border border-border bg-card", className)}>
-    <div className="border-b border-border bg-background px-7 py-5">
-      <p className="font-mono text-micro uppercase tracking-wider text-primary">
+  <div className={cn("card-gradient overflow-hidden rounded-xl border border-border", className)}>
+    <div className="border-b border-border px-7 py-5">
+      <p className="signal-label mb-3" style={{ "--signal": "var(--signal-gold)" } as CSSProperties}>
         Uppföljning
       </p>
-      <h3 className="mt-1 font-serif text-subhead font-semibold text-foreground">
+      <h3 className="text-subhead font-semibold text-foreground">
         {data.title}
       </h3>
       <p className="mt-2 max-w-prose text-small leading-relaxed text-muted-foreground">
@@ -32,21 +34,21 @@ const MetricListBlock = ({ data, className }: Props) => (
           <p className="mb-4 font-mono text-micro uppercase tracking-wider text-muted-foreground">
             {group.label}
           </p>
-          <ul className="space-y-3" role="list">
+          <StaggerGroup as="ul" className="space-y-3">
             {group.items.map((item, idx) => (
-              <li key={item} className="flex items-baseline gap-4">
+              <StaggerItem as="li" key={item} className="flex items-baseline gap-4">
                 <span
                   aria-hidden="true"
-                  className="font-mono text-micro tabular-nums text-primary"
+                  className="font-mono text-micro tabular-nums text-accent"
                 >
                   {String(idx + 1).padStart(2, "0")}
                 </span>
                 <span className="text-base leading-relaxed text-foreground/85">
                   {item}
                 </span>
-              </li>
+              </StaggerItem>
             ))}
-          </ul>
+          </StaggerGroup>
         </section>
       ))}
     </div>

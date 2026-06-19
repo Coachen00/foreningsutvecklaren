@@ -1,5 +1,7 @@
+import type { CSSProperties } from "react";
 import { Check, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 import type { CriteriaList as CriteriaListData } from "@/content/criteria";
 
 interface Props {
@@ -14,12 +16,12 @@ interface Props {
  * man uppfyller (check-symbol), mätpunkter är något man följer.
  */
 const CriteriaList = ({ data, className }: Props) => (
-  <div className={cn("border border-border bg-card", className)}>
-    <div className="border-b border-border bg-background px-7 py-5">
-      <p className="font-mono text-micro uppercase tracking-wider text-primary">
+  <div className={cn("card-gradient overflow-hidden rounded-xl border border-border", className)}>
+    <div className="border-b border-border px-7 py-5">
+      <p className="signal-label mb-3" style={{ "--signal": "var(--signal-blue)" } as CSSProperties}>
         Kriterier
       </p>
-      <h3 className="mt-1 font-serif text-subhead font-semibold text-foreground">
+      <h3 className="text-subhead font-semibold text-foreground">
         {data.title}
       </h3>
       <p className="mt-2 max-w-prose text-small leading-relaxed text-muted-foreground">
@@ -27,12 +29,12 @@ const CriteriaList = ({ data, className }: Props) => (
       </p>
     </div>
 
-    <ul className="divide-y divide-border" role="list">
+    <StaggerGroup as="ul" className="divide-y divide-border">
       {data.items.map((item, idx) => (
-        <li key={item} className="flex items-start gap-5 px-7 py-5">
+        <StaggerItem as="li" key={item} className="flex items-start gap-5 px-7 py-5">
           <span
             aria-hidden="true"
-            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary"
+            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-accent/10 text-accent"
           >
             <Check className="h-3.5 w-3.5" strokeWidth={3} />
           </span>
@@ -44,12 +46,12 @@ const CriteriaList = ({ data, className }: Props) => (
               {item}
             </p>
           </div>
-        </li>
+        </StaggerItem>
       ))}
-    </ul>
+    </StaggerGroup>
 
     {data.contact && (
-      <div className="flex items-center gap-4 border-t border-border bg-background px-7 py-5">
+      <div className="flex items-center gap-4 border-t border-border px-7 py-5">
         <span
           aria-hidden="true"
           className="flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground"

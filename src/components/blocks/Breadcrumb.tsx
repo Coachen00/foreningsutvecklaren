@@ -72,7 +72,7 @@ const Breadcrumb = ({ className }: { className?: string }) => {
             {c.current ? (
               <span
                 aria-current="page"
-                className="font-mono text-micro uppercase tracking-wider text-foreground"
+                className="font-mono text-micro uppercase tracking-wider text-signal-gold"
               >
                 {c.label}
               </span>

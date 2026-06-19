@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion";
 
 type Variant = "default" | "muted" | "accent" | "flush";
 
@@ -42,6 +43,7 @@ const SectionBlock = ({
     >
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section header */}
+        <Reveal>
         {split ? (
           <div className="mb-12 grid grid-cols-1 gap-6 border-b border-border pb-8 md:grid-cols-[minmax(14rem,0.78fr)_minmax(0,1.22fr)] md:gap-12 lg:gap-20">
             <div className="max-w-[30rem]">
@@ -88,8 +90,9 @@ const SectionBlock = ({
             )}
           </div>
         )}
+        </Reveal>
 
-        {children}
+        <Reveal delay={0.08}>{children}</Reveal>
       </div>
     </section>
   );

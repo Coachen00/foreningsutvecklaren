@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 import type {
   PlanningChainStep,
   PlanningOutcome,
@@ -36,7 +37,7 @@ const PlanningChainBlock = ({ steps, focus, outcomes, className }: Props) => (
             </div>
             {index < steps.length - 1 && (
               <ArrowRight
-                className="h-4 w-4 shrink-0 rotate-90 text-primary/60 sm:rotate-0"
+                className="h-4 w-4 shrink-0 rotate-90 text-accent/70 sm:rotate-0"
                 aria-hidden="true"
               />
             )}
@@ -45,13 +46,14 @@ const PlanningChainBlock = ({ steps, focus, outcomes, className }: Props) => (
       </ol>
     </div>
 
-    <div className="grid gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-2 xl:grid-cols-4">
+    <StaggerGroup className="grid gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-2 xl:grid-cols-4">
       {steps.map((step) => {
         const Icon = step.icon;
         return (
-          <article key={step.number} className="flex flex-col bg-card p-6">
+          <StaggerItem key={step.number} className="flex">
+          <article className="group flex w-full flex-col bg-card p-6 transition-colors hover:bg-accent/[0.06]">
             <header className="flex items-start gap-3">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary transition-colors group-hover:bg-accent/15 group-hover:text-accent">
                 <Icon className="h-4 w-4" aria-hidden="true" />
               </span>
               <div>
@@ -88,9 +90,10 @@ const PlanningChainBlock = ({ steps, focus, outcomes, className }: Props) => (
               {step.output}
             </p>
           </article>
+          </StaggerItem>
         );
       })}
-    </div>
+    </StaggerGroup>
 
     <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.85fr)]">
       <section className="rounded-md border border-border bg-card p-6">

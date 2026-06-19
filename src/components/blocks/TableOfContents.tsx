@@ -85,7 +85,7 @@ const TableOfContents = ({ sections, className, title = "På denna sida" }: Prop
                   "block -ml-px border-l-2 py-1 text-sm leading-snug transition-colors duration-150",
                   s.level === 3 ? "pl-6 text-[0.8125rem]" : "pl-4",
                   active
-                    ? "border-primary text-foreground font-medium"
+                    ? "border-accent text-foreground font-medium"
                     : "border-transparent text-muted-foreground hover:text-foreground",
                 )}
               >

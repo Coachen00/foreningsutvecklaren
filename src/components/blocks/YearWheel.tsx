@@ -167,7 +167,7 @@ const LinjeView = ({ months, active, activeIdx, onSelect }: SubProps) => {
                 {selected && (
                   <span
                     aria-hidden="true"
-                    className="absolute inset-x-0 -bottom-px h-px bg-primary"
+                    className="absolute inset-x-0 -bottom-px h-px bg-accent"
                   />
                 )}
               </button>
@@ -249,7 +249,7 @@ const HjulView = ({ months, active, activeIdx, onSelect }: SubProps) => {
                         ? "hsl(var(--primary))"
                         : intensityFill[m.intensity]
                     }
-                    stroke="hsl(var(--background))"
+                    stroke={selected ? "hsl(var(--accent) / 0.7)" : "hsl(var(--background))"}
                     strokeWidth={2}
                     className="cursor-pointer transition-opacity hover:opacity-80"
                     onClick={() => onSelect(i)}
@@ -298,7 +298,7 @@ const HjulView = ({ months, active, activeIdx, onSelect }: SubProps) => {
               cy={cy}
               r={inner - 6}
               fill="hsl(var(--background))"
-              stroke="hsl(var(--border))"
+              stroke="hsl(var(--accent) / 0.35)"
             />
 
             {/* Mittentext */}

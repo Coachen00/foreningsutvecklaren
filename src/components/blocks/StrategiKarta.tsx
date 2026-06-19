@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 import {
   STRATEGI_MAPPING,
   SVFF_STRATEGIC_AREAS,
@@ -25,14 +26,14 @@ const StrategiKarta = ({ className, showSvffAreas = true }: Props) => (
   <div className={cn("space-y-8", className)}>
     {showSvffAreas && (
       <div>
-        <p className="mb-4 font-mono text-micro uppercase tracking-wider text-muted-foreground">
+        <p className="signal-label mb-4" style={{ "--signal": "var(--signal-gold)" } as React.CSSProperties}>
           SvFF · 14 strategiska områden 2024–2027
         </p>
-        <ul className="flex flex-wrap gap-2" role="list">
+        <StaggerGroup as="ul" className="flex flex-wrap gap-2">
           {SVFF_STRATEGIC_AREAS.map((area) => (
             <StrategicChip key={area.name} area={area} />
           ))}
-        </ul>
+        </StaggerGroup>
         <p className="mt-3 text-small text-muted-foreground">
           Markerade områden är förändringsresor som direkt formar GFF:s lokala
           arbete med Föreningslyftet, Kvalitetsklubb och En bättre väg.
@@ -81,16 +82,17 @@ const StrategiKarta = ({ className, showSvffAreas = true }: Props) => (
 );
 
 const StrategicChip = ({ area }: { area: StrategicArea }) => (
-  <li
+  <StaggerItem
+    as="li"
     className={cn(
-      "rounded-sm border px-3 py-1.5 text-[0.8125rem] font-medium transition-colors",
+      "rounded-sm border px-3 py-1.5 text-[0.8125rem] font-medium transition-all hover:-translate-y-0.5",
       area.emphasized
-        ? "border-primary/40 bg-primary-subtle/60 text-foreground"
-        : "border-border bg-card text-muted-foreground",
+        ? "border-accent/45 bg-accent/10 text-foreground glow-accent"
+        : "border-border bg-card text-muted-foreground hover:border-accent/30",
     )}
   >
     {area.name}
-  </li>
+  </StaggerItem>
 );
 
 const MappingRowComp = ({ row }: { row: MappingRow }) => (

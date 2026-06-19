@@ -39,7 +39,7 @@ const MethodBlock = () => (
             </p>
             <h1
               id="metod-heading"
-              className="font-serif text-display font-semibold leading-[1.05] text-foreground"
+              className="text-display font-semibold leading-[1.05] text-foreground"
             >
               {METHOD_OVERVIEW.title}
             </h1>
@@ -55,7 +55,7 @@ const MethodBlock = () => (
         </div>
 
         <aside className="pull-quote mt-12 max-w-[58rem] p-6 sm:p-8">
-          <p className="font-serif text-subhead font-semibold leading-snug text-foreground">
+          <p className="text-subhead font-semibold leading-snug text-foreground">
             Om metoden fungerar ska läsaren snabbt förstå: var hör frågan hemma,
             vem äger nästa steg och vad räknas som effekt?
           </p>
@@ -78,7 +78,7 @@ const MethodBlock = () => (
           </div>
 
           <ol
-            className="grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border lg:grid-cols-6"
+            className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border lg:grid-cols-6"
             role="list"
           >
             {METHOD_STAGES.map((stage, index) => {
@@ -86,7 +86,7 @@ const MethodBlock = () => (
               return (
                 <li
                   key={stage.number}
-                  className="signal-card relative bg-card p-6"
+                  className="signal-card relative bg-card p-6 transition-colors hover:bg-muted/40"
                   style={{ "--signal": stageSignals[index] } as CSSProperties}
                 >
                   {index < METHOD_STAGES.length - 1 && (
@@ -127,15 +127,15 @@ const MethodBlock = () => (
               Arbetssätt
             </p>
             <ul
-              className="grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-2"
+              className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2"
               role="list"
             >
               {METHOD_WORK_MODES.map((mode) => {
                 const Icon = mode.icon;
                 return (
-                  <li key={mode.title} className="bg-card p-6">
+                  <li key={mode.title} className="bg-card p-6 transition-colors hover:bg-muted/40">
                     <div className="flex items-start gap-3">
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-accent/15 text-accent">
                         <Icon className="h-4 w-4" aria-hidden="true" />
                       </span>
                       <div>
@@ -166,11 +166,11 @@ const MethodBlock = () => (
             </ul>
           </section>
 
-          <section className="rounded-md border border-border bg-card p-6 shadow-xs">
+          <section className="card-gradient rounded-xl border border-border p-6 transition-all hover:border-accent/40 hover:shadow-md">
             <p className="signal-label" style={{ "--signal": "var(--signal-gold)" } as CSSProperties}>
               Arbetsrytm
             </p>
-            <h2 className="mt-2 font-serif text-subhead font-semibold text-foreground">
+            <h2 className="mt-2 text-subhead font-semibold text-foreground">
               Vad som ska bära mest vikt
             </h2>
             <p className="mt-3 text-small leading-relaxed text-muted-foreground">
@@ -208,21 +208,21 @@ const MethodBlock = () => (
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-8 xl:grid-cols-[minmax(21rem,0.8fr)_minmax(0,1.2fr)]">
-          <section className="rounded-md border border-border bg-card p-6 lg:p-7">
+          <section className="card-gradient rounded-xl border border-border p-6 transition-all hover:border-accent/40 hover:shadow-md lg:p-7">
             <p className="signal-label" style={{ "--signal": "var(--signal-blue)" } as CSSProperties}>
               Beslutsmatris
             </p>
-            <h2 className="mt-2 font-serif text-subhead font-semibold text-foreground">
+            <h2 className="mt-2 text-subhead font-semibold text-foreground">
               Välj metod efter behov och kapacitet
             </h2>
             <p className="mt-3 text-small leading-relaxed text-muted-foreground">
               Två frågor räcker: hur tydligt är behovet, och hur mycket kan
               föreningen bära själv?
             </p>
-            <div className="mt-6 grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2">
+            <div className="mt-6 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
               {METHOD_MATRIX.map((item) => (
-                <article key={item.id} className="bg-background p-4">
-                  <p className="font-mono text-micro uppercase tracking-wider text-primary">
+                <article key={item.id} className="bg-background p-4 transition-colors hover:bg-muted/40">
+                  <p className="font-mono text-micro uppercase tracking-wider text-accent">
                     {item.context}
                   </p>
                   <h3 className="mt-2 text-sm font-semibold leading-tight text-foreground">
@@ -241,12 +241,12 @@ const MethodBlock = () => (
               Principer för metodutveckling
             </p>
             <ul
-              className="grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-2"
+              className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2"
               role="list"
             >
               {METHOD_PRINCIPLES.map((principle) => (
-                <li key={principle.title} className="bg-card p-6">
-                  <h3 className="font-serif text-base font-semibold leading-snug text-foreground">
+                <li key={principle.title} className="bg-card p-6 transition-colors hover:bg-muted/40">
+                  <h3 className="text-base font-semibold leading-snug text-foreground">
                     {principle.title}
                   </h3>
                   <p className="mt-3 text-small leading-relaxed text-muted-foreground">

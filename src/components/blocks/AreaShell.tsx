@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import type { Area } from "@/content/areas";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { Reveal } from "@/components/motion";
 
 interface AreaShellProps {
   area: Area;
@@ -66,42 +67,37 @@ const AreaShell = ({ area, subtitle, children }: AreaShellProps) => {
           </nav>
 
           {/* Hero content */}
-          <header className="section-y max-w-[56rem]">
-            {/* Area marker */}
-            <p className="signal-label mb-6">
-              <span className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10 text-primary">
-                <Icon className="h-3.5 w-3.5" aria-hidden="true" />
-              </span>
-              Område {area.number} · {area.kicker}
-            </p>
-
-            {/* Title — Lora for top-level areas, Work Sans for subpages */}
-            <h1
-              className={
-                isSubpage
-                  ? "text-headline font-semibold text-foreground"
-                  : "font-serif text-display font-semibold text-foreground"
-              }
-            >
-              {subtitle ?? area.title}
-            </h1>
-
-            {/* Lead */}
-            <p className="mt-5 max-w-[46ch] text-lead text-muted-foreground">
-              {isSubpage
-                ? area.subpages.find(
-                    (s) => s.title === subtitle
-                  )?.heroLead ?? area.heroLead
-                : area.heroLead}
-            </p>
-
-            {/* Support — only on area root */}
-            {!isSubpage && (
-              <p className="mt-4 max-w-[50ch] text-base leading-relaxed text-foreground/65">
-                {area.heroSupport}
+          <Reveal>
+            <header className="section-y max-w-[56rem]">
+              {/* Area marker */}
+              <p className="signal-label mb-6">
+                <span className="flex h-7 w-7 items-center justify-center rounded-md bg-accent/10 text-accent">
+                  <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+                </span>
+                Område {area.number} · {area.kicker}
               </p>
-            )}
-          </header>
+
+              <h1 className="text-display font-semibold text-foreground">
+                {subtitle ?? area.title}
+              </h1>
+
+              {/* Lead */}
+              <p className="mt-5 max-w-[46ch] text-lead text-muted-foreground">
+                {isSubpage
+                  ? area.subpages.find(
+                      (s) => s.title === subtitle
+                    )?.heroLead ?? area.heroLead
+                  : area.heroLead}
+              </p>
+
+              {/* Support — only on area root */}
+              {!isSubpage && (
+                <p className="mt-4 max-w-[50ch] text-base leading-relaxed text-foreground/65">
+                  {area.heroSupport}
+                </p>
+              )}
+            </header>
+          </Reveal>
         </div>
       </div>
 

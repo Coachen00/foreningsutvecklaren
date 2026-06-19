@@ -1,5 +1,7 @@
+import type { CSSProperties } from "react";
 import { PARTNERS } from "@/content/partners";
 import { cn } from "@/lib/utils";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 
 interface Props {
   ids?: string[];
@@ -12,23 +14,24 @@ const PartnerStrip = ({ ids, title = "Tillsammans med" }: Props) => {
 
   return (
     <div>
-      <p className="mb-4 font-mono text-micro uppercase tracking-wider text-muted-foreground">
+      <p className="signal-label mb-4" style={{ "--signal": "var(--signal-gold)" } as CSSProperties}>
         {title}
       </p>
-      <ul className="flex flex-wrap gap-2" role="list">
+      <StaggerGroup as="ul" stagger={0.04} className="flex flex-wrap gap-2">
         {list.map((p) => (
-          <li
+          <StaggerItem
             key={p.id}
+            as="li"
             className={cn(
-              "rounded-sm border border-border bg-card",
+              "rounded-md border border-border bg-card",
               "px-4 py-2 text-sm font-medium text-foreground",
-              "transition-colors hover:border-primary/50 hover:bg-primary-subtle hover:text-foreground"
+              "transition-all hover:-translate-y-0.5 hover:border-accent/40 hover:text-foreground",
             )}
           >
             {p.name}
-          </li>
+          </StaggerItem>
         ))}
-      </ul>
+      </StaggerGroup>
     </div>
   );
 };

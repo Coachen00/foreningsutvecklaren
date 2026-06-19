@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ChevronRight, type LucideIcon } from "lucide-react";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { Reveal } from "@/components/motion";
 
 export interface SubpageBreadcrumb {
   label: string;
@@ -86,34 +87,36 @@ const SubpageShell = ({
             })}
           </nav>
 
-          <header className="section-y max-w-[56rem]">
-            <p className="signal-label mb-6">
-              <span className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10 text-primary">
-                <Icon className="h-3.5 w-3.5" aria-hidden="true" />
-              </span>
-              {kicker}
-            </p>
-
-            <h1
-              className={
-                headingLevel === "tool"
-                  ? "text-headline font-semibold text-foreground"
-                  : "font-serif text-display font-semibold text-foreground"
-              }
-            >
-              {title}
-            </h1>
-
-            <p className="mt-5 max-w-[46ch] text-lead text-muted-foreground">
-              {lead}
-            </p>
-
-            {description && (
-              <p className="mt-4 max-w-[50ch] text-base leading-relaxed text-foreground/65">
-                {description}
+          <Reveal>
+            <header className="section-y max-w-[56rem]">
+              <p className="signal-label mb-6">
+                <span className="flex h-7 w-7 items-center justify-center rounded-md bg-accent/10 text-accent">
+                  <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+                </span>
+                {kicker}
               </p>
-            )}
-          </header>
+
+              <h1
+                className={
+                  headingLevel === "tool"
+                    ? "text-headline font-semibold text-foreground"
+                    : "text-display font-semibold text-foreground"
+                }
+              >
+                {title}
+              </h1>
+
+              <p className="mt-5 max-w-[46ch] text-lead text-muted-foreground">
+                {lead}
+              </p>
+
+              {description && (
+                <p className="mt-4 max-w-[50ch] text-base leading-relaxed text-foreground/65">
+                  {description}
+                </p>
+              )}
+            </header>
+          </Reveal>
         </div>
       </div>
 

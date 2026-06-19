@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 import type { Goal } from "@/content/goals";
 
 interface Props {
@@ -17,52 +18,52 @@ const columnClass: Record<2 | 3 | 4, string> = {
 /**
  * GOALS BLOCK — kvantifierade mål i mono-display.
  *
- * Stora siffror i Inconsolata, kontextuell mikrotext i mono,
- * Lora-titel under. Inramning som matchar ImpactBlock.
+ * Stora siffror i mono (num-display), kontextuell mikrotext i mono,
+ * titel under. Kort med card-gradient och hover-lift.
  */
 const GoalsBlock = ({ goals, className, columns = 4 }: Props) => (
-  <div
+  <StaggerGroup
+    as="div"
     className={cn(
-      "grid gap-px overflow-hidden rounded-md border border-border bg-border",
+      "grid gap-4",
       "grid-cols-1",
       columnClass[columns],
       className,
     )}
   >
     {goals.map((goal) => (
-      <article
+      <StaggerItem
+        as="div"
         key={goal.id}
-        className="flex flex-col bg-card p-6 sm:p-7"
+        className="group flex h-full flex-col rounded-xl border border-border card-gradient p-6 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-md sm:p-7"
       >
         <p
-          className="font-mono leading-none text-foreground"
+          className="num-display leading-none text-accent transition-colors"
           style={{
-            fontSize: "clamp(2rem, 4vw, 2.75rem)",
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
+            fontSize: "clamp(2.25rem, 4.5vw, 3.25rem)",
           }}
         >
           {goal.value}
         </p>
         {goal.unit && (
-          <p className="mt-2 font-mono text-micro uppercase tracking-wider text-primary">
+          <p className="mt-2 font-mono text-micro uppercase tracking-wider text-muted-foreground">
             {goal.unit}
           </p>
         )}
-        <h3 className="mt-4 font-serif text-base font-semibold leading-snug text-foreground">
+        <h3 className="mt-4 text-base font-semibold leading-snug text-foreground">
           {goal.title}
         </h3>
         <p className="mt-2 text-small leading-relaxed text-muted-foreground">
           {goal.description}
         </p>
         {goal.deadline && (
-          <p className="mt-4 font-mono text-micro uppercase tracking-wider text-muted-foreground">
+          <p className="mt-auto pt-4 font-mono text-micro uppercase tracking-wider text-muted-foreground">
             Senast {goal.deadline}
           </p>
         )}
-      </article>
+      </StaggerItem>
     ))}
-  </div>
+  </StaggerGroup>
 );
 
 export default GoalsBlock;

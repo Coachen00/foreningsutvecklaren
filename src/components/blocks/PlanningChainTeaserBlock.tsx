@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 import type {
   PlanningChainStep,
   PlanningOutcome,
@@ -21,10 +22,10 @@ const PlanningChainTeaserBlock = ({ steps, focus, outcomes, href }: Props) => {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.75fr)]">
-      <ol className="grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2 xl:grid-cols-4">
+      <StaggerGroup as="ol" className="grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2 xl:grid-cols-4">
         {steps.map((step) => (
-          <li key={step.number} className="bg-card p-6">
-            <p className="font-mono text-micro tabular-nums text-primary">
+          <StaggerItem as="li" key={step.number} className="group bg-card p-6 transition-colors hover:bg-accent/[0.06]">
+            <p className="font-mono text-micro tabular-nums text-primary transition-colors group-hover:text-accent">
               {step.number}
             </p>
             <h3 className="mt-3 font-serif text-base font-semibold leading-snug text-foreground">
@@ -36,9 +37,9 @@ const PlanningChainTeaserBlock = ({ steps, focus, outcomes, href }: Props) => {
             <p className="mt-3 text-small leading-relaxed text-muted-foreground">
               {step.output}
             </p>
-          </li>
+          </StaggerItem>
         ))}
-      </ol>
+      </StaggerGroup>
 
       <aside className="rounded-md border border-border bg-background p-6">
         <p className="font-mono text-micro uppercase tracking-wider text-primary">
@@ -85,10 +86,10 @@ const PlanningChainTeaserBlock = ({ steps, focus, outcomes, href }: Props) => {
 
         <Link
           to={href}
-          className="mt-2 inline-flex items-center gap-2 font-mono text-micro uppercase tracking-wider text-primary transition-colors hover:text-primary/70"
+          className="group mt-2 inline-flex items-center gap-2 font-mono text-micro uppercase tracking-wider text-accent transition-colors hover:text-accent/70"
         >
           Läs fördjupningen
-          <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
         </Link>
       </aside>
     </div>

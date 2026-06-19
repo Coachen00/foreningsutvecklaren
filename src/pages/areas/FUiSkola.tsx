@@ -10,6 +10,7 @@ import NextPageCTA from "@/components/blocks/NextPageCTA";
 import CriteriaList from "@/components/blocks/CriteriaList";
 import MetricListBlock from "@/components/blocks/MetricListBlock";
 import GoalsBlock from "@/components/blocks/GoalsBlock";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion";
 import {
   adjacentPrimaryAssignments,
   getPrimaryAssignment,
@@ -130,171 +131,186 @@ const FUiSkola = () => {
           }
         >
           {/* ARBETET */}
-          <ExpandableBlock
-            id="arbetet"
-            kicker="Översikt"
-            title="Så här rullar FU Skola"
-            defaultOpen
-            className="animate-fade-up animate-delay-100"
-          >
-            <p className="text-lead">
-              Skolan är platsen där barnen redan är. Där börjar vägen in i
-              föreningen.
-            </p>
-            {program && <p className="mt-4">{program.summary}</p>}
-            <p className="mt-4">
-              Målet är enkelt: fler barn rör sig, fler hittar föreningen och
-              steget från skola till organiserad idrott blir kortare.
-            </p>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="arbetet"
+              kicker="Översikt"
+              title="Så här rullar FU Skola"
+              defaultOpen
+            >
+              <p className="text-lead">
+                Skolan är platsen där barnen redan är. Där börjar vägen in i
+                föreningen.
+              </p>
+              {program && <p className="mt-4">{program.summary}</p>}
+              <p className="mt-4">
+                Målet är enkelt: fler barn rör sig, fler hittar föreningen och
+                steget från skola till organiserad idrott blir kortare.
+              </p>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* TVÅ HUVUDSPÅR */}
-          <ExpandableBlock
-            id="spar"
-            kicker="Två spår"
-            title="Två vägar in"
-            defaultOpen
-            wide
-            className="animate-fade-up animate-delay-150"
-          >
-            <p>
-              Skolbollen är bred och enkel att starta. Fotbollsprofilen är mer
-              fördjupad och kräver tydligare samarbete.
-            </p>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 not-prose">
-              <article className="border border-border bg-card p-6">
-                <p className="font-mono text-micro uppercase tracking-wider text-primary">
-                  Bredd
-                </p>
-                <h3 className="mt-2 font-serif text-subhead font-semibold text-foreground">
-                  Skolbollen
-                </h3>
-                <p className="mt-3 text-base leading-relaxed text-foreground/80">
-                  Bollspel och lek under skoldagen. Låg tröskel, många barn.
-                </p>
-                <ul className="mt-4 space-y-1.5 text-small text-muted-foreground" role="list">
-                  <li>· Inga särskilda lärarkrav</li>
-                  <li>· Material och stöd via SvFF</li>
-                  <li>· Passar alla stadier</li>
-                </ul>
-              </article>
-              <article className="border border-border bg-card p-6">
-                <p className="font-mono text-micro uppercase tracking-wider text-primary">
-                  Fördjupning
-                </p>
-                <h3 className="mt-2 font-serif text-subhead font-semibold text-foreground">
-                  Fotbollsprofil åk 7–9
-                </h3>
-                <p className="mt-3 text-base leading-relaxed text-foreground/80">
-                  Fotbollsundervisning på högstadiet enligt SvFF:s plan.
-                  Kräver utbildade lärare och föreningskontakt.
-                </p>
-                <ul className="mt-4 space-y-1.5 text-small text-muted-foreground" role="list">
-                  <li>· Minst två fotbollspass per vecka i schemat</li>
-                  <li>· Utbildade lärare</li>
-                  <li>· Samarbete med närliggande förening</li>
-                </ul>
-              </article>
-            </div>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="spar"
+              kicker="Två spår"
+              title="Två vägar in"
+              defaultOpen
+              wide
+            >
+              <p>
+                Skolbollen är bred och enkel att starta. Fotbollsprofilen är mer
+                fördjupad och kräver tydligare samarbete.
+              </p>
+              <StaggerGroup className="mt-6 grid gap-4 sm:grid-cols-2 not-prose">
+                <StaggerItem className="border border-border bg-card p-6">
+                  <article>
+                    <p className="font-mono text-micro uppercase tracking-wider text-primary">
+                      Bredd
+                    </p>
+                    <h3 className="mt-2 font-serif text-subhead font-semibold text-foreground">
+                      Skolbollen
+                    </h3>
+                    <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                      Bollspel och lek under skoldagen. Låg tröskel, många barn.
+                    </p>
+                    <ul className="mt-4 space-y-1.5 text-small text-muted-foreground" role="list">
+                      <li>· Inga särskilda lärarkrav</li>
+                      <li>· Material och stöd via SvFF</li>
+                      <li>· Passar alla stadier</li>
+                    </ul>
+                  </article>
+                </StaggerItem>
+                <StaggerItem className="border border-border bg-card p-6">
+                  <article>
+                    <p className="font-mono text-micro uppercase tracking-wider text-primary">
+                      Fördjupning
+                    </p>
+                    <h3 className="mt-2 font-serif text-subhead font-semibold text-foreground">
+                      Fotbollsprofil åk 7–9
+                    </h3>
+                    <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                      Fotbollsundervisning på högstadiet enligt SvFF:s plan.
+                      Kräver utbildade lärare och föreningskontakt.
+                    </p>
+                    <ul className="mt-4 space-y-1.5 text-small text-muted-foreground" role="list">
+                      <li>· Minst två fotbollspass per vecka i schemat</li>
+                      <li>· Utbildade lärare</li>
+                      <li>· Samarbete med närliggande förening</li>
+                    </ul>
+                  </article>
+                </StaggerItem>
+              </StaggerGroup>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* FOTBOLLSPROFIL — DEFINITION & MÅL */}
-          <ExpandableBlock
-            id="fotbollsprofil-mal"
-            kicker={FOTBOLLSPROFIL_DEFINITION.eyebrow}
-            title={FOTBOLLSPROFIL_DEFINITION.title}
-            defaultOpen={false}
-            wide
-          >
-            <p className="text-lead">{FOTBOLLSPROFIL_DEFINITION.lead}</p>
-            <p className="mt-4">{FOTBOLLSPROFIL_DEFINITION.body}</p>
-            <p className="mt-4">
-              <span className="font-mono text-micro uppercase tracking-wider text-primary">
-                {FOTBOLLSPROFIL_DEFINITION.purposeLabel}
-              </span>
-              <span className="mt-1 block text-foreground/80">
-                {FOTBOLLSPROFIL_DEFINITION.purpose}
-              </span>
-            </p>
-            <div className="mt-6 not-prose">
-              <GoalsBlock goals={FOTBOLLSPROFIL_GOALS} columns={3} />
-            </div>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="fotbollsprofil-mal"
+              kicker={FOTBOLLSPROFIL_DEFINITION.eyebrow}
+              title={FOTBOLLSPROFIL_DEFINITION.title}
+              defaultOpen={false}
+              wide
+            >
+              <p className="text-lead">{FOTBOLLSPROFIL_DEFINITION.lead}</p>
+              <p className="mt-4">{FOTBOLLSPROFIL_DEFINITION.body}</p>
+              <p className="mt-4">
+                <span className="font-mono text-micro uppercase tracking-wider text-primary">
+                  {FOTBOLLSPROFIL_DEFINITION.purposeLabel}
+                </span>
+                <span className="mt-1 block text-foreground/80">
+                  {FOTBOLLSPROFIL_DEFINITION.purpose}
+                </span>
+              </p>
+              <div className="mt-6 not-prose">
+                <GoalsBlock goals={FOTBOLLSPROFIL_GOALS} columns={3} />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* RELATIONSBYGGANDE */}
-          <ExpandableBlock
-            id="relationsbyggande"
-            kicker="Arbetssätt"
-            title="Relationsbyggande — kom ut med bollsäcken"
-            defaultOpen={false}
-          >
-            <p>
-              Skola och förening bärs av relationer. Ett pass på plats bygger
-              mer förtroende än material i en mapp.
-            </p>
-            <p className="mt-4">
-              När någon kommer dit, leder aktiviteten och möter lärarna blir
-              nästa steg enklare.
-            </p>
-          </ExpandableBlock>
-
-          {/* ARBETSDELAR */}
-          {program && program.pillars.length > 0 && (
+          <Reveal>
             <ExpandableBlock
-              id="arbetsdelar"
-              kicker="Arbetet"
-              title="Nio arbetsdelar"
+              id="relationsbyggande"
+              kicker="Arbetssätt"
+              title="Relationsbyggande — kom ut med bollsäcken"
               defaultOpen={false}
             >
               <p>
-                Arbetsdelarna gör stödet lättare att hålla i under läsåret.
+                Skola och förening bärs av relationer. Ett pass på plats bygger
+                mer förtroende än material i en mapp.
               </p>
-              <ul
-                className="mt-5 grid gap-x-6 gap-y-3 sm:grid-cols-2"
-                role="list"
-              >
-                {program.pillars.map((p) => (
-                  <li key={p.title}>
-                    <p className="text-sm font-semibold text-foreground leading-tight">
-                      {p.title}
-                    </p>
-                    {p.description && (
-                      <p className="mt-1 text-small text-muted-foreground leading-relaxed">
-                        {p.description}
-                      </p>
-                    )}
-                  </li>
-                ))}
-              </ul>
+              <p className="mt-4">
+                När någon kommer dit, leder aktiviteten och möter lärarna blir
+                nästa steg enklare.
+              </p>
             </ExpandableBlock>
+          </Reveal>
+
+          {/* ARBETSDELAR */}
+          {program && program.pillars.length > 0 && (
+            <Reveal>
+              <ExpandableBlock
+                id="arbetsdelar"
+                kicker="Arbetet"
+                title="Nio arbetsdelar"
+                defaultOpen={false}
+              >
+                <p>
+                  Arbetsdelarna gör stödet lättare att hålla i under läsåret.
+                </p>
+                <StaggerGroup
+                  as="ul"
+                  className="mt-5 grid gap-x-6 gap-y-3 sm:grid-cols-2"
+                >
+                  {program.pillars.map((p) => (
+                    <StaggerItem as="li" key={p.title}>
+                      <p className="text-sm font-semibold text-foreground leading-tight">
+                        {p.title}
+                      </p>
+                      {p.description && (
+                        <p className="mt-1 text-small text-muted-foreground leading-relaxed">
+                          {p.description}
+                        </p>
+                      )}
+                    </StaggerItem>
+                  ))}
+                </StaggerGroup>
+              </ExpandableBlock>
+            </Reveal>
           )}
 
           {/* KRITERIER */}
-          <ExpandableBlock
-            id="kriterier"
-            kicker="Kriterier"
-            title="Kriterier för fotbollsprofil"
-            defaultOpen={false}
-            wide
-          >
-            <p>
-              Skolor som vill starta en fotbollsprofil i åk 7–9 behöver
-              uppfylla SvFF:s grundkrav. Distriktsförbundet beslutar om
-              profilen får behållas över tid.
-            </p>
-            <div className="mt-6 not-prose">
-              <CriteriaList data={FOTBOLLSPROFIL_CRITERIA} />
-            </div>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="kriterier"
+              kicker="Kriterier"
+              title="Kriterier för fotbollsprofil"
+              defaultOpen={false}
+              wide
+            >
+              <p>
+                Skolor som vill starta en fotbollsprofil i åk 7–9 behöver
+                uppfylla SvFF:s grundkrav. Distriktsförbundet beslutar om
+                profilen får behållas över tid.
+              </p>
+              <div className="mt-6 not-prose">
+                <CriteriaList data={FOTBOLLSPROFIL_CRITERIA} />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* AKTÖRSMATRIS */}
-          <ExpandableBlock
-            id="aktorer"
-            kicker="Ansvar"
-            title="Vem gör vad"
-            defaultOpen={false}
-            wide
-          >
+          <Reveal>
+            <ExpandableBlock
+              id="aktorer"
+              kicker="Ansvar"
+              title="Vem gör vad"
+              defaultOpen={false}
+              wide
+            >
             <p>
               Skolan, föreningen och stödet runt omkring behöver göra olika
               saker. Här syns vem som tar vilken del.
@@ -348,68 +364,75 @@ const FUiSkola = () => {
                 </tbody>
               </table>
             </div>
-          </ExpandableBlock>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* MÄTPUNKTER */}
-          <ExpandableBlock
-            id="matpunkter"
-            kicker="Uppföljning"
-            title="Det här följs upp"
-            defaultOpen={false}
-            wide
-          >
-            <p>
-              Mätpunkterna kopplas till SvFF:s mål om världsledande
-              spelarutbildning och GFF:s lokala plan för fotboll i skolan.
-            </p>
-            <div className="mt-6 not-prose">
-              <MetricListBlock data={FU_SKOLA_METRICS} />
-            </div>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="matpunkter"
+              kicker="Uppföljning"
+              title="Det här följs upp"
+              defaultOpen={false}
+              wide
+            >
+              <p>
+                Mätpunkterna kopplas till SvFF:s mål om världsledande
+                spelarutbildning och GFF:s lokala plan för fotboll i skolan.
+              </p>
+              <div className="mt-6 not-prose">
+                <MetricListBlock data={FU_SKOLA_METRICS} />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* SAMVERKAN */}
-          <ExpandableBlock
-            id="samverkan"
-            kicker="Tillsammans"
-            title="Alla led behövs"
-            defaultOpen={false}
-          >
-            <p>
-              Ingen äger hela vägen själv. Barnen märker skillnad när alla
-              led fungerar ihop.
-            </p>
-            <div className="mt-5">
-              <PartnerStrip
-                ids={[
-                  "gff",
-                  "svff",
-                  "rf-sisu",
-                  "goteborgs-stad",
-                  "foreningar",
-                  "skolor",
-                ]}
-              />
-            </div>
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="samverkan"
+              kicker="Tillsammans"
+              title="Alla led behövs"
+              defaultOpen={false}
+            >
+              <p>
+                Ingen äger hela vägen själv. Barnen märker skillnad när alla
+                led fungerar ihop.
+              </p>
+              <div className="mt-5">
+                <PartnerStrip
+                  ids={[
+                    "gff",
+                    "svff",
+                    "rf-sisu",
+                    "goteborgs-stad",
+                    "foreningar",
+                    "skolor",
+                  ]}
+                />
+              </div>
+            </ExpandableBlock>
+          </Reveal>
 
           {/* EFFEKT */}
-          <ExpandableBlock
-            id="effekt"
-            kicker="Effekt"
-            title="Därför är FU Skola ett huvuduppdrag"
-            defaultOpen={false}
-          >
-            <p>
-              Skolan är platsen där alla barn finns. När bron till
-              föreningslivet fungerar når fotbollen barn som annars aldrig
-              hittar in.
-            </p>
-            {impact && (
-              <div className="mt-6">
-                <ImpactBlock impact={impact} />
-              </div>
-            )}
-          </ExpandableBlock>
+          <Reveal>
+            <ExpandableBlock
+              id="effekt"
+              kicker="Effekt"
+              title="Därför är FU Skola ett huvuduppdrag"
+              defaultOpen={false}
+            >
+              <p>
+                Skolan är platsen där alla barn finns. När bron till
+                föreningslivet fungerar når fotbollen barn som annars aldrig
+                hittar in.
+              </p>
+              {impact && (
+                <div className="mt-6">
+                  <ImpactBlock impact={impact} />
+                </div>
+              )}
+            </ExpandableBlock>
+          </Reveal>
         </PageWithDepth>
       </AssignmentShell>
       <NextPageCTA

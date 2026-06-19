@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import type { PrimaryAssignment } from "@/content/primaryAssignments";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { Reveal } from "@/components/motion";
 
 interface Props {
   assignment: PrimaryAssignment;
@@ -40,26 +41,28 @@ const AssignmentShell = ({ assignment, children }: Props) => {
             </span>
           </nav>
 
-          <header className="section-y max-w-[56rem]">
-            <p className="signal-label mb-6">
-              <span className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10 text-primary">
-                <Icon className="h-3.5 w-3.5" aria-hidden="true" />
-              </span>
-              Huvuduppdrag · {assignment.kicker}
-            </p>
+          <Reveal>
+            <header className="section-y max-w-[56rem]">
+              <p className="signal-label mb-6">
+                <span className="flex h-7 w-7 items-center justify-center rounded-md bg-accent/10 text-accent">
+                  <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+                </span>
+                Huvuduppdrag · {assignment.kicker}
+              </p>
 
-            <h1 className="font-serif text-display font-semibold text-foreground">
-              {assignment.title}
-            </h1>
+              <h1 className="text-display font-semibold text-foreground">
+                {assignment.title}
+              </h1>
 
-            <p className="mt-5 max-w-[46ch] text-lead text-muted-foreground">
-              {assignment.lead}
-            </p>
+              <p className="mt-5 max-w-[46ch] text-lead text-muted-foreground">
+                {assignment.lead}
+              </p>
 
-            <p className="mt-4 max-w-[50ch] text-base leading-relaxed text-foreground/65">
-              {assignment.description}
-            </p>
-          </header>
+              <p className="mt-4 max-w-[50ch] text-base leading-relaxed text-foreground/65">
+                {assignment.description}
+              </p>
+            </header>
+          </Reveal>
         </div>
       </div>
 

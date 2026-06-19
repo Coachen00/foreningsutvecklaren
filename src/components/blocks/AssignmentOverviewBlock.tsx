@@ -20,7 +20,7 @@ const AssignmentOverviewBlock = () => {
             <p className="signal-label mb-6">{eyebrow}</p>
             <h2
               id="overview-heading"
-              className="max-w-[36ch] font-serif text-headline font-semibold leading-[1.12] text-foreground"
+              className="max-w-[36ch] text-headline font-semibold leading-[1.12] text-foreground"
             >
               {oneLine}
             </h2>

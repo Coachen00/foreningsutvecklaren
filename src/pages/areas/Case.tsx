@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import SubpageShell from "@/components/blocks/SubpageShell";
 import SectionBlock from "@/components/blocks/SectionBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 import { CASES } from "@/content/cases";
 
 const Case = () => (
@@ -25,12 +26,12 @@ const Case = () => (
         title="Tillgängliga case"
         lead="Klicka på ett case för att läsa, se filmen och göra quizet."
       >
-        <ul
+        <StaggerGroup
+          as="ul"
           className="grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2"
-          role="list"
         >
           {CASES.map((c) => (
-            <li key={c.slug} className="bg-card">
+            <StaggerItem as="li" key={c.slug} className="bg-card">
               <Link
                 to={`/case/${c.slug}`}
                 className="group flex h-full min-h-[14rem] flex-col p-6 transition-colors hover:bg-primary-subtle/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:p-7"
@@ -62,9 +63,9 @@ const Case = () => (
                   />
                 </span>
               </Link>
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </StaggerGroup>
       </SectionBlock>
     </SubpageShell>
     <NextPageCTA

@@ -29,10 +29,10 @@ const AsideRelated = ({
       aria-label={title}
       className={cn("not-prose", className)}
     >
-      <p className="mb-2 font-mono text-micro uppercase tracking-wider text-muted-foreground">
+      <p className="mb-2 font-mono text-micro uppercase tracking-wider text-signal-gold">
         {kicker}
       </p>
-      <h3 className="mb-5 font-serif text-subhead font-semibold text-foreground">
+      <h3 className="mb-5 text-subhead font-semibold text-foreground">
         {title}
       </h3>
       <ul className="space-y-px border-t border-border" role="list">

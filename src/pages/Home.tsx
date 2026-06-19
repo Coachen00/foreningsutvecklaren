@@ -8,6 +8,8 @@ import MissionPriorityBlock from "@/components/blocks/MissionPriorityBlock";
 import LoggedInHeroCountdown from "@/components/dashboard/LoggedInHeroCountdown";
 import HarvestedSuccessesVideo from "@/components/dashboard/HarvestedSuccessesVideo";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { Scene3D } from "@/components/three";
+import { StaggerGroup, StaggerItem } from "@/components/motion";
 
 const NEXT_STEP_LINKS = [
   {
@@ -71,6 +73,19 @@ const Home = () => {
           <MissionPriorityBlock />
         </SectionBlock>
 
+        {/* Akt 4 — Spelmodellen i 3D (interaktiv) */}
+        <SectionBlock
+          variant="flush"
+          eyebrow="Spelmodellen"
+          title="Hela stan på samma plan"
+          lead="Dra för att vrida. En enkel bild av ett gemensamt spelsätt — försvar, mittfält, anfall."
+          split
+        >
+          <div className="mx-auto max-w-md">
+            <Scene3D model="pitch" label="Tredimensionell fotbollsplan med zoner för försvar, mittfält och anfall" />
+          </div>
+        </SectionBlock>
+
         <SectionBlock
           variant="muted"
           eyebrow="Fördjupa"
@@ -78,22 +93,22 @@ const Home = () => {
           lead="Kort väg vidare. Inga långa förklaringar innan du själv väljer dem."
           split
         >
-          <ul
+          <StaggerGroup
+            as="ul"
             className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-            role="list"
           >
             {NEXT_STEP_LINKS.map((link) => (
-              <li key={link.href} className="min-h-full">
+              <StaggerItem key={link.href} as="li" className="min-h-full">
                 <Link
                   to={link.href}
-                  className="group flex h-full flex-col gap-3 rounded-md border border-border bg-card p-6 shadow-xs transition-[background,border-color,transform] hover:-translate-y-0.5 hover:border-primary/35 hover:bg-primary-subtle/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  className="card-gradient group flex h-full flex-col gap-3 rounded-xl border border-border p-6 transition-[background,border-color,transform,box-shadow] hover:-translate-y-1 hover:border-accent/40 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   <span className="flex items-center justify-between">
-                    <span className="font-serif text-base font-semibold text-foreground">
+                    <span className="text-base font-semibold text-foreground">
                       {link.label}
                     </span>
                     <ArrowUpRight
-                      className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary"
+                      className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-accent"
                       aria-hidden="true"
                     />
                   </span>
@@ -101,9 +116,9 @@ const Home = () => {
                     {link.hint}
                   </span>
                 </Link>
-              </li>
+              </StaggerItem>
             ))}
-          </ul>
+          </StaggerGroup>
         </SectionBlock>
       </main>
 
