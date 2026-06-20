@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, LogOut, LogIn } from "lucide-react";
+import { Menu, X, LogOut, LogIn, ArrowUpRight } from "lucide-react";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 import { useAuth } from "@/contexts/AuthContext";
 import { prefetchRoute } from "@/lib/routePrefetch";
+import { FORENINGSPORTAL_APP_URL } from "@/content/links";
 import { cn } from "@/lib/utils";
 
 const isPathActive = (pathname: string, path: string) =>
@@ -108,6 +109,19 @@ const GlobalNav = () => {
                   </NavLink>
                 </li>
               ))}
+              {/* Extern app — distinkt guld-CTA, skild från text-länkarna ovan */}
+              <li className="ml-2">
+                <a
+                  href={FORENINGSPORTAL_APP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-md bg-accent px-3.5 py-2 text-[0.75rem] font-semibold text-accent-foreground transition-colors duration-150 hover:bg-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  Öppna appen
+                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  <span className="sr-only"> (öppnas i nytt fönster)</span>
+                </a>
+              </li>
               {session ? (
                 <li className="ml-1">
                   <button
@@ -186,6 +200,19 @@ const GlobalNav = () => {
                 aria-label="Mobilnavigering"
                 className="flex-1 overflow-y-auto py-4 px-3"
               >
+                {/* Extern app — högst upp, distinkt guld-CTA */}
+                <a
+                  href={FORENINGSPORTAL_APP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="mb-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent px-3 py-2.5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  Öppna Föreningsportalen-appen
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  <span className="sr-only"> (öppnas i nytt fönster)</span>
+                </a>
+
                 <p className="mb-2 px-3 font-mono text-micro uppercase tracking-wider text-muted-foreground">
                   Tre huvuduppdrag
                 </p>

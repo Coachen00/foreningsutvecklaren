@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
 import SectionBlock from "@/components/blocks/SectionBlock";
 import CurrentStateBlock from "@/components/blocks/CurrentStateBlock";
 import MissionPriorityBlock from "@/components/blocks/MissionPriorityBlock";
+import GlowLink from "@/components/blocks/GlowLink";
 import LoggedInHeroCountdown from "@/components/dashboard/LoggedInHeroCountdown";
 import HarvestedSuccessesVideo from "@/components/dashboard/HarvestedSuccessesVideo";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
-import { Scene3D } from "@/components/three";
+import { Scene3D, AmbientField } from "@/components/three";
 import { StaggerGroup, StaggerItem } from "@/components/motion";
 
 const NEXT_STEP_LINKS = [
@@ -73,15 +73,16 @@ const Home = () => {
           <MissionPriorityBlock />
         </SectionBlock>
 
-        {/* Akt 4 — Spelmodellen i 3D (interaktiv) */}
+        {/* Akt 4 — Spelmodellen i 3D (interaktiv), levande ambient-scen */}
         <SectionBlock
           variant="flush"
           eyebrow="Spelmodellen"
           title="Hela stan på samma plan"
           lead="Dra för att vrida. En enkel bild av ett gemensamt spelsätt — försvar, mittfält, anfall."
           split
+          backdrop={<AmbientField />}
         >
-          <div className="mx-auto max-w-md">
+          <div className="mx-auto max-w-xl">
             <Scene3D model="pitch" label="Tredimensionell fotbollsplan med zoner för försvar, mittfält och anfall" />
           </div>
         </SectionBlock>
@@ -99,11 +100,11 @@ const Home = () => {
           >
             {NEXT_STEP_LINKS.map((link) => (
               <StaggerItem key={link.href} as="li" className="min-h-full">
-                <Link
+                <GlowLink
                   to={link.href}
-                  className="card-gradient group flex h-full flex-col gap-3 rounded-xl border border-border p-6 transition-[background,border-color,transform,box-shadow] hover:-translate-y-1 hover:border-accent/40 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="card-gradient group relative flex h-full flex-col gap-3 overflow-hidden rounded-xl border border-border p-6 hover:border-accent/40 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
-                  <span className="flex items-center justify-between">
+                  <span className="relative flex items-center justify-between">
                     <span className="text-base font-semibold text-foreground">
                       {link.label}
                     </span>
@@ -112,10 +113,10 @@ const Home = () => {
                       aria-hidden="true"
                     />
                   </span>
-                  <span className="text-small leading-relaxed text-muted-foreground">
+                  <span className="relative text-small leading-relaxed text-muted-foreground">
                     {link.hint}
                   </span>
-                </Link>
+                </GlowLink>
               </StaggerItem>
             ))}
           </StaggerGroup>

@@ -4,6 +4,7 @@ import AssignmentShell from "@/components/blocks/AssignmentShell";
 import PageWithDepth from "@/components/blocks/PageWithDepth";
 import ExpandableBlock from "@/components/blocks/ExpandableBlock";
 import AsideRelated from "@/components/blocks/AsideRelated";
+import AppSpotlight from "@/components/blocks/AppSpotlight";
 import PartnerStrip from "@/components/blocks/PartnerStrip";
 import ImpactBlock from "@/components/blocks/ImpactBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
@@ -27,10 +28,12 @@ import { EN_BATTRE_VAG_GOALS } from "@/content/goals";
 import { EN_BATTRE_VAG_CRITERIA } from "@/content/criteria";
 import { EN_BATTRE_VAG_METRICS } from "@/content/metrics";
 import { EN_BATTRE_VAG_PROJEKTSTOD } from "@/content/projektstod";
+import { FORENINGSPORTAL_APP_URL } from "@/content/links";
 import type { TocSection } from "@/components/blocks/TableOfContents";
 
 const SECTIONS: TocSection[] = [
   { id: "satsningen", title: "Satsningen", level: 2 },
+  { id: "foreningsportal", title: "Föreningsportalen", level: 2 },
   { id: "mal", title: "Centrala mål", level: 2 },
   { id: "girls-fc", title: "Girls FC — fler tjejer börjar spela", level: 2 },
   { id: "roller", title: "Två roller", level: 2 },
@@ -115,6 +118,20 @@ const EnBattreVag = () => {
                 </div>
               </div>
             </ExpandableBlock>
+          </Reveal>
+
+          {/* FÖRENINGSPORTALEN — extern app, lyft fram (bryter sidrytmen med flit) */}
+          <Reveal>
+            <section
+              id="foreningsportal"
+              aria-labelledby="foreningsportal-heading"
+              className="scroll-mt-28 pt-2"
+            >
+              <AppSpotlight
+                href={FORENINGSPORTAL_APP_URL}
+                headingId="foreningsportal-heading"
+              />
+            </section>
           </Reveal>
 
           {/* CENTRALA MÅL */}

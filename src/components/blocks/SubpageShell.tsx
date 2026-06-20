@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ChevronRight, type LucideIcon } from "lucide-react";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import { Reveal } from "@/components/motion";
+import { AmbientField } from "@/components/three";
 
 export interface SubpageBreadcrumb {
   label: string;
@@ -47,8 +48,9 @@ const SubpageShell = ({
 
   return (
     <>
-      <div className="border-b border-border bg-card pitch-lines" id="main-content">
-        <div className="container mx-auto px-4 sm:px-6">
+      <div className="relative isolate overflow-hidden border-b border-border bg-card pitch-lines" id="main-content">
+        <div className="absolute inset-0 -z-10"><AmbientField className="opacity-70" /></div>
+        <div className="container relative mx-auto px-4 sm:px-6">
           <nav
             aria-label="Brödsmula"
             className="flex flex-wrap items-center gap-1.5 border-b border-border py-4"

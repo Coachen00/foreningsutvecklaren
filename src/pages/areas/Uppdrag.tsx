@@ -12,6 +12,7 @@ import CommitteeBlock from "@/components/blocks/CommitteeBlock";
 import PlanningChainTeaserBlock from "@/components/blocks/PlanningChainTeaserBlock";
 import UppdragHubBlock from "@/components/blocks/UppdragHubBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
+import { AmbientField } from "@/components/three";
 import { getArea } from "@/content/areas";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 import { EXTENDED_ACTIVITIES } from "@/content/activities";
@@ -60,6 +61,7 @@ const Uppdrag = () => {
           title="Hitta rätt i uppdraget"
           lead="Börja här när du vill förstå vad rollen gör, vilka spår som finns och var nästa klick leder."
           split
+          backdrop={<AmbientField className="opacity-50" />}
         >
           <UppdragHubBlock items={UPPDRAG_HUB_ITEMS} />
         </SectionBlock>

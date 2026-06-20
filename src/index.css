@@ -240,6 +240,33 @@
   .glow-primary { box-shadow: 0 0 30px -5px hsl(var(--primary) / 0.4); }
   .glow-accent { box-shadow: 0 0 20px -5px hsl(var(--accent) / 0.3); }
 
+  /* Pekar-reaktivt kort — guld-glöd följer muspekaren + lätt 3D-tilt.
+     Drivs av --mx/--my/--rx/--ry som sätts i GlowLink. */
+  .glow-card {
+    transform: perspective(800px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .glow-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      200px circle at var(--mx, 50%) var(--my, 50%),
+      hsl(var(--accent) / 0.16),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .glow-card:hover::before { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    .glow-card { transform: none; transition: none; }
+    .glow-card::before { display: none; }
+  }
+
   .text-gradient-primary {
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(142 70% 55%) 100%);
     -webkit-background-clip: text;

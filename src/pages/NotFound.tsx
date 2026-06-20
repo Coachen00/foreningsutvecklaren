@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { AmbientField } from "@/components/three";
 
 const NotFound = () => {
   const location = useLocation();
@@ -16,7 +17,8 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4 py-16">
+    <div className="relative isolate flex min-h-screen items-center justify-center overflow-hidden bg-background px-4 py-16">
+      <div className="absolute inset-0 -z-10"><AmbientField /></div>
       <a href="#main-content" className="skip-link">
         Hoppa till innehållet
       </a>

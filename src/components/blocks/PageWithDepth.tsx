@@ -45,11 +45,17 @@ const PageWithDepth = ({
           Textinnehåll inom ExpandableBlock håller sig till läsbredd via egen 80ch-constraint. */}
       <div className="min-w-0 max-w-[64rem]">{children}</div>
 
-      {/* Höger kolumn — endast desktop */}
+      {/* Höger kolumn — endast desktop.
+          self-start hindrar grid-stretch som annars låter sticky-TOC:n vandra
+          och kollidera med aside. Hela kolumnen sticker som en enhet. */}
       {hasSidebar && (
-        <div className="hidden lg:flex flex-col gap-10">
-          {toc && toc.length > 0 && <TableOfContents sections={toc} />}
-          {aside}
+        <div className="hidden self-start lg:block sticky top-[calc(var(--nav-height)+2rem)] max-h-[calc(100vh-var(--nav-height)-4rem)] overflow-y-auto">
+          <div className="flex flex-col gap-10">
+            {toc && toc.length > 0 && (
+              <TableOfContents sections={toc} sticky={false} />
+            )}
+            {aside}
+          </div>
         </div>
       )}
 

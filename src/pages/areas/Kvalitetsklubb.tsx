@@ -7,6 +7,7 @@ import KvalitetsklubbProcess from "@/components/blocks/KvalitetsklubbProcess";
 import KlubbRolesBlock from "@/components/blocks/KlubbRolesBlock";
 import PartnerStrip from "@/components/blocks/PartnerStrip";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
+import { AmbientField } from "@/components/three";
 import { getArea } from "@/content/areas";
 import {
   getPrimaryAssignment,
@@ -51,6 +52,7 @@ const Kvalitetsklubb = () => {
           eyebrow="Fyra delar"
           title="Fyra fokusområden"
           lead="Roller, ledare, spelare och stöd runt föreningen behöver fungera samtidigt."
+          backdrop={<AmbientField className="opacity-50" />}
         >
           <FocusAreaBlock areas={KVALITETSKLUBB_FOCUS_AREAS} />
         </SectionBlock>

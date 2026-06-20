@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
 import AreaShell from "@/components/blocks/AreaShell";
 import SectionBlock from "@/components/blocks/SectionBlock";
 import PartnerStrip from "@/components/blocks/PartnerStrip";
+import GlowLink from "@/components/blocks/GlowLink";
+import { AmbientField } from "@/components/three";
 import { StaggerGroup, StaggerItem } from "@/components/motion";
 import { getArea } from "@/content/areas";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
@@ -67,9 +68,9 @@ const SkolaSamverkan = () => {
               const Icon = p.icon;
               return (
                 <StaggerItem as="li" key={p.id}>
-                  <Link
+                  <GlowLink
                     to={p.path}
-                    className="group flex h-full flex-col rounded-md border border-border bg-card p-7 transition-colors hover:border-primary/40"
+                    className="group relative flex h-full flex-col overflow-hidden rounded-md border border-border bg-card p-7 transition-colors hover:border-primary/40"
                   >
                     <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 text-primary">
                       <Icon className="h-5 w-5" aria-hidden="true" />
@@ -88,7 +89,7 @@ const SkolaSamverkan = () => {
                         aria-hidden="true"
                       />
                     </span>
-                  </Link>
+                  </GlowLink>
                 </StaggerItem>
               );
             })}
@@ -100,6 +101,7 @@ const SkolaSamverkan = () => {
           eyebrow="Tillsammans"
           title="Alla led behövs"
           lead="Barnen märker skillnad först när skola, förening, kommun, förbund och civilsamhälle drar åt samma håll."
+          backdrop={<AmbientField className="opacity-50" />}
         >
           <PartnerStrip
             ids={["gff", "svff", "rf-sisu", "goteborgs-stad", "foreningar", "skolor", "gis"]}

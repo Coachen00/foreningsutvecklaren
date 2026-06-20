@@ -5,6 +5,7 @@ import SectionBlock from "@/components/blocks/SectionBlock";
 import ActivityListBlock from "@/components/blocks/ActivityListBlock";
 import WorkMethodBlock from "@/components/blocks/WorkMethodBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
+import { AmbientField } from "@/components/three";
 import { getArea } from "@/content/areas";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 import {
@@ -50,6 +51,7 @@ const Arbetsuppgifter = () => {
           eyebrow="När det passar"
           title="Riktade observationer"
           lead="Träningsbesök och matchbesök görs när det finns ett konkret utvecklingsskäl — inte som rutin. Värdet ligger i att de är medvetna, förankrade och leder till nästa steg."
+          backdrop={<AmbientField className="opacity-50" />}
         >
           <ActivityListBlock activities={OCCASIONAL_ACTIVITIES} columns={2} />
         </SectionBlock>

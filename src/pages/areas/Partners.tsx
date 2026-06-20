@@ -5,6 +5,7 @@ import SectionBlock from "@/components/blocks/SectionBlock";
 import PartnerFundingBlock from "@/components/blocks/PartnerFundingBlock";
 import PartnerMapBlock from "@/components/blocks/PartnerMapBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
+import { AmbientField } from "@/components/three";
 import { getArea } from "@/content/areas";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 
@@ -32,6 +33,7 @@ const Partners = () => {
           title="Vem gör vad i vardagen"
           lead="Den praktiska ansvarskedjan visar vem som sätter riktningen, vem som stöttar och vem som gör jobbet lokalt."
           split
+          backdrop={<AmbientField className="opacity-50" />}
         >
           <PartnerMapBlock />
         </SectionBlock>

@@ -6,6 +6,7 @@ import SectionBlock from "@/components/blocks/SectionBlock";
 import PortalHubBlock from "@/components/blocks/PortalHubBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { AmbientField } from "@/components/three";
 import { PORTAL_GROUPS } from "@/content/portalen";
 
 const Portalen = () => {
@@ -18,8 +19,9 @@ const Portalen = () => {
     <div className="min-h-screen bg-background">
       <GlobalNav />
 
-      <div className="border-b border-border bg-card" id="main-content">
-        <div className="container mx-auto px-4 sm:px-6">
+      <div className="relative isolate overflow-hidden border-b border-border bg-card" id="main-content">
+        <div className="absolute inset-0 -z-10"><AmbientField className="opacity-70" /></div>
+        <div className="container relative mx-auto px-4 sm:px-6">
           <nav
             aria-label="Brödsmula"
             className="flex items-center gap-1.5 border-b border-border py-4"

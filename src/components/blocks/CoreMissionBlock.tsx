@@ -50,9 +50,9 @@ const CoreMissionBlock = ({
 
             {/* Content */}
             <div className="flex flex-col gap-2">
-              <h4 className="text-base font-semibold leading-tight text-foreground">
+              <h3 className="text-base font-semibold leading-tight text-foreground">
                 {a.title}
-              </h4>
+              </h3>
               <p className="text-small text-muted-foreground leading-relaxed">
                 {a.description}
               </p>

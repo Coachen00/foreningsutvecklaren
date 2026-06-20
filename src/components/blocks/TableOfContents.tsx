@@ -11,9 +11,16 @@ interface Props {
   sections: TocSection[];
   className?: string;
   title?: string;
+  /** När false: rendera utan egen sticky-positionering (förälder äger den). */
+  sticky?: boolean;
 }
 
-const TableOfContents = ({ sections, className, title = "På denna sida" }: Props) => {
+const TableOfContents = ({
+  sections,
+  className,
+  title = "På denna sida",
+  sticky = true,
+}: Props) => {
   const [activeId, setActiveId] = useState<string | null>(
     sections[0]?.id ?? null,
   );
@@ -64,8 +71,8 @@ const TableOfContents = ({ sections, className, title = "På denna sida" }: Prop
       aria-label={title}
       className={cn(
         "hidden md:block",
-        "sticky top-[calc(var(--nav-height)+2rem)]",
-        "max-h-[calc(100vh-var(--nav-height)-4rem)] overflow-y-auto",
+        sticky &&
+          "sticky top-[calc(var(--nav-height)+2rem)] max-h-[calc(100vh-var(--nav-height)-4rem)] overflow-y-auto",
         className,
       )}
     >

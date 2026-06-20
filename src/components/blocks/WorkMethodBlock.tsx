@@ -47,7 +47,7 @@ const WorkMethodBlock = ({ steps }: Props) => {
               )}
             </div>
 
-            <h4 className="text-base font-semibold text-foreground">{step.title}</h4>
+            <h3 className="text-base font-semibold text-foreground">{step.title}</h3>
             <p className="text-small leading-relaxed text-muted-foreground">
               {step.description}
             </p>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
 import AssignmentShell from "@/components/blocks/AssignmentShell";
@@ -177,12 +178,12 @@ const Foreningslyftet = () => {
                   )}
                   {program.path && (
                     <p className="mt-5">
-                      <a
-                        href={program.path}
+                      <Link
+                        to={program.path}
                         className="font-mono text-micro uppercase tracking-wider text-primary hover:text-primary/70 transition-colors"
                       >
                         Fördjupning →
-                      </a>
+                      </Link>
                     </p>
                   )}
                 </ExpandableBlock>
@@ -347,12 +348,12 @@ const Foreningslyftet = () => {
                   Det går inte att skilja på. Värdegrund, jämställdhet och
                   trygg miljö är genomgående teman i alla tre spåren — och de
                   fördjupas i en{" "}
-                  <a
-                    href="/foreningsutveckling/jamstalldhet-och-trygghet"
+                  <Link
+                    to="/foreningsutveckling/jamstalldhet-och-trygghet"
                     className="text-primary hover:text-primary/80 transition-colors"
                   >
                     egen sektion
-                  </a>
+                  </Link>
                   .
                 </p>
               </div>

@@ -25,9 +25,9 @@ const ActivityListBlock = ({ activities, columns = 2 }: Props) => {
         >
           {/* Title + cadence row */}
           <div className="flex items-start justify-between gap-4">
-            <h4 className="text-base font-semibold leading-tight text-foreground">
+            <h3 className="text-base font-semibold leading-tight text-foreground">
               {a.title}
-            </h4>
+            </h3>
             {a.cadence && (
               <span className="shrink-0 pt-0.5 font-mono text-micro uppercase tracking-wider text-accent">
                 {a.cadence}

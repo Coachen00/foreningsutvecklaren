@@ -12,6 +12,8 @@ interface SectionBlockProps {
   narrow?: boolean;
   /** Split puts eyebrow+title in left col, lead in right (desktop) */
   split?: boolean;
+  /** Dekorativt bakgrundslager (t.ex. <AmbientField />). Renderas bakom innehållet. */
+  backdrop?: React.ReactNode;
   children: React.ReactNode;
   id?: string;
   className?: string;
@@ -31,6 +33,7 @@ const SectionBlock = ({
   variant = "default",
   narrow = false,
   split = false,
+  backdrop,
   children,
   id,
   className,
@@ -38,10 +41,16 @@ const SectionBlock = ({
   return (
     <section
       id={id}
-      className={cn("section-y", variantClass[variant], className)}
+      className={cn(
+        "section-y",
+        variantClass[variant],
+        backdrop && "relative isolate overflow-hidden",
+        className,
+      )}
       aria-labelledby={id ? `${id}-heading` : undefined}
     >
-      <div className="container mx-auto px-4 sm:px-6">
+      {backdrop && <div className="absolute inset-0 -z-10">{backdrop}</div>}
+      <div className="container relative mx-auto px-4 sm:px-6">
         {/* Section header */}
         <Reveal>
         {split ? (
