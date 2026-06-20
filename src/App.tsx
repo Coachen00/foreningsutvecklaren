@@ -6,7 +6,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
-import ProtectedRoute from "@/components/auth/ProtectedRoute";
 import Login from "./pages/Login";
 import ResetPassword from "./pages/ResetPassword";
 
@@ -54,9 +53,9 @@ const RouteFallback = () => (
   </div>
 );
 
-const Protected = ({ children }: { children: React.ReactNode }) => (
-  <ProtectedRoute>{children}</ProtectedRoute>
-);
+// Sajten är publik — ingen inloggning krävs. Behålls som tunn wrapper så
+// route-strukturen är oförändrad och auth lätt kan återinföras vid behov.
+const Protected = ({ children }: { children: React.ReactNode }) => <>{children}</>;
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
