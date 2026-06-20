@@ -3,7 +3,7 @@ import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
 import SectionBlock from "@/components/blocks/SectionBlock";
 import CurrentStateBlock from "@/components/blocks/CurrentStateBlock";
-import MissionPriorityBlock from "@/components/blocks/MissionPriorityBlock";
+import CardDeck3D from "@/components/blocks/CardDeck3D";
 import GlowLink from "@/components/blocks/GlowLink";
 import LoggedInHeroCountdown from "@/components/dashboard/LoggedInHeroCountdown";
 import HarvestedSuccessesVideo from "@/components/dashboard/HarvestedSuccessesVideo";
@@ -65,12 +65,11 @@ const Home = () => {
         <CurrentStateBlock />
 
         <SectionBlock
-          eyebrow="Huvuduppdrag"
-          title="Tre vägar in"
-          lead="Välj spår när du vill förstå mer. Startsidan ska bara ge kartan."
-          split
+          eyebrow="Områdena"
+          title="Bläddra i leken"
+          lead="Sex kort — tre huvuduppdrag och tre stödområden. Dra i sidled eller använd pilarna, och öppna det spår du vill förstå mer om."
         >
-          <MissionPriorityBlock />
+          <CardDeck3D />
         </SectionBlock>
 
         {/* Akt 4 — Spelmodellen i 3D (interaktiv), levande ambient-scen */}
