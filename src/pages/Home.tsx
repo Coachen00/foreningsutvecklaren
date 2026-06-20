@@ -55,6 +55,32 @@ const Home = () => {
       <GlobalNav />
 
       <main id="main-content">
+        {/* Akt 0 — Kortleken: första intrycket */}
+        <section
+          aria-labelledby="deck-heading"
+          className="relative overflow-hidden border-b border-border bg-background"
+        >
+          <div className="container mx-auto px-4 pt-10 sm:px-6 sm:pt-14 lg:pt-16">
+            <p
+              className="signal-label mb-3"
+              style={{ "--signal": "var(--signal-blue)" } as React.CSSProperties}
+            >
+              Områdena
+            </p>
+            <h1
+              id="deck-heading"
+              className="font-serif text-headline font-semibold text-foreground"
+            >
+              Välj din väg in
+            </h1>
+            <p className="mt-3 max-w-[56ch] text-base leading-relaxed text-muted-foreground md:text-[1.0625rem]">
+              Korten delas ut i en solfjäder. Hovra för att lyfta ett kort — klicka för
+              att läsa om området och välja att gå vidare.
+            </p>
+          </div>
+          <PrismaCardDeck />
+        </section>
+
         {/* Akt 1 — Hero med video och nedräkning */}
         <LoggedInHeroCountdown />
 
@@ -63,15 +89,6 @@ const Home = () => {
 
         {/* Akt 3 — snabb översikt, inte underlag */}
         <CurrentStateBlock />
-
-        <SectionBlock
-          variant="flush"
-          eyebrow="Områdena"
-          title="Leken delas ut"
-          lead="Fem kort delas ut i en solfjäder och sjunker till ro. Hovra eller tabba för att lyfta ett kort mot dig — klicka för att öppna området."
-        >
-          <PrismaCardDeck />
-        </SectionBlock>
 
         {/* Akt 4 — Spelmodellen i 3D (interaktiv), levande ambient-scen */}
         <SectionBlock

@@ -139,12 +139,12 @@ const LoggedInHeroCountdown = () => {
             <span className="mr-2 inline-flex h-[7px] w-[7px] translate-y-[-1px] rounded-full bg-primary align-middle" />
             {heroEyebrow}
           </p>
-          <h1
+          <h2
             id="hero-countdown-heading"
             className="max-w-[18ch] font-serif text-[clamp(2.25rem,6vw,4.25rem)] font-medium leading-[1.05]"
           >
             {heroTitle}
-          </h1>
+          </h2>
           <p className="mt-5 max-w-[52ch] text-lead text-white/80">{heroLead}</p>
 
           {/* Nedräkning */}
