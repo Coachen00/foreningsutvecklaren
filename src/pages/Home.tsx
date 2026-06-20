@@ -3,7 +3,7 @@ import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
 import SectionBlock from "@/components/blocks/SectionBlock";
 import CurrentStateBlock from "@/components/blocks/CurrentStateBlock";
-import CardDeck3D from "@/components/blocks/CardDeck3D";
+import PrismaCardDeck from "@/components/blocks/PrismaCardDeck";
 import GlowLink from "@/components/blocks/GlowLink";
 import LoggedInHeroCountdown from "@/components/dashboard/LoggedInHeroCountdown";
 import HarvestedSuccessesVideo from "@/components/dashboard/HarvestedSuccessesVideo";
@@ -65,11 +65,12 @@ const Home = () => {
         <CurrentStateBlock />
 
         <SectionBlock
+          variant="flush"
           eyebrow="Områdena"
-          title="Bläddra i leken"
-          lead="Sex kort — tre huvuduppdrag och tre stödområden. Dra i sidled eller använd pilarna, och öppna det spår du vill förstå mer om."
+          title="Leken delas ut"
+          lead="Fem kort delas ut i en solfjäder och sjunker till ro. Hovra eller tabba för att lyfta ett kort mot dig — klicka för att öppna området."
         >
-          <CardDeck3D />
+          <PrismaCardDeck />
         </SectionBlock>
 
         {/* Akt 4 — Spelmodellen i 3D (interaktiv), levande ambient-scen */}
