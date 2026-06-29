@@ -62,6 +62,7 @@ const CARDS: PrismaCard[] = [
 ];
 
 const DEAL_EASE = "cubic-bezier(.2,.85,.25,1)";
+const SOFT_EASE = "cubic-bezier(.22,.61,.36,1)"; // mjuk decel för lyft/sänk
 
 const PrismaCardDeck = () => {
   const deckRef = useRef<HTMLDivElement>(null);
@@ -93,36 +94,33 @@ const PrismaCardDeck = () => {
     const st = cards.map((c) => ({ el: c, a: +c.dataset.ang!, z: +c.dataset.z!, lifted: false }));
     const setCard = (s: (typeof st)[number], p: number) => {
       const rot = s.a + (s.a * 0.1 - s.a) * p;
-      const tz = s.z + (370 - s.z) * p;
+      const tz = s.z + (300 - s.z) * p;
       s.el.style.transform =
-        `rotate(${rot.toFixed(1)}deg) translateZ(${tz.toFixed(0)}px) translateY(${(-104 * p).toFixed(0)}px) scale(${(1 + 0.12 * p).toFixed(3)})`;
+        `rotate(${rot.toFixed(1)}deg) translateZ(${tz.toFixed(0)}px) translateY(${(-80 * p).toFixed(0)}px) scale(${(1 + 0.1 * p).toFixed(3)})`;
     };
     const lift = (i: number) => {
       const s = st[i]; if (!s) return;
       s.lifted = true;
       s.el.style.zIndex = "30";
-      s.el.style.filter = "brightness(1.1) drop-shadow(0 44px 64px rgba(0,0,0,0.62)) drop-shadow(0 0 34px hsl(var(--accent) / 0.55))";
-      setDur(s.el, 760); setCard(s, 1);
+      s.el.style.filter = "brightness(1.07) drop-shadow(0 32px 52px rgba(0,0,0,0.5)) drop-shadow(0 0 28px hsl(var(--accent) / 0.38))";
+      setDur(s.el, 620); setCard(s, 1);
     };
     const drop = (i: number) => {
       const s = st[i]; if (!s || !s.lifted) return;
       s.lifted = false;
       s.el.style.filter = "none";
-      setDur(s.el, 900); setCard(s, 0);
-      window.setTimeout(() => { if (!s.lifted) s.el.style.zIndex = ""; }, 920);
+      setDur(s.el, 760); setCard(s, 0);
+      window.setTimeout(() => { if (!s.lifted) s.el.style.zIndex = ""; }, 780);
     };
     const dropOthersExcept = (keep: number) => st.forEach((_, i) => { if (i !== keep) drop(i); });
     const dropAll = () => st.forEach((_, i) => drop(i));
-    const dim = () => {
-      setDur(inner, 1900); inner.style.transform = "scale(0.94)";
-      setDur(deck, 1600); deck.style.opacity = "0.7"; deck.style.filter = "saturate(0.92) brightness(0.95)";
-    };
-    const wake = () => {
-      setDur(inner, 1050); inner.style.transform = "scale(0.97)";
-      setDur(deck, 880); deck.style.opacity = "0.99"; deck.style.filter = "none";
+    // Lugn settling EN gång – ingen puls vid mus-in/ut (huvudkällan till "fladder").
+    const settle = () => {
+      setDur(inner, 1300); inner.style.transform = "scale(1)";
+      setDur(deck, 1100); deck.style.opacity = "1"; deck.style.filter = "none";
     };
     const restCard = (i: number) => setCard(st[i], 0);
-    return { st, lift, drop, dropOthersExcept, dropAll, dim, wake, restCard, ready: false };
+    return { st, lift, drop, dropOthersExcept, dropAll, settle, restCard, ready: false };
   }
 
   // Effekt A: deal / recede / parallax / hover-lyft
@@ -140,30 +138,22 @@ const PrismaCardDeck = () => {
       el.addEventListener(ev, fn); listeners.push(() => el.removeEventListener(ev, fn));
     };
 
-    let blurTimer = 0;
     const activate = () => {
       api.st.forEach((s, i) => {
         s.el.style.animation = "none"; // frys CSS-dealen
         s.el.style.transitionProperty = "transform, filter";
-        s.el.style.transitionTimingFunction = DEAL_EASE;
+        s.el.style.transitionTimingFunction = SOFT_EASE;
         api.restCard(i);
         s.el.style.pointerEvents = "auto";
         on(s.el, "pointerenter", () => { if (pinnedRef.current != null) return; api.dropOthersExcept(i); api.lift(i); });
         const front = s.el.querySelector<HTMLElement>("[data-cardfront]");
         if (front) {
-          on(front, "focus", () => { if (pinnedRef.current != null) return; window.clearTimeout(blurTimer); api.wake(); api.dropOthersExcept(i); api.lift(i); });
-          on(front, "blur", () => {
-            if (pinnedRef.current != null) return;
-            api.drop(i);
-            blurTimer = window.setTimeout(() => {
-              if (!deck.contains(document.activeElement) && !deck.matches(":hover")) api.dim();
-            }, 60);
-          });
+          on(front, "focus", () => { if (pinnedRef.current != null) return; api.dropOthersExcept(i); api.lift(i); });
+          on(front, "blur", () => { if (pinnedRef.current != null) return; api.drop(i); });
         }
       });
-      on(deck, "pointerenter", () => api.wake());
-      on(deck, "pointerleave", () => { if (pinnedRef.current != null) return; api.dropAll(); api.dim(); });
-      api.dim();
+      on(deck, "pointerleave", () => { if (pinnedRef.current != null) return; api.dropAll(); });
+      api.settle();
       api.ready = true;
     };
 
@@ -184,7 +174,6 @@ const PrismaCardDeck = () => {
 
     return () => {
       if (dealTimer) window.clearTimeout(dealTimer);
-      window.clearTimeout(blurTimer);
       if (praf) cancelAnimationFrame(praf);
       window.removeEventListener("pointermove", onMove);
       listeners.forEach((off) => off());
@@ -197,7 +186,6 @@ const PrismaCardDeck = () => {
     if (!api || !api.ready) { pinnedRef.current = open; return; }
     pinnedRef.current = open;
     if (open != null) {
-      api.wake();
       api.dropOthersExcept(open);
       api.lift(open);
       const card = cardRefs.current[open];
@@ -205,7 +193,6 @@ const PrismaCardDeck = () => {
     } else {
       const prev = prevOpenRef.current;
       api.dropAll();
-      if (!deckRef.current?.matches(":hover")) api.dim();
       const card = prev != null ? cardRefs.current[prev] : null;
       window.setTimeout(() => card?.querySelector<HTMLElement>("[data-cardfront]")?.focus(), 120);
     }
@@ -251,8 +238,8 @@ const PrismaCardDeck = () => {
         <div ref={innerRef} className="absolute inset-0" style={{ transformStyle: "preserve-3d", transformOrigin: "50% 56%" }}>
           <div className="absolute inset-0" style={{
             transformStyle: "preserve-3d",
-            transform: "rotateX(calc(6deg - var(--py,0) * 16deg)) rotateY(calc(var(--px,0) * 22deg))",
-            transition: "transform 0.25s ease-out",
+            transform: "rotateX(calc(4deg - var(--py,0) * 6deg)) rotateY(calc(var(--px,0) * 8deg))",
+            transition: "transform 0.6s cubic-bezier(.22,.61,.36,1)",
           }}>
             {/* orbital-ringar */}
             <div className="prisma-ring pointer-events-none absolute" style={{ left: "50%", top: "88%", width: 0, height: 0, transformStyle: "preserve-3d", transform: "rotateX(70deg)", animation: "prismaSpin 64s linear infinite" }}>
@@ -291,7 +278,7 @@ const PrismaCardDeck = () => {
                       animation: `prismaDeal 1s ${DEAL_EASE} ${c.dealDelay}s both`,
                     }}
                   >
-                    <div className="prisma-bob absolute inset-0" style={{ animation: `prismaBob ${c.bobDur}s ease-in-out ${c.bobDelay}s infinite` }}>
+                    <div className="prisma-bob absolute inset-0">
                       {/* flip-lager */}
                       <div style={{ position: "absolute", inset: 0, transformStyle: "preserve-3d", transition: "transform 0.7s cubic-bezier(.4,0,.2,1)", transform: isOpen ? "rotateY(180deg)" : "rotateY(0deg)" }}>
                         {/* FRAMSIDA */}
