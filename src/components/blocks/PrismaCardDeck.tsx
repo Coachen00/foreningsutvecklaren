@@ -138,16 +138,37 @@ const PrismaCardDeck = () => {
       el.addEventListener(ev, fn); listeners.push(() => el.removeEventListener(ev, fn));
     };
 
-    // Debounce: lyft först när pekaren VILAT på ett kort en stund. Snabb passage
-    // över överlappande kort ska inte trigga en kaskad av lyft (det kändes "kvickt").
-    let hoverTimer = 0;
-    const HOVER_DELAY = 150;
-    const queueLift = (i: number) => {
-      if (pinnedRef.current != null) return;
-      window.clearTimeout(hoverTimer);
-      hoverTimer = window.setTimeout(() => { api.dropOthersExcept(i); api.lift(i); }, HOVER_DELAY);
+    // Hover-targeting frikopplad från kortens (överlappande, roterade) träffytor:
+    // EN pointermove på hela leken väljer kort efter pekarens X-position — närmast
+    // kortets VILO-center (mätt som bråkdel av bredden). Hysteres + rAF-throttle
+    // gör att byte bara sker vid medvetet drag, aldrig vid kantpassage. Förutsägbart
+    // (vänster→höger = kort 1→5) och utan ryck.
+    let centers: number[] = [];
+    const measure = () => {
+      const dr = deck.getBoundingClientRect();
+      if (!dr.width) return;
+      centers = api.st.map((s) => {
+        const r = s.el.getBoundingClientRect();
+        return ((r.left + r.right) / 2 - dr.left) / dr.width;
+      });
     };
-    const cancelQueued = () => window.clearTimeout(hoverTimer);
+
+    let activeHover: number | null = null;
+    const HYST = 0.05; // dödband: ~5% av bredden innan byte
+    const onDeckMove = (e: PointerEvent) => {
+      if (e.pointerType === "touch") return; // hover bara för mus/penna
+      if (pinnedRef.current != null) return;
+      if (!centers.length) measure();
+      const dr = deck.getBoundingClientRect(); // färsk – tål scroll/resize
+      const frac = (e.clientX - dr.left) / dr.width;
+      let best = 0, bd = Infinity;
+      centers.forEach((c, i) => { const d = Math.abs(frac - c); if (d < bd) { bd = d; best = i; } });
+      if (best === activeHover) return;
+      if (activeHover != null && Math.abs(frac - centers[activeHover]) - bd < HYST) return;
+      activeHover = best;
+      api.dropOthersExcept(best);
+      api.lift(best);
+    };
 
     const activate = () => {
       api.st.forEach((s, i) => {
@@ -156,25 +177,29 @@ const PrismaCardDeck = () => {
         s.el.style.transitionTimingFunction = SOFT_EASE;
         api.restCard(i);
         s.el.style.pointerEvents = "auto";
-        on(s.el, "pointerenter", () => queueLift(i));
-        on(s.el, "pointerleave", cancelQueued); // avbryt om man bara passerar förbi
         const front = s.el.querySelector<HTMLElement>("[data-cardfront]");
         if (front) {
           // tangentbord: lyft direkt vid fokus (avsiktligt), sänk vid blur
-          on(front, "focus", () => { if (pinnedRef.current != null) return; api.dropOthersExcept(i); api.lift(i); });
-          on(front, "blur", () => { if (pinnedRef.current != null) return; api.drop(i); });
+          on(front, "focus", () => { if (pinnedRef.current != null) return; activeHover = i; api.dropOthersExcept(i); api.lift(i); });
+          on(front, "blur", () => { if (pinnedRef.current != null) return; activeHover = null; api.drop(i); });
         }
       });
-      on(deck, "pointerleave", () => { cancelQueued(); if (pinnedRef.current != null) return; api.dropAll(); });
+      on(deck, "pointermove", onDeckMove as EventListener);
+      on(deck, "pointerleave", () => { if (pinnedRef.current != null) return; activeHover = null; api.dropAll(); });
       api.settle();
       api.ready = true;
     };
 
     const dealTimer = reduce ? (activate(), 0) : window.setTimeout(activate, 2600);
 
+    // Mät om centren när lekens storlek faktiskt ändras (slutlig layout, scale, resize)
+    // — undviker stale/klustrade center mätta innan layouten satt sig.
+    const ro = new ResizeObserver(() => measure());
+    ro.observe(deck);
+
     return () => {
       if (dealTimer) window.clearTimeout(dealTimer);
-      window.clearTimeout(hoverTimer);
+      ro.disconnect();
       listeners.forEach((off) => off());
     };
   }, []);
