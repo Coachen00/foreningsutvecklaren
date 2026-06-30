@@ -94,23 +94,23 @@ const PrismaCardDeck = () => {
     const st = cards.map((c) => ({ el: c, a: +c.dataset.ang!, z: +c.dataset.z!, lifted: false }));
     const setCard = (s: (typeof st)[number], p: number) => {
       const rot = s.a + (s.a * 0.1 - s.a) * p;
-      const tz = s.z + (300 - s.z) * p;
+      const tz = s.z + (210 - s.z) * p;
       s.el.style.transform =
-        `rotate(${rot.toFixed(1)}deg) translateZ(${tz.toFixed(0)}px) translateY(${(-80 * p).toFixed(0)}px) scale(${(1 + 0.1 * p).toFixed(3)})`;
+        `rotate(${rot.toFixed(1)}deg) translateZ(${tz.toFixed(0)}px) translateY(${(-54 * p).toFixed(0)}px) scale(${(1 + 0.06 * p).toFixed(3)})`;
     };
     const lift = (i: number) => {
       const s = st[i]; if (!s) return;
       s.lifted = true;
       s.el.style.zIndex = "30";
-      s.el.style.filter = "brightness(1.07) drop-shadow(0 32px 52px rgba(0,0,0,0.5)) drop-shadow(0 0 28px hsl(var(--accent) / 0.38))";
-      setDur(s.el, 620); setCard(s, 1);
+      s.el.style.filter = "brightness(1.06) drop-shadow(0 28px 46px rgba(0,0,0,0.46)) drop-shadow(0 0 24px hsl(var(--accent) / 0.32))";
+      setDur(s.el, 700); setCard(s, 1);
     };
     const drop = (i: number) => {
       const s = st[i]; if (!s || !s.lifted) return;
       s.lifted = false;
       s.el.style.filter = "none";
-      setDur(s.el, 760); setCard(s, 0);
-      window.setTimeout(() => { if (!s.lifted) s.el.style.zIndex = ""; }, 780);
+      setDur(s.el, 820); setCard(s, 0);
+      window.setTimeout(() => { if (!s.lifted) s.el.style.zIndex = ""; }, 840);
     };
     const dropOthersExcept = (keep: number) => st.forEach((_, i) => { if (i !== keep) drop(i); });
     const dropAll = () => st.forEach((_, i) => drop(i));
@@ -138,6 +138,17 @@ const PrismaCardDeck = () => {
       el.addEventListener(ev, fn); listeners.push(() => el.removeEventListener(ev, fn));
     };
 
+    // Debounce: lyft först när pekaren VILAT på ett kort en stund. Snabb passage
+    // över överlappande kort ska inte trigga en kaskad av lyft (det kändes "kvickt").
+    let hoverTimer = 0;
+    const HOVER_DELAY = 150;
+    const queueLift = (i: number) => {
+      if (pinnedRef.current != null) return;
+      window.clearTimeout(hoverTimer);
+      hoverTimer = window.setTimeout(() => { api.dropOthersExcept(i); api.lift(i); }, HOVER_DELAY);
+    };
+    const cancelQueued = () => window.clearTimeout(hoverTimer);
+
     const activate = () => {
       api.st.forEach((s, i) => {
         s.el.style.animation = "none"; // frys CSS-dealen
@@ -145,37 +156,25 @@ const PrismaCardDeck = () => {
         s.el.style.transitionTimingFunction = SOFT_EASE;
         api.restCard(i);
         s.el.style.pointerEvents = "auto";
-        on(s.el, "pointerenter", () => { if (pinnedRef.current != null) return; api.dropOthersExcept(i); api.lift(i); });
+        on(s.el, "pointerenter", () => queueLift(i));
+        on(s.el, "pointerleave", cancelQueued); // avbryt om man bara passerar förbi
         const front = s.el.querySelector<HTMLElement>("[data-cardfront]");
         if (front) {
+          // tangentbord: lyft direkt vid fokus (avsiktligt), sänk vid blur
           on(front, "focus", () => { if (pinnedRef.current != null) return; api.dropOthersExcept(i); api.lift(i); });
           on(front, "blur", () => { if (pinnedRef.current != null) return; api.drop(i); });
         }
       });
-      on(deck, "pointerleave", () => { if (pinnedRef.current != null) return; api.dropAll(); });
+      on(deck, "pointerleave", () => { cancelQueued(); if (pinnedRef.current != null) return; api.dropAll(); });
       api.settle();
       api.ready = true;
     };
 
     const dealTimer = reduce ? (activate(), 0) : window.setTimeout(activate, 2600);
 
-    let praf = 0;
-    const onMove = (e: PointerEvent) => {
-      if (reduce) return;
-      const px = e.clientX / window.innerWidth - 0.5;
-      const py = e.clientY / window.innerHeight - 0.5;
-      if (!praf) praf = requestAnimationFrame(() => {
-        praf = 0;
-        deck.style.setProperty("--px", px.toFixed(3));
-        deck.style.setProperty("--py", py.toFixed(3));
-      });
-    };
-    window.addEventListener("pointermove", onMove, { passive: true });
-
     return () => {
       if (dealTimer) window.clearTimeout(dealTimer);
-      if (praf) cancelAnimationFrame(praf);
-      window.removeEventListener("pointermove", onMove);
+      window.clearTimeout(hoverTimer);
       listeners.forEach((off) => off());
     };
   }, []);
