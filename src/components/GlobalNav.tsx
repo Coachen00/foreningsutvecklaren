@@ -54,10 +54,15 @@ const GlobalNav = () => {
             className="group flex items-center gap-2.5 text-sm font-semibold text-foreground transition-opacity duration-200 hover:opacity-60"
           >
             <span
-              className="inline-flex h-[7px] w-[7px] rounded-full bg-primary transition-transform duration-300 group-hover:scale-[1.6]"
+              className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-accent font-black text-accent-foreground"
               aria-hidden="true"
-            />
-            Föreningsutvecklaren
+            >
+              FU
+            </span>
+            <span className="flex flex-col leading-tight">
+              Föreningsutvecklaren
+              <span className="label-mono hidden text-muted-foreground md:block">GÖTEBORGS FF</span>
+            </span>
           </Link>
 
           {/* Desktop nav */}
@@ -75,7 +80,8 @@ const GlobalNav = () => {
                       className={cn(
                         "relative rounded-md px-3.5 py-2 text-[0.8125rem] font-medium transition-colors duration-150",
                         "text-foreground/55 hover:text-foreground hover:bg-muted",
-                        active && "text-foreground bg-muted",
+                        active &&
+                          "text-foreground bg-muted after:absolute after:inset-x-3 after:-bottom-px after:h-0.5 after:rounded-full after:bg-accent",
                       )}
                     >
                       {item.navLabel}
@@ -99,10 +105,10 @@ const GlobalNav = () => {
                     onMouseEnter={() => prefetchRoute(link.path)}
                     onFocus={() => prefetchRoute(link.path)}
                     className={cn(
-                      "rounded-md px-3 py-2 text-[0.75rem] font-medium transition-colors duration-150",
+                      "relative rounded-md px-3 py-2 text-[0.75rem] font-medium transition-colors duration-150",
                       "text-muted-foreground hover:text-foreground hover:bg-muted",
                       isPathActive(location.pathname, link.path) &&
-                        "text-foreground",
+                        "text-foreground after:absolute after:inset-x-2 after:-bottom-px after:h-0.5 after:rounded-full after:bg-accent",
                     )}
                   >
                     {link.label}
@@ -191,7 +197,12 @@ const GlobalNav = () => {
                   className="flex items-center gap-2.5 text-sm font-semibold text-foreground"
                   onClick={() => setMobileOpen(false)}
                 >
-                  <span className="inline-flex h-[7px] w-[7px] rounded-full bg-primary" aria-hidden="true" />
+                  <span
+                    className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-accent font-black text-accent-foreground"
+                    aria-hidden="true"
+                  >
+                    FU
+                  </span>
                   Föreningsutvecklaren
                 </Link>
               </div>

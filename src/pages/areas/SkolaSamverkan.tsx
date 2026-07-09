@@ -2,11 +2,10 @@ import { ArrowRight } from "lucide-react";
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
 import AreaShell from "@/components/blocks/AreaShell";
-import SectionBlock from "@/components/blocks/SectionBlock";
 import PartnerStrip from "@/components/blocks/PartnerStrip";
 import GlowLink from "@/components/blocks/GlowLink";
-import { AmbientField } from "@/components/three";
 import { StaggerGroup, StaggerItem } from "@/components/motion";
+import { EditorialHero, ChapterSection, PitchField } from "@/components/editorial";
 import { getArea } from "@/content/areas";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 
@@ -24,8 +23,26 @@ const SkolaSamverkan = () => {
   return (
     <div className="min-h-screen bg-background">
       <GlobalNav />
-      <AreaShell area={area}>
-        <SectionBlock
+      <AreaShell
+        area={area}
+        hero={
+          <EditorialHero
+            eyebrow={`Område ${area.number} · ${area.kicker}`}
+            titleTop="Skola,"
+            titleGold="förening och sociala satsningar"
+            lead={
+              <>
+                {area.heroLead}
+                <span className="mt-3 block text-small">{area.heroSupport}</span>
+              </>
+            }
+            backdrop={<PitchField />}
+          />
+        }
+      >
+        <ChapterSection
+          id="snabb-karta"
+          number="01"
           eyebrow="Snabb karta"
           title="Skola, förening och samhälle"
           lead="En bättre väg visar var behoven är störst. FU Skola visar hur skolan blir vägen in. Här ser du hur allt hänger ihop."
@@ -94,20 +111,26 @@ const SkolaSamverkan = () => {
               );
             })}
           </StaggerGroup>
-        </SectionBlock>
+        </ChapterSection>
 
-        <SectionBlock
-          variant="muted"
-          eyebrow="Tillsammans"
-          title="Alla led behövs"
-          lead="Barnen märker skillnad först när skola, förening, kommun, förbund och civilsamhälle drar åt samma håll."
-          backdrop={<AmbientField className="opacity-50" />}
-        >
-          <PartnerStrip
-            ids={["gff", "svff", "rf-sisu", "goteborgs-stad", "foreningar", "skolor", "gis"]}
-          />
-        </SectionBlock>
+        <div className="relative isolate">
+          <div className="absolute inset-0 -z-10">
+            <PitchField particles={false} />
+          </div>
+          <ChapterSection
+            id="alla-led"
+            number="02"
+            eyebrow="Tillsammans"
+            title="Alla led behövs"
+            lead="Barnen märker skillnad först när skola, förening, kommun, förbund och civilsamhälle drar åt samma håll."
+          >
+            <PartnerStrip
+              ids={["gff", "svff", "rf-sisu", "goteborgs-stad", "foreningar", "skolor", "gis"]}
+            />
+          </ChapterSection>
+        </div>
       </AreaShell>
+
       <Footer />
     </div>
   );

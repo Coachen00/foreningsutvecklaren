@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import { ChevronRight, LayoutGrid } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
-import SectionBlock from "@/components/blocks/SectionBlock";
 import PortalHubBlock from "@/components/blocks/PortalHubBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
-import { AmbientField } from "@/components/three";
+import { EditorialHero, ChapterSection, PitchField } from "@/components/editorial";
 import { PORTAL_GROUPS } from "@/content/portalen";
 
 const Portalen = () => {
@@ -19,9 +18,8 @@ const Portalen = () => {
     <div className="min-h-screen bg-background">
       <GlobalNav />
 
-      <div className="relative isolate overflow-hidden border-b border-border bg-card" id="main-content">
-        <div className="absolute inset-0 -z-10"><AmbientField className="opacity-70" /></div>
-        <div className="container relative mx-auto px-4 sm:px-6">
+      <div id="main-content">
+        <div className="container mx-auto px-4 sm:px-6">
           <nav
             aria-label="Brödsmula"
             className="flex items-center gap-1.5 border-b border-border py-4"
@@ -40,45 +38,42 @@ const Portalen = () => {
               Föreningsportalen
             </span>
           </nav>
+        </div>
 
-          <header className="section-y max-w-[52rem]">
-            <p className="mb-6 inline-flex items-center gap-2.5 font-mono text-micro uppercase tracking-wider text-muted-foreground">
-              <span className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10 text-primary">
-                <LayoutGrid className="h-3.5 w-3.5" aria-hidden="true" />
-              </span>
-              Hubb · En ingång
-            </p>
-            <h1 className="font-serif text-display font-semibold text-foreground">
-              Föreningsportalen
-            </h1>
-            <p className="mt-5 max-w-[48ch] text-lead text-muted-foreground">
+        <EditorialHero
+          eyebrow="Hubb · En ingång"
+          titleTop="Förenings"
+          titleGold="portalen"
+          lead={
+            <>
               En samlad ingång till det föreningen behöver nå i vardagen –
               system, stöd och lärande på ett ställe.
-            </p>
-            <p className="mt-3 max-w-[52ch] text-base text-foreground/65">
-              Genvägarna nedan är samlade per syfte. Externa system öppnas i en
-              ny flik; interna sidor ligger kvar i Föreningsutvecklaren.
-            </p>
-          </header>
-        </div>
+              <span className="mt-3 block text-small">
+                Genvägarna nedan är samlade per syfte. Externa system öppnas i
+                en ny flik; interna sidor ligger kvar i
+                Föreningsutvecklaren.
+              </span>
+            </>
+          }
+          backdrop={<PitchField />}
+        />
       </div>
 
       <main>
         {PORTAL_GROUPS.map((group, i) => (
-          <SectionBlock
+          <ChapterSection
             key={group.id}
             id={group.id}
-            variant={i % 2 === 1 ? "muted" : "default"}
+            number={String(i + 1).padStart(2, "0")}
             eyebrow={group.eyebrow}
             title={group.title}
             lead={group.lead}
-            split
           >
             <PortalHubBlock
               links={group.links}
               ariaLabel={`Genvägar: ${group.title}`}
             />
-          </SectionBlock>
+          </ChapterSection>
         ))}
       </main>
 

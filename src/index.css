@@ -104,6 +104,35 @@
 
     --tracking-normal: 0em;
     --spacing: 0.25rem;
+
+    /* ── Editorial type/space system (Midnight Pitch Editorial) ── */
+    --fs-hero: clamp(3rem, 10vw, 8rem);
+    --fs-h1: clamp(2.25rem, 5vw, 3.75rem);
+    --fs-h2: clamp(1.875rem, 4vw, 3rem);
+    --fs-h3: 1.5rem;
+    --fs-h4: 1.25rem;
+    --fs-body-lg: 1.125rem;
+    --fs-body: 1rem;
+    --fs-small: 0.875rem;
+    --fs-xs: 0.75rem;
+    --fs-micro: 0.6875rem;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-extrabold: 800;
+    --fw-black: 900;
+    --lh-tight: 0.95;
+    --lh-snug: 1.2;
+    --lh-body: 1.6;
+    --tracking-hero: -0.04em;
+    --tracking-h1: -0.04em;
+    --tracking-h2: -0.03em;
+    --tracking-h3: -0.02em;
+    --tracking-eyebrow: 0.3em;
+    --tracking-mono: 0.18em;
+    --glow-primary: 0 0 30px -5px hsl(var(--primary) / 0.4);
+    --glow-accent: 0 0 20px -5px hsl(var(--accent) / 0.3);
   }
 
   /* Mörkt läge alltid — .dark speglar :root (ingen ljus variant) */
@@ -301,6 +330,33 @@
     @apply shadow-md -translate-y-1;
     border-color: hsl(var(--accent) / 0.4);
   }
+
+  /* ─── Editorial typography utilities ──────────────────── */
+  .h-hero {
+    font-size: var(--fs-hero);
+    font-weight: 900;
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tracking-hero);
+  }
+  .quote-hero {
+    font-size: var(--fs-h1);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: var(--tracking-h1);
+  }
+  .p-lead {
+    font-size: var(--fs-body-lg);
+    line-height: var(--lh-body);
+    color: hsl(var(--muted-foreground));
+  }
+  .label-mono {
+    font-family: var(--font-mono);
+    font-size: var(--fs-micro);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono);
+    color: hsl(var(--accent));
+  }
 }
 
 @layer utilities {
@@ -458,11 +514,24 @@
 .animate-delay-300 { animation-delay: 0.3s; }
 .animate-delay-400 { animation-delay: 0.4s; }
 
+@keyframes float-particle {
+  0%, 100% { transform: translate(0, 0); opacity: .14; }
+  50% { transform: translate(14px, -60px); opacity: .28; }
+}
+@keyframes float-blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -40px) scale(1.08); }
+}
+.animate-float-particle { animation: float-particle 9s ease-in-out infinite; }
+.animate-float-blob { animation: float-blob 16s ease-in-out infinite; }
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up,
   .animate-fade-in,
   .animate-scale-in,
-  .animate-mesh-shift {
+  .animate-mesh-shift,
+  .animate-float-particle,
+  .animate-float-blob {
     animation: none !important;
   }
 

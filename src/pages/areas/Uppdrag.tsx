@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
 import AreaShell from "@/components/blocks/AreaShell";
-import SectionBlock from "@/components/blocks/SectionBlock";
 import CoreMissionBlock from "@/components/blocks/CoreMissionBlock";
 import ActivityListBlock from "@/components/blocks/ActivityListBlock";
 import WorkMethodBlock from "@/components/blocks/WorkMethodBlock";
@@ -12,7 +11,7 @@ import CommitteeBlock from "@/components/blocks/CommitteeBlock";
 import PlanningChainTeaserBlock from "@/components/blocks/PlanningChainTeaserBlock";
 import UppdragHubBlock from "@/components/blocks/UppdragHubBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
-import { AmbientField } from "@/components/three";
+import { EditorialHero, ChapterSection, PitchField } from "@/components/editorial";
 import { getArea } from "@/content/areas";
 import { PRIMARY_ASSIGNMENTS } from "@/content/primaryAssignments";
 import { EXTENDED_ACTIVITIES } from "@/content/activities";
@@ -53,28 +52,44 @@ const Uppdrag = () => {
   return (
     <div className="min-h-screen bg-background">
       <GlobalNav />
-      <AreaShell area={area}>
-        <SectionBlock
+      <AreaShell
+        area={area}
+        hero={
+          <EditorialHero
+            eyebrow={`Område ${area.number} · ${area.kicker}`}
+            titleTop="Uppdrag,"
+            titleGold="styrning och administration"
+            lead={
+              <>
+                {area.heroLead}
+                <span className="mt-3 block text-small">{area.heroSupport}</span>
+              </>
+            }
+            backdrop={<PitchField />}
+          />
+        }
+      >
+        <ChapterSection
           id="hitta-ratt"
-          variant="muted"
+          number="01"
           eyebrow="Karta"
           title="Hitta rätt i uppdraget"
           lead="Börja här när du vill förstå vad rollen gör, vilka spår som finns och var nästa klick leder."
-          split
-          backdrop={<AmbientField className="opacity-50" />}
         >
           <UppdragHubBlock items={UPPDRAG_HUB_ITEMS} />
-        </SectionBlock>
+        </ChapterSection>
 
-        <SectionBlock
+        <ChapterSection
+          number="02"
           eyebrow="Kärnuppdraget"
           title="Det löpande arbetet"
           lead="Kärnan är samtal som leder vidare: med utvecklare, styrelse och föreningar som behöver stöd."
         >
           <CoreMissionBlock title="" lead="" />
-        </SectionBlock>
+        </ChapterSection>
 
-        <SectionBlock
+        <ChapterSection
+          number="03"
           eyebrow="Mer än samtal"
           title="Utöver kärnuppdraget"
           lead="Vissa frågor kräver längre stöd över en säsong eller flera år."
@@ -91,19 +106,20 @@ const Uppdrag = () => {
             </Link>
             .
           </p>
-        </SectionBlock>
+        </ChapterSection>
 
-        <SectionBlock
+        <ChapterSection
+          number="04"
           eyebrow="Arbetsmetod"
           title="Så här arbetar jag"
           lead="Samma enkla rytm: var nära, lyssna, välj nästa steg och följ upp."
         >
           <WorkMethodBlock steps={METHOD_STEPS} />
-        </SectionBlock>
+        </ChapterSection>
 
-        <SectionBlock
+        <ChapterSection
           id="planeringskedja"
-          variant="muted"
+          number="05"
           eyebrow="Från idé till vardag"
           title="Från idé till årshjul"
           lead="En bra idé behöver bli mål, plan och årshjul. Annars stannar den i ett dokument."
@@ -114,19 +130,20 @@ const Uppdrag = () => {
             outcomes={FORENINGSLYFTET_PLANNING_OUTCOMES}
             href="/foreningsutveckling#strategikartan"
           />
-        </SectionBlock>
+        </ChapterSection>
 
-        <SectionBlock
+        <ChapterSection
           id="kommitteer"
+          number="06"
           eyebrow="Kommittéer och arbetsgrupper"
           title="Forum jag deltar i"
           lead="Två forum där beslut, vardag och lärande kopplas ihop."
         >
           <CommitteeBlock />
-        </SectionBlock>
+        </ChapterSection>
 
-        <SectionBlock
-          variant="muted"
+        <ChapterSection
+          number="07"
           eyebrow="Ansvarskedjan"
           title="Vem gör vad"
           lead="Här syns hur beslut, stöd och genomförande hänger ihop."
@@ -139,16 +156,17 @@ const Uppdrag = () => {
             </Link>
             .
           </p>
-        </SectionBlock>
+        </ChapterSection>
 
         {impact && (
-          <SectionBlock
+          <ChapterSection
+            number="08"
             eyebrow="Varför"
             title="Därför ser uppdraget ut så här"
             lead="Varje arbetsform har ett syfte bakom sig. Här är det som driver det."
           >
             <ImpactBlock impact={impact} />
-          </SectionBlock>
+          </ChapterSection>
         )}
       </AreaShell>
       <NextPageCTA next={next} label="Första huvuduppdraget" />
