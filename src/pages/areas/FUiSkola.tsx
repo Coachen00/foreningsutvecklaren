@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
-import AssignmentShell from "@/components/blocks/AssignmentShell";
 import PageWithDepth from "@/components/blocks/PageWithDepth";
 import ExpandableBlock from "@/components/blocks/ExpandableBlock";
 import AsideRelated from "@/components/blocks/AsideRelated";
@@ -11,6 +12,8 @@ import CriteriaList from "@/components/blocks/CriteriaList";
 import MetricListBlock from "@/components/blocks/MetricListBlock";
 import GoalsBlock from "@/components/blocks/GoalsBlock";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion";
+import { EditorialHero, PitchField, PullQuote } from "@/components/editorial";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import {
   adjacentPrimaryAssignments,
   getPrimaryAssignment,
@@ -94,11 +97,42 @@ const FUiSkola = () => {
   const { next, prev } = adjacentPrimaryAssignments("fu-skola");
   const program = getProgram("fu-i-skola");
   const impact = impactForArea("skola-samverkan");
+  useDocumentTitle(assignment.title, assignment.metaDescription);
 
   return (
     <div className="min-h-screen bg-background">
       <GlobalNav />
-      <AssignmentShell assignment={assignment}>
+      <main id="main-content">
+        <div className="container mx-auto px-4 sm:px-6">
+          <nav
+            aria-label="Brödsmula"
+            className="flex items-center gap-1.5 border-b border-border py-4"
+          >
+            <Link
+              to="/"
+              className="font-mono text-micro uppercase tracking-wider text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Start
+            </Link>
+            <ChevronRight className="h-3 w-3 text-border" aria-hidden="true" />
+            <span
+              aria-current="page"
+              className="font-mono text-micro uppercase tracking-wider text-foreground"
+            >
+              {assignment.title}
+            </span>
+          </nav>
+        </div>
+
+        <EditorialHero
+          eyebrow={assignment.kicker}
+          titleTop="FU"
+          titleGold="Skola"
+          subhead={assignment.lead}
+          lead={assignment.description}
+          backdrop={<PitchField />}
+        />
+
         <PageWithDepth
           toc={SECTIONS}
           aside={
@@ -434,7 +468,12 @@ const FUiSkola = () => {
             </ExpandableBlock>
           </Reveal>
         </PageWithDepth>
-      </AssignmentShell>
+
+        <PullQuote>
+          Skolan är platsen där alla barn finns. När bron till föreningslivet
+          fungerar når fotbollen barn som annars aldrig hittar in.
+        </PullQuote>
+      </main>
       <NextPageCTA
         next={next}
         prev={prev}

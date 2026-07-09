@@ -1,15 +1,17 @@
 import { ShieldCheck, Scale, Users, Flag } from "lucide-react";
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
-import SubpageShell from "@/components/blocks/SubpageShell";
+import Breadcrumb from "@/components/blocks/Breadcrumb";
 import PageWithDepth from "@/components/blocks/PageWithDepth";
 import ExpandableBlock from "@/components/blocks/ExpandableBlock";
 import AsideRelated from "@/components/blocks/AsideRelated";
 import GoalsBlock from "@/components/blocks/GoalsBlock";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import { JAMSTALLDHET_GOALS } from "@/content/goals";
 import { getPrimaryAssignment } from "@/content/primaryAssignments";
+import { EditorialHero, PullQuote, PitchField } from "@/components/editorial";
 import type { TocSection } from "@/components/blocks/TableOfContents";
 
 const SECTIONS: TocSection[] = [
@@ -24,21 +26,27 @@ const SECTIONS: TocSection[] = [
 const JamstalldhetTrygghet = () => {
   const next = getPrimaryAssignment("foreningslyftet");
 
+  useDocumentTitle(
+    "Jämställdhet och trygghet",
+    "Jämställdhet och trygghet i GFF — 50/50-representation, fler kvinnliga domare, Trygg fotboll, matchklimatpolicy, Domarlyftet och Styrelselyftet.",
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <GlobalNav />
-      <SubpageShell
-        breadcrumbs={[
-          { label: "Föreningslyftet", href: "/foreningsutveckling" },
-          { label: "Jämställdhet & trygghet" },
-        ]}
-        kicker="Värdegrund · Genomgående tema"
-        icon={ShieldCheck}
-        title="Jämställdhet och trygghet"
-        lead="Barn och ledare stannar där miljön är trygg, rättvis och värd att komma tillbaka till."
-        description="Mål, program och nätverk som gör fotbollen tryggare och mer jämställd."
-        metaDescription="Jämställdhet och trygghet i GFF — 50/50-representation, fler kvinnliga domare, Trygg fotboll, matchklimatpolicy, Domarlyftet och Styrelselyftet."
-      >
+      <Breadcrumb />
+
+      <main id="main-content">
+        <EditorialHero
+          eyebrow="Värdegrund · Genomgående tema"
+          titleTop="Jämställdhet och"
+          titleGold="trygghet"
+          subhead="Barn och ledare stannar där miljön är trygg, rättvis och värd att komma tillbaka till."
+          lead="Mål, program och nätverk som gör fotbollen tryggare och mer jämställd."
+          scrollHint="KAPITEL 01"
+          backdrop={<PitchField />}
+        />
+
         <PageWithDepth
           toc={SECTIONS}
           aside={
@@ -87,6 +95,10 @@ const JamstalldhetTrygghet = () => {
               </p>
             </ExpandableBlock>
           </Reveal>
+
+          <PullQuote>
+            De avgör om barn, ledare och <span className="text-accent">domare</span> vill vara kvar
+          </PullQuote>
 
           <Reveal>
             <ExpandableBlock
@@ -234,7 +246,7 @@ const JamstalldhetTrygghet = () => {
             </ExpandableBlock>
           </Reveal>
         </PageWithDepth>
-      </SubpageShell>
+      </main>
       <NextPageCTA next={next} label="Tillbaka till Föreningslyftet" />
       <Footer />
     </div>

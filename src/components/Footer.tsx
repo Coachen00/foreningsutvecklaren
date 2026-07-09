@@ -10,9 +10,11 @@ const Footer = () => {
           <div className="max-w-[36ch]">
             <div className="flex items-center gap-2.5 mb-3">
               <span
-                className="inline-flex h-[7px] w-[7px] rounded-full bg-primary"
+                className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-accent font-black text-accent-foreground"
                 aria-hidden="true"
-              />
+              >
+                FU
+              </span>
               <span className="text-sm font-semibold text-foreground">
                 Föreningsutvecklaren
               </span>

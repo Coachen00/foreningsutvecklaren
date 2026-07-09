@@ -1,12 +1,14 @@
-import { GraduationCap, Trophy, Layers } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ChevronRight, GraduationCap, Trophy, Layers } from "lucide-react";
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
-import SubpageShell from "@/components/blocks/SubpageShell";
 import PageWithDepth from "@/components/blocks/PageWithDepth";
 import ExpandableBlock from "@/components/blocks/ExpandableBlock";
 import AsideRelated from "@/components/blocks/AsideRelated";
 import NextPageCTA from "@/components/blocks/NextPageCTA";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { EditorialHero, PitchField, PullQuote } from "@/components/editorial";
 import { getPrimaryAssignment } from "@/content/primaryAssignments";
 import type { TocSection } from "@/components/blocks/TableOfContents";
 
@@ -21,21 +23,68 @@ const SECTIONS: TocSection[] = [
 const Spelarutbildning = () => {
   const next = getPrimaryAssignment("foreningslyftet");
 
+  useDocumentTitle(
+    "Spelarutbildning",
+    "Spelarutbildning i GFF — SvFF:s spelarutbildningsplan (SUP), Fotbollslyftet med FU IF och zonutvecklare, futsal och arbete mot drop out.",
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <GlobalNav />
-      <SubpageShell
-        breadcrumbs={[
-          { label: "Uppdrag", href: "/uppdrag" },
-          { label: "Spelarutbildning" },
-        ]}
-        kicker="Våra spelare · Fördjupning"
-        icon={GraduationCap}
-        title="Spelarutbildning"
-        lead="Världsledande spelarutbildning är ingen slogan — det ska märkas på träningen."
-        description="SUP, Fotbollslyftet, futsal och arbetet med spelare som riskerar att sluta."
-        metaDescription="Spelarutbildning i GFF — SvFF:s spelarutbildningsplan (SUP), Fotbollslyftet med FU IF och zonutvecklare, futsal och arbete mot drop out."
-      >
+
+      <div id="main-content">
+        <div className="container mx-auto px-4 sm:px-6">
+          <nav
+            aria-label="Brödsmula"
+            className="flex items-center gap-1.5 border-b border-border py-4"
+          >
+            <Link
+              to="/"
+              className="font-mono text-micro uppercase tracking-wider text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Start
+            </Link>
+            <ChevronRight className="h-3 w-3 text-border" aria-hidden="true" />
+            <Link
+              to="/uppdrag"
+              className="font-mono text-micro uppercase tracking-wider text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Uppdrag
+            </Link>
+            <ChevronRight className="h-3 w-3 text-border" aria-hidden="true" />
+            <span
+              aria-current="page"
+              className="font-mono text-micro uppercase tracking-wider text-foreground"
+            >
+              Spelarutbildning
+            </span>
+          </nav>
+        </div>
+
+        <EditorialHero
+          eyebrow="Våra spelare · Fördjupning"
+          titleTop="Uppdrag"
+          titleGold="Spelarutbildning"
+          lead={
+            <>
+              Världsledande spelarutbildning är ingen slogan — det ska märkas på
+              träningen.
+              <span className="mt-3 block text-small">
+                SUP, Fotbollslyftet, futsal och arbetet med spelare som riskerar
+                att sluta.
+              </span>
+            </>
+          }
+          backdrop={<PitchField />}
+        />
+      </div>
+
+      <main>
+        <PullQuote>
+          Spelarutbildning ska märkas på planen: i övningar, samtal och hur
+          ledare möter spelare.
+        </PullQuote>
+
         <PageWithDepth
           toc={SECTIONS}
           aside={
@@ -205,7 +254,8 @@ const Spelarutbildning = () => {
             </ExpandableBlock>
           </Reveal>
         </PageWithDepth>
-      </SubpageShell>
+      </main>
+
       <NextPageCTA next={next} label="Vidare till uppdragen" />
       <Footer />
     </div>

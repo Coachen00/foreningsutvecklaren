@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
-import AssignmentShell from "@/components/blocks/AssignmentShell";
 import PageWithDepth from "@/components/blocks/PageWithDepth";
 import ExpandableBlock from "@/components/blocks/ExpandableBlock";
 import AsideRelated from "@/components/blocks/AsideRelated";
@@ -16,6 +17,8 @@ import MetricListBlock from "@/components/blocks/MetricListBlock";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion";
 import { Scene3D } from "@/components/three";
 import { MediaFrame } from "@/components/media/MediaFrame";
+import { EditorialHero, PullQuote, PitchField } from "@/components/editorial";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import {
   adjacentPrimaryAssignments,
   getPrimaryAssignment,
@@ -52,11 +55,42 @@ const EnBattreVag = () => {
   const { next, prev } = adjacentPrimaryAssignments("en-battre-vag");
   const program = getProgram("en-battre-vag");
   const impact = impactForArea("skola-samverkan");
+  useDocumentTitle(assignment.title, assignment.metaDescription);
 
   return (
     <div className="min-h-screen bg-background">
       <GlobalNav />
-      <AssignmentShell assignment={assignment}>
+      <main id="main-content">
+        <nav
+          aria-label="Brödsmula"
+          className="border-b border-border/60"
+        >
+          <div className="container mx-auto flex items-center gap-1.5 px-4 py-4 sm:px-6">
+            <Link
+              to="/"
+              className="font-mono text-micro uppercase tracking-wider text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Start
+            </Link>
+            <ChevronRight className="h-3 w-3 text-border" aria-hidden="true" />
+            <span
+              aria-current="page"
+              className="font-mono text-micro uppercase tracking-wider text-foreground"
+            >
+              {assignment.title}
+            </span>
+          </div>
+        </nav>
+
+        <EditorialHero
+          eyebrow={assignment.kicker}
+          titleTop="En bättre"
+          titleGold="väg"
+          subhead={assignment.lead}
+          lead={assignment.description}
+          backdrop={<PitchField />}
+        />
+
         <PageWithDepth
           toc={SECTIONS}
           aside={
@@ -183,6 +217,11 @@ const EnBattreVag = () => {
               </div>
             </ExpandableBlock>
           </Reveal>
+
+          <PullQuote>
+            Snart 80 flickor som aldrig spelat fotboll tidigare deltar.{" "}
+            <span className="text-accent">Siffran är bara början.</span>
+          </PullQuote>
 
           {/* ROLLER */}
           <Reveal>
@@ -373,7 +412,7 @@ const EnBattreVag = () => {
             </ExpandableBlock>
           </Reveal>
         </PageWithDepth>
-      </AssignmentShell>
+      </main>
       <NextPageCTA
         next={next}
         prev={prev}

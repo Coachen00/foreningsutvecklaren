@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
 import GlobalNav from "@/components/GlobalNav";
 import Footer from "@/components/Footer";
-import AssignmentShell from "@/components/blocks/AssignmentShell";
 import PageWithDepth from "@/components/blocks/PageWithDepth";
 import ExpandableBlock from "@/components/blocks/ExpandableBlock";
 import AsideRelated from "@/components/blocks/AsideRelated";
@@ -13,6 +13,8 @@ import MetricListBlock from "@/components/blocks/MetricListBlock";
 import EffectChain from "@/components/blocks/EffectChain";
 import PlanningChainBlock from "@/components/blocks/PlanningChainBlock";
 import { Reveal } from "@/components/motion";
+import { ChapterSection, PullQuote, PitchField } from "@/components/editorial";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import {
   adjacentPrimaryAssignments,
   getPrimaryAssignment,
@@ -47,11 +49,48 @@ const Foreningslyftet = () => {
   const { next, prev } = adjacentPrimaryAssignments("foreningslyftet");
   const impact = impactForArea("foreningsutveckling");
   const programs = programsByArea("foreningsutveckling");
+  useDocumentTitle(assignment.title, assignment.metaDescription);
 
   return (
     <div className="min-h-screen bg-background">
       <GlobalNav />
-      <AssignmentShell assignment={assignment}>
+      <main id="main-content">
+        <nav
+          aria-label="Brödsmula"
+          className="container mx-auto flex items-center gap-1.5 border-b border-border px-4 py-4 sm:px-6"
+        >
+          <Link
+            to="/"
+            className="font-mono text-micro uppercase tracking-wider text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Start
+          </Link>
+          <ChevronRight className="h-3 w-3 text-border" aria-hidden="true" />
+          <span
+            aria-current="page"
+            className="font-mono text-micro uppercase tracking-wider text-foreground"
+          >
+            {assignment.title}
+          </span>
+        </nav>
+
+        <div className="relative isolate overflow-hidden border-b border-border">
+          <div className="absolute inset-0 -z-10">
+            <PitchField />
+          </div>
+          <ChapterSection
+            eyebrow={assignment.kicker}
+            title={<span className="text-accent">{assignment.title}</span>}
+            lead={assignment.lead}
+          >
+            <p className="mx-auto max-w-[50ch] text-center text-base leading-relaxed text-foreground/65">
+              {assignment.description}
+            </p>
+          </ChapterSection>
+        </div>
+
+        <PullQuote>Ingen kan bära det själv.</PullQuote>
+
         <PageWithDepth
           toc={SECTIONS}
           aside={
@@ -361,7 +400,7 @@ const Foreningslyftet = () => {
             </ExpandableBlock>
           </Reveal>
         </PageWithDepth>
-      </AssignmentShell>
+      </main>
       <NextPageCTA
         next={next}
         prev={prev}
