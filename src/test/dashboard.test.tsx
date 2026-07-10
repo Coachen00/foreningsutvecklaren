@@ -13,7 +13,7 @@ describe("LoggedInHeroCountdown", () => {
   it("renderar hero-rubriken och pause-kontrollen", () => {
     render(<LoggedInHeroCountdown />);
     expect(
-      screen.getByRole("heading", { level: 1, name: CAMPAIGN_TIMELINE.heroTitle }),
+      screen.getByRole("heading", { level: 2, name: CAMPAIGN_TIMELINE.heroTitle }),
     ).toBeInTheDocument();
     // Pause-knapp finns från start (autoplay om inte reduced-motion)
     expect(
