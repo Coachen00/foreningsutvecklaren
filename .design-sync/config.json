@@ -1,0 +1,15 @@
+{
+  "shape": "package",
+  "mode": "lean-tokens-first",
+  "readmeHeader": ".design-sync/conventions.md",
+  "scope": {
+    "keep": ["src/index.css", "tailwind.config.ts", "src/components/ui/**"],
+    "exclude": [
+      "src/components/blocks/**",
+      "src/components/dashboard/**",
+      "src/components/auth/**",
+      "src/content/**"
+    ]
+  },
+  "notes": "Hybrid: keep Varm minimalism token layer, redesign surface. Lean path ships token foundation (styles.css + conventions) only; shadcn ui primitives optional later."
+}
