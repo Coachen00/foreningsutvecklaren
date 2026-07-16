@@ -39,11 +39,11 @@ interface PrismaCard {
 // Fan-positioner 01..05 (spec). Center (03) = En bättre väg (primärt),
 // hero-kanten (05) = Föreningsportalen.
 const CARDS: PrismaCard[] = [
-  { ang: -55, z: 6, dealDelay: 0.14, bobDur: 5.4, bobDelay: 0.0, hero: false,
+  { ang: -26, z: 6, dealDelay: 0.14, bobDur: 5.4, bobDelay: 0.0, hero: false,
     eyebrow: "Case", title: "Case", sub: "Verkliga exempel",
     desc: "Verkliga exempel ur föreningsutvecklingen — varje case är en kort film plus ett quiz som befäster lärandet.",
     cta: "Gå vidare", Icon: Clapperboard, to: "/case" },
-  { ang: -27.5, z: 58, dealDelay: 0.26, bobDur: 5.8, bobDelay: 0.5, hero: false,
+  { ang: -13, z: 58, dealDelay: 0.26, bobDur: 5.8, bobDelay: 0.5, hero: false,
     eyebrow: "Huvuduppdrag 02", title: "FU Skola", sub: "Bron skola–förening",
     desc: "Bron mellan skola och förening. Skolan blir vägen in och barn nås där de redan är — Skolbollen, fotbollsprofil och samverkan skola–förening.",
     cta: "Gå vidare", Icon: School, to: "/fu-skola" },
@@ -51,11 +51,11 @@ const CARDS: PrismaCard[] = [
     eyebrow: "Huvuduppdrag 01", title: "En bättre väg", sub: "Riktad samhällssatsning",
     desc: "Riktad samhällssatsning där behoven är störst — trygghet, inkludering och en meningsfull fritid. Girls FC, lokala förebilder och insatser där de gör mest nytta.",
     cta: "Gå vidare", Icon: Route, to: "/en-battre-vag" },
-  { ang: 27.5, z: 58, dealDelay: 0.50, bobDur: 5.6, bobDelay: 0.7, hero: false,
+  { ang: 13, z: 58, dealDelay: 0.50, bobDur: 5.6, bobDelay: 0.7, hero: false,
     eyebrow: "Huvuduppdrag 03", title: "Föreningsutveckling", sub: "Föreningsmotorn",
     desc: "Den generella föreningsmotorn: arbetssätt, ledarskap och kultur som håller över säsonger. Kvalitetsklubb, Trygg Fotboll och årshjul.",
     cta: "Gå vidare", Icon: Compass, to: "/foreningsutveckling" },
-  { ang: 55, z: 6, dealDelay: 0.62, bobDur: 5.0, bobDelay: 0.3, hero: true,
+  { ang: 26, z: 6, dealDelay: 0.62, bobDur: 5.0, bobDelay: 0.3, hero: true,
     eyebrow: "Portal", title: "Föreningsportalen", sub: "Verktyg & inloggning",
     desc: "Intern hubb med genvägar till systemen, verktygen och resurserna en förening behöver nå i vardagen. Öppnas som egen app i ny flik.",
     cta: "Öppna portalen", Icon: LayoutGrid, to: FORENINGSPORTAL_APP_URL, external: true },
@@ -93,26 +93,44 @@ const PrismaCardDeck = () => {
 
     const st = cards.map((c) => ({ el: c, a: +c.dataset.ang!, z: +c.dataset.z!, lifted: false }));
     const setCard = (s: (typeof st)[number], p: number) => {
-      const rot = s.a + (s.a * 0.1 - s.a) * p;
-      const tz = s.z + (210 - s.z) * p;
+      const rot = s.a + (s.a * 0.55 - s.a) * p;
+      const tz = s.z + (110 - s.z) * p;
       s.el.style.transform =
-        `rotate(${rot.toFixed(1)}deg) translateZ(${tz.toFixed(0)}px) translateY(${(-54 * p).toFixed(0)}px) scale(${(1 + 0.06 * p).toFixed(3)})`;
+        `rotate(${rot.toFixed(1)}deg) translateZ(${tz.toFixed(0)}px) translateY(${(-22 * p).toFixed(0)}px) scale(${(1 + 0.04 * p).toFixed(3)})`;
     };
+    const liftGlow = "brightness(1.06) drop-shadow(0 28px 46px rgba(0,0,0,0.46)) drop-shadow(0 0 24px hsl(var(--accent) / 0.32))";
     const lift = (i: number) => {
       const s = st[i]; if (!s) return;
       s.lifted = true;
       s.el.style.zIndex = "30";
-      s.el.style.filter = "brightness(1.06) drop-shadow(0 28px 46px rgba(0,0,0,0.46)) drop-shadow(0 0 24px hsl(var(--accent) / 0.32))";
-      setDur(s.el, 700); setCard(s, 1);
+      s.el.style.filter = liftGlow;
+      setDur(s.el, 650); setCard(s, 1);
+    };
+    const pin = (i: number) => {
+      const s = st[i]; if (!s) return;
+      s.lifted = true; // så drop() nollställer zIndex/transform korrekt vid stängning
+      s.el.style.zIndex = "40";
+      s.el.style.filter = liftGlow;
+      setDur(s.el, 700);
+      s.el.style.transform = "rotate(0deg) translateZ(150px) translateY(-26px) scale(1.05)";
     };
     const drop = (i: number) => {
-      const s = st[i]; if (!s || !s.lifted) return;
+      const s = st[i]; if (!s) return;
+      s.el.style.opacity = "1";
+      if (!s.lifted) { s.el.style.filter = "none"; return; } // även dimmade (ej lyfta) kort ska ljusna
       s.lifted = false;
       s.el.style.filter = "none";
       setDur(s.el, 820); setCard(s, 0);
       window.setTimeout(() => { if (!s.lifted) s.el.style.zIndex = ""; }, 840);
     };
+    const dim = (i: number) => {
+      const s = st[i]; if (!s) return;
+      setDur(s.el, 700);
+      s.el.style.opacity = "0.4";
+      s.el.style.filter = "brightness(0.6)";
+    };
     const dropOthersExcept = (keep: number) => st.forEach((_, i) => { if (i !== keep) drop(i); });
+    const dimOthersExcept = (keep: number) => st.forEach((_, i) => { if (i !== keep) dim(i); });
     const dropAll = () => st.forEach((_, i) => drop(i));
     // Lugn settling EN gång – ingen puls vid mus-in/ut (huvudkällan till "fladder").
     const settle = () => {
@@ -120,7 +138,7 @@ const PrismaCardDeck = () => {
       setDur(deck, 1100); deck.style.opacity = "1"; deck.style.filter = "none";
     };
     const restCard = (i: number) => setCard(st[i], 0);
-    return { st, lift, drop, dropOthersExcept, dropAll, settle, restCard, ready: false };
+    return { st, lift, pin, drop, dropOthersExcept, dimOthersExcept, dropAll, settle, restCard, ready: false };
   }
 
   // Effekt A: deal / recede / parallax / hover-lyft
@@ -154,7 +172,14 @@ const PrismaCardDeck = () => {
     };
 
     let activeHover: number | null = null;
-    const HYST = 0.05; // dödband: ~5% av bredden innan byte
+    // ponytail: 0.08 (spec) överskrider centerspridningen efter plattare solfjäder + mindre scale
+    // (grannkort ligger ~3% av bredden isär) — byte vore permanent blockerat. 0.02 + 120ms-fördröjningen
+    // ger samma "kontrollerat"-känsla utan att låsa hovern.
+    const HYST = 0.02; // dödband innan byte
+
+    let hoverTimer: number | null = null;
+    const clearHoverTimer = () => { if (hoverTimer != null) { window.clearTimeout(hoverTimer); hoverTimer = null; } };
+    const commitHover = (i: number) => { activeHover = i; api.dropOthersExcept(i); api.lift(i); };
     const onDeckMove = (e: PointerEvent) => {
       if (e.pointerType === "touch") return; // hover bara för mus/penna
       if (pinnedRef.current != null) return;
@@ -163,17 +188,18 @@ const PrismaCardDeck = () => {
       const frac = (e.clientX - dr.left) / dr.width;
       let best = 0, bd = Infinity;
       centers.forEach((c, i) => { const d = Math.abs(frac - c); if (d < bd) { bd = d; best = i; } });
-      if (best === activeHover) return;
+      if (best === activeHover) { clearHoverTimer(); return; }
       if (activeHover != null && Math.abs(frac - centers[activeHover]) - bd < HYST) return;
-      activeHover = best;
-      api.dropOthersExcept(best);
-      api.lift(best);
+      if (activeHover == null) { commitHover(best); return; } // första lyftet: ingen fördröjning
+      // avsiktsfördröjning vid BYTE mellan kort — nollställs om ny kandidat dyker upp innan den hinner gå ut
+      clearHoverTimer();
+      hoverTimer = window.setTimeout(() => { hoverTimer = null; commitHover(best); }, 120);
     };
 
     const activate = () => {
       api.st.forEach((s, i) => {
         s.el.style.animation = "none"; // frys CSS-dealen
-        s.el.style.transitionProperty = "transform, filter";
+        s.el.style.transitionProperty = "transform, filter, opacity";
         s.el.style.transitionTimingFunction = SOFT_EASE;
         api.restCard(i);
         s.el.style.pointerEvents = "auto";
@@ -185,9 +211,10 @@ const PrismaCardDeck = () => {
         }
       });
       on(deck, "pointermove", onDeckMove as EventListener);
-      on(deck, "pointerleave", () => { if (pinnedRef.current != null) return; activeHover = null; api.dropAll(); });
+      on(deck, "pointerleave", () => { clearHoverTimer(); if (pinnedRef.current != null) return; activeHover = null; api.dropAll(); });
       api.settle();
       api.ready = true;
+      measure(); // RO-mätningen under deal-animationen såg klustrade kort — mät om i slutlagt läge
     };
 
     const dealTimer = reduce ? (activate(), 0) : window.setTimeout(activate, 2600);
@@ -199,6 +226,7 @@ const PrismaCardDeck = () => {
 
     return () => {
       if (dealTimer) window.clearTimeout(dealTimer);
+      clearHoverTimer();
       ro.disconnect();
       listeners.forEach((off) => off());
     };
@@ -211,7 +239,8 @@ const PrismaCardDeck = () => {
     pinnedRef.current = open;
     if (open != null) {
       api.dropOthersExcept(open);
-      api.lift(open);
+      api.dimOthersExcept(open);
+      api.pin(open);
       const card = cardRefs.current[open];
       window.setTimeout(() => card?.querySelector<HTMLElement>("[data-go]")?.focus(), 60);
     } else {
@@ -232,7 +261,7 @@ const PrismaCardDeck = () => {
   return (
     <div
       ref={deckRef}
-      className="relative mx-auto w-full overflow-hidden h-[60vh] min-h-[520px] sm:h-[74vh] lg:h-[88vh] lg:min-h-[760px]"
+      className="relative mx-auto w-full overflow-hidden h-[56vh] min-h-[480px] sm:h-[64vh] lg:h-[72vh] lg:min-h-[600px] lg:max-h-[720px]"
       role="group"
       aria-roledescription="kortlek"
       aria-label="Områden som kort — hovra eller tabba för att lyfta, klicka för att läsa mer och gå vidare"
@@ -253,7 +282,7 @@ const PrismaCardDeck = () => {
       `}</style>
 
       {/* responsiv skala så solfjädern fyller ytan */}
-      <div className="absolute inset-0 origin-center scale-[0.58] sm:scale-90 lg:scale-110 xl:scale-125">
+      <div className="absolute inset-0 origin-center scale-[0.56] sm:scale-[0.8] lg:scale-[0.82]">
         {/* mjukt guldsken */}
         <div className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2"
           style={{ left: "50%", top: "70%", width: 880, height: 880, borderRadius: "50%",
@@ -272,7 +301,7 @@ const PrismaCardDeck = () => {
             </div>
 
             {/* card-anchor */}
-            <div className="absolute" style={{ left: "50%", top: "73%", width: 0, height: 0, transformStyle: "preserve-3d" }}>
+            <div className="absolute" style={{ left: "50%", top: "84%", width: 0, height: 0, transformStyle: "preserve-3d" }}>
               {CARDS.map((c, i) => {
                 const { Icon } = c;
                 const isOpen = open === i;
