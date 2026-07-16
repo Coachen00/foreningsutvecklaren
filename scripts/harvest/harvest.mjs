@@ -16,6 +16,7 @@ import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { createClient } from "@supabase/supabase-js";
+import Anthropic from "@anthropic-ai/sdk";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -26,6 +27,8 @@ if (!SUPABASE_URL || !SERVICE_KEY) {
   console.error("Saknar SUPABASE_URL eller SUPABASE_SERVICE_ROLE_KEY.");
   process.exit(1);
 }
+
+const anthropic = process.env.ANTHROPIC_API_KEY ? new Anthropic() : null;
 
 /** Normalisera URL till stabil dedupe-nyckel (utan query/hash/trailing slash). */
 function dedupeKey(url) {
@@ -46,16 +49,50 @@ function stripHtml(s) {
     .trim();
 }
 
-/**
- * Sammanfattning. PLACEHOLDER: trunkerar källtexten till en mening/~220 tecken.
- * TODO: ersätt med ett Claude-anrop för en genuin sammanfattning på svenska.
- */
-function summarize(rawDescription, title) {
+/** Sammanfattning via trunkering till en mening/~220 tecken. Synkron fallback när Claude inte är tillgängligt. */
+function truncateSummary(rawDescription, title) {
   const text = stripHtml(rawDescription || "") || title;
   if (text.length <= 220) return text;
   const cut = text.slice(0, 220);
   const lastSpace = cut.lastIndexOf(" ");
   return (lastSpace > 120 ? cut.slice(0, lastSpace) : cut).trim() + "…";
+}
+
+/**
+ * Sammanfattning på svenska via Claude. Faller tillbaka till truncateSummary
+ * om ANTHROPIC_API_KEY saknas, svaret är tomt/för långt, eller anropet misslyckas.
+ */
+async function summarize(rawDescription, title) {
+  if (!anthropic) return truncateSummary(rawDescription, title);
+
+  const sourceText = stripHtml(rawDescription || "").slice(0, 2000) || title;
+
+  try {
+    const response = await anthropic.messages.create({
+      model: "claude-opus-4-8",
+      max_tokens: 300,
+      output_config: { effort: "low" },
+      messages: [
+        {
+          role: "user",
+          content:
+            `Skriv en saklig sammanfattning på svenska av nyheten nedan, för ett nyhetsflöde riktat till fotbollsföreningar. ` +
+            `1–2 meningar, max 220 tecken. Svara med ENBART sammanfattningen, ingen inledning.\n\n` +
+            `Titel: ${title}\n\nKälltext: ${sourceText}`,
+        },
+      ],
+    });
+
+    const textBlock = response.content.find((block) => block.type === "text");
+    const summary = textBlock?.text.trim();
+    if (!summary || summary.length > 300) {
+      return truncateSummary(rawDescription, title);
+    }
+    return summary;
+  } catch (err) {
+    console.warn(`  Claude-sammanfattning misslyckades: ${err.message}`);
+    return truncateSummary(rawDescription, title);
+  }
 }
 
 function tag(block, name) {
@@ -64,7 +101,7 @@ function tag(block, name) {
 }
 
 /** Minimal RSS-parser — räcker för placeholder. Byt mot riktig parser vid behov. */
-function parseRss(xml, sourceName, maxItems) {
+async function parseRss(xml, sourceName, maxItems) {
   const items = [];
   const blocks = xml.match(/<item[\s\S]*?<\/item>/gi) || [];
   for (const block of blocks.slice(0, maxItems)) {
@@ -75,7 +112,7 @@ function parseRss(xml, sourceName, maxItems) {
     const published = pub ? new Date(pub) : null;
     items.push({
       title,
-      summary: summarize(tag(block, "description"), title),
+      summary: await summarize(tag(block, "description"), title),
       source_name: sourceName,
       source_url: link,
       published_at:
@@ -116,7 +153,7 @@ async function main() {
         continue;
       }
       const xml = await res.text();
-      const items = parseRss(xml, source.name, max);
+      const items = await parseRss(xml, source.name, max);
       console.log(`  ${source.name}: ${items.length} poster.`);
       collected = collected.concat(items);
     } catch (err) {
