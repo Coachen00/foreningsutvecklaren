@@ -1,17 +1,32 @@
 {
-  "comment": "VIKTIGT: De flesta förbunds-/klubbsajter (gbgfotboll.se, svenskfotboll.se) saknar RSS (404). SvFF-podden nedan är verifierad och aktiverad som TEST så hela kedjan (secrets -> workflow -> Supabase) kan provköras. Byt mot riktiga källor när strategin är vald. Respektera robots.txt och villkor.",
+  "comment": "robots.txt förbjuder /api/-vägar på gbgfotboll.se och svenskfotboll.se — därför används sitemap + artikelsidor för de källorna, aldrig news-board-API:t. RF-SISU: nyhetsarkiv + artikelsidor är tillåtna. Alla URL:er/selektorer verifierade 2026-07-17.",
   "maxItemsPerSource": 10,
   "sources": [
     {
-      "name": "SvFF-podden (test)",
+      "name": "SvFF-podden",
+      "type": "rss",
       "feedUrl": "https://feed.podbean.com/svenskfotboll/feed.xml",
       "enabled": true
     },
     {
-      "name": "Göteborgs FF",
-      "feedUrl": "https://www.gbgfotboll.se/rss",
-      "enabled": false,
-      "note": "Ingen RSS (404) per 2026-06. Kräver annan strategi än RSS."
+      "name": "Göteborgs Fotbollförbund",
+      "type": "svff-sitemap",
+      "sitemapUrl": "https://www.gbgfotboll.se/sitemap.xml",
+      "newsPathFilter": "/nyheter/",
+      "enabled": true
+    },
+    {
+      "name": "Svenska Fotbollförbundet",
+      "type": "svff-sitemap",
+      "sitemapUrl": "https://www.svenskfotboll.se/sitemap.xml",
+      "newsPathFilter": "/nyheter/svff/",
+      "enabled": true
+    },
+    {
+      "name": "RF-SISU Västra Götaland",
+      "type": "rfsisu-archive",
+      "archiveUrl": "https://www.rfsisu.se/distrikt/vastra-gotaland/nyhetsarkiv",
+      "enabled": true
     }
   ]
 }
