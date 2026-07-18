@@ -11,6 +11,11 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { FORENINGSPORTAL_APP_URL } from "@/content/links";
+import imgCase from "@/assets/cards/case.jpg";
+import imgFuSkola from "@/assets/cards/fu-skola.jpg";
+import imgEnBattreVag from "@/assets/cards/en-battre-vag.jpg";
+import imgForeningsutveckling from "@/assets/cards/foreningsutveckling.jpg";
+import imgPortalen from "@/assets/cards/portalen.jpg";
 
 /**
  * Prisma-kortleken — port av kortleksanimerings-specen (Scripts/presentationer).
@@ -33,6 +38,7 @@ interface PrismaCard {
   desc: string;
   cta: string;
   Icon: LucideIcon;
+  img: string;
   to: string;
   external?: boolean;
 }
@@ -43,23 +49,23 @@ const CARDS: PrismaCard[] = [
   { ang: -26, z: 6, dealDelay: 0.14, bobDur: 5.4, bobDelay: 0.0, hero: false,
     eyebrow: "Case", title: "Case", sub: "Verkliga exempel",
     desc: "Verkliga exempel ur föreningsutvecklingen — varje case är en kort film plus ett quiz som befäster lärandet.",
-    cta: "Gå vidare", Icon: Clapperboard, to: "/case" },
+    cta: "Gå vidare", Icon: Clapperboard, img: imgCase, to: "/case" },
   { ang: -13, z: 58, dealDelay: 0.26, bobDur: 5.8, bobDelay: 0.5, hero: false,
     eyebrow: "Huvuduppdrag 02", title: "FU Skola", sub: "Bron skola–förening",
     desc: "Bron mellan skola och förening. Skolan blir vägen in och barn nås där de redan är — Skolbollen, fotbollsprofil och samverkan skola–förening.",
-    cta: "Gå vidare", Icon: School, to: "/fu-skola" },
+    cta: "Gå vidare", Icon: School, img: imgFuSkola, to: "/fu-skola" },
   { ang: 0, z: 104, dealDelay: 0.38, bobDur: 5.2, bobDelay: 1.0, hero: true,
     eyebrow: "Huvuduppdrag 01", title: "En bättre väg", sub: "Riktad samhällssatsning",
     desc: "Riktad samhällssatsning där behoven är störst — trygghet, inkludering och en meningsfull fritid. Girls FC, lokala förebilder och insatser där de gör mest nytta.",
-    cta: "Gå vidare", Icon: Route, to: "/en-battre-vag" },
+    cta: "Gå vidare", Icon: Route, img: imgEnBattreVag, to: "/en-battre-vag" },
   { ang: 13, z: 58, dealDelay: 0.50, bobDur: 5.6, bobDelay: 0.7, hero: false,
     eyebrow: "Huvuduppdrag 03", title: "Föreningsutveckling", sub: "Föreningsmotorn",
     desc: "Den generella föreningsmotorn: arbetssätt, ledarskap och kultur som håller över säsonger. Kvalitetsklubb, Trygg Fotboll och årshjul.",
-    cta: "Gå vidare", Icon: Compass, to: "/foreningsutveckling" },
+    cta: "Gå vidare", Icon: Compass, img: imgForeningsutveckling, to: "/foreningsutveckling" },
   { ang: 26, z: 6, dealDelay: 0.62, bobDur: 5.0, bobDelay: 0.3, hero: true,
     eyebrow: "Portal", title: "Föreningsportalen", sub: "Verktyg & inloggning",
     desc: "Intern hubb med genvägar till systemen, verktygen och resurserna en förening behöver nå i vardagen. Öppnas som egen app i ny flik.",
-    cta: "Öppna portalen", Icon: LayoutGrid, to: FORENINGSPORTAL_APP_URL, external: true },
+    cta: "Öppna portalen", Icon: LayoutGrid, img: imgPortalen, to: FORENINGSPORTAL_APP_URL, external: true },
 ];
 
 const DEAL_EASE = "cubic-bezier(.2,.85,.25,1)";
@@ -354,11 +360,13 @@ const PrismaCardDeck = () => {
           content:""; position:absolute; inset:0; border-radius:14px;
           background:linear-gradient(162deg, #FFFFFF 0%, #FBFAF6 100%);
           opacity:0; transition:opacity .5s ease; pointer-events:none;
+          z-index:-1; /* under kortets text/ikon, ovanpå ytgradienten (kräver isolation nedan) */
         }
         .prisma-card.gff-lift [data-cardfront]::before,
         .prisma-card.gff-lift [data-cardback]::before { opacity:1; }
         .prisma-card [data-cardfront], .prisma-card [data-cardback] {
           transition: border-color .5s ease, box-shadow .5s ease;
+          isolation:isolate; /* egen stacking context så z-index:-1 inte hamnar bakom kortet */
         }
         .prisma-card [data-cardfront] span, .prisma-card [data-cardfront] div,
         .prisma-card [data-cardback] span, .prisma-card [data-cardback] div,
@@ -453,8 +461,13 @@ const PrismaCardDeck = () => {
                           <div style={{ marginTop: 16, fontSize: titleSize, fontWeight: 800, letterSpacing: "-0.02em", lineHeight: 1.02, color: "var(--pc-ink, hsl(var(--foreground)))" }}>{c.title}</div>
                           <div style={{ marginTop: 8, fontSize: 16, lineHeight: 1.4, color: "var(--pc-sub, hsl(var(--muted-foreground)))" }}>{c.sub}</div>
                           <div style={{ height: 1, margin: `${c.hero ? 11 : 15}px 0 0`, background: `var(--pc-divider, linear-gradient(90deg, hsl(var(--accent) / ${c.hero ? 0.5 : 0.4}), transparent))` }} />
-                          <div className="grid flex-1 place-items-center" style={{ color: "var(--pc-blue, hsl(var(--accent)))" }}>
-                            <Icon strokeWidth={1.5} style={{ width: 92, height: 92 }} aria-hidden="true" />
+                          <div style={{ position: "relative", flex: 1, minHeight: 120, marginTop: 18, borderRadius: 10, overflow: "hidden", border: "1px solid var(--pc-border-soft, hsl(var(--accent) / 0.22))" }}>
+                            <img src={c.img} alt="" loading="lazy" draggable={false}
+                              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                            <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 55%, hsl(215 30% 6% / 0.5) 100%)" }} />
+                            <span style={{ position: "absolute", right: 10, bottom: 10, display: "grid", placeItems: "center", width: 36, height: 36, borderRadius: 9, background: "hsl(215 30% 6% / 0.72)", color: "var(--pc-dot, hsl(var(--accent)))", backdropFilter: "blur(4px)" }}>
+                              <Icon strokeWidth={1.6} style={{ width: 20, height: 20 }} aria-hidden="true" />
+                            </span>
                           </div>
                           <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--pc-cta-tx, hsl(var(--muted-foreground)))" }}>Läs mer →</span>
                         </button>
