@@ -1,0 +1,44 @@
+<!-- @dsCard group="Grund" -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Typografi — Midnight Pitch</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+:root{
+  --background:215 30% 6%;--foreground:220 20% 96%;--muted-foreground:217 12% 60%;
+  --accent:47 78% 56%;--border:217 22% 15%;
+  --text-display:clamp(2.75rem,4.2vw + 1rem,4.85rem);
+  --text-headline:clamp(1.75rem,1.7vw + 1rem,2.55rem);
+  --text-subhead:clamp(1.125rem,0.8vw + 0.875rem,1.45rem);
+  --text-lead:clamp(1rem,0.4vw + 0.875rem,1.125rem);
+  --text-body:1rem;--text-small:0.875rem;--text-micro:0.6875rem;
+  --font-sans:'Inter',system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+body{margin:0;padding:28px;background:hsl(var(--background));color:hsl(var(--foreground));font-family:var(--font-sans);line-height:1.55;letter-spacing:-0.01em}
+.row{display:grid;gap:4px;padding:16px 0;border-bottom:1px solid hsl(var(--border))}
+.row:last-child{border-bottom:0}
+.meta{font-family:var(--font-mono);font-size:11px;color:hsl(var(--muted-foreground))}
+.eyebrow{font-family:var(--font-mono);font-size:var(--text-micro);text-transform:uppercase;letter-spacing:.14em;color:hsl(var(--accent))}
+.eyebrow::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:hsl(var(--accent));margin-right:8px;vertical-align:2px}
+.num{font-family:var(--font-mono);font-size:3.5rem;font-weight:500;color:hsl(var(--accent));opacity:.9;line-height:1}
+</style>
+</head>
+<body>
+<div class="row"><span class="meta">--text-display · Inter 500–700 · hero</span>
+<div style="font-size:var(--text-display);font-weight:600;line-height:1.05;text-wrap:balance">Välj din väg in</div></div>
+<div class="row"><span class="meta">--text-headline · H2</span>
+<div style="font-size:var(--text-headline);font-weight:500;line-height:1.1">En bättre väg</div></div>
+<div class="row"><span class="meta">--text-subhead · H3 / korttitel</span>
+<div style="font-size:var(--text-subhead);font-weight:500">Föreningsutveckling</div></div>
+<div class="row"><span class="meta">--text-lead · ingress</span>
+<div style="font-size:var(--text-lead);color:hsl(var(--muted-foreground))">En mörk navy yta, svensk blå som leder, och en dyrbar guldsignal.</div></div>
+<div class="row"><span class="meta">--text-body · 1rem · lh 1.55</span>
+<div style="font-size:var(--text-body)">Brödtext sätts i Inter med generös radhöjd och −0.01em spärrning.</div></div>
+<div class="row"><span class="meta">.signal-label · IBM Plex Mono · --text-micro</span>
+<span class="eyebrow">Föreningsutveckling</span></div>
+<div class="row"><span class="meta">.num-display · IBM Plex Mono · dekorsiffra</span>
+<div class="num">01</div></div>
+</body>
+</html>

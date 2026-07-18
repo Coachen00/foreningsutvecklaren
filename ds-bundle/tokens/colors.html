@@ -1,0 +1,61 @@
+<!-- @dsCard group="Grund" -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Färgtokens — Midnight Pitch</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
+:root{
+  --background:215 30% 6%;--foreground:220 20% 96%;
+  --card:217 28% 9%;--card-foreground:220 20% 96%;
+  --primary:212 50% 48%;--primary-subtle:212 40% 18%;
+  --accent:47 78% 56%;--accent-foreground:215 30% 6%;
+  --secondary:217 25% 16%;--muted:217 25% 14%;--muted-foreground:217 12% 60%;
+  --border:217 22% 15%;--border-subtle:217 22% 12%;--destructive:358 75% 59%;
+  --signal-green:142 45% 38%;--signal-blue:212 50% 48%;--signal-gold:47 78% 56%;--signal-coral:358 65% 52%;--signal-ink:220 20% 96%;
+  --font-sans:'Inter',system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+body{margin:0;padding:24px;background:hsl(var(--background));color:hsl(var(--foreground));font-family:var(--font-sans);font-size:13px}
+h2{font-size:14px;font-weight:600;margin:26px 0 12px;letter-spacing:.01em}
+h2:first-of-type{margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:14px}
+.swatch{display:grid;gap:6px}
+.box{width:48px;height:48px;border-radius:10px;border:1px solid hsl(var(--border))}
+.name{font-family:var(--font-mono);font-size:11px}
+.val{color:hsl(var(--muted-foreground));font-size:11px;font-family:var(--font-mono)}
+</style>
+</head>
+<body>
+<h2>Yta</h2>
+<div class="grid">
+<div class="swatch"><div class="box" style="background:hsl(var(--background))"></div><span class="name">--background</span><span class="val">215 30% 6%</span></div>
+<div class="swatch"><div class="box" style="background:hsl(var(--card))"></div><span class="name">--card</span><span class="val">217 28% 9%</span></div>
+<div class="swatch"><div class="box" style="background:hsl(var(--muted))"></div><span class="name">--muted</span><span class="val">217 25% 14%</span></div>
+<div class="swatch"><div class="box" style="background:hsl(var(--secondary))"></div><span class="name">--secondary</span><span class="val">217 25% 16%</span></div>
+<div class="swatch"><div class="box" style="background:hsl(var(--primary-subtle))"></div><span class="name">--primary-subtle</span><span class="val">212 40% 18%</span></div>
+</div>
+<h2>Text</h2>
+<div class="grid">
+<div class="swatch"><div class="box" style="background:hsl(var(--foreground))"></div><span class="name">--foreground</span><span class="val">220 20% 96%</span></div>
+<div class="swatch"><div class="box" style="background:hsl(var(--muted-foreground))"></div><span class="name">--muted-foreground</span><span class="val">217 12% 60%</span></div>
+</div>
+<h2>Aktion &amp; signatur</h2>
+<div class="grid">
+<div class="swatch"><div class="box" style="background:hsl(var(--primary))"></div><span class="name">--primary</span><span class="val">svensk blå · 212 50% 48%</span></div>
+<div class="swatch"><div class="box" style="background:hsl(var(--accent))"></div><span class="name">--accent</span><span class="val">GULD · 47 78% 56%</span></div>
+</div>
+<h2>Linjer</h2>
+<div class="grid">
+<div class="swatch"><div class="box" style="background:hsl(var(--border))"></div><span class="name">--border</span><span class="val">217 22% 15%</span></div>
+<div class="swatch"><div class="box" style="background:hsl(var(--border-subtle))"></div><span class="name">--border-subtle</span><span class="val">217 22% 12%</span></div>
+</div>
+<h2>Signal / pitch-zoner</h2>
+<div class="grid">
+<div class="swatch"><div class="box" style="background:hsl(var(--signal-green))"></div><span class="name">--signal-green</span><span class="val">attack · 142 45% 38%</span></div>
+<div class="swatch"><div class="box" style="background:hsl(var(--signal-gold))"></div><span class="name">--signal-gold</span><span class="val">midfield · 47 78% 56%</span></div>
+<div class="swatch"><div class="box" style="background:hsl(var(--signal-coral))"></div><span class="name">--signal-coral</span><span class="val">defense · 358 65% 52%</span></div>
+<div class="swatch"><div class="box" style="background:hsl(var(--destructive))"></div><span class="name">--destructive</span><span class="val">358 75% 59%</span></div>
+</div>
+</body>
+</html>
